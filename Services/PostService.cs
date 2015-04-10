@@ -7,6 +7,7 @@
     using Data.Contracts;
 
     using Models;
+    using Models.Content;
 
     using Services.Contracts;
 

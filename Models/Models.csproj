@@ -43,11 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
-    <Compile Include="DateStamp.cs" />
+    <Compile Include="Content\DateStamp.cs" />
     <Compile Include="Identity\ApplicationUser.cs" />
     <Compile Include="SEO\MetaInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Post.cs" />
+    <Compile Include="Content\Post.cs" />
     <Compile Include="SEO\Tag.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

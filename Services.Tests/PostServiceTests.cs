@@ -12,6 +12,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using Models;
+    using Models.Content;
 
     using Moq;
 

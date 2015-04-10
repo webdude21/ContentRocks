@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using Models;
+    using Models.Content;
     using Models.SEO;
 
     public class DataGenerator

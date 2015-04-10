@@ -1,4 +1,4 @@
-﻿namespace Models
+﻿namespace Models.Content
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;

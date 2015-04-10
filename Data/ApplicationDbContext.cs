@@ -2,6 +2,8 @@
 {
     using System.Data.Entity;
 
+    using Config;
+
     using Data.Contracts;
     using Data.Migrations;
 
@@ -11,7 +13,7 @@
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IDbContext
     {
-        public ApplicationDbContext() : base("DefaultConnection")
+        public ApplicationDbContext() : base(GlobalConstants.ConnectionString)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }

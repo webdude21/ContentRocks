@@ -1,4 +1,4 @@
-﻿namespace Models
+﻿namespace Models.Content
 {
     using Models.SEO;
 
