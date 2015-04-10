@@ -5,10 +5,13 @@
     using Data.Contracts;
     using Data.Migrations;
 
-    public class ApplicationDbContext : DbContext, IDbContext
+    using Microsoft.AspNet.Identity.EntityFramework;
+
+    using Models.Identity;
+
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IDbContext
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection")
+        public ApplicationDbContext() : base("DefaultConnection")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
