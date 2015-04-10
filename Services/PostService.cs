@@ -2,6 +2,8 @@
 {
     using System.Linq;
 
+    using Common;
+
     using Data.Contracts;
 
     using Models;
@@ -23,6 +25,14 @@
         public IQueryable<Post> GetTheLatestPosts(int count, int page = 0)
         {
             return this.GetDataWithPaging(this.GetTheLatestPosts(), count, page);
+        }
+
+        public void AddPost(Post newPost)
+        {
+            Validator.CheckForNull(newPost, "newPost");
+            this.CheckIfEntityExists(newPost.Id);
+            this.DataSet.Add(newPost);
+            this.SaveChanges();
         }
     }
 }

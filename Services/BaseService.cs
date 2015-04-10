@@ -47,5 +47,18 @@
         {
             return data.Skip(page * count).Take(count);
         }
+
+        protected virtual void CheckIfEntityExists(object id)
+        {
+            if (this.dataSet.Find(id) != null)
+            {
+                throw new ArgumentException("Duplicate Ids aren't allowed.");
+            }
+        }
+
+        protected virtual void SaveChanges()
+        {
+            this.dbContext.SaveChanges();
+        }
     }
 }
