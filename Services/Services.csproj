@@ -49,6 +49,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Config\Config.csproj">
+      <Project>{EEC76C35-7BCA-40B7-994C-F417DA90F12A}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{8C853A48-B159-4345-ACD6-333B014BFDB5}</Project>
       <Name>Data</Name>

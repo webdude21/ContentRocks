@@ -7,7 +7,8 @@
 
     public class ApplicationDbContext : DbContext, IDbContext
     {
-        public ApplicationDbContext() : base("DefaultConnection")
+        public ApplicationDbContext()
+            : base("DefaultConnection")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }

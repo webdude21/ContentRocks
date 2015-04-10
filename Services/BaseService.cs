@@ -6,7 +6,7 @@
 
     using Data.Contracts;
 
-    internal abstract class BaseService<T>
+    public abstract class BaseService<T>
         where T : class
     {
         private readonly IDbSet<T> dataSet;

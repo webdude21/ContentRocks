@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class MetaInfo : BaseModel
+    public class MetaInfo
     {
         public string Title { get; set; }
 

@@ -1,7 +1,9 @@
 ﻿namespace Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations.Schema;
 
+    [NotMapped]
     public class DateStamp
     {
         public DateTime CreatedOn { get; set; }

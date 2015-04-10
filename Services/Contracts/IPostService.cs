@@ -4,11 +4,9 @@ namespace Services.Contracts
 
     using Models;
 
-    internal interface IPostService
+    public interface IPostService
     {
         IQueryable<Post> GetTheLatestPosts();
-
-        IQueryable<Post> GetTheLatestPosts(int count);
 
         IQueryable<Post> GetTheLatestPosts(int count, int page);
     }
