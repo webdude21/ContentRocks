@@ -4,10 +4,10 @@
 
     public class Post : BaseModel
     {
-        public string Title { get; set; }
+        public DateStamp DateStamp { get; set; }
 
         public MetaInfo MetaInfo { get; set; }
 
-        public DateStamp DateStamp { get; set; }
+        public string Title { get; set; }
     }
 }

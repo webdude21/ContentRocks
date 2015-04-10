@@ -4,22 +4,22 @@
 
     public interface IRandomDataGenerator
     {
-        string GetStringExact(int length, string charsToUse);
+        DateTime GeneraDateTime();
 
-        string GetStringExact(int length);
+        bool GetChance(int percent);
+
+        double GetDouble();
+
+        int GetInt(int min, int max);
 
         string GetString(int min, int max);
 
         string GetString(int min, int max, string charsToUse);
 
+        string GetStringExact(int length, string charsToUse);
+
+        string GetStringExact(int length);
+
         string GetUrlSafeString(int min, int max);
-
-        int GetInt(int min, int max);
-
-        DateTime GeneraDateTime();
-
-        double GetDouble();
-
-        bool GetChance(int percent);
     }
 }

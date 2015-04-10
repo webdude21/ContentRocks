@@ -6,10 +6,10 @@ namespace Services.Contracts
 
     public interface IPostService
     {
+        void AddPost(Post getPost);
+
         IQueryable<Post> GetTheLatestPosts();
 
         IQueryable<Post> GetTheLatestPosts(int count, int page);
-
-        void AddPost(Post getPost);
     }
 }

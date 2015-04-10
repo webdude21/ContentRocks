@@ -19,22 +19,6 @@
             this.dataSet = dbContext.Set<T>();
         }
 
-        protected IDbContext DbContext
-        {
-            get
-            {
-                return this.dbContext;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("value", "The dbContext shouldn't be null");
-                }
-                this.dbContext = value;
-            }
-        }
-
         protected IDbSet<T> DataSet
         {
             get
@@ -43,9 +27,22 @@
             }
         }
 
-        protected virtual IQueryable<T> GetDataWithPaging(IQueryable<T> data, int count, int page)
+        protected IDbContext DbContext
         {
-            return data.Skip(page * count).Take(count);
+            get
+            {
+                return this.dbContext;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("value", "The dbContext shouldn't be null");
+                }
+
+                this.dbContext = value;
+            }
         }
 
         protected virtual void CheckIfEntityExists(object id)
@@ -54,6 +51,11 @@
             {
                 throw new ArgumentException("Duplicate Ids aren't allowed.");
             }
+        }
+
+        protected virtual IQueryable<T> GetDataWithPaging(IQueryable<T> data, int count, int page)
+        {
+            return data.Skip(page * count).Take(count);
         }
 
         protected virtual void SaveChanges()

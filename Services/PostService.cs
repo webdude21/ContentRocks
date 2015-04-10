@@ -17,6 +17,14 @@
         {
         }
 
+        public void AddPost(Post newPost)
+        {
+            Validator.CheckForNull(newPost, "newPost");
+            this.CheckIfEntityExists(newPost.Id);
+            this.DataSet.Add(newPost);
+            this.SaveChanges();
+        }
+
         public IQueryable<Post> GetTheLatestPosts()
         {
             return this.DataSet.OrderByDescending(post => post.DateStamp.CreatedOn);
@@ -25,14 +33,6 @@
         public IQueryable<Post> GetTheLatestPosts(int count, int page = 0)
         {
             return this.GetDataWithPaging(this.GetTheLatestPosts(), count, page);
-        }
-
-        public void AddPost(Post newPost)
-        {
-            Validator.CheckForNull(newPost, "newPost");
-            this.CheckIfEntityExists(newPost.Id);
-            this.DataSet.Add(newPost);
-            this.SaveChanges();
         }
     }
 }

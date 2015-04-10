@@ -4,10 +4,10 @@
 
     public class MetaInfo
     {
-        public string Title { get; set; }
-
         public string Description { get; set; }
 
         public IEnumerable<Tag> Tags { get; set; }
+
+        public string Title { get; set; }
     }
 }

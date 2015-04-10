@@ -44,16 +44,30 @@
             this.postService = new PostService(this.unitOfWorkMock.Object);
         }
 
-        private IQueryable<Post> GetPosts(int count)
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void AddingFailsWithExceptionIfIdIsTaken()
         {
-            var postList = new List<Post>();
+            var post = this.dataGenerator.GetPost(10);
+            this.repository.As<IDbSet<Post>>().Setup(m => m.Find(10)).Returns(post);
+            this.postService.AddPost(post);
+        }
 
-            for (var i = 1; i <= count; i++)
-            {
-                postList.Add(this.dataGenerator.GetPost(i));
-            }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void AddingNullPostThrowsException()
+        {
+            this.postService.AddPost(null);
+        }
 
-            return postList.AsQueryable();
+        [TestMethod]
+        public void AddingPostWorks()
+        {
+            var post = this.dataGenerator.GetPost(10);
+            this.repository.Setup(m => m.Add(post)).Verifiable();
+            this.unitOfWorkMock.Setup(m => m.SaveChanges()).Verifiable();
+            this.postService.AddPost(post);
+            this.repository.Verify();
         }
 
         [TestMethod]
@@ -63,7 +77,6 @@
             var realData = this.mockData.OrderByDescending(post => post.DateStamp.CreatedOn).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
         }
-
 
         [TestMethod]
         public void PostServiceReturnsCorrectlyCountOfPosts()
@@ -87,30 +100,16 @@
             CollectionAssert.AreEquivalent(resultList, realData);
         }
 
-        [TestMethod]
-        public void AddingPostWorks()
+        private IQueryable<Post> GetPosts(int count)
         {
-            var post = this.dataGenerator.GetPost(10);
-            this.repository.Setup(m => m.Add(post)).Verifiable();
-            this.unitOfWorkMock.Setup(m => m.SaveChanges()).Verifiable();
-            this.postService.AddPost(post);
-            this.repository.Verify();
-        }
+            var postList = new List<Post>();
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void AddingFailsWithExceptionIfIdIsTaken()
-        {
-            var post = this.dataGenerator.GetPost(10);
-            this.repository.As<IDbSet<Post>>().Setup(m => m.Find(10)).Returns(post);
-            this.postService.AddPost(post);
-        }
+            for (var i = 1; i <= count; i++)
+            {
+                postList.Add(this.dataGenerator.GetPost(i));
+            }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void AddingNullPostThrowsException()
-        {
-            this.postService.AddPost(null);
+            return postList.AsQueryable();
         }
     }
 }

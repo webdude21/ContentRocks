@@ -13,11 +13,6 @@
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
-        public new IDbSet<T> Set<T>() where T : class
-        {
-            return base.Set<T>();
-        }
-
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -26,6 +21,11 @@
         public new void SaveChanges()
         {
             base.SaveChanges();
+        }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
         }
     }
 }
