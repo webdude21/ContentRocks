@@ -11,7 +11,6 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using Models;
-    using Models.SEO;
 
     using Moq;
 
@@ -20,7 +19,7 @@
     [TestClass]
     public class PostServiceTests
     {
-        private static RandomDataGenerator randomGenerator;
+        private readonly DataGenerator dataGenerator;
 
         private readonly IQueryable<Post> mockData;
 
@@ -28,8 +27,8 @@
 
         public PostServiceTests()
         {
-            randomGenerator = RandomDataGenerator.Instance;
-            this.mockData = GetPosts(20);
+            this.dataGenerator = new DataGenerator();
+            this.mockData = this.GetPosts(20);
             var unitOfWorkMock = new Mock<IDbContext>();
             var repositoryMock = new Mock<DbSet<Post>>();
             repositoryMock.As<IQueryable<Post>>().Setup(m => m.Provider).Returns(this.mockData.Provider);
@@ -40,47 +39,16 @@
             this.postService = new PostService(unitOfWorkMock.Object);
         }
 
-        private static IQueryable<Post> GetPosts(int count)
+        private IQueryable<Post> GetPosts(int count)
         {
             var postList = new List<Post>();
 
             for (var i = 1; i <= count; i++)
             {
-                postList.Add(GetPost(i));
+                postList.Add(this.dataGenerator.GetPost(i));
             }
 
             return postList.AsQueryable();
-        }
-
-        private static Post GetPost(int id)
-        {
-            return new Post
-                       {
-                           DateStamp =
-                               new DateStamp
-                                   {
-                                       CreatedOn = randomGenerator.GeneraDateTime(),
-                                       ModifiedOn = randomGenerator.GeneraDateTime()
-                                   },
-                           Id = id,
-                           MetaInfo =
-                               new MetaInfo
-                                   {
-                                       Description = randomGenerator.GetString(4, 10),
-                                       Tags =
-                                           new List<Tag>
-                                               {
-                                                   new Tag
-                                                       {
-                                                           Id = id,
-                                                           Name =
-                                                               randomGenerator.GetString(3, 10)
-                                                       }
-                                               },
-                                       Title = randomGenerator.GetString(4, 10)
-                                   },
-                           Title = randomGenerator.GetString(4, 10)
-                       };
         }
 
         [TestMethod]
