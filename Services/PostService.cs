@@ -27,7 +27,7 @@
 
         public IQueryable<Post> GetTheLatestPosts()
         {
-            return this.DataSet.OrderByDescending(post => post.DateStamp.CreatedOn);
+            return this.DataSet.OrderByDescending(post => post.CreatedOn);
         }
 
         public IQueryable<Post> GetTheLatestPosts(int count, int page = 0)

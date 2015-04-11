@@ -19,12 +19,6 @@
         {
             return new Post
                        {
-                           DateStamp =
-                               new DateStamp
-                                   {
-                                       CreatedOn = this.randomGenerator.GeneraDateTime(),
-                                       ModifiedOn = this.randomGenerator.GeneraDateTime()
-                                   },
                            Id = id,
                            MetaInfo =
                                new MetaInfo

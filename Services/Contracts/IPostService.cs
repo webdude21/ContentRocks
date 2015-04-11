@@ -4,7 +4,7 @@ namespace Services.Contracts
 
     using Models.Content;
 
-    public interface IPostService
+    public interface IPostService : IService
     {
         void AddPost(Post getPost);
 

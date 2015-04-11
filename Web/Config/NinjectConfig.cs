@@ -1,9 +1,5 @@
-using Web;
-
-using WebActivatorEx;
-
-[assembly: PreApplicationStartMethod(typeof(NinjectConfig), "Start")]
-[assembly: ApplicationShutdownMethod(typeof(NinjectConfig), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Web.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Web.NinjectWebCommon), "Stop")]
 
 namespace Web
 {
@@ -21,20 +17,20 @@ namespace Web
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Registries;
 
-    public static class NinjectConfig
+    public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start()
+        public static void Start() 
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-
+        
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -42,7 +38,7 @@ namespace Web
         {
             bootstrapper.ShutDown();
         }
-
+        
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -65,7 +61,6 @@ namespace Web
                 throw;
             }
         }
-
         /// <summary>
         /// Load your modules or register your services here!
         /// </summary>
@@ -77,9 +72,8 @@ namespace Web
                     .GetExportedTypes()
                     .Where(t => t.IsClass && typeof(INinjectRegistry).IsAssignableFrom(t));
 
-            foreach (var registry in registries)
+            foreach (var registryInstance in registries.Select(registry => (INinjectRegistry)Activator.CreateInstance(registry)))
             {
-                var registryInstance = (INinjectRegistry)Activator.CreateInstance(registry);
                 registryInstance.Register(kernel);
             }
         }

@@ -74,7 +74,7 @@
         public void PostServiceReturnsAllPostsOrderedByDescendingDate()
         {
             var resultList = this.postService.GetTheLatestPosts().ToList();
-            var realData = this.mockData.OrderByDescending(post => post.DateStamp.CreatedOn).ToList();
+            var realData = this.mockData.OrderByDescending(post => post.CreatedOn).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
         }
 
@@ -88,7 +88,7 @@
         public void PostServiceReturnsCorrectlySortedPosts()
         {
             var resultList = this.postService.GetTheLatestPosts(10, 0).ToList();
-            var realData = this.mockData.OrderByDescending(post => post.DateStamp.CreatedOn).Take(10).ToList();
+            var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Take(10).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
         }
 
@@ -96,7 +96,7 @@
         public void PostServiceReturnsCorrectlySortedPostsWithPaging()
         {
             var resultList = this.postService.GetTheLatestPosts(10, 1).ToList();
-            var realData = this.mockData.OrderByDescending(post => post.DateStamp.CreatedOn).Skip(10).Take(10).ToList();
+            var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Skip(10).Take(10).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
         }
 

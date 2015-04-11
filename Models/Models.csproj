@@ -43,7 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
-    <Compile Include="Content\DateStamp.cs" />
+    <Compile Include="Contracts\IAuditInfo.cs" />
+    <Compile Include="Contracts\IDeletableEntity.cs" />
     <Compile Include="Identity\ApplicationUser.cs" />
     <Compile Include="SEO\MetaInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
