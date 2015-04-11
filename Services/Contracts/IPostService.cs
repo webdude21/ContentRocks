@@ -2,7 +2,6 @@ namespace Services.Contracts
 {
     using System.Linq;
 
-    using Models;
     using Models.Content;
 
     public interface IPostService

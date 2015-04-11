@@ -6,17 +6,18 @@
 
     using Data.Contracts;
 
-    public abstract class BaseService<T>
-        where T : class
+    using Services.Contracts;
+
+    public abstract class BaseService<T> : IService where T : class
     {
         private readonly IDbSet<T> dataSet;
 
-        private IDbContext dbContext;
+        private IDbContext unitOfWork;
 
-        protected BaseService(IDbContext dbContext)
+        protected BaseService(IDbContext unitOfWork)
         {
-            this.DbContext = dbContext;
-            this.dataSet = dbContext.Set<T>();
+            this.UnitOfWork = unitOfWork;
+            this.dataSet = unitOfWork.Set<T>();
         }
 
         protected IDbSet<T> DataSet
@@ -27,11 +28,11 @@
             }
         }
 
-        protected IDbContext DbContext
+        protected IDbContext UnitOfWork
         {
             get
             {
-                return this.dbContext;
+                return this.unitOfWork;
             }
 
             set
@@ -41,7 +42,7 @@
                     throw new ArgumentNullException("value", "The dbContext shouldn't be null");
                 }
 
-                this.dbContext = value;
+                this.unitOfWork = value;
             }
         }
 
@@ -60,7 +61,7 @@
 
         protected virtual void SaveChanges()
         {
-            this.dbContext.SaveChanges();
+            this.unitOfWork.SaveChanges();
         }
     }
 }

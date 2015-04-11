@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="BaseService.cs" />
     <Compile Include="Contracts\IPostService.cs" />
+    <Compile Include="Contracts\IService.cs" />
     <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

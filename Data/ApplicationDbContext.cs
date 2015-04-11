@@ -11,16 +11,16 @@
 
     using Models.Identity;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IDbContext
+    public class UnitOfWork : IdentityDbContext<ApplicationUser>, IDbContext
     {
-        public ApplicationDbContext() : base(GlobalConstants.ConnectionString)
+        public UnitOfWork() : base(GlobalConstants.ConnectionString)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<UnitOfWork, Configuration>());
         }
 
-        public static ApplicationDbContext Create()
+        public static UnitOfWork Create()
         {
-            return new ApplicationDbContext();
+            return new UnitOfWork();
         }
 
         public new void SaveChanges()
