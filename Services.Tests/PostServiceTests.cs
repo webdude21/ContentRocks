@@ -32,7 +32,7 @@
 
         public PostServiceTests()
         {
-            this.dataGenerator = new DataGenerator();
+            this.dataGenerator = new DataGenerator(RandomDataGenerator.Instance);
             this.mockData = this.GetPosts(20);
             this.unitOfWorkMock = new Mock<IDbContext>();
             this.repository = new Mock<DbSet<Post>>();

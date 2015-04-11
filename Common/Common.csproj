@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IRandomDataGenerator.cs" />
     <Compile Include="DataGenerator.cs" />
+    <Compile Include="Contracts\IDataGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomDataGenerator.cs" />
     <Compile Include="Validator.cs" />

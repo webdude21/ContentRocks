@@ -2,17 +2,18 @@
 {
     using System.Collections.Generic;
 
-    using Models;
+    using Common.Contracts;
+
     using Models.Content;
     using Models.SEO;
 
-    public class DataGenerator
+    public class DataGenerator : IDataGenerator
     {
-        private readonly RandomDataGenerator randomGenerator;
+        private readonly IRandomDataGenerator randomGenerator;
 
-        public DataGenerator()
+        public DataGenerator(IRandomDataGenerator randomDataGenerator)
         {
-            this.randomGenerator = RandomDataGenerator.Instance;
+            this.randomGenerator = randomDataGenerator;
         }
 
         public Post GetPost(int id)
@@ -20,21 +21,14 @@
             return new Post
                        {
                            Id = id,
-                           MetaInfo =
-                               new MetaInfo
+                           MetaInfo = new MetaInfo
                                    {
                                        Description = this.randomGenerator.GetString(4, 10),
-                                       Tags =
-                                           new List<Tag>
-                                               {
-                                                   new Tag
-                                                       {
+                                       Tags = new List<Tag> {
+                                                   new Tag {
                                                            Id = id,
-                                                           Name =
-                                                               this.randomGenerator.GetString(
-                                                                   3,
-                                                                   10)
-                                                       }
+                                                           Name = this.randomGenerator.GetString(3, 10)
+                                                   }
                                                },
                                        Title = this.randomGenerator.GetString(4, 10)
                                    },
