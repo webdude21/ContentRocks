@@ -57,11 +57,16 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\BaseCacheService.cs" />
+    <Compile Include="Cache\ICacheService.cs" />
+    <Compile Include="Cache\MemoryCacheService.cs" />
     <Compile Include="Constants\Assemblies.cs" />
     <Compile Include="Constants\Partials.cs" />
     <Compile Include="Constants\Views.cs" />
+    <Compile Include="Mappings\AutoMapperConfig.cs" />
     <Compile Include="Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Mappings\IMapFrom.cs" />
     <Compile Include="ObjectFactory.cs" />

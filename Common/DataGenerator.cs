@@ -1,5 +1,6 @@
 ﻿namespace Common
 {
+    using System;
     using System.Collections.Generic;
 
     using Common.Contracts;
@@ -21,7 +22,7 @@
             return new Post
                        {
                            Id = id,
-                           MetaInfo = new Seo
+                           Seo = new MetaInfo
                                    {
                                        Description = this.randomGenerator.GetString(4, 10),
                                        Tags = new List<Tag> {
@@ -32,7 +33,10 @@
                                                },
                                        Title = this.randomGenerator.GetString(4, 10)
                                    },
-                           Title = this.randomGenerator.GetString(4, 10)
+                           Title = this.randomGenerator.GetString(4, 10),
+                           PostedOn = this.randomGenerator.GeneraDateTime(),
+                           ModifiedOn = this.randomGenerator.GeneraDateTime(),
+                           CreatedOn = this.randomGenerator.GeneraDateTime()
                        };
         }
     }

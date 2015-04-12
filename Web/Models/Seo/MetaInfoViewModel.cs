@@ -1,8 +1,12 @@
-﻿namespace Web.Models
+﻿namespace Web.Models.Seo
 {
     using System.Collections.Generic;
 
-    public class SeoViewModel
+    using global::Models.SEO;
+
+    using Web.Infrastructure.Mappings;
+
+    public class MetaInfoViewModel : IMapFrom<MetaInfo>
     {
         public string Description { get; set; }
 

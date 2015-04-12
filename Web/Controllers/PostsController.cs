@@ -8,6 +8,7 @@
     using Services.Contracts;
 
     using Web.Models;
+    using Web.Models.Content;
 
     public class PostsController : Controller
     {

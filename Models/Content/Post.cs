@@ -10,12 +10,9 @@
     {
         private ICollection<Comment> comments;
 
-        private ICollection<Tag> tags;
-
         public Post()
         {
             this.comments = new HashSet<Comment>();
-            this.tags = new HashSet<Tag>();
         }
 
         public virtual ICollection<Comment> Comments
@@ -32,25 +29,13 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public Seo MetaInfo { get; set; }
+        public MetaInfo Seo { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
 
         public DateTime PostedOn { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
-
-        public virtual ICollection<Tag> Tags
-        {
-            get
-            {
-                return this.tags;
-            }
-            set
-            {
-                this.tags = value;
-            }
-        }
 
         public string Title { get; set; }
     }
