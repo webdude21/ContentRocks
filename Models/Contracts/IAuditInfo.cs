@@ -6,8 +6,8 @@
     {
         DateTime CreatedOn { get; set; }
 
-        bool PreserveCreatedOn { get; set; }
-
         DateTime? ModifiedOn { get; set; }
+
+        bool PreserveCreatedOn { get; set; }
     }
 }

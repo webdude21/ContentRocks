@@ -1,25 +1,57 @@
 ﻿namespace Models.Content
 {
     using System;
+    using System.Collections.Generic;
 
     using Models.Contracts;
-    using Models.Identity;
     using Models.SEO;
 
-    public class Post : BaseModel, IAuditInfo
+    public class Post : AuthoredContent, IAuditInfo
     {
-        public virtual ApplicationUser Author { get; set; }
+        private ICollection<Comment> comments;
 
-        public string AuthorId { get; set; }
+        private ICollection<Tag> tags;
 
-        public MetaInfo MetaInfo { get; set; }
+        public Post()
+        {
+            this.comments = new HashSet<Comment>();
+            this.tags = new HashSet<Tag>();
+        }
 
-        public string Title { get; set; }
+        public virtual ICollection<Comment> Comments
+        {
+            get
+            {
+                return this.comments;
+            }
+            set
+            {
+                this.comments = value;
+            }
+        }
 
         public DateTime CreatedOn { get; set; }
 
-        public bool PreserveCreatedOn { get; set; }
+        public Seo MetaInfo { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
+
+        public DateTime PostedOn { get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
+
+        public virtual ICollection<Tag> Tags
+        {
+            get
+            {
+                return this.tags;
+            }
+            set
+            {
+                this.tags = value;
+            }
+        }
+
+        public string Title { get; set; }
     }
 }

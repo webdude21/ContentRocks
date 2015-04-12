@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class MetaInfo
+    public class Seo
     {
         public string Description { get; set; }
 

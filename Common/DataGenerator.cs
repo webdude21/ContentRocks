@@ -21,7 +21,7 @@
             return new Post
                        {
                            Id = id,
-                           MetaInfo = new MetaInfo
+                           MetaInfo = new Seo
                                    {
                                        Description = this.randomGenerator.GetString(4, 10),
                                        Tags = new List<Tag> {
