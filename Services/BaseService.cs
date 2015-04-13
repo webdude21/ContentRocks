@@ -12,9 +12,9 @@
     {
         private readonly IDbSet<T> dataSet;
 
-        private IDbContext unitOfWork;
+        private IUnitOfWork unitOfWork;
 
-        protected BaseService(IDbContext unitOfWork)
+        protected BaseService(IUnitOfWork unitOfWork)
         {
             this.UnitOfWork = unitOfWork;
             this.dataSet = unitOfWork.Set<T>();
@@ -28,7 +28,7 @@
             }
         }
 
-        protected IDbContext UnitOfWork
+        protected IUnitOfWork UnitOfWork
         {
             get
             {

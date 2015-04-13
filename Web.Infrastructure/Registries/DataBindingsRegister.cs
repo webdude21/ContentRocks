@@ -10,7 +10,7 @@
     {
         public void Register(IKernel kernel)
         {
-            kernel.Bind<IDbContext>().To<UnitOfWork>().InRequestScope();
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
         }
     }
 }

@@ -12,7 +12,7 @@
 
     public class PostService : BaseService<Post>, IPostService
     {
-        public PostService(IDbContext dbContext)
+        public PostService(IUnitOfWork dbContext)
             : base(dbContext)
         {
         }

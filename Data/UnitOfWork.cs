@@ -15,7 +15,7 @@
     using Models.Contracts;
     using Models.Identity;
 
-    public class UnitOfWork : IdentityDbContext<ApplicationUser>, IDbContext
+    public class UnitOfWork : IdentityDbContext<ApplicationUser>, IUnitOfWork
     {
         public UnitOfWork() : base(GlobalConstants.ConnectionString)
         {
@@ -45,7 +45,6 @@
                 this.ChangeTracker.Entries()
                     .Where(e => e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified)));
 
-            // Approach via @julielerman: http://bit.ly/123661P
             foreach (var entry in addedOrModifiedEntries)
             {
                 var entity = (IAuditInfo)entry.Entity;

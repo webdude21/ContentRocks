@@ -28,13 +28,13 @@
 
         private readonly Mock<DbSet<Post>> repository;
 
-        private readonly Mock<IDbContext> unitOfWorkMock;
+        private readonly Mock<IUnitOfWork> unitOfWorkMock;
 
         public PostServiceTests()
         {
             this.dataGenerator = new DataGenerator(RandomDataGenerator.Instance);
             this.mockData = this.GetPosts(20);
-            this.unitOfWorkMock = new Mock<IDbContext>();
+            this.unitOfWorkMock = new Mock<IUnitOfWork>();
             this.repository = new Mock<DbSet<Post>>();
             this.repository.As<IQueryable<Post>>().Setup(m => m.Provider).Returns(this.mockData.Provider);
             this.repository.As<IQueryable<Post>>().Setup(m => m.Expression).Returns(this.mockData.Expression);
@@ -63,7 +63,7 @@
         [TestMethod]
         public void AddingPostWorks()
         {
-            var post = this.dataGenerator.GetPost(10);
+            var post = this.dataGenerator.GetPost(200);
             this.repository.Setup(m => m.Add(post)).Verifiable();
             this.unitOfWorkMock.Setup(m => m.SaveChanges()).Verifiable();
             this.postService.AddPost(post);

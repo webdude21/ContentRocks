@@ -6,9 +6,9 @@
 
     public class MemoryCacheService : BaseCacheService, ICacheService
     {
-        private readonly IDbContext data;
+        private readonly IUnitOfWork data;
 
-        public MemoryCacheService(IDbContext data)
+        public MemoryCacheService(IUnitOfWork data)
         {
             this.data = data;
         }

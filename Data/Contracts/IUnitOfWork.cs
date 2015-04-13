@@ -2,7 +2,7 @@
 {
     using System.Data.Entity;
 
-    public interface IDbContext
+    public interface IUnitOfWork
     {
         int SaveChanges();
 
