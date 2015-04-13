@@ -63,6 +63,7 @@
     <Compile Include="Cache\BaseCacheService.cs" />
     <Compile Include="Cache\ICacheService.cs" />
     <Compile Include="Cache\MemoryCacheService.cs" />
+    <Compile Include="Constants\Areas.cs" />
     <Compile Include="Constants\Assemblies.cs" />
     <Compile Include="Constants\DefaultApiRoute.cs" />
     <Compile Include="Constants\Partials.cs" />

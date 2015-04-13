@@ -1,24 +1,25 @@
-﻿using System.Web.Mvc;
-
-namespace Web.Areas.Administration
+﻿namespace Web.Areas.Administration
 {
-    public class AdministrationAreaRegistration : AreaRegistration 
+    using System.Web.Mvc;
+
+    using Web.Infrastructure.Constants;
+
+    public class AdministrationAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Administration";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "Administration_default",
-                "Administration/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+                this.AreaName + "_default",
+                this.AreaName + "/" + DefaultRoute.RouteMatcher,
+                new { action = DefaultRoute.DefaultAction, id = UrlParameter.Optional });
         }
     }
 }
