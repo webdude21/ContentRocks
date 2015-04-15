@@ -7,11 +7,11 @@
     using Models.Content;
     using Models.SEO;
 
-    public class DataGenerator : IDataGenerator
+    public class ContentFactory : IContentFactory
     {
         private readonly IRandomDataGenerator randomGenerator;
 
-        public DataGenerator(IRandomDataGenerator randomDataGenerator)
+        public ContentFactory(IRandomDataGenerator randomDataGenerator)
         {
             this.randomGenerator = randomDataGenerator;
         }
@@ -39,9 +39,9 @@
                        };
         }
 
-        public Category GetCategory(int i)
+        public Category GetCategory(int id)
         {
-           return new Category{ Title = this.randomGenerator.GetString(10, 255)};
+           return new Category{ Id = id, Title = this.randomGenerator.GetString(10, 255)};
         }
     }
 }

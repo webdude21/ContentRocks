@@ -1,10 +1,12 @@
 ﻿namespace Services.Tests
 {
+    using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
 
     using Common;
+    using Common.Contracts;
 
     using Data.Contracts;
 
@@ -19,13 +21,11 @@
     [TestClass]
     public class CategoryServiceTests
     {
-        private const int PageSize = 10;
+        private readonly ICategoryService categoryService;
 
-        private readonly DataGenerator dataGenerator;
+        private readonly IContentFactory dataGenerator;
 
         private readonly IQueryable<Category> mockData;
-
-        private readonly ICategoryService categoryService;
 
         private readonly Mock<DbSet<Category>> repository;
 
@@ -33,8 +33,8 @@
 
         public CategoryServiceTests()
         {
-            this.dataGenerator = new DataGenerator(RandomDataGenerator.Instance);
-            this.mockData = this.GetCategories(20);
+            this.dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
+            this.mockData = this.GetCategories(10);
             this.unitOfWorkMock = new Mock<IUnitOfWork>();
             this.repository = new Mock<DbSet<Category>>();
             this.repository.As<IQueryable<Category>>().Setup(m => m.Provider).Returns(this.mockData.Provider);
@@ -48,23 +48,49 @@
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void AddingFailsWithExceptionIfIdIsTaken()
+        {
+            var category = this.dataGenerator.GetCategory(222);
+            this.repository.As<IDbSet<Category>>().Setup(m => m.Find(222)).Returns(category);
+            this.categoryService.AddCategory(category);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void AddingNullCategoryThrowsException()
+        {
+            this.categoryService.AddCategory(null);
+        }
+
+        [TestMethod]
+        public void AddingCategoryWorks()
+        {
+            var category = this.dataGenerator.GetCategory(200);
+            this.repository.Setup(m => m.Add(category)).Verifiable();
+            this.unitOfWorkMock.Setup(m => m.SaveChanges()).Verifiable();
+            this.categoryService.AddCategory(category);
+            this.repository.Verify();
+        }
+
+        [TestMethod]
         public void CategoryServiceReturnsAllCategories()
         {
             var resultList = this.categoryService.GetAllCategories().ToList();
-            var realData = this.mockData.OrderByDescending(post => post.CreatedOn).ToList();
+            var realData = this.mockData.OrderByDescending(category => category.CreatedOn).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
         }
 
         private IQueryable<Category> GetCategories(int count)
         {
-            var postList = new List<Category>();
+            var categoryList = new List<Category>();
 
             for (var i = 1; i <= count; i++)
             {
-                postList.Add(this.dataGenerator.GetCategory(i));
+                categoryList.Add(this.dataGenerator.GetCategory(i));
             }
 
-            return postList.AsQueryable();
+            return categoryList.AsQueryable();
         }
     }
 }

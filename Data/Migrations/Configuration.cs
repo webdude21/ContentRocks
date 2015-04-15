@@ -21,7 +21,7 @@ namespace Data.Migrations
 
             if (!posts.Any())
             {
-                var dataGenerator = new DataGenerator(RandomDataGenerator.Instance);
+                var dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
                 posts.Add(dataGenerator.GetPost(1));
             }
         }

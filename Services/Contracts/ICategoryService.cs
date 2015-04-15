@@ -7,5 +7,7 @@
     public interface ICategoryService
     {
         IQueryable<Category> GetAllCategories();
+
+        void AddCategory(Category category);
     }
 }

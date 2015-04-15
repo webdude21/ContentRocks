@@ -6,6 +6,7 @@
     using System.Linq;
 
     using Common;
+    using Common.Contracts;
 
     using Data.Contracts;
 
@@ -22,7 +23,7 @@
     {
         private const int PageSize = 10;
 
-        private readonly DataGenerator dataGenerator;
+        private readonly IContentFactory dataGenerator;
 
         private readonly IQueryable<Post> mockData;
 
@@ -34,7 +35,7 @@
 
         public PostServiceTests()
         {
-            this.dataGenerator = new DataGenerator(RandomDataGenerator.Instance);
+            this.dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
             this.mockData = this.GetPosts(20);
             this.unitOfWorkMock = new Mock<IUnitOfWork>();
             this.repository = new Mock<DbSet<Post>>();
