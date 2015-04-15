@@ -1,6 +1,7 @@
 ﻿namespace Models.Content
 {
-    public class Category
+    public class Category : AuthoredContent
     {
+        public string Title { get; set; }
     }
 }

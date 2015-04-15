@@ -13,10 +13,10 @@
 
     public class PostService : BaseService<Post>, IPostService
     {
-        public PostService(IUnitOfWork dbContext)
-            : base(dbContext)
+        public PostService(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
-            this.Categories = dbContext.Set<Category>();
+            this.Categories = unitOfWork.Set<Category>();
         }
 
         public IDbSet<Category> Categories { get; set; }

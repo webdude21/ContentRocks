@@ -98,7 +98,8 @@
         public void PostServiceReturnsCorrectlySortedPostsWithPaging()
         {
             var resultList = this.postService.GetTheLatestPosts(PageSize, 2).ToList();
-            var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Skip(PageSize).Take(PageSize).ToList();
+            var realData =
+                this.mockData.OrderByDescending(post => post.CreatedOn).Skip(PageSize).Take(PageSize).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
         }
 
@@ -109,7 +110,6 @@
             var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Take(PageSize).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
         }
-
 
         private IQueryable<Post> GetPosts(int count)
         {

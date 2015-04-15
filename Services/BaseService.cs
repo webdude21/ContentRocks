@@ -20,6 +20,11 @@
             this.dataSet = unitOfWork.Set<T>();
         }
 
+        public virtual IQueryable<T> GetAll()
+        {
+            return this.DataSet;
+        } 
+
         protected IDbSet<T> DataSet
         {
             get

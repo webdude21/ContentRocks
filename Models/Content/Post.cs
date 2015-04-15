@@ -3,10 +3,9 @@
     using System;
     using System.Collections.Generic;
 
-    using Models.Contracts;
     using Models.SEO;
 
-    public class Post : AuthoredContent, IAuditInfo
+    public class Post : AuthoredContent
     {
         private ICollection<Comment> comments;
 
@@ -27,15 +26,9 @@
             }
         }
 
-        public DateTime CreatedOn { get; set; }
+        public MetaInfo MetaInfo { get; set; }
 
-        public MetaInfo Seo { get; set; }
-
-        public DateTime? ModifiedOn { get; set; }
-
-        public DateTime PostedOn { get; set; }
-
-        public bool PreserveCreatedOn { get; set; }
+        public DateTime? PostedOn { get; set; }
 
         public string Title { get; set; }
     }

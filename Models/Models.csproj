@@ -42,7 +42,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthoredContent.cs" />
+    <Compile Include="Content\AuthoredContent.cs" />
     <Compile Include="BaseModel.cs" />
     <Compile Include="Content\Category.cs" />
     <Compile Include="Content\Comment.cs" />

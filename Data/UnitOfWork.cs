@@ -30,7 +30,6 @@
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
-            this.ApplyDeletableEntityRules();
             return base.SaveChanges();
         }
 
@@ -61,25 +60,6 @@
                     entity.ModifiedOn = DateTime.UtcNow;
                 }
             }
-        }
-
-        private void ApplyDeletableEntityRules()
-        {
-            var deletedEntries = this.ChangeTracker.Entries()
-                    .Where(e => e.Entity is IDeletableEntity && (e.State == EntityState.Deleted));
-
-            foreach (var entry in deletedEntries)
-            {
-                MarkAsDeleted(entry);
-            }
-        }
-
-        private static void MarkAsDeleted(DbEntityEntry entry)
-        {
-            var entity = (IDeletableEntity)entry.Entity;
-            entity.DeletedOn = DateTime.UtcNow;
-            entity.IsDeleted = true;
-            entry.State = EntityState.Modified;
         }
     }
 }
