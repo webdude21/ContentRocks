@@ -20,6 +20,8 @@
     [TestClass]
     public class PostServiceTests
     {
+        private const int PageSize = 10;
+
         private readonly DataGenerator dataGenerator;
 
         private readonly IQueryable<Post> mockData;
@@ -48,8 +50,8 @@
         [ExpectedException(typeof(ArgumentException))]
         public void AddingFailsWithExceptionIfIdIsTaken()
         {
-            var post = this.dataGenerator.GetPost(10);
-            this.repository.As<IDbSet<Post>>().Setup(m => m.Find(10)).Returns(post);
+            var post = this.dataGenerator.GetPost(PageSize);
+            this.repository.As<IDbSet<Post>>().Setup(m => m.Find(PageSize)).Returns(post);
             this.postService.AddPost(post);
         }
 
@@ -81,24 +83,33 @@
         [TestMethod]
         public void PostServiceReturnsCorrectlyCountOfPosts()
         {
-            Assert.AreEqual(this.postService.GetTheLatestPosts(10, 0).ToList().Count, 10);
+            Assert.AreEqual(this.postService.GetTheLatestPosts(PageSize).ToList().Count, PageSize);
         }
 
         [TestMethod]
         public void PostServiceReturnsCorrectlySortedPosts()
         {
-            var resultList = this.postService.GetTheLatestPosts(10, 0).ToList();
-            var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Take(10).ToList();
+            var resultList = this.postService.GetTheLatestPosts(PageSize).ToList();
+            var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Take(PageSize).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
         }
 
         [TestMethod]
         public void PostServiceReturnsCorrectlySortedPostsWithPaging()
         {
-            var resultList = this.postService.GetTheLatestPosts(10, 1).ToList();
-            var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Skip(10).Take(10).ToList();
+            var resultList = this.postService.GetTheLatestPosts(PageSize, 2).ToList();
+            var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Skip(PageSize).Take(PageSize).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
         }
+
+        [TestMethod]
+        public void PostServiceWithInvalidPageNumberReturnsFirstPage()
+        {
+            var resultList = this.postService.GetTheLatestPosts(PageSize, -122).ToList();
+            var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Take(PageSize).ToList();
+            CollectionAssert.AreEquivalent(resultList, realData);
+        }
+
 
         private IQueryable<Post> GetPosts(int count)
         {

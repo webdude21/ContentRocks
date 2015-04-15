@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AuthoredContent.cs" />
     <Compile Include="BaseModel.cs" />
+    <Compile Include="Content\Category.cs" />
     <Compile Include="Content\Comment.cs" />
     <Compile Include="Contracts\IAuditInfo.cs" />
     <Compile Include="Contracts\IDeletableEntity.cs" />

@@ -10,6 +10,6 @@ namespace Services.Contracts
 
         IQueryable<Post> GetTheLatestPosts();
 
-        IQueryable<Post> GetTheLatestPosts(int count, int page);
+        IQueryable<Post> GetTheLatestPosts(int count, int page = 1);
     }
 }

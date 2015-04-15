@@ -1,5 +1,6 @@
 ﻿namespace Services
 {
+    using System.Data.Entity;
     using System.Linq;
 
     using Common;
@@ -15,7 +16,10 @@
         public PostService(IUnitOfWork dbContext)
             : base(dbContext)
         {
+            this.Categories = dbContext.Set<Category>();
         }
+
+        public IDbSet<Category> Categories { get; set; }
 
         public void AddPost(Post newPost)
         {
@@ -30,7 +34,7 @@
             return this.DataSet.OrderByDescending(post => post.CreatedOn);
         }
 
-        public IQueryable<Post> GetTheLatestPosts(int count, int page = 0)
+        public IQueryable<Post> GetTheLatestPosts(int count, int page = 1)
         {
             return this.GetDataWithPaging(this.GetTheLatestPosts(), count, page);
         }

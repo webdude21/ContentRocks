@@ -39,7 +39,7 @@
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value", "The dbContext shouldn't be null");
+                    throw new ArgumentNullException("value", "The UnitOfWork shouldn't be null");
                 }
 
                 this.unitOfWork = value;
@@ -56,7 +56,7 @@
 
         protected virtual IQueryable<T> GetDataWithPaging(IQueryable<T> data, int count, int page)
         {
-            return data.Skip(page * count).Take(count);
+            return data.Skip((page - 1) * count).Take(count);
         }
 
         protected virtual void SaveChanges()
