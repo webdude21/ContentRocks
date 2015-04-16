@@ -14,7 +14,12 @@
             routes.MapRoute(
                 DefaultRoute.Name,
                 DefaultRoute.RouteMatcher,
-                new { controller = DefaultRoute.DefaultController, action = DefaultRoute.DefaultAction, id = UrlParameter.Optional });
+                new
+                    {
+                        controller = DefaultRoute.DefaultController,
+                        action = DefaultRoute.DefaultAction,
+                        id = UrlParameter.Optional
+                    });
         }
     }
 }

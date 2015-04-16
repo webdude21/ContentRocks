@@ -8,7 +8,8 @@
 
     using Services.Contracts;
 
-    public abstract class BaseService<T> : IService where T : class
+    public abstract class BaseService<T> : IService
+        where T : class
     {
         private readonly IDbSet<T> dataSet;
 
@@ -19,11 +20,6 @@
             this.UnitOfWork = unitOfWork;
             this.dataSet = unitOfWork.Set<T>();
         }
-
-        public virtual IQueryable<T> GetAll()
-        {
-            return this.DataSet;
-        } 
 
         protected IDbSet<T> DataSet
         {
@@ -49,6 +45,11 @@
 
                 this.unitOfWork = value;
             }
+        }
+
+        public virtual IQueryable<T> GetAll()
+        {
+            return this.DataSet;
         }
 
         protected virtual void CheckIfEntityExists(object id)

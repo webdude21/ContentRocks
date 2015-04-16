@@ -48,7 +48,9 @@
     <Compile Include="Content\Comment.cs" />
     <Compile Include="Contracts\IAuditInfo.cs" />
     <Compile Include="Contracts\IDeletableEntity.cs" />
+    <Compile Include="Contracts\IFriendlyUrl.cs" />
     <Compile Include="Identity\ApplicationUser.cs" />
+    <Compile Include="ModelConstants.cs" />
     <Compile Include="SEO\MetaInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Content\Post.cs" />

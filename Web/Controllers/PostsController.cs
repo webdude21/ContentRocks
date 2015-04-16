@@ -7,17 +7,16 @@
 
     using Services.Contracts;
 
-    using Web.Models;
     using Web.Models.Content;
 
     public class PostsController : Controller
     {
-        public IPostService PostService { get; set; }
-
         public PostsController(IPostService postService)
         {
             this.PostService = postService;
         }
+
+        public IPostService PostService { get; set; }
 
         public ActionResult Index()
         {

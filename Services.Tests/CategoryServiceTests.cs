@@ -48,6 +48,16 @@
         }
 
         [TestMethod]
+        public void AddingCategoryWorks()
+        {
+            var category = this.dataGenerator.GetCategory(200);
+            this.repository.Setup(m => m.Add(category)).Verifiable();
+            this.unitOfWorkMock.Setup(m => m.SaveChanges()).Verifiable();
+            this.categoryService.AddCategory(category);
+            this.repository.Verify();
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void AddingFailsWithExceptionIfIdIsTaken()
         {
@@ -61,16 +71,6 @@
         public void AddingNullCategoryThrowsException()
         {
             this.categoryService.AddCategory(null);
-        }
-
-        [TestMethod]
-        public void AddingCategoryWorks()
-        {
-            var category = this.dataGenerator.GetCategory(200);
-            this.repository.Setup(m => m.Add(category)).Verifiable();
-            this.unitOfWorkMock.Setup(m => m.SaveChanges()).Verifiable();
-            this.categoryService.AddCategory(category);
-            this.repository.Verify();
         }
 
         [TestMethod]

@@ -2,10 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
+    using Models.Contracts;
     using Models.SEO;
 
-    public class Post : AuthoredContent
+    public class Post : AuthoredContent, IFriendlyUrl
     {
         private ICollection<Comment> comments;
 
@@ -13,6 +15,10 @@
         {
             this.comments = new HashSet<Comment>();
         }
+
+        public virtual Category Category { get; set; }
+
+        public int CategoryId { get; set; }
 
         public virtual ICollection<Comment> Comments
         {
@@ -26,10 +32,16 @@
             }
         }
 
+        [DataType(DataType.Html)]
+        public string Content { get; set; }
+
+        public string FriendlyUrl { get; set; }
+
         public MetaInfo MetaInfo { get; set; }
 
         public DateTime? PostedOn { get; set; }
 
+        [MaxLength(200)]
         public string Title { get; set; }
     }
 }

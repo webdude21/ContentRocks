@@ -8,11 +8,6 @@
     {
         private static IKernel kernel;
 
-        public static void InitializeKernel(IKernel appKernel)
-        {
-            kernel = appKernel;
-        }
-
         public static T GetInstance<T>()
         {
             return kernel.Get<T>();
@@ -21,6 +16,11 @@
         public static object GetInstance(Type type)
         {
             return kernel.Get(type);
+        }
+
+        public static void InitializeKernel(IKernel appKernel)
+        {
+            kernel = appKernel;
         }
 
         public static T TryGetInstance<T>()

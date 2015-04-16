@@ -8,12 +8,12 @@
 
     public class CommentViewModel : IMapFrom<Comment>
     {
+        public string AuthorId { get; set; }
+
         public DateTime CommentedOn { get; set; }
 
         public string Content { get; set; }
 
         public string Title { get; set; }
-
-        public string AuthorId { get; set; }
     }
 }

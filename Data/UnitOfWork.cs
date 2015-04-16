@@ -2,7 +2,6 @@
 {
     using System;
     using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
     using System.Linq;
 
     using Config;
@@ -17,7 +16,8 @@
 
     public class UnitOfWork : IdentityDbContext<ApplicationUser>, IUnitOfWork
     {
-        public UnitOfWork() : base(GlobalConstants.ConnectionString)
+        public UnitOfWork()
+            : base(GlobalConstants.ConnectionString)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<UnitOfWork, Configuration>());
         }
@@ -42,7 +42,9 @@
         {
             var addedOrModifiedEntries =
                 this.ChangeTracker.Entries()
-                    .Where(e => e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified)));
+                    .Where(
+                        e =>
+                        e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified)));
 
             foreach (var entry in addedOrModifiedEntries)
             {

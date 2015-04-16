@@ -16,19 +16,31 @@
             this.randomGenerator = randomDataGenerator;
         }
 
+        public Category GetCategory(int id)
+        {
+            return new Category { Id = id, Title = this.randomGenerator.GetString(10, 255) };
+        }
+
         public Post GetPost(int id)
         {
             return new Post
                        {
                            Id = id,
-                           MetaInfo = new MetaInfo
+                           MetaInfo =
+                               new MetaInfo
                                    {
                                        Description = this.randomGenerator.GetString(4, 10),
-                                       Tags = new List<Tag> {
-                                                   new Tag {
+                                       Tags =
+                                           new List<Tag>
+                                               {
+                                                   new Tag
+                                                       {
                                                            Id = id,
-                                                           Name = this.randomGenerator.GetString(3, 10)
-                                                   }
+                                                           Name =
+                                                               this.randomGenerator.GetString(
+                                                                   3,
+                                                                   10)
+                                                       }
                                                },
                                        Title = this.randomGenerator.GetString(4, 10)
                                    },
@@ -37,11 +49,6 @@
                            ModifiedOn = this.randomGenerator.GeneraDateTime(),
                            CreatedOn = this.randomGenerator.GeneraDateTime()
                        };
-        }
-
-        public Category GetCategory(int id)
-        {
-           return new Category{ Id = id, Title = this.randomGenerator.GetString(10, 255)};
         }
     }
 }

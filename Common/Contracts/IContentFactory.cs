@@ -4,8 +4,8 @@ namespace Common.Contracts
 
     public interface IContentFactory
     {
-        Post GetPost(int id);
-
         Category GetCategory(int id);
+
+        Post GetPost(int id);
     }
 }

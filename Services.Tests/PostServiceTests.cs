@@ -58,6 +58,13 @@
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
+        public void AddingNullAsUnitOfWorkThrowsException()
+        {
+            new CategoryService(null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddingNullPostThrowsException()
         {
             this.postService.AddPost(null);

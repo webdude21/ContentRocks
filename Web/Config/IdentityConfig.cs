@@ -44,8 +44,7 @@
             IdentityFactoryOptions<ApplicationUserManager> options,
             IOwinContext context)
         {
-            var manager = new ApplicationUserManager(
-                new UserStore<ApplicationUser>(context.Get<UnitOfWork>()));
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<UnitOfWork>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
                                         {

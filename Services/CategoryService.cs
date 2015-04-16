@@ -17,17 +17,17 @@
         {
         }
 
-        public IQueryable<Category> GetAllCategories()
-        {
-            return this.DataSet;
-        }
-
         public void AddCategory(Category category)
         {
             Validator.CheckForNull(category, "category");
             this.CheckIfEntityExists(category.Id);
             this.DataSet.Add(category);
             this.SaveChanges();
+        }
+
+        public IQueryable<Category> GetAllCategories()
+        {
+            return this.DataSet;
         }
     }
 }
