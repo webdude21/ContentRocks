@@ -8,9 +8,9 @@
     using Web.Infrastructure.Mappings;
     using Web.Models.Seo;
 
-    public class PostViewModel : IMapFrom<Post>
+    public class PostViewModel : BaseViewModel, IMapFrom<Post>
     {
-        public virtual ICollection<CommentViewModel> Comments { get; set; }
+        public ICollection<CommentViewModel> Comments { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -18,9 +18,11 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        public DateTime PostedOn { get; set; }
+        public DateTime? PostedOn { get; set; }
 
-        public virtual ICollection<TagViewModel> Tags { get; set; }
+        public string FriendlyUrl { get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
 
         public string Title { get; set; }
     }

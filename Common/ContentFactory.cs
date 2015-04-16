@@ -35,7 +35,6 @@
                                                {
                                                    new Tag
                                                        {
-                                                           Id = id,
                                                            Name =
                                                                this.randomGenerator.GetString(
                                                                    3,

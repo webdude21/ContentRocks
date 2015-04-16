@@ -10,9 +10,7 @@
     {
         public string Description { get; set; }
 
-        public string FriendlyUrl { get; set; }
-
-        public IEnumerable<string> Tags { get; set; }
+        public ICollection<TagViewModel> Tags { get; set; }
 
         public string Title { get; set; }
     }

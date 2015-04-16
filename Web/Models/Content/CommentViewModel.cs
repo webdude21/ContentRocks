@@ -6,7 +6,7 @@
 
     using Web.Infrastructure.Mappings;
 
-    public class CommentViewModel : IMapFrom<Comment>
+    public class CommentViewModel : BaseViewModel, IMapFrom<Comment>
     {
         public string AuthorId { get; set; }
 

@@ -18,8 +18,6 @@
 
         public virtual Category Category { get; set; }
 
-        public int CategoryId { get; set; }
-
         public virtual ICollection<Comment> Comments
         {
             get
@@ -35,6 +33,9 @@
         [DataType(DataType.Html)]
         public string Content { get; set; }
 
+        [MaxLength(50)]
+        [RegularExpression(ModelConstants.FriendlyUrlsRegexValidator,
+            ErrorMessage = ModelConstants.FriendlyUrlsValidatorErrorMessage)]
         public string FriendlyUrl { get; set; }
 
         public MetaInfo MetaInfo { get; set; }
