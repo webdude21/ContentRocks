@@ -26,23 +26,8 @@
             return new Post
                        {
                            Id = id,
-                           MetaInfo =
-                               new MetaInfo
-                                   {
-                                       Description = this.randomGenerator.GetString(4, 10),
-                                       Tags =
-                                           new List<Tag>
-                                               {
-                                                   new Tag
-                                                       {
-                                                           Name =
-                                                               this.randomGenerator.GetString(
-                                                                   3,
-                                                                   10)
-                                                       }
-                                               },
-                                       Title = this.randomGenerator.GetString(4, 10)
-                                   },
+                           MetaDescription = this.randomGenerator.GetString(4, 10),
+                           Tags = new List<Tag> { new Tag { Name = this.randomGenerator.GetString(3, 10) } },
                            Title = this.randomGenerator.GetString(4, 10),
                            PostedOn = this.randomGenerator.GeneraDateTime(),
                            ModifiedOn = this.randomGenerator.GeneraDateTime(),

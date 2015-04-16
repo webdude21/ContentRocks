@@ -7,7 +7,7 @@
     using Models.Contracts;
     using Models.SEO;
 
-    public class Post : AuthoredContent, IFriendlyUrl
+    public class Post : AuthoredContent, IFriendlyUrl, IMetaInfo
     {
         private ICollection<Comment> comments;
 
@@ -38,11 +38,15 @@
             ErrorMessage = ModelConstants.FriendlyUrlsValidatorErrorMessage)]
         public string FriendlyUrl { get; set; }
 
-        public MetaInfo MetaInfo { get; set; }
-
         public DateTime? PostedOn { get; set; }
 
         [MaxLength(200)]
         public string Title { get; set; }
+
+        public string MetaDescription { get; set; }
+
+        public string MetaTitle { get; set; }
+
+        public ICollection<Tag> Tags { get; set; }
     }
 }

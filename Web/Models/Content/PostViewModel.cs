@@ -14,15 +14,19 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public MetaInfoViewModel MetaInfo { get; set; }
+        public string FriendlyUrl { get; set; }
+
+        public string MetaDescription { get; set; }
+
+        public string MetaTitle { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
 
         public DateTime? PostedOn { get; set; }
 
-        public string FriendlyUrl { get; set; }
-
         public bool PreserveCreatedOn { get; set; }
+
+        public ICollection<TagViewModel> Tags { get; set; }
 
         public string Title { get; set; }
     }

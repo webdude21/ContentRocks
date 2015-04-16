@@ -218,7 +218,6 @@
     <Compile Include="Models\Content\CommentViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Content\PostViewModel.cs" />
-    <Compile Include="Models\Seo\MetaInfoViewModel.cs" />
     <Compile Include="Models\Seo\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
