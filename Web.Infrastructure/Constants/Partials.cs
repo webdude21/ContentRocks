@@ -1,7 +1,11 @@
 ﻿namespace Web.Infrastructure.Constants
 {
-    public class Partials
+    public static class Partials
     {
-        public const string SeoPartial = "_SeoPartial";
+        public const string Seo = "_SeoPartial";
+
+        public const string Menu = "_MenuPartial";
+
+        public const string Login = "_LoginPartial";
     }
 }

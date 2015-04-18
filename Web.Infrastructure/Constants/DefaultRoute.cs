@@ -4,7 +4,7 @@
     {
         public const string DefaultAction = Actions.Index;
 
-        public const string DefaultController = Controllers.HomeController;
+        public const string DefaultController = Controllers.Home;
 
         public const string Name = "Default";
 

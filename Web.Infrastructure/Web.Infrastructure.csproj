@@ -71,6 +71,7 @@
     <Compile Include="Constants\PostRoute.cs" />
     <Compile Include="Constants\DefaultRoute.cs" />
     <Compile Include="Constants\Controllers.cs" />
+    <Compile Include="Constants\Sections.cs" />
     <Compile Include="Mappings\AutoMapperConfig.cs" />
     <Compile Include="Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Mappings\IMapFrom.cs" />

@@ -2,7 +2,7 @@
 {
     public static class PostRoute
     {
-        public const string DefaultController = Controllers.PostsController;
+        public const string DefaultController = Controllers.Posts;
 
         public const string Name = "Posts";
 

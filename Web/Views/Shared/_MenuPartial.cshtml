@@ -1,0 +1,24 @@
+﻿@using Config
+@using Web.Infrastructure.Constants
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink(GlobalConstants.SiteName, Actions.Index, Controllers.Home, new { area = string.Empty }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Posts", Actions.Index, Controllers.Posts)</li>
+                <li>@Html.ActionLink("Home", Actions.Index, Controllers.Home)</li>
+                <li>@Html.ActionLink("About", Actions.About, Controllers.Home)</li>
+                <li>@Html.ActionLink("Contact", Actions.Contact, Controllers.Home)</li>
+            </ul>
+            @Html.Partial(Partials.Login)
+        </div>
+    </div>
+</div>

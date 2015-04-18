@@ -1,9 +1,13 @@
 ﻿namespace Web.Infrastructure.Constants
 {
-    class Actions
+    public static class Actions
     {
         public const string Detail = "Detail";
 
         public const string Index = "Index";
+
+        public const string About = "About";
+
+        public const string Contact = "Contact";
     }
 }

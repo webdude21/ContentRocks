@@ -2,8 +2,8 @@
 {
     public static class Controllers
     {
-        public const string PostsController = "Posts";
+        public const string Posts = "Posts";
 
-        public const string HomeController = "Home";
+        public const string Home = "Home";
     }
 }
