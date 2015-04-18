@@ -2,13 +2,16 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using global::Models.Content;
 
     using Web.Infrastructure.Mappings;
     using Web.Models.Seo;
+    using Web.Models.Contracts;
+    using AutoMapper;
 
-    public class PostViewModel : BaseViewModel, IMapFrom<Post>
+    public class PostViewModel : BaseViewModel, IMapFrom<Post>, IMetaInfoViewModel
     {
         public ICollection<CommentViewModel> Comments { get; set; }
 
@@ -24,10 +27,16 @@
 
         public DateTime? PostedOn { get; set; }
 
-        public bool PreserveCreatedOn { get; set; }
+        public string Title { get; set; }
 
         public ICollection<TagViewModel> Tags { get; set; }
 
-        public string Title { get; set; }
+        public string AllTags
+        {
+            get
+            {
+                return string.Join(", ", Tags.SelectMany(t => t.Name));
+            }
+        }
     }
 }

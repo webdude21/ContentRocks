@@ -216,6 +216,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Models\Content\CommentViewModel.cs" />
+    <Compile Include="Models\Contracts\IMetaInfoViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Content\PostViewModel.cs" />
     <Compile Include="Models\Seo\TagViewModel.cs" />
@@ -281,6 +282,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\Posts\Detail.cshtml" />
+    <Content Include="Views\Shared\_SeoPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

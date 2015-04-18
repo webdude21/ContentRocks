@@ -38,5 +38,15 @@
         {
             return this.GetDataWithPaging(this.GetTheLatestPosts(), count, page);
         }
+
+        public IQueryable<Post> GetPostBy(int id, string friendlyUrl)
+        {
+            return this.DataSet.Where(p => p.Id == id && p.FriendlyUrl == friendlyUrl);
+        }
+
+        public IQueryable<Post> GetPostBy(int id)
+        {
+            return this.DataSet.Where(p => p.Id == id);
+        }
     }
 }

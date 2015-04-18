@@ -2,6 +2,6 @@
 {
     public class Partials
     {
-        public const string Statistics = "_StatisticsPartial";
+        public const string SeoPartial = "_SeoPartial";
     }
 }

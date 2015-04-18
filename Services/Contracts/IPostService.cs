@@ -6,7 +6,11 @@ namespace Services.Contracts
 
     public interface IPostService : IService
     {
-        void AddPost(Post getPost);
+        void AddPost(Post newPost);
+
+        IQueryable<Post> GetPostBy(int id);
+
+        IQueryable<Post> GetPostBy(int id, string friendlyUrl);
 
         IQueryable<Post> GetTheLatestPosts();
 

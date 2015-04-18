@@ -18,7 +18,7 @@
         {
             context.MapRoute(
                 this.AreaName + "_default",
-                this.AreaName + "/" + DefaultRoute.RouteMatcher,
+                this.AreaName + "/" + DefaultRoute.UrlPattern,
                 new { action = DefaultRoute.DefaultAction, id = UrlParameter.Optional });
         }
     }

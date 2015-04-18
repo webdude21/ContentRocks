@@ -1,4 +1,5 @@
 ﻿@model List<Web.Models.Content.PostViewModel>
+@using Web.Infrastructure.Constants
 
 @{
     ViewBag.Title = "Latest posts";
@@ -7,6 +8,6 @@
 <ul>
     @foreach (var item in Model)
     {
-        <li>@item.Title - @item.CreatedOn</li>
+        <li>@Html.RouteLink(item.Title, PostRoute.Name, new { area = string.Empty, id = item.Id, friendlyUrl = item.FriendlyUrl })</li>
     }
 </ul>

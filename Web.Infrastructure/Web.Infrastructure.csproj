@@ -63,12 +63,14 @@
     <Compile Include="Cache\BaseCacheService.cs" />
     <Compile Include="Cache\ICacheService.cs" />
     <Compile Include="Cache\MemoryCacheService.cs" />
+    <Compile Include="Constants\Actions.cs" />
     <Compile Include="Constants\Areas.cs" />
     <Compile Include="Constants\Assemblies.cs" />
     <Compile Include="Constants\DefaultApiRoute.cs" />
     <Compile Include="Constants\Partials.cs" />
-    <Compile Include="Constants\Views.cs" />
+    <Compile Include="Constants\PostRoute.cs" />
     <Compile Include="Constants\DefaultRoute.cs" />
+    <Compile Include="Constants\Controllers.cs" />
     <Compile Include="Mappings\AutoMapperConfig.cs" />
     <Compile Include="Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Mappings\IMapFrom.cs" />

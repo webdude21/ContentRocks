@@ -2,12 +2,12 @@
 {
     public static class DefaultRoute
     {
-        public const string DefaultAction = "Index";
+        public const string DefaultAction = Actions.Index;
 
-        public const string DefaultController = "Home";
+        public const string DefaultController = Controllers.HomeController;
 
         public const string Name = "Default";
 
-        public const string RouteMatcher = "{controller}/{action}/{id}";
+        public const string UrlPattern = "{controller}/{action}/{id}";
     }
 }

@@ -26,6 +26,7 @@
             return new Post
                        {
                            Id = id,
+                           FriendlyUrl = this.randomGenerator.GetUrlSafeString(4, 10),
                            MetaDescription = this.randomGenerator.GetString(4, 10),
                            Tags = new List<Tag> { new Tag { Name = this.randomGenerator.GetString(3, 10) } },
                            Title = this.randomGenerator.GetString(4, 10),

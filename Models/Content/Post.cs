@@ -10,10 +10,12 @@
     public class Post : AuthoredContent, IFriendlyUrl, IMetaInfo
     {
         private ICollection<Comment> comments;
+        private ICollection<Tag> tags;
 
         public Post()
         {
             this.comments = new HashSet<Comment>();
+            this.tags = new HashSet<Tag>();
         }
 
         public virtual Category Category { get; set; }
@@ -47,6 +49,16 @@
 
         public string MetaTitle { get; set; }
 
-        public ICollection<Tag> Tags { get; set; }
+        public virtual ICollection<Tag> Tags
+        {
+            get
+            {
+                return this.tags;
+            }
+            set
+            {
+                this.tags = value;
+            }
+        }
     }
 }

@@ -1,7 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
-              GeneratedClassNamespace="Config" GeneratedClassName="ApplicationSettings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Config" GeneratedClassName="ApplicationSettings">
   <Profiles />
   <Settings>
     <Setting Name="PageSize" Type="System.Int32" Scope="Application">
@@ -12,6 +10,12 @@
     </Setting>
     <Setting Name="ConnectionName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">DefaultConnection</Value>
+    </Setting>
+    <Setting Name="FacebookApiKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FacebookApiKey</Value>
+    </Setting>
+    <Setting Name="FacebookSecretKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FacebookSecretKey</Value>
     </Setting>
   </Settings>
 </SettingsFile>
