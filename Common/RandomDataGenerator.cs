@@ -19,7 +19,7 @@
 
         private const string SmallLetters = "abcdefghijklmnopqrstuvwxyz";
 
-        private const string UrlSafeLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_";
+        private const string UrlSafeLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-";
 
         private static RandomDataGenerator instance;
 

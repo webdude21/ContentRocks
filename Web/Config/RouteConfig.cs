@@ -11,7 +11,8 @@
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(PostRoute.Name, PostRoute.UrlPattern, new { controller = PostRoute.DefaultController, action = PostRoute.Detail });
+            routes.MapRoute(PostRoute.Name, PostRoute.UrlPattern,
+                new { controller = PostRoute.DefaultController, action = PostRoute.Detail });
 
             routes.MapRoute(DefaultRoute.Name, DefaultRoute.UrlPattern,
                 new

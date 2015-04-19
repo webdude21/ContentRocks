@@ -1,26 +1,27 @@
-﻿@using Web.Infrastructure.Constants
+﻿@using Config
+@using Web.Infrastructure.Constants
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - @Config.GlobalConstants.SiteName</title>
-    @RenderSection(Sections.MetaSection, false)
+    <title>@ViewBag.Title - @GlobalConstants.SiteName</title>
+    @RenderSection("MetaInformation", false)
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-@Html.Partial(Partials.Menu);
-<div class="container body-content">
-    @RenderBody()
-    <hr/>
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
-</div>
+    @Html.Partial(Partials.Menu)
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <a href="@GlobalConstants.GitHubLink">&copy; @DateTime.Now.Year - @GlobalConstants.Credits</a>
+        </footer>
+    </div>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection(Sections.Scripts, false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", false)
 </body>
 </html>

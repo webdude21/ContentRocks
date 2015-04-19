@@ -1,13 +1,17 @@
 ﻿@model Web.Models.Content.PostViewModel
 @using Web.Infrastructure.Constants
 
+@{
+    ViewBag.Title = Model.Title;
+}
+
 @section MetaInformation {
     @Html.Partial(Partials.Seo, Model)
 }
 
 <div>
     <h4>Post</h4>
-    <hr />
+    <hr/>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.CreatedOn)
@@ -67,6 +71,9 @@
 
     </dl>
 </div>
+
+@Html.Raw(Model.Content)
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
