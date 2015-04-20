@@ -45,11 +45,11 @@
         {
             return new Post
                        {
-                           FriendlyUrl = this.randomGenerator.GetUrlSafeString(4, 10),
+                           FriendlyUrl = "css-градиенти-от-изображение",
                            MetaDescription = this.randomGenerator.GetString(4, 10),
                            Tags = new List<Tag> { new Tag { Name = this.randomGenerator.GetString(3, 10) } },
-                           Title = this.randomGenerator.GetString(4, 10),
-                           MetaTitle = this.randomGenerator.GetString(5, 10),
+                           Title = "КАК ДА ГЕНЕРИРАМЕ CSS КОД ЗА ПО-СЛОЖНИ ГРАДИЕНТИ (ПРЕЛИВКИ) ОТ ДАДЕНО ИЗОБРАЖЕНИЕ",
+                           MetaTitle = "КАК ДА ГЕНЕРИРАМЕ CSS КОД ЗА ПО-СЛОЖНИ ГРАДИЕНТИ (ПРЕЛИВКИ) ОТ ДАДЕНО ИЗОБРАЖЕНИЕ",
                            PostedOn = this.randomGenerator.GeneraDateTime(),
                            ModifiedOn = this.randomGenerator.GeneraDateTime(),
                            CreatedOn = this.randomGenerator.GeneraDateTime(),

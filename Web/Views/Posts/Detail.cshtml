@@ -9,70 +9,13 @@
     @Html.Partial(Partials.Seo, Model)
 }
 
-<div>
-    <h4>Post</h4>
+<article>
+    <h1>@Html.RouteLink(Model.Title, PostRoute.Name, new { area = string.Empty, id = Model.Id, friendlyUrl = Model.FriendlyUrl })</h1>
     <hr/>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedOn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedOn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FriendlyUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FriendlyUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MetaDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MetaTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedOn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedOn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PostedOn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PostedOn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-    </dl>
-</div>
-
-@Html.Raw(Model.Content)
+    <div class="body-content">
+        @Html.Raw(Model.Content)     
+    </div>
+</article>
 
 <p>
     @Html.ActionLink("Back to List", "Index")
