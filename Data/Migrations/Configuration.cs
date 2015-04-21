@@ -5,7 +5,11 @@ namespace Data.Migrations
 
     using Common;
 
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
     using Models.Content;
+    using Models.Identity;
 
     internal sealed class Configuration : DbMigrationsConfiguration<UnitOfWork>
     {
@@ -22,8 +26,12 @@ namespace Data.Migrations
             if (!posts.Any())
             {
                 var dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
-                posts.Add(dataGenerator.GetRealisticPost());
-                posts.Add(dataGenerator.GetPost(2));
+                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                var author = new ApplicationUser { UserName = "webdude@webdude.eu" };
+                userManager.Create(author, author.UserName);
+                var post = dataGenerator.GetRealisticPost();
+                post.Author = author;
+                posts.Add(post);
             }
         }
     }

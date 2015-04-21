@@ -10,13 +10,15 @@
 }
 
 <article>
-    <h1>@Html.RouteLink(Model.Title, PostRoute.Name, new { area = string.Empty, id = Model.Id, friendlyUrl = Model.FriendlyUrl })</h1>
+    <h3>@Html.RouteLink(Model.Title, PostRoute.Name, new { area = string.Empty, id = Model.Id, friendlyUrl = Model.FriendlyUrl })</h3>
     <hr/>
     <div class="body-content">
-        @Html.Raw(Model.Content)     
+        @Html.Raw(Model.Content)
     </div>
+    <blockquote class="pull-right">
+        <small>Posted by @Model.AuthorName on @Model.PostedOn.ToLongDateString()</small>
+    </blockquote>
 </article>
-
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>

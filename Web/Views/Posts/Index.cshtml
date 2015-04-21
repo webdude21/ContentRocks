@@ -5,9 +5,10 @@
     ViewBag.Title = "Latest posts";
 }
 
-<ul>
-    @foreach (var item in Model)
+<h1>Latest Posts</h1>
+<ul class="nav nav-pills nav-stacked">
+    @foreach (var post in Model)
     {
-        <li>@Html.RouteLink(item.Title, PostRoute.Name, new { area = string.Empty, id = item.Id, friendlyUrl = item.FriendlyUrl })</li>
+        <li>@Html.RouteLink(post.Title, PostRoute.Name, new { area = string.Empty, id = post.Id, friendlyUrl = post.FriendlyUrl })</li>
     }
 </ul>

@@ -40,7 +40,7 @@
             ErrorMessage = ModelConstants.FriendlyUrlsValidatorErrorMessage)]
         public string FriendlyUrl { get; set; }
 
-        public DateTime? PostedOn { get; set; }
+        public DateTime PostedOn { get; set; }
 
         [MaxLength(200)]
         public string Title { get; set; }
