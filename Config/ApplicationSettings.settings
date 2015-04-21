@@ -17,8 +17,5 @@
     <Setting Name="FacebookSecretKey" Type="System.String" Scope="Application">
       <Value Profile="(Default)">FacebookSecretKey</Value>
     </Setting>
-    <Setting Name="SampleHtmlBlogPostLocation" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\Users\webdude\Documents\Programming\ContentRocks\Common\sample-blogpost.html</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

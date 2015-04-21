@@ -10,8 +10,6 @@
 
         public static readonly string SiteName = ApplicationSettings.Default.Name;
 
-        public static readonly string SampleHtmlBlogPost = ApplicationSettings.Default.SampleHtmlBlogPostLocation;
-
         public const string Credits = "Powered by ContentRocks";
 
         public const string GitHubLink = "https://github.com/webdude21/ContentRocks";
