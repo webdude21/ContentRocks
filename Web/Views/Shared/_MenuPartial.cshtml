@@ -13,10 +13,10 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Posts", Actions.Index, Controllers.Posts)</li>
-                <li>@Html.ActionLink("Home", Actions.Index, Controllers.Home)</li>
-                <li>@Html.ActionLink("About", Actions.About, Controllers.Home)</li>
-                <li>@Html.ActionLink("Contact", Actions.Contact, Controllers.Home)</li>
+                <li>@Html.ActionLink("Posts", Actions.Index, Controllers.Posts, new { area = string.Empty }, new { })</li>
+                <li>@Html.ActionLink("Home", Actions.Index, Controllers.Home, new { area = string.Empty }, new { })</li>
+                <li>@Html.ActionLink("About", Actions.About, Controllers.Home, new { area = string.Empty }, new { })</li>
+                <li>@Html.ActionLink("Contact", Actions.Contact, Controllers.Home, new { area = string.Empty }, new { })</li>
             </ul>
             @Html.Partial(Partials.Login)
         </div>

@@ -5,6 +5,8 @@ namespace Data.Migrations
 
     using Common;
 
+    using Config;
+
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -27,8 +29,11 @@ namespace Data.Migrations
             {
                 var dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
                 var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-                var author = new ApplicationUser { UserName = "webdude@webdude.eu" };
+                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                roleManager.Create(new IdentityRole(GlobalConstants.AdministratorRoleName));
+                var author = new ApplicationUser { UserName = GlobalConstants.DefaultUser };
                 userManager.Create(author, author.UserName);
+                userManager.AddToRole(author.Id, GlobalConstants.AdministratorRoleName);
                 var post = dataGenerator.GetRealisticPost();
                 post.Author = author;
                 posts.Add(post);

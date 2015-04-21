@@ -1,0 +1,14 @@
+﻿@model List<Web.Models.Content.PostViewModel>
+@using Web.Infrastructure.Constants
+
+@{
+    ViewBag.Title = "Latest posts";
+}
+
+<h1>Latest Posts</h1>
+<ul class="nav nav-pills nav-stacked">
+    @foreach (var post in Model)
+    {
+        <li>@Html.RouteLink(post.Title, PostRoute.Name, new { area = string.Empty, id = post.Id, friendlyUrl = post.FriendlyUrl })</li>
+    }
+</ul>

@@ -10,6 +10,8 @@
 
         public static readonly string SiteName = ApplicationSettings.Default.Name;
 
+        public const string DefaultUser = "webdude@webdude.eu";
+
         public const string Credits = "Powered by ContentRocks";
 
         public const string GitHubLink = "https://github.com/webdude21/ContentRocks";
