@@ -106,7 +106,7 @@ AutoTest.Net/
 [Ee]xpress/
 
 # TyneMce
-Web/Scripts/tinymce
+Web/Scripts/tinymce/*.*
 
 # DocProject is a documentation generator add-in
 DocProject/buildhelp/
