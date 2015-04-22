@@ -1,6 +1,4 @@
 ﻿@model Web.Models.Content.PostViewModel
-@using Web.Infrastructure.Constants
-
 @{
     ViewBag.Title = Model.Title;
 }
@@ -16,9 +14,9 @@
         @Html.Raw(Model.Content)
     </div>
     <blockquote class="pull-right">
-        <small>Posted by @Model.AuthorName on @Model.PostedOn.ToLongDateString()</small>
+        <small>@Model.PostedOnBy</small>
     </blockquote>
 </article>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Translation.BackToList, Actions.Index)
 </p>

@@ -9,6 +9,8 @@
 
     using global::Models.Content;
 
+    using Resources;
+
     using Web.Infrastructure.Mappings;
     using Web.Models.Contracts;
     using Web.Models.Seo;
@@ -37,6 +39,14 @@
         public string MetaTitle { get; set; }
 
         public DateTime PostedOn { get; set; }
+
+        public string PostedOnBy
+        {
+            get
+            {
+                return string.Format(Translation.PostedByOn, this.AuthorName, this.PostedOn.ToLongDateString());
+            }
+        }
 
         public ICollection<TagViewModel> Tags { get; set; }
 

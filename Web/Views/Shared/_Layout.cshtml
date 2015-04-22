@@ -1,5 +1,4 @@
 ﻿@using Config
-@using Web.Infrastructure.Constants
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +15,7 @@
         @RenderBody()
         <hr />
         <footer class="text-center">
-            <a href="@GlobalConstants.GitHubLink">© 2015 - Powered by ContentRocks</a>
+            <a href="@GlobalConstants.GitHubLink">@Translation.Copyright</a>
         </footer>
     </div>
 
