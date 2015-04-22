@@ -9,7 +9,7 @@
 
     using Web.Models.Content;
 
-    public class PostsController : Controller
+    public class PostsController : BaseController
     {
         public PostsController(IPostService postService)
         {
