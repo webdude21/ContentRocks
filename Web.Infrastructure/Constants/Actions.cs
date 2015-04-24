@@ -9,5 +9,7 @@
         public const string About = "About";
 
         public const string Contact = "Contact";
+
+        public const string Menu = "Menu";
     }
 }

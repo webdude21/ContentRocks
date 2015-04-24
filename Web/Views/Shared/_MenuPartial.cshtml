@@ -13,9 +13,13 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink(Translation.Posts, Actions.Index, Controllers.Posts, new { area = string.Empty }, new { })</li>
-                <li>@Html.ActionLink("Home", Actions.Index, Controllers.Home, new { area = string.Empty }, new { })</li>
-                <li>@Html.ActionLink("About", Actions.About, Controllers.Home, new { area = string.Empty }, new { })</li>
-                <li>@Html.ActionLink("Contact", Actions.Contact, Controllers.Home, new { area = string.Empty }, new { })</li>
+                <li>@Html.ActionLink(Translation.Home, Actions.Index, Controllers.Home, new { area = string.Empty }, new { })</li>
+                <li>@Html.ActionLink(Translation.About, Actions.About, Controllers.Home, new { area = string.Empty }, new { })</li>
+                <li>@Html.ActionLink(Translation.Contact, Actions.Contact, Controllers.Home, new { area = string.Empty }, new { })</li>
+                @*@if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+                {
+                    @Html.Action(Actions.Menu, Controllers.Admin, new { Area = Areas.Administration })
+                }*@
             </ul>
             @Html.Partial(Partials.Login)
         </div>

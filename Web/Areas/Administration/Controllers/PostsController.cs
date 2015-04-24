@@ -1,8 +1,13 @@
 ﻿namespace Web.Areas.Administration.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
+
     using Services.Contracts;
+
+    using Web.Models.Content;
 
     public class PostsController : AdminController
     {
@@ -16,7 +21,7 @@
         // GET: Administration/Posts
         public ActionResult Index()
         {
-            return this.View();
+            return this.View(this.postService.GetTheLatestPosts().Project().To<PostViewModel>().ToList());
         }
 
         // GET: Administration/Posts/Create

@@ -7,5 +7,7 @@
         public const string Menu = "_MenuPartial";
 
         public const string Login = "_LoginPartial";
+
+        public const string AdminMenu = "_AdminMenu";
     }
 }

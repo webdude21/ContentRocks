@@ -5,5 +5,7 @@
         public const string Posts = "Posts";
 
         public const string Home = "Home";
+
+        public const string Admin = "Admin";
     }
 }

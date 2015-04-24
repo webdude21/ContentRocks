@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>За нас</value>
+  </data>
   <data name="BackToList" xml:space="preserve">
     <value>Обртно към списъка</value>
   </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Контакти</value>
+  </data>
   <data name="Copyright" xml:space="preserve">
     <value>© 2015 - Използва ContentRocks</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Начало</value>
+  </data>
+  <data name="LatestPosts" xml:space="preserve">
+    <value>Най новите постове</value>
   </data>
   <data name="PostedByOn" xml:space="preserve">
     <value>Публикувано от {0} на {1}</value>

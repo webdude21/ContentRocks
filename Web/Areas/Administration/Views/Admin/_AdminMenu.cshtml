@@ -5,9 +5,9 @@
 <li class="dropdown open">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="admin-menu">Administration<span class="caret"></span></a>
     <ul class="dropdown-menu" aria-labelledby="admin-menu">
-        @foreach (var adminName in Model)
+        @foreach (var adminController in Model)
         {
-            @Html.ActionLink(@adminName, @adminName, GlobalConstants.AdministratorRoleName, new { area = Areas.Administration, @class = "text-center" })
-        }
+            <li>@Html.ActionLink(adminController, Actions.Index, adminController, new { area = Areas.Administration })</li>
+        } 
     </ul>
 </li>
