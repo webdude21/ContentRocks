@@ -21,7 +21,7 @@
 
         public Category GetCategory(int id)
         {
-            return new Category { Id = id, Title = this.randomGenerator.GetString(10, 255) };
+            return new Category { Id = id, Title = this.randomGenerator.GetString(10, 255), FriendlyUrl = this.randomGenerator.GetUrlSafeString(4, 10) };
         }
 
         public Post GetPost(int id)

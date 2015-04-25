@@ -6,6 +6,7 @@
 
     using Models.Contracts;
     using Models.SEO;
+    using Config;
 
     public class Post : AuthoredContent, IFriendlyUrl, IMetaInfo
     {
@@ -19,6 +20,8 @@
         }
 
         public virtual Category Category { get; set; }
+
+        public int CategoryId { get; set; }
 
         public virtual ICollection<Comment> Comments
         {
@@ -36,8 +39,7 @@
         public string Content { get; set; }
 
         [MaxLength(50)]
-        [RegularExpression(ModelConstants.FriendlyUrlsRegexValidator,
-            ErrorMessage = ModelConstants.FriendlyUrlsValidatorErrorMessage)]
+        [RegularExpression(GlobalConstants.FriendlyUrlsRegexValidator)]
         public string FriendlyUrl { get; set; }
 
         public DateTime PostedOn { get; set; }

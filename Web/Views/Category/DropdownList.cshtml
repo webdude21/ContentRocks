@@ -1,0 +1,17 @@
+﻿@using Web.Models.Content
+@model IEnumerable<CategoryViewModel>
+@{
+    Layout = null;
+}
+
+<div class="form-group">
+    <label for="categorySelect" class="col-lg-2 control-label">@Translation.Categories</label>
+    <div class="col-lg-10">
+        <select class="form-control" id="select" name="categoryId">
+            @foreach (var item in Model)
+            {
+                <option value="@item.Id">@item.Title</option>
+            }
+        </select>
+    </div>
+</div>

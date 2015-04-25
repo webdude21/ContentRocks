@@ -7,5 +7,7 @@
         public const string Home = "Home";
 
         public const string Admin = "Admin";
+
+        public static string Category = "Category";
     }
 }

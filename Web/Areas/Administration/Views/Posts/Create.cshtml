@@ -4,7 +4,7 @@
 }
 
 <h4>@ViewBag.Title</h4>
-<hr/>
+<hr />
 
 @using (Html.BeginForm())
 {
@@ -12,6 +12,7 @@
 
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Action(Actions.DropdownList, Controllers.Category, new { area = string.Empty })
 
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })

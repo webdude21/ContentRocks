@@ -11,5 +11,9 @@
         public const string Contact = "Contact";
 
         public const string Menu = "Menu";
+
+        public const string List = "List";
+
+        public const string DropdownList = "DropdownList";
     }
 }

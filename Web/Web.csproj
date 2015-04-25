@@ -200,6 +200,7 @@
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\PostsController.cs" />
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
+    <Compile Include="Areas\Administration\RequestModels\PostCreateModel.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Config\BundleConfig.cs" />
     <Compile Include="Config\FilterConfig.cs" />
@@ -210,6 +211,8 @@
     <Compile Include="Config\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Models\Content\CategoryViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Api\PostController.cs" />
@@ -456,12 +459,14 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Views\Category\DropdownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

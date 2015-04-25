@@ -123,6 +123,9 @@
   <data name="BackToList" xml:space="preserve">
     <value>Back to List</value>
   </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>

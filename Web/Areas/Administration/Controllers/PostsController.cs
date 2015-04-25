@@ -8,6 +8,7 @@
     using Services.Contracts;
 
     using Web.Models.Content;
+    using Web.Areas.Administration.RequestModels;
 
     public class PostsController : AdminController
     {
@@ -26,6 +27,14 @@
 
         // GET: Administration/Posts/Create
         public ActionResult Create()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // GET: Administration/Posts/Create
+        public ActionResult Create([Bind(Include = "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId")] PostCreateModel post)
         {
             return this.View();
         }

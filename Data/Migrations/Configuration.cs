@@ -28,14 +28,17 @@ namespace Data.Migrations
             if (!posts.Any())
             {
                 var dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
+                var category = dataGenerator.GetCategory(3);
                 var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
                 roleManager.Create(new IdentityRole(GlobalConstants.AdministratorRoleName));
                 var author = new ApplicationUser { UserName = GlobalConstants.DefaultUser };
                 userManager.Create(author, author.UserName);
                 userManager.AddToRole(author.Id, GlobalConstants.AdministratorRoleName);
+                category.Author = author;
                 var post = dataGenerator.GetRealisticPost();
                 post.Author = author;
+                post.Category = category;
                 posts.Add(post);
             }
         }

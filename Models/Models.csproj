@@ -51,10 +51,15 @@
     <Compile Include="Contracts\IFriendlyUrl.cs" />
     <Compile Include="Contracts\IMetaInfo.cs" />
     <Compile Include="Identity\ApplicationUser.cs" />
-    <Compile Include="ModelConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Content\Post.cs" />
     <Compile Include="SEO\Tag.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Config\Config.csproj">
+      <Project>{eec76c35-7bca-40b7-994c-f417da90f12a}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

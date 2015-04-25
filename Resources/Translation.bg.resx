@@ -123,6 +123,9 @@
   <data name="BackToList" xml:space="preserve">
     <value>Обртно към списъка</value>
   </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Категории</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Контакти</value>
   </data>
