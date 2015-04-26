@@ -132,6 +132,9 @@
   <data name="Copyright" xml:space="preserve">
     <value>© 2015 - Powered by ContentRocks</value>
   </data>
+  <data name="CreateBlogPost" xml:space="preserve">
+    <value>Create blog post</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>

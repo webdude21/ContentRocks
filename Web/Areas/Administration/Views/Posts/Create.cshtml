@@ -1,6 +1,6 @@
 ﻿@model  Models.Content.Post
 @{
-    ViewBag.Title = "Create blog post";
+    ViewBag.Title = Translation.CreateBlogPost;
 }
 
 <h4>@ViewBag.Title</h4>
@@ -47,7 +47,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Translation.BackToList, Actions.Index)
 </div>
 
 @section Scripts {

@@ -21,7 +21,7 @@
 
         public Category GetCategory(int id)
         {
-            return new Category { Id = id, Title = this.randomGenerator.GetString(10, 255), FriendlyUrl = this.randomGenerator.GetUrlSafeString(4, 10) };
+            return new Category { Id = id, Title = this.randomGenerator.GetString(5, 25), FriendlyUrl = this.randomGenerator.GetUrlSafeString(4, 10) };
         }
 
         public Post GetPost(int id)
@@ -35,7 +35,6 @@
                                new Tag { Name = this.randomGenerator.GetString(5, 10) } },
                            Title = this.randomGenerator.GetString(4, 10),
                            MetaTitle = this.randomGenerator.GetString(5, 10),
-                           PostedOn = this.randomGenerator.GeneraDateTime(),
                            ModifiedOn = this.randomGenerator.GeneraDateTime(),
                            CreatedOn = this.randomGenerator.GeneraDateTime()
                        };
@@ -50,7 +49,6 @@
                            Tags = new List<Tag> { new Tag { Name = this.randomGenerator.GetString(3, 10) } },
                            Title = "КАК ДА ГЕНЕРИРАМЕ CSS КОД ЗА ПО-СЛОЖНИ ГРАДИЕНТИ (ПРЕЛИВКИ) ОТ ДАДЕНО ИЗОБРАЖЕНИЕ",
                            MetaTitle = "КАК ДА ГЕНЕРИРАМЕ CSS КОД ЗА ПО-СЛОЖНИ ГРАДИЕНТИ (ПРЕЛИВКИ) ОТ ДАДЕНО ИЗОБРАЖЕНИЕ",
-                           PostedOn = this.randomGenerator.GeneraDateTime(),
                            ModifiedOn = this.randomGenerator.GeneraDateTime(),
                            CreatedOn = this.randomGenerator.GeneraDateTime(),
                            Content = @"<div class=""entry-content"">

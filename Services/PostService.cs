@@ -10,6 +10,7 @@
     using Models.Content;
 
     using Services.Contracts;
+    using System;
 
     public class PostService : BaseService<Post>, IPostService
     {

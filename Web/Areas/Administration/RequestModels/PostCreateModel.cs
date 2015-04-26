@@ -1,12 +1,9 @@
 ﻿
 namespace Web.Areas.Administration.RequestModels
 {
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.Collections.Generic;
-
     using Config;
-    using Models.Contracts;
+    using global::Models.Content;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public class PostCreateModel
@@ -28,6 +25,20 @@ namespace Web.Areas.Administration.RequestModels
         public string MetaTitle { get; set; }
 
         [NotMapped]
-        public const string ModelBinderProperties = "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId";
+        public const string ModelBinderProperties = "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId,FriendlyUrl";
+        
+        [NotMapped]
+        public static Post GetPostFrom(PostCreateModel product)
+        {
+            return new Post
+            {
+                CategoryId = product.CategoryId,
+                Content = product.Content,
+                FriendlyUrl = product.FriendlyUrl,
+                MetaDescription = product.MetaDescription,
+                MetaTitle = product.MetaTitle,
+                Title = product.Title
+            };
+        }
     }
 }

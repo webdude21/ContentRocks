@@ -132,16 +132,19 @@
   <data name="Copyright" xml:space="preserve">
     <value>© 2015 - Използва ContentRocks</value>
   </data>
+  <data name="CreateBlogPost" xml:space="preserve">
+    <value>Писане на нова статия</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Начало</value>
   </data>
   <data name="LatestPosts" xml:space="preserve">
-    <value>Най новите постове</value>
+    <value>Най новите статии</value>
   </data>
   <data name="PostedByOn" xml:space="preserve">
     <value>Публикувано от {0} на {1}</value>
   </data>
   <data name="Posts" xml:space="preserve">
-    <value>Постове</value>
+    <value>Статии</value>
   </data>
 </root>

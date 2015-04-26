@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create blog post.
+        /// </summary>
+        public static string CreateBlogPost {
+            get {
+                return ResourceManager.GetString("CreateBlogPost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {

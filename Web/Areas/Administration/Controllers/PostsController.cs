@@ -9,6 +9,7 @@
 
     using Web.Models.Content;
     using Web.Areas.Administration.RequestModels;
+    using Web.Infrastructure.Constants;
 
     public class PostsController : AdminController
     {
@@ -31,11 +32,18 @@
             return this.View();
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
         // GET: Administration/Posts/Create
-        public ActionResult Create([Bind(Include = "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId")] PostCreateModel post)
+        public ActionResult Create([Bind(Include = PostCreateModel.ModelBinderProperties)] PostCreateModel post)
         {
+            if (ModelState.IsValid)
+            {
+
+                this.postService.AddPost(PostCreateModel.GetPostFrom(post));
+                return this.RedirectToAction(Actions.Index);
+            }
+
             return this.View();
         }
 

@@ -38,17 +38,17 @@
 
         public string MetaTitle { get; set; }
 
-        public DateTime PostedOn { get; set; }
-
         public string PostedOnBy
         {
             get
             {
-                return string.Format(Translation.PostedByOn, this.AuthorName, this.PostedOn.ToLongDateString());
+                return string.Format(Translation.PostedByOn, this.AuthorName, this.CreatedOn.ToLongDateString());
             }
         }
 
         public ICollection<TagViewModel> Tags { get; set; }
+
+        public DateTime CreatedOn { get; set; }
 
         public string Title { get; set; }
 
