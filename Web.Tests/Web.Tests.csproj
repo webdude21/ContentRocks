@@ -82,6 +82,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="TestStack.FluentMVCTesting">
+      <HintPath>..\packages\TestStack.FluentMVCTesting.2.2.0\lib\NET45\TestStack.FluentMVCTesting.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

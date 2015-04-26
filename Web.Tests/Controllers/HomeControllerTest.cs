@@ -3,49 +3,37 @@
     using System.Web.Mvc;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TestStack.FluentMVCTesting;
 
     using Web.Controllers;
 
     [TestClass]
     public class HomeControllerTest
     {
+        private HomeController controller;
+
+        [TestInitialize()]
+        public void Initialize()
+        {
+            controller = new HomeController();
+        }
+
         [TestMethod]
         public void About()
         {
-            // Arrange
-            var controller = new HomeController();
-
-            // Act
-            var result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            controller.WithCallTo(c => c.About()).ShouldRenderDefaultView();
         }
 
         [TestMethod]
         public void Contact()
         {
-            // Arrange
-            var controller = new HomeController();
-
-            // Act
-            var result = controller.Contact() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
+            controller.WithCallTo(c => c.Contact()).ShouldRenderDefaultView();
         }
 
         [TestMethod]
         public void Index()
         {
-            // Arrange
-            var controller = new HomeController();
-
-            // Act
-            var result = controller.Index() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
+            controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView();
         }
     }
 }

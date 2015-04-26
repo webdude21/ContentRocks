@@ -27,7 +27,6 @@ namespace Web.Areas.Administration.RequestModels
         [NotMapped]
         public const string ModelBinderProperties = "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId,FriendlyUrl";
         
-        [NotMapped]
         public static Post GetPostFrom(PostCreateModel product)
         {
             return new Post
