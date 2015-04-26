@@ -1,8 +1,9 @@
 ﻿namespace Models.SEO
 {
-    using Models.Content;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using Models.Content;
 
     public class Tag : BaseModel
     {

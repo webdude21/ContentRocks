@@ -9,7 +9,7 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
-    using Web.Models;
+    using Web.ViewModels;
 
     [Authorize]
     public class ManageController : BaseController

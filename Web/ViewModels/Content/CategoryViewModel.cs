@@ -1,14 +1,15 @@
-﻿namespace Web.Models.Content
+﻿namespace Web.ViewModels.Content
 {
-    using Config;
-    using global::Models.Content;
     using System.Collections.Generic;
-    using System.Linq;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using Web.Infrastructure.Mappings;
-    using Web.Models;
+    using System.Linq;
     using System.Web.Mvc;
+
+    using Config;
+
+    using Models.Content;
+
+    using Web.Infrastructure.Mappings;
 
     public class CategoryViewModel : BaseViewModel, IMapFrom<Category>
     {

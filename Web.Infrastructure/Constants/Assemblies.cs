@@ -4,9 +4,9 @@
     {
         public const string ActionHandlers = "Web.ActionHandlers";
 
-        public const string NoAreaControllersNamespace = "Web.Controllers";
-
         public const string Infrastructure = "Web.Infrastructure";
+
+        public const string NoAreaControllersNamespace = "Web.Controllers";
 
         public const string Validators = "Web.Validators";
 

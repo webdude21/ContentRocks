@@ -1,8 +1,7 @@
 ﻿namespace Web.Tests.Controllers
 {
-    using System.Web.Mvc;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     using TestStack.FluentMVCTesting;
 
     using Web.Controllers;
@@ -12,28 +11,28 @@
     {
         private HomeController controller;
 
-        [TestInitialize()]
-        public void Initialize()
-        {
-            controller = new HomeController();
-        }
-
         [TestMethod]
         public void About()
         {
-            controller.WithCallTo(c => c.About()).ShouldRenderDefaultView();
+            this.controller.WithCallTo(c => c.About()).ShouldRenderDefaultView();
         }
 
         [TestMethod]
         public void Contact()
         {
-            controller.WithCallTo(c => c.Contact()).ShouldRenderDefaultView();
+            this.controller.WithCallTo(c => c.Contact()).ShouldRenderDefaultView();
         }
 
         [TestMethod]
         public void Index()
         {
-            controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView();
+            this.controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView();
+        }
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            this.controller = new HomeController();
         }
     }
 }

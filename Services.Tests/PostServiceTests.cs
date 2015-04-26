@@ -81,6 +81,32 @@
         }
 
         [TestMethod]
+        public void GetingAPostByIdRetreivesIt()
+        {
+            var postId = 2;
+            var retrievedPost = this.postService.GetPostBy(postId).FirstOrDefault();
+            Assert.AreEqual(postId, retrievedPost.Id);
+        }
+
+        [TestMethod]
+        public void GetPostByIdWithWhenNonExistingReturnsNull()
+        {
+            var result = this.postService.GetPostBy(-43424).FirstOrDefault();
+            Assert.AreEqual(result, null);
+        }
+
+        [TestMethod]
+        public void GettingAPostByIdAndFriendlyUrlRetrievesIt()
+        {
+            var postId = 2;
+            var friendlyUrl = "friendlyUrl";
+            var post = this.postService.GetPostBy(postId).FirstOrDefault();
+            post.FriendlyUrl = friendlyUrl;
+            var retrievedPost = this.postService.GetPostBy(postId, friendlyUrl).FirstOrDefault();
+            Assert.AreEqual(post, retrievedPost);
+        }
+
+        [TestMethod]
         public void PostServiceReturnsAllPostsOrderedByDescendingDate()
         {
             var resultList = this.postService.GetTheLatestPosts().ToList();
@@ -117,32 +143,6 @@
             var resultList = this.postService.GetTheLatestPosts(PageSize, -122).ToList();
             var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Take(PageSize).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
-        }
-
-        [TestMethod]
-        public void GetPostByIdWithWhenNonExistingReturnsNull()
-        {
-            var result = this.postService.GetPostBy(-43424).FirstOrDefault();
-            Assert.AreEqual(result, null);
-        }
-
-        [TestMethod]
-        public void GetingAPostByIdRetreivesIt()
-        {
-            var postId = 2;
-            var retrievedPost = this.postService.GetPostBy(postId).FirstOrDefault();
-            Assert.AreEqual(postId, retrievedPost.Id);
-        }
-
-        [TestMethod]
-        public void GettingAPostByIdAndFriendlyUrlRetrievesIt()
-        {
-            var postId = 2;
-            var friendlyUrl = "friendlyUrl";
-            var post = this.postService.GetPostBy(postId).FirstOrDefault();
-            post.FriendlyUrl = friendlyUrl;
-            var retrievedPost = this.postService.GetPostBy(postId, friendlyUrl).FirstOrDefault();
-            Assert.AreEqual(post, retrievedPost);
         }
 
         private IQueryable<Post> GetPosts(int count)

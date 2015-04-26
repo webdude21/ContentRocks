@@ -7,9 +7,9 @@
 
     using Services.Contracts;
 
-    using Web.Models.Content;
     using Web.Areas.Administration.RequestModels;
     using Web.Infrastructure.Constants;
+    using Web.ViewModels.Content;
 
     public class PostsController : AdminController
     {

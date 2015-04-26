@@ -1,4 +1,4 @@
-﻿namespace Web.Models.Contracts
+﻿namespace Web.ViewModels.Contracts
 {
     public interface IMetaInfoViewModel
     {

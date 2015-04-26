@@ -1,52 +1,52 @@
 ﻿namespace Web.Tests.Controllers
 {
-    using System.Web.Mvc;
-
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using TestStack.FluentMVCTesting;
-    using Moq;
-
-    using Web.Controllers;
-    using Services.Contracts;
+    using System.Collections.Generic;
     using System.Linq;
 
-    using global::Models.Content;
-    using System.Collections.Generic;
-    using Web.Models.Content;
     using Common;
     using Common.Contracts;
-    using Services;
-    using Web.Infrastructure.Constants;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Models.Content;
+
+    using Moq;
+
+    using Services.Contracts;
+
+    using TestStack.FluentMVCTesting;
+
+    using Web.Controllers;
 
     [TestClass]
     public class PostsControllerTest
     {
-        private PostsController controller;
-
-        private Mock<IPostService> postService;
-
         private readonly IContentFactory dataGenerator;
 
+        private PostsController controller;
+
         private IQueryable<Post> mockData;
+
+        private Mock<IPostService> postService;
 
         public PostsControllerTest()
         {
             this.dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
         }
 
-        [TestInitialize()]
-        public void Initialize()
-        {
-            this.mockData = GetPosts(20);
-            this.postService = new Mock<IPostService>();
-            this.postService.As<IPostService>().Setup(m => m.GetTheLatestPosts()).Returns(this.mockData);
-            controller = new PostsController(this.postService.Object);
-        }
-
         [TestMethod]
         public void Index()
         {
-            controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView();
+            this.controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView();
+        }
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            this.mockData = this.GetPosts(20);
+            this.postService = new Mock<IPostService>();
+            this.postService.As<IPostService>().Setup(m => m.GetTheLatestPosts()).Returns(this.mockData);
+            this.controller = new PostsController(this.postService.Object);
         }
 
         private IQueryable<Post> GetPosts(int count)

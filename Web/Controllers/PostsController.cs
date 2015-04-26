@@ -7,7 +7,7 @@
 
     using Services.Contracts;
 
-    using Web.Models.Content;
+    using Web.ViewModels.Content;
 
     public class PostsController : BaseController
     {

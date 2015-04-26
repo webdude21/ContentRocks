@@ -1,4 +1,4 @@
-﻿namespace Web.Models.Content
+﻿namespace Web.ViewModels.Content
 {
     using System;
     using System.Collections.Generic;
@@ -7,13 +7,13 @@
 
     using AutoMapper;
 
-    using global::Models.Content;
+    using Models.Content;
 
     using Resources;
 
     using Web.Infrastructure.Mappings;
-    using Web.Models.Contracts;
-    using Web.Models.Seo;
+    using Web.ViewModels.Contracts;
+    using Web.ViewModels.Seo;
 
     public class PostViewModel : BaseViewModel, IMapFrom<Post>, IMetaInfoViewModel, IHaveCustomMappings
     {

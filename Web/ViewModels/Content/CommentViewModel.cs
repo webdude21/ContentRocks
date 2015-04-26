@@ -1,8 +1,8 @@
-﻿namespace Web.Models.Content
+﻿namespace Web.ViewModels.Content
 {
     using System;
 
-    using global::Models.Content;
+    using Models.Content;
 
     using Web.Infrastructure.Mappings;
 

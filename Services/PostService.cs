@@ -10,7 +10,6 @@
     using Models.Content;
 
     using Services.Contracts;
-    using System;
 
     public class PostService : BaseService<Post>, IPostService
     {
@@ -30,16 +29,6 @@
             this.SaveChanges();
         }
 
-        public IQueryable<Post> GetTheLatestPosts()
-        {
-            return this.DataSet.OrderByDescending(post => post.CreatedOn);
-        }
-
-        public IQueryable<Post> GetTheLatestPosts(int count, int page = 1)
-        {
-            return this.GetDataWithPaging(this.GetTheLatestPosts(), count, page);
-        }
-
         public IQueryable<Post> GetPostBy(int id, string friendlyUrl)
         {
             return this.DataSet.Where(p => p.Id == id && p.FriendlyUrl == friendlyUrl);
@@ -48,6 +37,16 @@
         public IQueryable<Post> GetPostBy(int id)
         {
             return this.DataSet.Where(p => p.Id == id);
+        }
+
+        public IQueryable<Post> GetTheLatestPosts()
+        {
+            return this.DataSet.OrderByDescending(post => post.CreatedOn);
+        }
+
+        public IQueryable<Post> GetTheLatestPosts(int count, int page = 1)
+        {
+            return this.GetDataWithPaging(this.GetTheLatestPosts(), count, page);
         }
     }
 }

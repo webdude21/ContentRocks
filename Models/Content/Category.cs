@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using Config;
+
     using Models.Contracts;
 
     public class Category : AuthoredContent, IFriendlyUrl

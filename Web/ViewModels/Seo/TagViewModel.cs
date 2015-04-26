@@ -1,8 +1,8 @@
-﻿namespace Web.Models.Seo
+﻿namespace Web.ViewModels.Seo
 {
     using System.ComponentModel.DataAnnotations;
 
-    using global::Models.SEO;
+    using Models.SEO;
 
     using Web.Infrastructure.Mappings;
 
