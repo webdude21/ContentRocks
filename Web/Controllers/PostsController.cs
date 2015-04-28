@@ -1,7 +1,6 @@
 ﻿namespace Web.Controllers
 {
     using System.Linq;
-    using System.Web.Helpers;
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;

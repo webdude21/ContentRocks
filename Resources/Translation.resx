@@ -135,6 +135,12 @@
   <data name="CreateBlogPost" xml:space="preserve">
     <value>Create blog post</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorVerbose" xml:space="preserve">
+    <value>An error occurred while processing your request</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello</value>
   </data>
