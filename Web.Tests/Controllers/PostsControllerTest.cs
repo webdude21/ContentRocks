@@ -59,7 +59,7 @@
         [TestMethod]
         public void Index()
         {
-            this.controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView().WithModel<List<PostViewModel>>();
+            this.controller.WithCallTo(c => c.Index(null)).ShouldRenderDefaultView().WithModel<List<PostViewModel>>();
         }
 
         private IQueryable<Post> GetPosts(int count)

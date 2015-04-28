@@ -147,4 +147,7 @@
   <data name="Posts" xml:space="preserve">
     <value>Статии</value>
   </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Прочетете още »</value>
+  </data>
 </root>

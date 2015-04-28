@@ -1,0 +1,14 @@
+﻿@using Common.Extensions
+@model Web.ViewModels.Content.PostViewModel
+
+<div class="col-md-4">
+    <h5>@Model.Title</h5>
+    <p>
+        @Html.Raw(Model.Content.TrimWithEllipsis(GlobalConstants.HomePagePostsCharLimit))
+    </p>
+    <p>
+        @Html.RouteLink(Translation.ReadMore, PostRoute.Name,
+        new { area = string.Empty, id = Model.Id, friendlyUrl = Model.FriendlyUrl },
+        new { @class = "btn btn-primary" })
+    </p>
+</div>

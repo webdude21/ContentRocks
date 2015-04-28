@@ -147,4 +147,7 @@
   <data name="Posts" xml:space="preserve">
     <value>Posts</value>
   </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read More »</value>
+  </data>
 </root>

@@ -32,7 +32,7 @@
         [TestInitialize]
         public void Initialize()
         {
-            this.controller = new HomeController();
+            this.controller = new HomeController(null);
         }
     }
 }

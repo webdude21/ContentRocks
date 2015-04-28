@@ -19,7 +19,7 @@
 
         public void AddCategory(Category category)
         {
-            Validator.CheckForNull(category, "category");
+            Checker.CheckForNull(category, "category");
             this.CheckIfEntityExists(category.Id);
             this.DataSet.Add(category);
             this.SaveChanges();

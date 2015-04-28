@@ -1,9 +1,25 @@
 ﻿namespace Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+
+    using Config;
+
+    using Services.Contracts;
+
+    using Web.ViewModels.Content;
 
     public class HomeController : BaseController
     {
+        private readonly IPostService postService;
+
+        public HomeController(IPostService postService)
+        {
+            this.postService = postService;
+        }
+
         public ActionResult About()
         {
             this.ViewBag.Message = "Your application description page.";
@@ -20,7 +36,10 @@
 
         public ActionResult Index()
         {
-            return this.View();
+            return this.View(this.postService.GetTheLatestPosts(GlobalConstants.HomePagePostsCount)
+                        .Project()
+                        .To<PostViewModel>()
+                        .ToList());
         }
     }
 }

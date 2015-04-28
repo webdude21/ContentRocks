@@ -23,7 +23,7 @@
 
         public void AddPost(Post newPost)
         {
-            Validator.CheckForNull(newPost, "newPost");
+            Checker.CheckForNull(newPost, "newPost");
             this.CheckIfEntityExists(newPost.Id);
             this.DataSet.Add(newPost);
             this.SaveChanges();

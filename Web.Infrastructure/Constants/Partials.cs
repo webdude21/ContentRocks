@@ -9,5 +9,7 @@
         public const string Menu = "_MenuPartial";
 
         public const string Seo = "_SeoPartial";
+
+        public const string PostShortPartial = "_PostShortPartial";
     }
 }

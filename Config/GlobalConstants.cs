@@ -12,6 +12,12 @@
 
         public const string DefaultUser = "webdude@webdude.eu";
 
+        public const int HomePagePostsCount = 6;
+
+        public const int HomePagePostsPerRow = 3;
+
+        public const int HomePagePostsCharLimit = 300;
+
         public const string Credits = "Powered by ContentRocks";
 
         public const string GitHubLink = "https://github.com/webdude21/ContentRocks";

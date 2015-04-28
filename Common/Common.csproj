@@ -37,9 +37,10 @@
     <Compile Include="Contracts\IRandomDataGenerator.cs" />
     <Compile Include="ContentFactory.cs" />
     <Compile Include="Contracts\IContentFactory.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomDataGenerator.cs" />
-    <Compile Include="Validator.cs" />
+    <Compile Include="Checker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Config\Config.csproj">
