@@ -15,5 +15,11 @@
         public const string List = "List";
 
         public const string Menu = "Menu";
+
+        public const string LogOff = "LogOff";
+
+        public const string Login = "Login";
+
+        public const string Register = "Register";
     }
 }

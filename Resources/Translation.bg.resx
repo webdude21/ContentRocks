@@ -135,11 +135,20 @@
   <data name="CreateBlogPost" xml:space="preserve">
     <value>Писане на нова статия</value>
   </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Здравей</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Начало</value>
   </data>
   <data name="LatestPosts" xml:space="preserve">
     <value>Най новите статии</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Изход</value>
   </data>
   <data name="PostedByOn" xml:space="preserve">
     <value>Публикувано от {0} на {1}</value>
@@ -149,5 +158,8 @@
   </data>
   <data name="ReadMore" xml:space="preserve">
     <value>Прочетете още »</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Регистрация</value>
   </data>
 </root>

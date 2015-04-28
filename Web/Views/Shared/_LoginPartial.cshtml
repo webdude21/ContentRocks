@@ -1,16 +1,16 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm(Actions.LogOff, Controllers.Account, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", null, new { title = "Manage" })
+                @Html.ActionLink(Translation.Hello + " " + User.Identity.GetUserName() + "!", Actions.Index, Controllers.Manage, null, new { title = "Manage" })
             </li>
             <li>
-                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                <a href="javascript:document.getElementById('logoutForm').submit()">@Translation.LogOff</a>
             </li>
         </ul>
     }
@@ -18,7 +18,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", null, new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", null, new { id = "loginLink" })</li>
+        <li>@Html.ActionLink(Translation.Register, Actions.Register, Controllers.Account, null, new { id = "registerLink" })</li>
+        <li>@Html.ActionLink(Translation.LogIn, Actions.Login, Controllers.Account, null, new { id = "loginLink" })</li>
     </ul>
 }

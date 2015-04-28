@@ -8,6 +8,10 @@
 
         public const string Posts = "Posts";
 
-        public static string Category = "Category";
+        public const string Category = "Category";
+
+        public const string Account = "Account";
+
+        public const string Manage = "Manage";
     }
 }
