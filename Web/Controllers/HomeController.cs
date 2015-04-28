@@ -1,6 +1,8 @@
 ﻿namespace Web.Controllers
 {
+    using System;
     using System.Linq;
+    using System.Web.Caching;
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
@@ -14,6 +16,8 @@
     public class HomeController : BaseController
     {
         private readonly IPostService postService;
+
+        private const string HomePagePosts = "HomePagePosts";
 
         public HomeController(IPostService postService)
         {
@@ -36,10 +40,22 @@
 
         public ActionResult Index()
         {
-            return this.View(this.postService.GetTheLatestPosts(GlobalConstants.HomePagePostsCount)
-                        .Project()
-                        .To<PostViewModel>()
-                        .ToList());
+            return this.View(this.GetFromCache(HomePagePosts));
+        }
+
+        private object GetFromCache(string cacheKey)
+        {
+            if (this.HttpContext.Cache[cacheKey] == null)
+            {
+                var posts = this.postService.GetTheLatestPosts(GlobalConstants.HomePagePostsCount)
+                .Project()
+                .To<PostViewModel>()
+                .ToList();
+
+                this.HttpContext.Cache.Add(cacheKey, posts, null, DateTime.Now.AddHours(1), TimeSpan.Zero, CacheItemPriority.Default, null);
+            }
+
+            return this.HttpContext.Cache[cacheKey];
         }
     }
 }

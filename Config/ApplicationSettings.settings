@@ -17,5 +17,11 @@
     <Setting Name="FacebookSecretKey" Type="System.String" Scope="Application">
       <Value Profile="(Default)">FacebookSecretKey</Value>
     </Setting>
+    <Setting Name="HomeAdvert" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ContentRocks is a small, lightweight, yet extensible content management system made with ASP.NET MVC</Value>
+    </Setting>
+    <Setting Name="HomePostsCacheTimeInHours" Type="System.UInt32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

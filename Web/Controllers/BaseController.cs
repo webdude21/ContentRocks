@@ -1,6 +1,7 @@
 ﻿namespace Web.Controllers
 {
     using System;
+    using System.Collections;
     using System.Globalization;
     using System.Threading;
     using System.Web.Mvc;
@@ -30,6 +31,14 @@
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
 
             return base.BeginExecuteCore(callback, state);
+        }
+
+        protected void ClearCache()
+        {
+            foreach (DictionaryEntry entry in this.HttpContext.Cache)
+            {
+                this.HttpContext.Cache.Remove((string)entry.Key);
+            }
         }
     }
 }

@@ -10,6 +10,10 @@
 
         public static readonly string SiteName = ApplicationSettings.Default.Name;
 
+        public static readonly string HomeAdvert = ApplicationSettings.Default.HomeAdvert;
+
+        public static readonly int HomePostsCacheTimeInHours = (int)ApplicationSettings.Default.HomePostsCacheTimeInHours;
+
         public const string DefaultUser = "webdude@webdude.eu";
 
         public const int HomePagePostsCount = 6;

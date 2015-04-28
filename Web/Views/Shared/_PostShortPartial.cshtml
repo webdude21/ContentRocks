@@ -3,9 +3,9 @@
 
 <div class="col-md-4">
     <h5>@Model.Title</h5>
-    <p>
+    <article>
         @Html.Raw(Model.Content.TrimWithEllipsis(GlobalConstants.HomePagePostsCharLimit))
-    </p>
+    </article>
     <p>
         @Html.RouteLink(Translation.ReadMore, PostRoute.Name,
         new { area = string.Empty, id = Model.Id, friendlyUrl = Model.FriendlyUrl },
