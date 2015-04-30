@@ -17,7 +17,7 @@
         }
 
         [MaxLength(50)]
-        [RegularExpression(GlobalConstants.FriendlyUrlsRegexValidator)]
+        [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
         public string FriendlyUrl { get; set; }
 
         public virtual ICollection<Post> Posts

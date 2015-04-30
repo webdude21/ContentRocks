@@ -7,6 +7,8 @@
 
     using AutoMapper;
 
+    using Config;
+
     using Models.Content;
 
     using Resources;
@@ -32,6 +34,8 @@
         [DataType(DataType.Html)]
         public string Content { get; set; }
 
+        [MaxLength(50)]
+        [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
         public string FriendlyUrl { get; set; }
 
         public string MetaDescription { get; set; }
@@ -54,8 +58,7 @@
 
         public void CreateMappings(IConfiguration configuration)
         {
-            configuration.CreateMap<Post, PostViewModel>()
-                .ForMember(
+            configuration.CreateMap<Post, PostViewModel>().ForMember(
                     sourceModel => sourceModel.AuthorName,
                     result => result.MapFrom(fullModel => fullModel.Author.UserName));
         }

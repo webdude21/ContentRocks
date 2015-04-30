@@ -14,7 +14,7 @@ namespace Web.Areas.Administration.RequestModels
         public string Content { get; set; }
 
         [MaxLength(50)]
-        [RegularExpression(GlobalConstants.FriendlyUrlsRegexValidator)]
+        [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
         public string FriendlyUrl { get; set; }
 
         [MaxLength(200)]

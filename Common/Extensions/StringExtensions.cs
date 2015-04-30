@@ -4,7 +4,12 @@
     {
         public static string TrimWithEllipsis(this string value, int stringLength)
         {
-            return value.Substring(0, stringLength) + "...";
+            if (value.Length > stringLength)
+            {
+                return value.Substring(0, stringLength) + "...";
+            }
+
+            return value;
         }
     }
 }

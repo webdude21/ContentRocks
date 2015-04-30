@@ -34,8 +34,6 @@
 
         public const string DigitsOnly = @"\d+";
 
-        public const string FriendlyUrlsRegexValidator = @"[\w-]+";
-
-        public const string GuidRegEx = @"\b[A-F0-9]{8}(?:-[A-F0-9]{4}){3}-[A-F0-9]{12}\b";
+        public const string FriendlyUrlsRegex = @"[a-zA-ZА-Я-а-я0-9]+";
     }
 }
