@@ -17,6 +17,7 @@
         public int CategoryId { get; set; }
 
         [DataType(DataType.Html)]
+        [Display(Name = "Content", ResourceType = typeof(Translation))]
         public string Content { get; set; }
 
         [MaxLength(50)]
@@ -24,11 +25,14 @@
         [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
         public string FriendlyUrl { get; set; }
 
+        [Display(Name = "MetaDescription", ResourceType = typeof(Translation))]
         public string MetaDescription { get; set; }
 
+        [Display(Name = "MetaTitle", ResourceType = typeof(Translation))]
         public string MetaTitle { get; set; }
 
         [MaxLength(200)]
+        [Display(Name = "Title", ResourceType = typeof(Translation))]
         public string Title { get; set; }
 
         public static Post GetPostFrom(PostCreateModel product)
