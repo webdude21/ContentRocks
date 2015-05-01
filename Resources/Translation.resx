@@ -141,6 +141,9 @@
   <data name="ErrorVerbose" xml:space="preserve">
     <value>An error occurred while processing your request</value>
   </data>
+  <data name="FriendlyUrl" xml:space="preserve">
+    <value>Friendly Url</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello</value>
   </data>

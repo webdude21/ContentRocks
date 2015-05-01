@@ -141,6 +141,9 @@
   <data name="ErrorVerbose" xml:space="preserve">
     <value>Възникна грешка при обработката на вашата заявка</value>
   </data>
+  <data name="FriendlyUrl" xml:space="preserve">
+    <value>Приятелски Url</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Здравей</value>
   </data>

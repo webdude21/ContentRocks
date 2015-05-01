@@ -34,7 +34,10 @@
         [DataType(DataType.Html)]
         public string Content { get; set; }
 
+        public DateTime CreatedOn { get; set; }
+
         [MaxLength(50)]
+        [Display(Name = "FriendlyUrl", ResourceType = typeof(Translation))]
         [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
         public string FriendlyUrl { get; set; }
 
@@ -52,13 +55,12 @@
 
         public ICollection<TagViewModel> Tags { get; set; }
 
-        public DateTime CreatedOn { get; set; }
-
         public string Title { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {
-            configuration.CreateMap<Post, PostViewModel>().ForMember(
+            configuration.CreateMap<Post, PostViewModel>()
+                .ForMember(
                     sourceModel => sourceModel.AuthorName,
                     result => result.MapFrom(fullModel => fullModel.Author.UserName));
         }

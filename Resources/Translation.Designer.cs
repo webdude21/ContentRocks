@@ -133,6 +133,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Friendly Url.
+        /// </summary>
+        public static string FriendlyUrl {
+            get {
+                return ResourceManager.GetString("FriendlyUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
         public static string Hello {
