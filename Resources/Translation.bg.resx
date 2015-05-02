@@ -120,11 +120,17 @@
   <data name="About" xml:space="preserve">
     <value>За нас</value>
   </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Администрация</value>
+  </data>
   <data name="BackToList" xml:space="preserve">
     <value>Обртно към списъка</value>
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Категории</value>
+  </data>
+  <data name="ChangeYourAccountSettings" xml:space="preserve">
+    <value>Промени настройките на акаунта си</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Контакти</value>
@@ -164,6 +170,9 @@
   </data>
   <data name="LogOff" xml:space="preserve">
     <value>Изход</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Управление</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
     <value>Мета описание</value>

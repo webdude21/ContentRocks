@@ -6,11 +6,20 @@
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink(Translation.Hello + " " + User.Identity.GetUserName() + "!", Actions.Index, Controllers.Manage, new { area = string.Empty}, new { title = "Manage" })
-            </li>
-            <li>
-                <a href="javascript:document.getElementById('logoutForm').submit()">@Translation.LogOff</a>
+            @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+            {
+                @Html.Action(Actions.Menu, Controllers.Admin, new { Area = Areas.Administration })
+            }
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login-menu">@User.Identity.GetUserName()<span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="login-menu">
+                    <li>
+                        @Html.ActionLink(Translation.Manage, Actions.Index, Controllers.Manage, new { area = string.Empty }, new { title = Translation.Manage })
+                    </li>
+                    <li>
+                        <a href="javascript:document.getElementById('logoutForm').submit()">@Translation.LogOff</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     }
@@ -18,7 +27,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink(Translation.Register, Actions.Register, Controllers.Account, new { area = string.Empty}, new { id = "registerLink" })</li>
-        <li>@Html.ActionLink(Translation.LogIn, Actions.Login, Controllers.Account, new { area = string.Empty}, new { id = "loginLink" })</li>
+        <li>@Html.ActionLink(Translation.Register, Actions.Register, Controllers.Account, new { area = string.Empty }, new { id = "registerLink" })</li>
+        <li>@Html.ActionLink(Translation.LogIn, Actions.Login, Controllers.Account, new { area = string.Empty }, new { id = "loginLink" })</li>
     </ul>
 }

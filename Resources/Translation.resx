@@ -120,11 +120,17 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
   <data name="BackToList" xml:space="preserve">
     <value>Back to List</value>
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Categories</value>
+  </data>
+  <data name="ChangeYourAccountSettings" xml:space="preserve">
+    <value>Change your account settings</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
@@ -164,6 +170,9 @@
   </data>
   <data name="LogOff" xml:space="preserve">
     <value>Log Off</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Manage</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
     <value>Meta description</value>

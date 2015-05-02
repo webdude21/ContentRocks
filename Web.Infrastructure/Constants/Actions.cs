@@ -18,8 +18,14 @@
 
         public const string LogOff = "LogOff";
 
+        public const string ManageLogins = "ManageLogins";
+
+        public const string ChangePassword = "ChangePassword";
+
         public const string Login = "Login";
 
         public const string Register = "Register";
+
+        public const string SetPassword = "SetPassword";
     }
 }

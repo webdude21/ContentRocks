@@ -14,10 +14,6 @@
                 <li>@Html.ActionLink(Translation.Home, Actions.Index, Controllers.Home, new { area = string.Empty }, new { })</li>
                 <li>@Html.ActionLink(Translation.About, Actions.About, Controllers.Home, new { area = string.Empty }, new { })</li>
                 <li>@Html.ActionLink(Translation.Contact, Actions.Contact, Controllers.Home, new { area = string.Empty }, new { })</li>
-                @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
-                {
-                    @Html.Action(Actions.Menu, Controllers.Admin, new { Area = Areas.Administration })
-                }
             </ul>
             @Html.Partial(Partials.Login)
         </div>
