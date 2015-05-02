@@ -129,6 +129,9 @@
   <data name="Categories" xml:space="preserve">
     <value>Категории</value>
   </data>
+  <data name="Category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
   <data name="ChangeYourAccountSettings" xml:space="preserve">
     <value>Промени настройките на акаунта си</value>
   </data>

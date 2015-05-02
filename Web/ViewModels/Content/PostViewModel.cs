@@ -45,11 +45,21 @@
 
         public string MetaTitle { get; set; }
 
+        public CategoryViewModel Category { get; set;}
+
+        public string PostedOn
+        {
+            get
+            {
+                return this.CreatedOn.ToLongDateString();
+            }
+        }
+
         public string PostedOnBy
         {
             get
             {
-                return string.Format(Translation.PostedByOn, this.AuthorName, this.CreatedOn.ToLongDateString());
+                return string.Format(Translation.PostedByOn, this.AuthorName, this.PostedOn);
             }
         }
 
