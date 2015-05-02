@@ -4,13 +4,11 @@ namespace Services.Contracts
 
     using Models.Content;
 
-    public interface IPostService : IService
+    public interface IPostService : IEntityService<Post>
     {
         void AddPost(Post newPost);
 
-        IQueryable<Post> GetPostBy(int id);
-
-        IQueryable<Post> GetPostBy(int id, string friendlyUrl);
+        IQueryable<Post> GetBy(int id, string friendlyUrl);
 
         IQueryable<Post> GetTheLatestPosts();
 

@@ -24,7 +24,7 @@
 
         public ActionResult Detail(int id, string friendlyUrl)
         {
-            return this.View(this.postService.GetPostBy(id, friendlyUrl).Project().To<PostViewModel>().FirstOrDefault());
+            return this.View(this.postService.GetBy(id, friendlyUrl).Project().To<PostViewModel>().FirstOrDefault());
         }
 
         public ActionResult Index(int? page)

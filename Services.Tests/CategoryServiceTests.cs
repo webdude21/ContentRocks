@@ -76,7 +76,7 @@
         [TestMethod]
         public void CategoryServiceReturnsAllCategories()
         {
-            var resultList = this.categoryService.GetAllCategories().ToList();
+            var resultList = this.categoryService.GetAll().ToList();
             var realData = this.mockData.OrderByDescending(category => category.CreatedOn).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
         }

@@ -462,6 +462,8 @@
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Category\DropdownList.cshtml" />
     <Content Include="Views\Shared\_PostShortPartial.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

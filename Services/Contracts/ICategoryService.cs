@@ -1,13 +1,9 @@
 ﻿namespace Services.Contracts
 {
-    using System.Linq;
-
     using Models.Content;
 
-    public interface ICategoryService
+    public interface ICategoryService : IEntityService<Category>
     {
         void AddCategory(Category category);
-
-        IQueryable<Category> GetAllCategories();
     }
 }

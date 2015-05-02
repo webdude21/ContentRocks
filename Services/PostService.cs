@@ -13,8 +13,7 @@
 
     public class PostService : BaseService<Post>, IPostService
     {
-        public PostService(IUnitOfWork unitOfWork)
-            : base(unitOfWork)
+        public PostService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
             this.Categories = unitOfWork.Set<Category>();
         }
@@ -29,12 +28,12 @@
             this.SaveChanges();
         }
 
-        public IQueryable<Post> GetPostBy(int id, string friendlyUrl)
+        public IQueryable<Post> GetBy(int id, string friendlyUrl)
         {
             return this.DataSet.Where(p => p.Id == id && p.FriendlyUrl == friendlyUrl);
         }
 
-        public IQueryable<Post> GetPostBy(int id)
+        public IQueryable<Post> GetBy(int id)
         {
             return this.DataSet.Where(p => p.Id == id);
         }

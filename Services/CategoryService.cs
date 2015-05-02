@@ -25,9 +25,9 @@
             this.SaveChanges();
         }
 
-        public IQueryable<Category> GetAllCategories()
+        public IQueryable<Category> GetBy(int id)
         {
-            return this.DataSet;
+            return this.DataSet.Where(category => category.Id == id);
         }
     }
 }

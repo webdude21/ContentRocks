@@ -11,23 +11,27 @@
 
     public class CategoryController : BaseController
     {
-        private ICategoryService categoryService;
+        private readonly ICategoryService categoryService;
 
         public CategoryController(ICategoryService categoryService)
         {
             this.categoryService = categoryService;
         }
 
-        // GET: Category
         public ActionResult Index()
         {
-            return View();
+            return this.View(this.categoryService.GetAll().Project().To<CategoryViewModel>().ToList());
         }
 
         [ChildActionOnly]
         public ActionResult DropdownList()
         {
-            return this.View(this.categoryService.GetAllCategories().Project().To<CategoryViewModel>().ToList());
+            return this.View(this.categoryService.GetAll().Project().To<CategoryViewModel>().ToList());
+        }
+
+        public ActionResult Detail(int id)
+        {
+            return this.View(this.categoryService.GetBy(id).Project().To<CategoryViewModel>().FirstOrDefault());
         }
     }
 }

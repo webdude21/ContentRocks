@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Web.ViewModels.Content.CategoryViewModel>
+@{
+    ViewBag.Title = Translation.Categories;
+}
+
+<h1>@ViewBag.Title</h1>
+<ul class="nav nav-pills nav-stacked">
+    @foreach (var category in Model)
+    {
+        <li>@Html.ActionLink(category.Title, Actions.Detail, new { id = category.Id })</li>
+    }
+</ul>

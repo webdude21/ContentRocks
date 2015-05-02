@@ -8,8 +8,7 @@
 
     using Services.Contracts;
 
-    public abstract class BaseService<T> : IService
-        where T : class
+    public abstract class BaseService<T> : IService where T : class
     {
         private readonly IDbSet<T> dataSet;
 

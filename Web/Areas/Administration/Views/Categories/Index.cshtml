@@ -1,9 +1,9 @@
-﻿@model IEnumerable<Web.ViewModels.Content.PostViewModel>
+﻿@model IEnumerable<Web.ViewModels.Content.CategoryViewModel>
 @{
     ViewBag.Title = Translation.LatestPosts;
 }
 
-<h1>@ViewBag.Title</h1>
+<h1>@Translation.LatestPosts</h1>
 <ul class="nav nav-pills nav-stacked">
     @foreach (var post in Model)
     {

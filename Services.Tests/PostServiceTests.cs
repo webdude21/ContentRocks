@@ -81,28 +81,28 @@
         }
 
         [TestMethod]
-        public void GetingAPostByIdRetreivesIt()
+        public void GetingAPostByIdRetrievesIt()
         {
-            var postId = 2;
-            var retrievedPost = this.postService.GetPostBy(postId).FirstOrDefault();
-            Assert.AreEqual(postId, retrievedPost.Id);
+            const int PostId = 2;
+            var retrievedPost = this.postService.GetBy(PostId).FirstOrDefault();
+            Assert.AreEqual(PostId, retrievedPost.Id);
         }
 
         [TestMethod]
         public void GetPostByIdWithWhenNonExistingReturnsNull()
         {
-            var result = this.postService.GetPostBy(-43424).FirstOrDefault();
+            var result = this.postService.GetBy(424).FirstOrDefault();
             Assert.AreEqual(result, null);
         }
 
         [TestMethod]
         public void GettingAPostByIdAndFriendlyUrlRetrievesIt()
         {
-            var postId = 2;
-            var friendlyUrl = "friendlyUrl";
-            var post = this.postService.GetPostBy(postId).FirstOrDefault();
-            post.FriendlyUrl = friendlyUrl;
-            var retrievedPost = this.postService.GetPostBy(postId, friendlyUrl).FirstOrDefault();
+            const int PostId = 2;
+            const string FriendlyUrl = "friendlyUrl";
+            var post = this.postService.GetBy(PostId).FirstOrDefault();
+            post.FriendlyUrl = FriendlyUrl;
+            var retrievedPost = this.postService.GetBy(PostId, FriendlyUrl).FirstOrDefault();
             Assert.AreEqual(post, retrievedPost);
         }
 
