@@ -2,6 +2,10 @@
 {
     public static class Actions
     {
+        public const string ForgotPassword = "ForgotPassword";
+
+        public const string ExternalLogin = "ExternalLogin";
+
         public const string About = "About";
 
         public const string Contact = "Contact";
@@ -27,5 +31,6 @@
         public const string Register = "Register";
 
         public const string SetPassword = "SetPassword";
+
     }
 }

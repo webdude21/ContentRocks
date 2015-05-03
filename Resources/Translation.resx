@@ -135,6 +135,12 @@
   <data name="ChangeYourAccountSettings" xml:space="preserve">
     <value>Change your account settings</value>
   </data>
+  <data name="ClickHereToLogIn" xml:space="preserve">
+    <value>Click here to Log in</value>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>Confirm Email</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="ErrorVerbose" xml:space="preserve">
     <value>An error occurred while processing your request</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>Forgot your password?</value>
   </data>
   <data name="FriendlyUrl" xml:space="preserve">
     <value>Friendly Url</value>

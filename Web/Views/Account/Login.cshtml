@@ -1,7 +1,7 @@
 ﻿@using Web.ViewModels.Account
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = Translation.LogIn;
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -51,11 +51,12 @@
             }
         </section>
     </div>
-    <div class="col-md-4">
+    @*Un comment if using external login
+        <div class="col-md-4">
         <section id="socialLoginForm">
             @Html.Partial(Partials.ExternalLoginsList, new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
-    </div>
+    </div>*@
 </div>
 
 @section Scripts {

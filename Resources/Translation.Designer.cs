@@ -115,6 +115,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click here to Log in.
+        /// </summary>
+        public static string ClickHereToLogIn {
+            get {
+                return ResourceManager.GetString("ClickHereToLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Email.
+        /// </summary>
+        public static string ConfirmEmail {
+            get {
+                return ResourceManager.GetString("ConfirmEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
         public static string Contact {
@@ -183,6 +201,15 @@ namespace Resources {
         public static string ErrorVerbose {
             get {
                 return ResourceManager.GetString("ErrorVerbose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot your password?.
+        /// </summary>
+        public static string ForgotYourPassword {
+            get {
+                return ResourceManager.GetString("ForgotYourPassword", resourceCulture);
             }
         }
         

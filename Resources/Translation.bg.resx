@@ -135,6 +135,12 @@
   <data name="ChangeYourAccountSettings" xml:space="preserve">
     <value>Промени настройките на акаунта си</value>
   </data>
+  <data name="ClickHereToLogIn" xml:space="preserve">
+    <value>Натиснете тук за да влезете</value>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>Потвърдете Email-а</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Контакти</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="ErrorVerbose" xml:space="preserve">
     <value>Възникна грешка при обработката на вашата заявка</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>Забравихте паролата си?</value>
   </data>
   <data name="FriendlyUrl" xml:space="preserve">
     <value>Приятелски Url</value>
