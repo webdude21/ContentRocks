@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - @GlobalConstants.SiteName</title>
     @RenderSection("MetaInformation", false)
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render(ClientResources.Css)
+    @Scripts.Render(ClientResources.Modernizr)
 </head>
 <body>
     @Html.Partial(Partials.Menu)
@@ -18,8 +18,8 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render(ClientResources.JQuery)
+    @Scripts.Render(ClientResources.Bootstrap)
     @RenderSection("scripts", false)
 </body>
 </html>
