@@ -1,5 +1,9 @@
 ﻿@model Web.ViewModels.Content.CategoryWithPostsViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
 
+<h1>@ViewBag.Title</h1>
 @{
     Html.RenderPartial(Partials.PostsListPartial, Model.Posts);
 }

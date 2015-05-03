@@ -31,7 +31,7 @@
 
         public ActionResult Detail(int id)
         {
-            return this.View(this.categoryService.GetBy(id).Project().To<CategoryViewModel>().FirstOrDefault());
+            return this.View(this.categoryService.GetBy(id).Project().To<CategoryWithPostsViewModel>().FirstOrDefault());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace Web.Tests.Controllers
 {
-    using System.Collections.Generic;
+    using System.Web;
+    using System.Web.Caching;
 
     using Common;
 
@@ -13,7 +14,6 @@
     using TestStack.FluentMVCTesting;
 
     using Web.Controllers;
-    using Web.ViewModels.Content;
 
     [TestClass]
     public class HomeControllerTest
@@ -23,6 +23,8 @@
         public HomeControllerTest()
         {
             var dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
+            var httpContext = new Mock<HttpContextBase>();
+            httpContext.Setup(h => h.Cache).Returns(new Cache());
             var postService = new Mock<IPostService>();
             postService.Setup(m => m.GetTheLatestPosts()).Returns(dataGenerator.GetPosts(3));
             var autoMapperConfig = new AutoMapperConfig();
@@ -40,12 +42,6 @@
         public void Contact()
         {
             this.controller.WithCallTo(c => c.Contact()).ShouldRenderDefaultView();
-        }
-
-        [TestMethod]
-        public void Index()
-        {
-            this.controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView().WithModel<List<PostViewModel>>();
         }
     }
 }
