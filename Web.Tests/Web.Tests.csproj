@@ -120,6 +120,10 @@
       <Project>{35d2126c-a2db-4c0e-b74a-7cc2d0f50bb2}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Config\Config.csproj">
+      <Project>{EEC76C35-7BCA-40B7-994C-F417DA90F12A}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{8c853a48-b159-4345-acd6-333b014bfdb5}</Project>
       <Name>Data</Name>

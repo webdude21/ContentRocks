@@ -17,11 +17,12 @@
                 new[] { Assemblies.NoAreaControllersNamespace });
 
             routes.MapRoute(DefaultRoute.Name, DefaultRoute.UrlPattern,
-                new {
-                        controller = DefaultRoute.DefaultController,
-                        action = DefaultRoute.DefaultAction,
-                        id = UrlParameter.Optional
-                    },
+                new
+                {
+                    controller = DefaultRoute.DefaultController,
+                    action = DefaultRoute.DefaultAction,
+                    id = UrlParameter.Optional
+                },
                 new[] { Assemblies.NoAreaControllersNamespace });
         }
     }

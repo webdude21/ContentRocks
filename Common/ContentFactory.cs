@@ -1,6 +1,7 @@
 ﻿namespace Common
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Common.Contracts;
 
@@ -14,6 +15,18 @@
         public ContentFactory(IRandomDataGenerator randomDataGenerator)
         {
             this.randomGenerator = randomDataGenerator;
+        }
+
+        public IQueryable<Post> GetPosts(int count)
+        {
+            var postList = new List<Post>();
+
+            for (var i = 1; i <= count; i++)
+            {
+                postList.Add(this.GetPost(i));
+            }
+
+            return postList.AsQueryable();
         }
 
         public Category GetCategory(int id)

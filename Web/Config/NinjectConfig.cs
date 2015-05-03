@@ -72,14 +72,11 @@ namespace Web
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            var registries =
-                Assembly.Load(Assemblies.Infrastructure)
-                    .GetExportedTypes()
-                    .Where(t => t.IsClass && typeof(INinjectRegistry).IsAssignableFrom(t));
+            var registries = Assembly.Load(Assemblies.Infrastructure).GetExportedTypes()
+                    .Where(t => t.IsClass && typeof(INinjectRegistry).IsAssignableFrom(t))
+                    .Select(registry => (INinjectRegistry)Activator.CreateInstance(registry));
 
-            foreach (
-                var registryInstance in
-                    registries.Select(registry => (INinjectRegistry)Activator.CreateInstance(registry)))
+            foreach (var registryInstance in registries)
             {
                 registryInstance.Register(kernel);
             }

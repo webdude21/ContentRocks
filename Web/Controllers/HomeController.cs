@@ -1,6 +1,7 @@
 ﻿namespace Web.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Caching;
     using System.Web.Mvc;
@@ -43,19 +44,25 @@
             return this.View(this.GetFromCache(HomePagePosts));
         }
 
-        private object GetFromCache(string cacheKey)
+        private List<PostViewModel> GetFromCache(string cacheKey)
         {
+            List<PostViewModel> posts;
+
             if (this.HttpContext.Cache[cacheKey] == null)
             {
-                var posts = this.postService.GetTheLatestPosts(GlobalConstants.HomePagePostsCount)
-                .Project()
-                .To<PostViewModel>()
-                .ToList();
+                posts = this.postService.GetTheLatestPosts(GlobalConstants.HomePagePostsCount)
+                        .Project()
+                        .To<PostViewModel>()
+                        .ToList();
 
                 this.HttpContext.Cache.Add(cacheKey, posts, null, DateTime.Now.AddHours(1), TimeSpan.Zero, CacheItemPriority.Default, null);
             }
+            else
+            {
+                posts = (List<PostViewModel>)this.HttpContext.Cache[cacheKey];
+            }
 
-            return this.HttpContext.Cache[cacheKey];
+            return posts;
         }
     }
 }
