@@ -9,7 +9,7 @@
 <p class="text-success">@ViewBag.StatusMessage</p>
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
-    if (loginProviders.Count() == 0)
+    if (!loginProviders.Any())
     {
         <div>
             <p>
@@ -32,7 +32,7 @@
                         <td>
                             @if (ViewBag.ShowRemoveButton)
                             {
-                                using (Html.BeginForm("RemoveLogin", "Manage"))
+                                using (Html.BeginForm(Actions.RemoveLogin, Controllers.Manage))
                                 {
                                     @Html.AntiForgeryToken()
                                     <div>
@@ -54,7 +54,7 @@
         }
         if (Model.OtherLogins.Count > 0)
         {
-            using (Html.BeginForm("LinkLogin", "Manage"))
+            using (Html.BeginForm(Actions.LinkLogin, Controllers.Manage))
             {
                 @Html.AntiForgeryToken()
                 <div id="socialLoginList">

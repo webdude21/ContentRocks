@@ -4,9 +4,9 @@
 }
 
 <div class="form-group">
-    <label for="categorySelect" class="col-md-2 control-label">@Translation.Categories</label>
+    <label for="category-select" class="col-md-2 control-label">@Translation.Categories</label>
     <div class="col-md-10">
-        <select class="form-control" id="select" name="categoryId">
+        <select class="form-control" id="category-select" name="categoryId">
             @foreach (var item in Model)
             {
                 <option value="@item.Id">@item.Title</option>
