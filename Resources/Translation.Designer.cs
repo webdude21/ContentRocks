@@ -160,6 +160,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create a new account.
+        /// </summary>
+        public static string CreateNewAccount {
+            get {
+                return ResourceManager.GetString("CreateNewAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
@@ -291,6 +300,15 @@ namespace Resources {
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register as new user.
+        /// </summary>
+        public static string RegisterAsNewUser {
+            get {
+                return ResourceManager.GetString("RegisterAsNewUser", resourceCulture);
             }
         }
         

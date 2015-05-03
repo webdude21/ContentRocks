@@ -202,7 +202,7 @@
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\PostsController.cs" />
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
-    <Compile Include="Areas\Administration\RequestModels\PostCreateModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Content\PostCreateModel.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Config\BundleConfig.cs" />
     <Compile Include="Config\FilterConfig.cs" />
@@ -479,7 +479,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\ViewModels\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />

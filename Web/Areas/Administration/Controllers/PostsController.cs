@@ -7,7 +7,7 @@
 
     using Services.Contracts;
 
-    using Web.Areas.Administration.RequestModels;
+    using Web.Areas.Administration.ViewModels.Content;
     using Web.Infrastructure.Constants;
     using Web.ViewModels.Content;
 
@@ -35,12 +35,12 @@
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
         // GET: Administration/Posts/Create
-        public ActionResult Create([Bind(Include = PostCreateModel.ModelBinderProperties)] PostCreateModel post)
+        public ActionResult Create([Bind(Include = PostCreateViewModel.ModelBinderProperties)] PostCreateViewModel post)
         {
             if (ModelState.IsValid)
             {
 
-                this.postService.AddPost(PostCreateModel.GetPostFrom(post));
+                this.postService.AddPost(PostCreateViewModel.GetPostFrom(post));
                 return this.RedirectToAction(Actions.Index);
             }
 

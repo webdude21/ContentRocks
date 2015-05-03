@@ -15,5 +15,7 @@
         public const string PostsListPartial = "_PostsListPartial";
 
         public const string Layout = "_Layout";
+
+        public const string ExternalLoginsList = "_ExternalLoginsListPartial";
     }
 }

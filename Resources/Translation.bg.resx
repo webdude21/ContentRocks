@@ -150,6 +150,9 @@
   <data name="CreateBlogPost" xml:space="preserve">
     <value>Писане на нова статия</value>
   </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Създаване на нов акаунт</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Грешка</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Регистрация</value>
+  </data>
+  <data name="RegisterAsNewUser" xml:space="preserve">
+    <value>Регистриране като нов потребител</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Заглавие</value>

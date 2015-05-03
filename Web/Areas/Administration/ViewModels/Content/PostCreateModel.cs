@@ -1,4 +1,4 @@
-﻿namespace Web.Areas.Administration.RequestModels
+﻿namespace Web.Areas.Administration.ViewModels.Content
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +9,7 @@
 
     using Resources;
 
-    public class PostCreateModel
+    public class PostCreateViewModel
     {
         [NotMapped]
         public const string ModelBinderProperties = "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId,FriendlyUrl";
@@ -35,7 +35,7 @@
         [Display(Name = "Title", ResourceType = typeof(Translation))]
         public string Title { get; set; }
 
-        public static Post GetPostFrom(PostCreateModel product)
+        public static Post GetPostFrom(PostCreateViewModel product)
         {
             return new Post
                        {
