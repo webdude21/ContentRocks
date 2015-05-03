@@ -4,9 +4,6 @@
 }
 
 <h1>@ViewBag.Title</h1>
-<ul class="nav nav-pills nav-stacked">
-    @foreach (var post in Model)
-    {
-        <li>@Html.RouteLink(post.Title, PostRoute.Name, new { area = string.Empty, id = post.Id, friendlyUrl = post.FriendlyUrl })</li>
-    }
-</ul>
+@{
+    Html.RenderPartial(Partials.PostsListPartial, Model);
+}

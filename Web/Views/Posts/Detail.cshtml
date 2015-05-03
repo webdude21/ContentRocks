@@ -15,7 +15,6 @@
         Controllers.Category, new { id = Model.Category.Id }, new { area = string.Empty })
         <span class="glyphicon glyphicon-user"></span><span>@Model.AuthorName</span>
     </header>
-    <hr />
     <div class="article-content">
         @Html.Raw(Model.Content)
     </div>

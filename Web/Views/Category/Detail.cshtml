@@ -1,18 +1,5 @@
-﻿@model Web.ViewModels.Content.CategoryViewModel
+﻿@model Web.ViewModels.Content.CategoryWithPostsViewModel
 
 @{
-    Layout = null;
+    Html.RenderPartial(Partials.PostsListPartial, Model.Posts);
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>

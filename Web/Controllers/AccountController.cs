@@ -12,6 +12,7 @@
     using Microsoft.Owin.Security;
 
     using Web.ViewModels;
+    using Web.ViewModels.Account;
 
     [Authorize]
     public class AccountController : BaseController

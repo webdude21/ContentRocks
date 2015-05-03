@@ -11,5 +11,9 @@
         public const string Seo = "_SeoPartial";
 
         public const string PostShortPartial = "_PostShortPartial";
+
+        public const string PostsListPartial = "_PostsListPartial";
+
+        public const string Layout = "_Layout";
     }
 }
