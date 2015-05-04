@@ -34,8 +34,7 @@
             var pageNumber = Checker.GetValidPageNumber(page);
             this.ViewBag.pageNumber = pageNumber;
             return
-                this.View(
-                    this.postService.GetTheLatestPosts(GlobalConstants.PageSize, pageNumber)
+                this.View(this.postService.GetTheLatestPosts(GlobalConstants.PageSize, pageNumber)
                         .Project()
                         .To<PostViewModel>()
                         .ToList());

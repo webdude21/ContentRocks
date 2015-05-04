@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Globalization;
     using System.Linq;
 
     using AutoMapper;
@@ -29,6 +30,8 @@
 
         public string AuthorName { get; set; }
 
+        public CategoryViewModel Category { get; set; }
+
         public ICollection<CommentViewModel> Comments { get; set; }
 
         [DataType(DataType.Html)]
@@ -45,7 +48,13 @@
 
         public string MetaTitle { get; set; }
 
-        public CategoryViewModel Category { get; set;}
+        public string PostedOnWithTime
+        {
+            get
+            {
+                return this.CreatedOn.ToString(CultureInfo.CurrentCulture);
+            }
+        }
 
         public string PostedOn
         {
