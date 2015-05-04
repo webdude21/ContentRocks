@@ -6,6 +6,7 @@
     using Config;
 
     using Models.Content;
+    using Models.Identity;
 
     using Resources;
 
@@ -35,12 +36,15 @@
         [Display(Name = "Title", ResourceType = typeof(Translation))]
         public string Title { get; set; }
 
+        public virtual ApplicationUser Author { get; set; }
+
         public static Post GetPostFrom(PostCreateViewModel product)
         {
             return new Post
                        {
                            CategoryId = product.CategoryId,
                            Content = product.Content,
+                           Author = product.Author,
                            FriendlyUrl = product.FriendlyUrl,
                            MetaDescription = product.MetaDescription,
                            MetaTitle = product.MetaTitle,

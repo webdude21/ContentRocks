@@ -9,13 +9,15 @@
 
     using Web.Areas.Administration.ViewModels.Content;
     using Web.Infrastructure.Constants;
+    using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
 
     public class PostsController : AdminController
     {
         private readonly IPostService postService;
 
-        public PostsController(IPostService postService)
+        public PostsController(IPostService postService, ICurrentUser user)
+            : base(user)
         {
             this.postService = postService;
         }
@@ -37,8 +39,9 @@
         // GET: Administration/Posts/Create
         public ActionResult Create([Bind(Include = PostCreateViewModel.ModelBinderProperties)] PostCreateViewModel post)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
+                post.Author = this.CurrentUser.Get();
                 this.postService.AddPost(PostCreateViewModel.GetPostFrom(post));
                 return this.RedirectToAction(Actions.Index);
             }
