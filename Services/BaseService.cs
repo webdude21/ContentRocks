@@ -4,11 +4,18 @@
     using System.Data.Entity;
     using System.Linq;
 
+    using Common;
+
+    using Config;
+
     using Data.Contracts;
+
+    using Models;
 
     using Services.Contracts;
 
-    public abstract class BaseService<T> : IService where T : class
+    public abstract class BaseService<T> : IService
+        where T : class
     {
         private readonly IDbSet<T> dataSet;
 
@@ -49,6 +56,20 @@
         public virtual IQueryable<T> GetAll()
         {
             return this.DataSet;
+        }
+
+        public int GetPageCount(int pageSize)
+        {
+            return (this.DataSet.Count() + pageSize - 1) / pageSize;
+        }
+
+        public Pager GetPager(int? currentPage)
+        {
+            return new Pager
+                       {
+                           TotalPages = this.GetPageCount(GlobalConstants.PageSize),
+                           CurrentPage = Checker.GetValidPageNumber(currentPage)
+                       };
         }
 
         protected virtual void CheckIfEntityExists(object id)

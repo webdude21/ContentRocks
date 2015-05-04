@@ -5,13 +5,12 @@
     using System.Web;
     using System.Web.Mvc;
 
-    using global::Models.Identity;
-
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
-    using Web.ViewModels;
+    using Models.Identity;
+
     using Web.ViewModels.Account;
 
     [Authorize]
@@ -113,7 +112,6 @@
                     return this.View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return this.RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
-                case SignInStatus.Failure:
                 default:
                     // If the user does not have an account, then prompt the user to create an account
                     this.ViewBag.ReturnUrl = returnUrl;
@@ -249,7 +247,6 @@
                     return this.View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return this.RedirectToAction("SendCode", new { ReturnUrl = returnUrl, model.RememberMe });
-                case SignInStatus.Failure:
                 default:
                     this.ModelState.AddModelError("", "Invalid login attempt.");
                     return this.View(model);

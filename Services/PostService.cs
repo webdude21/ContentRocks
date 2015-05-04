@@ -13,7 +13,8 @@
 
     public class PostService : BaseService<Post>, IPostService
     {
-        public PostService(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public PostService(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
             this.Categories = unitOfWork.Set<Category>();
         }

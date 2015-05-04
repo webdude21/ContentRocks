@@ -22,7 +22,9 @@
             }
             else
             {
-                cultureName = this.Request.UserLanguages != null && this.Request.UserLanguages.Length > 0 ? this.Request.UserLanguages[0] :  null;
+                cultureName = this.Request.UserLanguages != null && this.Request.UserLanguages.Length > 0
+                                  ? this.Request.UserLanguages[0]
+                                  : null;
             }
 
             cultureName = CultureHelper.GetImplementedCulture(cultureName);

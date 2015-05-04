@@ -237,6 +237,7 @@
     <Compile Include="ViewModels\Contracts\IMetaInfoViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\Content\PostViewModel.cs" />
+    <Compile Include="ViewModels\PagerViewModel.cs" />
     <Compile Include="ViewModels\Seo\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -476,6 +477,7 @@
     <Content Include="Views\Category\Detail.cshtml" />
     <Content Include="Views\Shared\_BreadcrumbsPartial.cshtml" />
     <Content Include="Views\Shared\_PostsListPartial.cshtml" />
+    <Content Include="Views\Shared\_PagerPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -36,7 +36,7 @@
         public PostServiceTests()
         {
             this.dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
-            this.mockData = this.GetPosts(20);
+            this.mockData = dataGenerator.GetPosts(20);
             this.unitOfWorkMock = new Mock<IUnitOfWork>();
             this.repository = new Mock<DbSet<Post>>();
             this.repository.As<IQueryable<Post>>().Setup(m => m.Provider).Returns(this.mockData.Provider);
@@ -129,6 +129,13 @@
         }
 
         [TestMethod]
+        public void PostServiceReturnsPageCountCorrectly()
+        {
+            var pageCount = this.postService.GetPageCount(PageSize);
+            Assert.AreEqual(2, pageCount);
+        }
+
+        [TestMethod]
         public void PostServiceReturnsCorrectlySortedPostsWithPaging()
         {
             var resultList = this.postService.GetTheLatestPosts(PageSize, 2).ToList();
@@ -143,18 +150,6 @@
             var resultList = this.postService.GetTheLatestPosts(PageSize, -122).ToList();
             var realData = this.mockData.OrderByDescending(post => post.CreatedOn).Take(PageSize).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
-        }
-
-        private IQueryable<Post> GetPosts(int count)
-        {
-            var postList = new List<Post>();
-
-            for (var i = 1; i <= count; i++)
-            {
-                postList.Add(this.dataGenerator.GetPost(i));
-            }
-
-            return postList.AsQueryable();
         }
     }
 }

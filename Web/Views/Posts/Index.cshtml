@@ -7,3 +7,5 @@
 @{
     Html.RenderPartial(Partials.PostsListPartial, Model);
 }
+
+@Html.Action(Actions.Pager, Controllers.Posts, new { area = string.Empty })

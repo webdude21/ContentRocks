@@ -4,9 +4,9 @@
     {
         public const string About = "About";
 
-        public const string ChangePassword = "ChangePassword";
-
         public const string AddPhoneNumber = "AddPhoneNumber";
+
+        public const string ChangePassword = "ChangePassword";
 
         public const string Contact = "Contact";
 
@@ -22,6 +22,8 @@
 
         public const string Index = "Index";
 
+        public const string LinkLogin = "LinkLogin";
+
         public const string List = "List";
 
         public const string Login = "Login";
@@ -32,19 +34,19 @@
 
         public const string Menu = "Menu";
 
+        public const string Pager = "Pager";
+
         public const string Register = "Register";
-
-        public const string ResetPassword = "ResetPassword";
-
-        public const string SetPassword = "SetPassword";
-
-        public const string SendCode = "SendCode";
-
-        public const string VerifyCode = "VerifyCode";
 
         public const string RemoveLogin = "RemoveLogin";
 
-        public const string LinkLogin = "LinkLogin";
+        public const string ResetPassword = "ResetPassword";
+
+        public const string SendCode = "SendCode";
+
+        public const string SetPassword = "SetPassword";
+
+        public const string VerifyCode = "VerifyCode";
 
         public const string VerifyPhoneNumber = "VerifyPhoneNumber";
     }

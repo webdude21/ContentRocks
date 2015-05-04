@@ -39,7 +39,6 @@
         {
             if (ModelState.IsValid)
             {
-
                 this.postService.AddPost(PostCreateViewModel.GetPostFrom(post));
                 return this.RedirectToAction(Actions.Index);
             }

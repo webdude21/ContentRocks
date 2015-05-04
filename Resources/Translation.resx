@@ -234,4 +234,10 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>Phone number</value>
   </data>
+  <data name="PostedOn" xml:space="preserve">
+    <value>Posted on</value>
+  </data>
+  <data name="PostedBy" xml:space="preserve">
+    <value>Posted by</value>
+  </data>
 </root>

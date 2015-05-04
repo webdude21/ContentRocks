@@ -16,9 +16,9 @@
 
     public class HomeController : BaseController
     {
-        private readonly IPostService postService;
-
         private const string HomePagePosts = "HomePagePosts";
+
+        private readonly IPostService postService;
 
         public HomeController(IPostService postService)
         {
@@ -50,12 +50,20 @@
 
             if (this.HttpContext.Cache[cacheKey] == null)
             {
-                posts = this.postService.GetTheLatestPosts(GlobalConstants.HomePagePostsCount)
+                posts =
+                    this.postService.GetTheLatestPosts(GlobalConstants.HomePagePostsCount)
                         .Project()
                         .To<PostViewModel>()
                         .ToList();
 
-                this.HttpContext.Cache.Add(cacheKey, posts, null, DateTime.Now.AddHours(1), TimeSpan.Zero, CacheItemPriority.Default, null);
+                this.HttpContext.Cache.Add(
+                    cacheKey,
+                    posts,
+                    null,
+                    DateTime.Now.AddHours(1),
+                    TimeSpan.Zero,
+                    CacheItemPriority.Default,
+                    null);
             }
             else
             {

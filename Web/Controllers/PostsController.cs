@@ -11,6 +11,8 @@
 
     using Services.Contracts;
 
+    using Web.Infrastructure.Constants;
+    using Web.ViewModels;
     using Web.ViewModels.Content;
 
     public class PostsController : BaseController
@@ -29,10 +31,20 @@
 
         public ActionResult Index(int? page)
         {
-            return this.View(this.postService.GetTheLatestPosts(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+            var pageNumber = Checker.GetValidPageNumber(page);
+            this.ViewBag.pageNumber = pageNumber;
+            return
+                this.View(
+                    this.postService.GetTheLatestPosts(GlobalConstants.PageSize, pageNumber)
                         .Project()
                         .To<PostViewModel>()
                         .ToList());
+        }
+
+        [ChildActionOnly]
+        public ActionResult Pager(int? page)
+        {
+            return this.PartialView(Partials.Pager, PagerViewModel.ConvertFrom(this.postService.GetPager(page)));
         }
     }
 }

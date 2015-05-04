@@ -18,9 +18,9 @@
             this.categoryService = categoryService;
         }
 
-        public ActionResult Index()
+        public ActionResult Detail(int id)
         {
-            return this.View(this.categoryService.GetAll().Project().To<CategoryViewModel>().ToList());
+            return this.View(this.categoryService.GetBy(id).Project().To<CategoryWithPostsViewModel>().FirstOrDefault());
         }
 
         [ChildActionOnly]
@@ -29,9 +29,9 @@
             return this.View(this.categoryService.GetAll().Project().To<CategoryViewModel>().ToList());
         }
 
-        public ActionResult Detail(int id)
+        public ActionResult Index()
         {
-            return this.View(this.categoryService.GetBy(id).Project().To<CategoryWithPostsViewModel>().FirstOrDefault());
+            return this.View(this.categoryService.GetAll().Project().To<CategoryViewModel>().ToList());
         }
     }
 }

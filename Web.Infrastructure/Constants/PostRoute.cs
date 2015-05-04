@@ -8,12 +8,12 @@
 
         public const string Detail = Actions.Detail;
 
-        public const string Name = "Posts";
-
-        public const string UrlPattern = "Posts/{id}_{friendlyUrl}";
+        public const string FriendlyUrlMatcher = GlobalConstants.FriendlyUrlsRegex;
 
         public const string IdMatcher = @"\d+";
 
-        public const string FriendlyUrlMatcher = GlobalConstants.FriendlyUrlsRegex;
+        public const string Name = "Posts";
+
+        public const string UrlPattern = "Posts/{id}_{friendlyUrl}";
     }
 }

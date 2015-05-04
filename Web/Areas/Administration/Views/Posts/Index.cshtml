@@ -3,10 +3,9 @@
     ViewBag.Title = Translation.LatestPosts;
 }
 
-<h1>@Translation.LatestPosts</h1>
-<ul class="nav nav-pills nav-stacked">
-    @foreach (var post in Model)
-    {
-        <li>@Html.RouteLink(post.Title, PostRoute.Name, new { area = string.Empty, id = post.Id, friendlyUrl = post.FriendlyUrl })</li>
-    }
-</ul>
+<h1>@ViewBag.Title</h1>
+@{
+    Html.RenderPartial(Partials.PostsListPartial, Model);
+}
+
+@Html.Action(Actions.Pager, Controllers.Posts, new { area = string.Empty })

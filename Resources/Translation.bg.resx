@@ -234,4 +234,10 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>Телефонен номер</value>
   </data>
+  <data name="PostedOn" xml:space="preserve">
+    <value>Публикувано на</value>
+  </data>
+  <data name="PostedBy" xml:space="preserve">
+    <value>Публикувано от</value>
+  </data>
 </root>

@@ -67,7 +67,6 @@
             var outerDiv = GenerateOuterDiv();
             var innerDiv = GenerateInnerDiv();
 
-
             innerDiv.InnerHtml = label + input.ToString();
             outerDiv.InnerHtml = innerDiv.ToString();
 
