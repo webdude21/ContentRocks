@@ -478,6 +478,8 @@
     <Content Include="Views\Shared\_BreadcrumbsPartial.cshtml" />
     <Content Include="Views\Shared\_PostsListPartial.cshtml" />
     <Content Include="Views\Shared\_PagerPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
