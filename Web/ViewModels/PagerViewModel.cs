@@ -24,6 +24,22 @@
             }
         }
 
+        public bool PreviousPageButtonEnabled
+        {
+            get
+            {
+                return this.CurrentPage > 1;
+            }
+        }
+
+        public bool NextPageButtonEnabled
+        {
+            get
+            {
+                return this.CurrentPage < this.TotalPages;
+            }
+        }
+
         public int TotalPages { get; set; }
 
         public static PagerViewModel ConvertFrom(Pager pager)

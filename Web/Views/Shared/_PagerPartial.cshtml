@@ -2,27 +2,26 @@
 
 <div class="row">
     <ul class="pagination">
-        @if (Model.CurrentPage < 2)
-        {
-            <li class="disabled"><span>«</span></li>
-        }
-        else
+        @if (Model.PreviousPageButtonEnabled)
         {
             <li><a href="@Model.PreviousPageParam">«</a></li>
         }
-        @for (var i = 1; i <= Model.TotalPages; i++)
+        else
         {
-            if (Model.CurrentPage == i)
+            <li class="disabled"><span>«</span></li>
+        }
+        @for (var page = 1; page <= Model.TotalPages; page++)
+        {
+            if (Model.CurrentPage == page)
             {
-                <li class="active"><span>@i</span></li>
+                <li class="active"><span>@page</span></li>
             }
             else
             {
-                <li><a href="@Model.GetPageParam(i)">@i</a></li>
+                <li><a href="@Model.GetPageParam(page)">@page</a></li>
             }
         }
-
-        @if (Model.CurrentPage < Model.TotalPages)
+        @if (Model.NextPageButtonEnabled)
         {
             <li><a href="@Model.NextPageParam">»</a></li>
         }
