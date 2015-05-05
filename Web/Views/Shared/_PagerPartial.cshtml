@@ -1,0 +1,34 @@
+﻿@model  Web.ViewModels.PagerViewModel
+
+<div class="row">
+    <ul class="pagination">
+        @if (Model.CurrentPage < 2)
+        {
+            <li class="disabled"><span>«</span></li>
+        }
+        else
+        {
+            <li><a href="@Model.PreviousPageParam">«</a></li>
+        }
+        @for (var i = 1; i <= Model.TotalPages; i++)
+        {
+            if (Model.CurrentPage == i)
+            {
+                <li class="active"><span>@i</span></li>
+            }
+            else
+            {
+                <li><a href="@Model.GetPageParam(i)">@i</a></li>
+            }
+        }
+
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <li><a href="@Model.NextPageParam">»</a></li>
+        }
+        else
+        {
+            <li class="disabled"><span>»</span></li>
+        }
+    </ul>
+</div>
