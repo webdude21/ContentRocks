@@ -261,4 +261,19 @@
   <data name="ThisWillDeleteAllPostInTheCategory" xml:space="preserve">
     <value>Това действие ще изтрие всички статии в категорията!</value>
   </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Потвърждаване на паролата</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Е-поща</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Парола</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запомни ме</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Потребителско име</value>
+  </data>
 </root>
