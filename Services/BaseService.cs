@@ -14,8 +14,7 @@
 
     using Services.Contracts;
 
-    public abstract class BaseService<T> : IService
-        where T : class
+    public abstract class BaseService<T> : IEntityService<T> where T : BaseModel
     {
         private readonly IDbSet<T> dataSet;
 
@@ -58,6 +57,11 @@
             return this.DataSet;
         }
 
+        public IQueryable<T> GetBy(int id)
+        {
+            return this.DataSet.Where(entity => entity.Id == id);
+        }
+
         public int GetPageCount(int pageSize)
         {
             return (this.DataSet.Count() + pageSize - 1) / pageSize;
@@ -88,6 +92,14 @@
         protected virtual void SaveChanges()
         {
             this.unitOfWork.SaveChanges();
+        }
+
+        public void DeleteBy(int id)
+        {
+            var entity = this.dataSet.Find(id);
+            Checker.CheckForNull(entity, "entity");
+            this.DataSet.Remove(entity);
+            this.SaveChanges();
         }
     }
 }

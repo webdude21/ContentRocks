@@ -31,10 +31,8 @@
 
         public ActionResult Index(int? page)
         {
-            var pageNumber = Checker.GetValidPageNumber(page);
-            this.ViewBag.pageNumber = pageNumber;
-            return
-                this.View(this.postService.GetTheLatestPosts(GlobalConstants.PageSize, pageNumber)
+            return this.View(this.postService
+                        .GetTheLatestPosts(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
                         .Project()
                         .To<PostViewModel>()
                         .ToList());

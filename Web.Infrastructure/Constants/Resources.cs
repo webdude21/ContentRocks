@@ -8,6 +8,10 @@
 
         public const string BootstrapStylesPath = "~/Content/bootstrap.css";
 
+        public const string JQueryUnobtrusivePath = "~/Scripts/jquery.unobtrusive-ajax.js";
+
+        public const string JQueryUnobtrusive = "~/bundles/unobtrusive";
+
         public const string Css = "~/Content/css";
 
         public const string JQuery = "~/bundles/jquery";

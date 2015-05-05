@@ -203,6 +203,7 @@
     <Compile Include="Areas\Administration\Controllers\PostsController.cs" />
     <Compile Include="Areas\Administration\Helpers\AdminMenu.cs" />
     <Compile Include="Areas\Administration\ViewModels\Content\PostCreateModel.cs" />
+    <Compile Include="Areas\Administration\Controllers\CategoryController.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Config\BundleConfig.cs" />
     <Compile Include="Config\FilterConfig.cs" />
@@ -254,6 +255,7 @@
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\Admin\_AdminMenu.cshtml" />
     <Content Include="Areas\Administration\Views\Posts\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Category\Index.cshtml" />
     <None Include="Areas\Administration\Views\Posts\Create.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -261,6 +263,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

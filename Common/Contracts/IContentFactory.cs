@@ -11,5 +11,7 @@ namespace Common.Contracts
         Post GetPost(int id);
 
         IQueryable<Post> GetPosts(int count);
+
+        IQueryable<Category> GetCategories(int count);
     }
 }

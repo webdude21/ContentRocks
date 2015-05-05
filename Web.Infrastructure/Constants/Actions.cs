@@ -49,5 +49,11 @@
         public const string VerifyCode = "VerifyCode";
 
         public const string VerifyPhoneNumber = "VerifyPhoneNumber";
+
+        public const string Create = "Create";
+
+        public const string Edit = "Edit";
+
+        public const string Delete = "Delete";
     }
 }

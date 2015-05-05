@@ -240,4 +240,25 @@
   <data name="PostedBy" xml:space="preserve">
     <value>Публикувано от</value>
   </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Зануляване</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отказ</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Изтриване</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактиране</value>
+  </data>
+  <data name="AreYouSureYouWantToDeleteThis" xml:space="preserve">
+    <value>Сигурни ли сте, че искате да изтриете това?</value>
+  </data>
+  <data name="ThisWillDeleteAllPostInTheCategory" xml:space="preserve">
+    <value>Това действие ще изтрие всички статии в категорията!</value>
+  </data>
 </root>

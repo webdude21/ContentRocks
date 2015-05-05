@@ -29,6 +29,18 @@
             return postList.AsQueryable();
         }
 
+        public IQueryable<Category> GetCategories(int count)
+        {
+            var categoryList = new List<Category>();
+
+            for (var i = 1; i <= count; i++)
+            {
+                categoryList.Add(this.GetCategory(i));
+            }
+
+            return categoryList.AsQueryable();
+        }
+
         public Category GetCategory(int id)
         {
             return new Category

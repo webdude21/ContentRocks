@@ -9,6 +9,8 @@
 
     using Models.Content;
 
+    using Resources;
+
     using Web.Infrastructure.Mappings;
 
     public class CategoryViewModel : BaseViewModel, IMapFrom<Category>
@@ -18,6 +20,23 @@
         public string FriendlyUrl { get; set; }
 
         public string Title { get; set; }
+
+        public string GetHtmlId
+        {
+            get
+            {
+                return "category-" + this.Id; 
+            }
+        }
+
+        public string ConfirmDelete
+        {
+            get
+            {
+                return Translation.AreYouSureYouWantToDeleteThis + System.Environment.NewLine
+                       + Translation.ThisWillDeleteAllPostInTheCategory;
+            }
+        }
 
         public static IEnumerable<SelectListItem> GetDropDownModel(IEnumerable<CategoryViewModel> items)
         {

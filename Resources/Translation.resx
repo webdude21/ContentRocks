@@ -240,4 +240,25 @@
   <data name="PostedBy" xml:space="preserve">
     <value>Posted by</value>
   </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="AreYouSureYouWantToDeleteThis" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="ThisWillDeleteAllPostInTheCategory" xml:space="preserve">
+    <value>This will delete all post in the category!</value>
+  </data>
 </root>

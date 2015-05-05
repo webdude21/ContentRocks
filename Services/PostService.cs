@@ -34,11 +34,6 @@
             return this.DataSet.Where(p => p.Id == id && p.FriendlyUrl == friendlyUrl);
         }
 
-        public IQueryable<Post> GetBy(int id)
-        {
-            return this.DataSet.Where(p => p.Id == id);
-        }
-
         public IQueryable<Post> GetTheLatestPosts()
         {
             return this.DataSet.OrderByDescending(post => post.CreatedOn);

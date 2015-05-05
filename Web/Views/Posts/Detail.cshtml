@@ -2,11 +2,9 @@
 @{
     ViewBag.Title = Model.Title;
 }
-
 @section MetaInformation {
     @Html.Partial(Partials.Seo, Model)
 }
-
 <article>
     <header>
         <h3>@Html.RouteLink(Model.Title, PostRoute.Name, new { area = string.Empty, id = Model.Id, friendlyUrl = Model.FriendlyUrl })</h3>

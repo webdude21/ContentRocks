@@ -1,7 +1,5 @@
 ﻿namespace Services
 {
-    using System.Linq;
-
     using Common;
 
     using Data.Contracts;
@@ -23,11 +21,6 @@
             this.CheckIfEntityExists(category.Id);
             this.DataSet.Add(category);
             this.SaveChanges();
-        }
-
-        public IQueryable<Category> GetBy(int id)
-        {
-            return this.DataSet.Where(category => category.Id == id);
         }
     }
 }

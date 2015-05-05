@@ -3,9 +3,12 @@
     ViewBag.Title = Translation.LatestPosts;
 }
 
-<h1>@ViewBag.Title</h1>
+<h4>@ViewBag.Title</h4>
+
 @{
     Html.RenderPartial(Partials.PostsListPartial, Model);
 }
 
 @Html.Action(Actions.Pager, Controllers.Posts, new { area = string.Empty })
+@Html.ActionLink(Translation.CreateBlogPost, Actions.Create, Controllers.Posts, 
+new { area = Areas.Administration }, new { @class = "btn btn-default col-md-offset-5" })

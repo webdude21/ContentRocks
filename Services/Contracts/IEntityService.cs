@@ -12,6 +12,8 @@
 
         int GetPageCount(int pageSize);
 
+        void DeleteBy(int id);
+
         Pager GetPager(int? currentPage);
     }
 }

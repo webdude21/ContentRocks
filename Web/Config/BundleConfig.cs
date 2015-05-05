@@ -23,6 +23,8 @@
 
             bundles.Add(new ScriptBundle(ClientResources.JQueryValidation).Include(ClientResources.JQueryValidationPath));
 
+            bundles.Add(new ScriptBundle(ClientResources.JQueryUnobtrusive).Include(ClientResources.JQueryUnobtrusivePath));
+
             bundles.Add(new ScriptBundle(ClientResources.Modernizr).Include(ClientResources.ModernizrPath));
 
             bundles.Add(new ScriptBundle(ClientResources.Bootstrap).Include(ClientResources.BootstrapPath, ClientResources.RespondPath));

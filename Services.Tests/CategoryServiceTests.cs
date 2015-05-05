@@ -1,7 +1,6 @@
 ﻿namespace Services.Tests
 {
     using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
 
@@ -21,6 +20,8 @@
     [TestClass]
     public class CategoryServiceTests
     {
+        public const int CategoriesCount = 10;
+
         private readonly ICategoryService categoryService;
 
         private readonly IContentFactory dataGenerator;
@@ -34,7 +35,7 @@
         public CategoryServiceTests()
         {
             this.dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
-            this.mockData = this.GetCategories(10);
+            this.mockData = this.dataGenerator.GetCategories(CategoriesCount);
             this.unitOfWorkMock = new Mock<IUnitOfWork>();
             this.repository = new Mock<DbSet<Category>>();
             this.repository.As<IQueryable<Category>>().Setup(m => m.Provider).Returns(this.mockData.Provider);
@@ -74,23 +75,30 @@
         }
 
         [TestMethod]
+        public void CategoryServiceDeletesItemById()
+        {
+            var categoryToDelete = this.mockData.FirstOrDefault();
+            var id = categoryToDelete.Id;
+            this.repository.Setup(c => c.Find(id)).Returns(categoryToDelete);
+            this.repository.Setup(c => c.Remove(categoryToDelete)).Verifiable();
+            this.unitOfWorkMock.Setup(m => m.SaveChanges()).Verifiable();
+            this.categoryService.DeleteBy(id);
+            this.repository.Verify();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void CategoryServiceDeletesItemByIdNonExistingIdThrowsException()
+        {
+            this.categoryService.DeleteBy(-10);
+        }
+
+        [TestMethod]
         public void CategoryServiceReturnsAllCategories()
         {
             var resultList = this.categoryService.GetAll().ToList();
             var realData = this.mockData.OrderByDescending(category => category.CreatedOn).ToList();
             CollectionAssert.AreEquivalent(resultList, realData);
-        }
-
-        private IQueryable<Category> GetCategories(int count)
-        {
-            var categoryList = new List<Category>();
-
-            for (var i = 1; i <= count; i++)
-            {
-                categoryList.Add(this.dataGenerator.GetCategory(i));
-            }
-
-            return categoryList.AsQueryable();
         }
     }
 }

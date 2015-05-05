@@ -11,6 +11,8 @@
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
+    using Config;
+    using Common;
 
     public class PostsController : AdminController
     {
@@ -23,9 +25,13 @@
         }
 
         // GET: Administration/Posts
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return this.View(this.postService.GetTheLatestPosts().Project().To<PostViewModel>().ToList());
+            return this.View(this.postService
+                        .GetTheLatestPosts(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+                        .Project()
+                        .To<PostViewModel>()
+                        .ToList());
         }
 
         // GET: Administration/Posts/Create
