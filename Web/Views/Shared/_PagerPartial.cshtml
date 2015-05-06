@@ -6,10 +6,6 @@
         {
             <li><a href="@Model.PreviousPageParam">«</a></li>
         }
-        else
-        {
-            <li class="disabled"><span>«</span></li>
-        }
         @for (var page = 1; page <= Model.TotalPages; page++)
         {
             if (Model.CurrentPage == page)
@@ -24,10 +20,6 @@
         @if (Model.NextPageButtonEnabled)
         {
             <li><a href="@Model.NextPageParam">»</a></li>
-        }
-        else
-        {
-            <li class="disabled"><span>»</span></li>
         }
     </ul>
 </div>

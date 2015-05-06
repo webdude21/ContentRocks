@@ -1,5 +1,6 @@
 ﻿namespace Web.ViewModels.Content
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
@@ -8,6 +9,7 @@
     using Config;
 
     using Models.Content;
+    using Models.Identity;
 
     using Resources;
 
@@ -15,41 +17,42 @@
 
     public class CategoryViewModel : BaseViewModel, IMapFrom<Category>
     {
-        [MaxLength(50)]
-        [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
-        public string FriendlyUrl { get; set; }
-
-        public string Title { get; set; }
-
-        public string GetHtmlId
-        {
-            get
-            {
-                return "category-" + this.Id; 
-            }
-        }
+        public virtual ApplicationUser Author { get; set; }
 
         public string ConfirmDelete
         {
             get
             {
-                return Translation.AreYouSureYouWantToDeleteThis + System.Environment.NewLine
+                return Translation.AreYouSureYouWantToDeleteThis + Environment.NewLine
                        + Translation.ThisWillDeleteAllPostInTheCategory;
             }
         }
 
-        public static IEnumerable<SelectListItem> GetDropDownModel(IEnumerable<CategoryViewModel> items)
+        [MaxLength(50)]
+        [Required]
+        [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
+        public string FriendlyUrl { get; set; }
+
+        public string GetHtmlId
         {
-            return items.Select(i => new SelectListItem() { Text = i.Title, Value = i.Id.ToString(), Selected = false });
+            get
+            {
+                return "category-" + this.Id;
+            }
         }
+
+        [Required]
+        [StringLength(3)]
+        public string Title { get; set; }
 
         public static Category GetCategoryFrom(CategoryViewModel category)
         {
-            return new Category
-            {
-                FriendlyUrl = category.FriendlyUrl,
-                Title = category.Title
-            };
+            return new Category { FriendlyUrl = category.FriendlyUrl, Title = category.Title };
+        }
+
+        public static IEnumerable<SelectListItem> GetDropDownModel(IEnumerable<CategoryViewModel> items)
+        {
+            return items.Select(i => new SelectListItem { Text = i.Title, Value = i.Id.ToString(), Selected = false });
         }
     }
 }

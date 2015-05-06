@@ -13,7 +13,7 @@
             foreach (var category in Model)
             {
                 <tr id="@category.GetHtmlId">
-                    <td>@Html.ActionLink(category.Title, Actions.Detail, Controllers.Category, new { area = string.Empty, id = category.Id })</td>
+                    <td>@Html.ActionLink(category.Title, Actions.Detail, Controllers.Category, new { area = string.Empty, id = category.Id }, new {})</td>
                     <td>@category.FriendlyUrl</td>
                     <td>
                         @Html.ActionLink(Translation.Edit, Actions.Edit, Controllers.Category, 

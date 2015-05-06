@@ -32,6 +32,7 @@
             }
         }
 
+        [MaxLength(200)]
         public string Title { get; set; }
     }
 }

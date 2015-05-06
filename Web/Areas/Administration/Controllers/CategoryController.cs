@@ -28,6 +28,7 @@
         {
             if (this.ModelState.IsValid)
             {
+                categoryViewModel.Author = this.CurrentUser.Get();
                 this.categoryService.AddCategory(CategoryViewModel.GetCategoryFrom(categoryViewModel));
                 return this.RedirectToAction(Actions.Index);
             }
