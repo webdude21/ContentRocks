@@ -8,7 +8,7 @@
     {
         IQueryable<T> GetAll();
 
-        IQueryable<T> GetBy(int id);
+        T GetBy(int id);
 
         int GetPageCount(int pageSize);
 

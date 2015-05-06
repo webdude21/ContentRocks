@@ -57,9 +57,9 @@
             return this.DataSet;
         }
 
-        public IQueryable<T> GetBy(int id)
+        public T GetBy(int id)
         {
-            return this.DataSet.Where(entity => entity.Id == id);
+            return this.DataSet.FirstOrDefault(entity => entity.Id == id);
         }
 
         public int GetPageCount(int pageSize)

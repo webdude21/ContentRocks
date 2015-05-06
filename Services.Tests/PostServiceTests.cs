@@ -86,14 +86,14 @@
         public void GetingAPostByIdRetrievesIt()
         {
             const int PostId = 2;
-            var retrievedPost = this.postService.GetBy(PostId).FirstOrDefault();
+            var retrievedPost = this.postService.GetBy(PostId);
             Assert.AreEqual(PostId, retrievedPost.Id);
         }
 
         [TestMethod]
         public void GetPostByIdWithWhenNonExistingReturnsNull()
         {
-            var result = this.postService.GetBy(424).FirstOrDefault();
+            var result = this.postService.GetBy(424);
             Assert.AreEqual(result, null);
         }
 
@@ -102,7 +102,7 @@
         {
             const int PostId = 2;
             const string FriendlyUrl = "friendlyUrl";
-            var post = this.postService.GetBy(PostId).FirstOrDefault();
+            var post = this.postService.GetBy(PostId);
             post.FriendlyUrl = FriendlyUrl;
             var retrievedPost = this.postService.GetBy(PostId, FriendlyUrl).FirstOrDefault();
             Assert.AreEqual(post, retrievedPost);

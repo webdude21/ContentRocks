@@ -3,6 +3,7 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using AutoMapper;
     using AutoMapper.QueryableExtensions;
 
     using Services.Contracts;
@@ -20,7 +21,7 @@
 
         public ActionResult Detail(int id)
         {
-            return this.View(this.categoryService.GetBy(id).Project().To<CategoryWithPostsViewModel>().FirstOrDefault());
+            return this.View(Mapper.Map<CategoryWithPostsViewModel>(this.categoryService.GetBy(id)));
         }
 
         [ChildActionOnly]

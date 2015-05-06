@@ -4,6 +4,7 @@
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
+    using AutoMapper;
 
     using Services.Contracts;
 
@@ -29,14 +30,14 @@
 
         public ActionResult Edit(int id)
         {
-            return this.View(this.categoryService.GetBy(id).Project().To<CategoryViewModel>().FirstOrDefault());
+            return this.View(Mapper.Map<CategoryViewModel>(this.categoryService.GetBy(id)));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(CategoryViewModel categoryViewModel)
         {
-            var categoryToUpdate = this.categoryService.GetBy(categoryViewModel.Id).FirstOrDefault();
+            var categoryToUpdate = this.categoryService.GetBy(categoryViewModel.Id);
             this.TryUpdateModel(categoryToUpdate);
             
             if (this.ModelState.IsValid)
