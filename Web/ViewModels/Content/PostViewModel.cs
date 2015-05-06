@@ -76,6 +76,22 @@
 
         public string Title { get; set; }
 
+        public string ConfirmDelete
+        {
+            get
+            {
+                return Translation.AreYouSureYouWantToDeleteThis;
+            }
+        }
+
+        public string GetHtmlId
+        {
+            get
+            {
+                return "post-" + this.Id;
+            }
+        }
+
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Post, PostViewModel>()

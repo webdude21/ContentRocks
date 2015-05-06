@@ -19,5 +19,7 @@
         public const string PostsListPartial = "_PostsListPartial";
 
         public const string Seo = "_SeoPartial";
+
+        public const string AdminPostsListPartial = "_AdminPostsListPartial";
     }
 }

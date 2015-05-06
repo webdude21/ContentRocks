@@ -27,15 +27,11 @@
 
         public ActionResult About()
         {
-            this.ViewBag.Message = "Your application description page.";
-
             return this.View();
         }
 
         public ActionResult Contact()
         {
-            this.ViewBag.Message = "Your contact page.";
-
             return this.View();
         }
 
@@ -50,20 +46,12 @@
 
             if (this.HttpContext.Cache[cacheKey] == null)
             {
-                posts =
-                    this.postService.GetTheLatestPosts(GlobalConstants.HomePagePostsCount)
+                posts = this.postService.GetTheLatestPosts(GlobalConstants.HomePagePostsCount)
                         .Project()
                         .To<PostViewModel>()
                         .ToList();
 
-                this.HttpContext.Cache.Add(
-                    cacheKey,
-                    posts,
-                    null,
-                    DateTime.Now.AddHours(1),
-                    TimeSpan.Zero,
-                    CacheItemPriority.Default,
-                    null);
+                this.HttpContext.Cache.Add(cacheKey, posts, null, DateTime.Now.AddHours(1), TimeSpan.Zero, CacheItemPriority.Default, null);
             }
             else
             {

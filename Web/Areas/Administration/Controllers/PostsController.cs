@@ -3,7 +3,12 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using AutoMapper;
     using AutoMapper.QueryableExtensions;
+
+    using Common;
+
+    using Config;
 
     using Services.Contracts;
 
@@ -11,8 +16,6 @@
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
-    using Config;
-    using Common;
 
     public class PostsController : AdminController
     {
@@ -24,25 +27,14 @@
             this.postService = postService;
         }
 
-        // GET: Administration/Posts
-        public ActionResult Index(int? page)
-        {
-            return this.View(this.postService
-                        .GetTheLatestPosts(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
-                        .Project()
-                        .To<PostViewModel>()
-                        .ToList());
-        }
-
-        // GET: Administration/Posts/Create
         public ActionResult Create()
         {
             return this.View();
         }
 
-        [HttpPost, ValidateInput(false)]
+        [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        // GET: Administration/Posts/Create
         public ActionResult Create([Bind(Include = PostCreateViewModel.ModelBinderProperties)] PostCreateViewModel post)
         {
             if (this.ModelState.IsValid)
@@ -55,5 +47,42 @@
             return this.View();
         }
 
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            this.postService.DeleteBy(id);
+            return this.Json(string.Empty);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return this.View(Mapper.Map<PostViewModel>(this.postService.GetBy(id)));
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(PostViewModel postViewModel)
+        {
+            var categoryToUpdate = this.postService.GetBy(postViewModel.Id);
+            this.TryUpdateModel(categoryToUpdate);
+
+            if (this.ModelState.IsValid)
+            {
+                this.postService.Update();
+                return this.RedirectToAction(Actions.Index);
+            }
+
+            return this.View(postViewModel);
+        }
+
+        // GET: Administration/Posts
+        public ActionResult Index(int? page)
+        {
+            return this.View(this.postService.GetTheLatestPosts(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+                        .Project()
+                        .To<PostViewModel>()
+                        .ToList());
+        }
     }
 }
