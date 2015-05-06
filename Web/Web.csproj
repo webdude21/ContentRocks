@@ -256,6 +256,7 @@
     <Content Include="Areas\Administration\Views\Admin\_AdminMenu.cshtml" />
     <Content Include="Areas\Administration\Views\Posts\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Category\Edit.cshtml" />
     <None Include="Areas\Administration\Views\Posts\Create.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

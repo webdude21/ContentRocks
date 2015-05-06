@@ -1,6 +1,5 @@
 ﻿namespace Web.Areas.Administration.Controllers
 {
-    using System;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -8,6 +7,7 @@
 
     using Services.Contracts;
 
+    using Web.Infrastructure.Constants;
     using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
 
@@ -15,8 +15,7 @@
     {
         private readonly ICategoryService categoryService;
 
-        public CategoryController(ICategoryService categoryService, ICurrentUser user)
-            : base(user)
+        public CategoryController(ICategoryService categoryService, ICurrentUser user) : base(user)
         {
             this.categoryService = categoryService;
         }
@@ -30,7 +29,19 @@
 
         public ActionResult Edit(int id)
         {
-            throw new NotImplementedException();
+            return this.View(this.categoryService.GetBy(id).Project().To<CategoryViewModel>().FirstOrDefault());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(CategoryViewModel category)
+        {
+            if (this.ModelState.IsValid)
+            {
+                return this.RedirectToAction(Actions.Index);
+            }
+
+            return this.View(category);
         }
 
         // GET: Administration/Category

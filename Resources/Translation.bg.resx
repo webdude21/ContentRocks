@@ -276,4 +276,7 @@
   <data name="UserName" xml:space="preserve">
     <value>Потребителско име</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Съхрани</value>
+  </data>
 </root>
