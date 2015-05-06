@@ -34,14 +34,18 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CategoryViewModel category)
+        public ActionResult Edit(CategoryViewModel categoryViewModel)
         {
+            var categoryToUpdate = this.categoryService.GetBy(categoryViewModel.Id).FirstOrDefault();
+            this.TryUpdateModel(categoryToUpdate);
+            
             if (this.ModelState.IsValid)
             {
+                this.categoryService.Update();
                 return this.RedirectToAction(Actions.Index);
             }
 
-            return this.View(category);
+            return this.View(categoryViewModel);
         }
 
         // GET: Administration/Category

@@ -15,5 +15,7 @@
         void DeleteBy(int id);
 
         Pager GetPager(int? currentPage);
+
+        void Update();
     }
 }

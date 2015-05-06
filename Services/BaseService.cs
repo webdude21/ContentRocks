@@ -76,6 +76,16 @@
                        };
         }
 
+        public void Update()
+        {
+            this.SaveChanges();
+        }
+
+        public void Update(T entity)
+        {
+            this.DataSet.Attach(entity);
+        }
+
         protected virtual void CheckIfEntityExists(object id)
         {
             if (this.dataSet.Find(id) != null)
