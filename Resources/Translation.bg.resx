@@ -279,4 +279,7 @@
   <data name="Save" xml:space="preserve">
     <value>Съхрани</value>
   </data>
+  <data name="CreateNewCategory" xml:space="preserve">
+    <value>Добавяне на нова категория</value>
+  </data>
 </root>

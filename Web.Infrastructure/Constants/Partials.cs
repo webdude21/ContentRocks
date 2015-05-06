@@ -21,5 +21,7 @@
         public const string Seo = "_SeoPartial";
 
         public const string AdminPostsListPartial = "_AdminPostsListPartial";
+
+        public const string AdminCategoriesListPartial = "_AdminCategoriesListPartial";
     }
 }

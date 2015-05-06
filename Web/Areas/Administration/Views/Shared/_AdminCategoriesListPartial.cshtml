@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Web.ViewModels.Content.CategoryViewModel>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>@Translation.Title</th>
+            <th>@Translation.FriendlyUrl</th>
+            <th>@Translation.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var category in Model)
+            {
+                <tr id="@category.GetHtmlId">
+                    <td>@Html.ActionLink(category.Title, Actions.Detail, Controllers.Category, new { area = string.Empty, id = category.Id })</td>
+                    <td>@category.FriendlyUrl</td>
+                    <td>
+                        @Html.ActionLink(Translation.Edit, Actions.Edit, Controllers.Category, 
+                        new { area = Areas.Administration, id = category.Id }, new { @class = "btn btn-info" })
+                        @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Category, new { area = Areas.Administration, id = category.Id },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "Delete",
+                        UpdateTargetId = category.GetHtmlId,
+                        InsertionMode = InsertionMode.ReplaceWith,
+                        Confirm = category.ConfirmDelete
+                    }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

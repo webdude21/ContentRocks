@@ -42,5 +42,14 @@
         {
             return items.Select(i => new SelectListItem() { Text = i.Title, Value = i.Id.ToString(), Selected = false });
         }
+
+        public static Category GetCategoryFrom(CategoryViewModel category)
+        {
+            return new Category
+            {
+                FriendlyUrl = category.FriendlyUrl,
+                Title = category.Title
+            };
+        }
     }
 }

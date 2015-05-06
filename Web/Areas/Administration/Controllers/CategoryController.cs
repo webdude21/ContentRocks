@@ -3,8 +3,8 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using AutoMapper.QueryableExtensions;
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
 
     using Services.Contracts;
 
@@ -16,9 +16,28 @@
     {
         private readonly ICategoryService categoryService;
 
-        public CategoryController(ICategoryService categoryService, ICurrentUser user) : base(user)
+        public CategoryController(ICategoryService categoryService, ICurrentUser user)
+            : base(user)
         {
             this.categoryService = categoryService;
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CategoryViewModel categoryViewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                this.categoryService.AddCategory(CategoryViewModel.GetCategoryFrom(categoryViewModel));
+                return this.RedirectToAction(Actions.Index);
+            }
+
+            return this.View(categoryViewModel);
+        }
+
+        public ActionResult Create()
+        {
+            return this.View();
         }
 
         [HttpDelete]
@@ -39,7 +58,7 @@
         {
             var categoryToUpdate = this.categoryService.GetBy(categoryViewModel.Id);
             this.TryUpdateModel(categoryToUpdate);
-            
+
             if (this.ModelState.IsValid)
             {
                 this.categoryService.Update();
@@ -49,7 +68,6 @@
             return this.View(categoryViewModel);
         }
 
-        // GET: Administration/Category
         public ActionResult Index()
         {
             return this.View(this.categoryService.GetAll().Project().To<CategoryViewModel>().ToList());
