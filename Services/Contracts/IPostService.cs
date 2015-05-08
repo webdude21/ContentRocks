@@ -14,8 +14,8 @@ namespace Services.Contracts
 
         IQueryable<Post> GetTheLatestPosts(int count, int page = 1);
 
-        IQueryable<Post> GetTheLatestPostsByAuthor(string authorId, int count, int page = 1);
+        IQueryable<Post> GetTheLatestPostsByAuthor(string username, int count, int page = 1);
 
-        IQueryable<Post> GetTheLatestPostsByAuthor(string authorId);
+        IQueryable<Post> GetTheLatestPostsByAuthor(string username);
     }
 }

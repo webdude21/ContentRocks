@@ -11,6 +11,11 @@
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(AuthorRoute.Name, AuthorRoute.UrlPattern,
+            new { controller = AuthorRoute.DefaultController, action = AuthorRoute.Detail },
+            new { },
+            new[] { Assemblies.NoAreaControllersNamespace });
+
             routes.MapRoute(PostRoute.Name, PostRoute.UrlPattern,
                 new { controller = PostRoute.DefaultController, action = PostRoute.Detail },
                 new { id = PostRoute.IdMatcher, friendlyUrl = PostRoute.FriendlyUrlMatcher },

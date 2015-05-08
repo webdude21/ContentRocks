@@ -11,8 +11,7 @@
         <span class="glyphicon glyphicon-calendar"></span><time>@Model.PostedOn</time>
         <span class="glyphicon glyphicon-folder-open"></span>@Html.ActionLink(Model.Category.Title, Actions.Detail,
         Controllers.Category, new { id = Model.Category.Id }, new { area = string.Empty })
-        <span class="glyphicon glyphicon-user"></span><span>@Html.ActionLink(Model.AuthorName, Actions.Detail, 
-        Controllers.Author, new { authorId = Model.AuthorId }, new { area = string.Empty })</span>
+        <span class="glyphicon glyphicon-user"></span><span>@Html.RouteLink(Model.AuthorName, AuthorRoute.Name, new { username = Model.AuthorName })</span>
     </header>
     <div class="article-content">
         @Html.Raw(Model.Content)

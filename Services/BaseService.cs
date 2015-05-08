@@ -64,14 +64,24 @@
 
         public int GetPageCount(int pageSize)
         {
-            return (this.DataSet.Count() + pageSize - 1) / pageSize;
+            return this.GetPageCount(pageSize, this.DataSet);
+        }
+
+        public int GetPageCount(int pageSize, IQueryable<T> query)
+        {
+            return (query.Count() + pageSize - 1) / pageSize;
         }
 
         public Pager GetPager(int? currentPage)
         {
+            return this.GetPager(currentPage, this.DataSet);
+        }
+
+        public Pager GetPager(int? currentPage, IQueryable<T> query)
+        {
             return new Pager
                        {
-                           TotalPages = this.GetPageCount(GlobalConstants.PageSize),
+                           TotalPages = this.GetPageCount(GlobalConstants.PageSize, query),
                            CurrentPage = Checker.GetValidPageNumber(currentPage)
                        };
         }

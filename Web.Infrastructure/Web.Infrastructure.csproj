@@ -85,6 +85,7 @@
     <Compile Include="Constants\Actions.cs" />
     <Compile Include="Constants\Areas.cs" />
     <Compile Include="Constants\Assemblies.cs" />
+    <Compile Include="Constants\AuthorRoute.cs" />
     <Compile Include="Constants\CategoryPostRoutes.cs" />
     <Compile Include="Constants\DefaultApiRoute.cs" />
     <Compile Include="Constants\Partials.cs" />

@@ -14,6 +14,6 @@
 
         public const string Name = "Posts";
 
-        public const string UrlPattern = "Posts/{id}_{friendlyUrl}";
+        public const string UrlPattern = "posts/{id}_{friendlyUrl}";
     }
 }

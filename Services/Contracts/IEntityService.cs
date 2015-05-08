@@ -4,7 +4,7 @@
 
     using Models;
 
-    public interface IEntityService<out T> : IService
+    public interface IEntityService<T> : IService
     {
         IQueryable<T> GetAll();
 
@@ -15,6 +15,8 @@
         void DeleteBy(int id);
 
         Pager GetPager(int? currentPage);
+
+        Pager GetPager(int? currentPage, IQueryable<T> query);
 
         void Update();
     }

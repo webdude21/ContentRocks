@@ -44,14 +44,14 @@
             return this.GetDataWithPaging(this.GetTheLatestPosts(), count, page);
         }
 
-        public IQueryable<Post> GetTheLatestPostsByAuthor(string authorId, int count, int page = 1)
+        public IQueryable<Post> GetTheLatestPostsByAuthor(string username, int count, int page = 1)
         {
-            return this.GetDataWithPaging(this.GetTheLatestPostsByAuthor(authorId), count, page);
+            return this.GetDataWithPaging(this.GetTheLatestPostsByAuthor(username), count, page);
         }
 
-        public IQueryable<Post> GetTheLatestPostsByAuthor(string authorId)
+        public IQueryable<Post> GetTheLatestPostsByAuthor(string username)
         {
-            return this.GetTheLatestPosts().Where(p => p.AuthorId == authorId);
+            return this.GetTheLatestPosts().Where(p => p.Author.UserName == username);
         }
     }
 }
