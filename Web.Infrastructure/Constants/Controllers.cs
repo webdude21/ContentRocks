@@ -13,5 +13,7 @@
         public const string Manage = "Manage";
 
         public const string Posts = "Posts";
+
+        public const string Author = "Author";
     }
 }

@@ -28,11 +28,21 @@
             }
         }
 
+        public string AuthorId { get; set; }
+
         public string AuthorName { get; set; }
 
         public CategoryViewModel Category { get; set; }
 
         public ICollection<CommentViewModel> Comments { get; set; }
+
+        public string ConfirmDelete
+        {
+            get
+            {
+                return Translation.AreYouSureYouWantToDeleteThis;
+            }
+        }
 
         [DataType(DataType.Html)]
         public string Content { get; set; }
@@ -44,17 +54,17 @@
         [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
         public string FriendlyUrl { get; set; }
 
-        public string MetaDescription { get; set; }
-
-        public string MetaTitle { get; set; }
-
-        public string PostedOnWithTime
+        public string GetHtmlId
         {
             get
             {
-                return this.CreatedOn.ToString(CultureInfo.CurrentCulture);
+                return "post-" + this.Id;
             }
         }
+
+        public string MetaDescription { get; set; }
+
+        public string MetaTitle { get; set; }
 
         public string PostedOn
         {
@@ -72,32 +82,27 @@
             }
         }
 
+        public string PostedOnWithTime
+        {
+            get
+            {
+                return this.CreatedOn.ToString(CultureInfo.CurrentCulture);
+            }
+        }
+
         public ICollection<TagViewModel> Tags { get; set; }
 
         public string Title { get; set; }
-
-        public string ConfirmDelete
-        {
-            get
-            {
-                return Translation.AreYouSureYouWantToDeleteThis;
-            }
-        }
-
-        public string GetHtmlId
-        {
-            get
-            {
-                return "post-" + this.Id;
-            }
-        }
 
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Post, PostViewModel>()
                 .ForMember(
                     sourceModel => sourceModel.AuthorName,
-                    result => result.MapFrom(fullModel => fullModel.Author.UserName));
+                    result => result.MapFrom(fullModel => fullModel.Author.UserName))
+                .ForMember(
+                    sourceModel => sourceModel.AuthorId,
+                    result => result.MapFrom(fullModel => fullModel.Author.Id));
         }
     }
 }

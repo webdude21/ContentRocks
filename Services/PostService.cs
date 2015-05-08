@@ -43,5 +43,15 @@
         {
             return this.GetDataWithPaging(this.GetTheLatestPosts(), count, page);
         }
+
+        public IQueryable<Post> GetTheLatestPostsByAuthor(string authorId, int count, int page = 1)
+        {
+            return this.GetDataWithPaging(this.GetTheLatestPostsByAuthor(authorId), count, page);
+        }
+
+        public IQueryable<Post> GetTheLatestPostsByAuthor(string authorId)
+        {
+            return this.GetTheLatestPosts().Where(p => p.AuthorId == authorId);
+        }
     }
 }

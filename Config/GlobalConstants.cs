@@ -4,6 +4,8 @@
     {
         public const string AdministratorRoleName = "Admin";
 
+        public const string SecurityToken = "ContentRocks CMS";
+
         public static readonly string ConnectionString = ApplicationSettings.Default.ConnectionName;
 
         public static readonly int PageSize = ApplicationSettings.Default.PageSize;
@@ -14,7 +16,7 @@
 
         public static readonly int HomePostsCacheTimeInHours = (int)ApplicationSettings.Default.HomePostsCacheTimeInHours;
 
-        public const string DefaultUser = "webdude@webdude.eu";
+        public const string DefaultUserName = "webdude";
 
         public const int HomePagePostsCount = 6;
 
@@ -35,5 +37,7 @@
         public const string DigitsOnly = @"\d+";
 
         public const string FriendlyUrlsRegex = @"[a-zA-ZА-Я-а-я0-9]+";
+
+        public static string DefaultLoginEmail = "webdude@webdude.eu";
     }
 }

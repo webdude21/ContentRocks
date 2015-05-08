@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Web.ViewModels.Content.PostViewModel>
+@{
+    ViewBag.Title = Translation.LatestPosts;
+}
+
+<h4>@ViewBag.Title</h4>
+@{
+    Html.RenderPartial(Partials.PostsListPartial, Model);
+}
+
+@Html.Action(Actions.Pager, Controllers.Posts, new { area = string.Empty })
