@@ -2,6 +2,8 @@ namespace Web.ViewModels.Account
 {
     using System.ComponentModel.DataAnnotations;
 
+    using Config;
+
     using Resources;
 
     public class RegisterViewModel
@@ -17,14 +19,15 @@ namespace Web.ViewModels.Account
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
         [DataType(DataType.Password)]
         [Display(Name = "Password", ResourceType = typeof(Translation))]
         public string Password { get; set; }
 
         [Required]
-        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
         [Display(Name = "UserName", ResourceType = typeof(Translation))]
+        [RegularExpression(GlobalConstants.UserNameRegex)]
         public string UserName { get; set; }
     }
 }

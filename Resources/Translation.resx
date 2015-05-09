@@ -282,4 +282,10 @@
   <data name="CreateNewCategory" xml:space="preserve">
     <value>Create a new category</value>
   </data>
+  <data name="PostsCount" xml:space="preserve">
+    <value>Posts count</value>
+  </data>
+  <data name="By" xml:space="preserve">
+    <value>By</value>
+  </data>
 </root>

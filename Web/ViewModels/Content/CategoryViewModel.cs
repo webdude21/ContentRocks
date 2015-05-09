@@ -42,7 +42,7 @@
         }
 
         [Required]
-        [StringLength(3)]
+        [MaxLength(50)]
         public string Title { get; set; }
 
         public static Category GetCategoryFrom(CategoryViewModel category)

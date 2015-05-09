@@ -1,5 +1,6 @@
 ﻿namespace Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
@@ -14,20 +15,28 @@
     using Web.ViewModels;
     using Web.ViewModels.Content;
 
-    public class AuthorController : BaseController
+    public class AuthorsController : BaseController
     {
         private readonly IPostService postService;
 
-        public AuthorController(IPostService postService)
+        private readonly IAuthorService authorService;
+
+        public AuthorsController(IPostService postService, IAuthorService authorService)
         {
             this.postService = postService;
+            this.authorService = authorService;
         }
 
         public ActionResult Detail(string username, int? page)
         {
             return this.View(this.postService
                 .GetTheLatestPostsByAuthor(username, GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
-                .Project().To<PostViewModel>());
+                .Project().To<PostViewModel>().ToList());
+        }
+
+        public ActionResult Index()
+        {
+            return this.View(this.authorService.GetAll().Project().To<AuthorViewModel>().ToList());
         }
 
         [ChildActionOnly]

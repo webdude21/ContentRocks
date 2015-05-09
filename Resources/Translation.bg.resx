@@ -282,4 +282,10 @@
   <data name="CreateNewCategory" xml:space="preserve">
     <value>Добавяне на нова категория</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>От</value>
+  </data>
+  <data name="PostsCount" xml:space="preserve">
+    <value>Брой статии</value>
+  </data>
 </root>

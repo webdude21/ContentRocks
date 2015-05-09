@@ -8,6 +8,7 @@ namespace Web.ViewModels.Account
     {
         [Required]
         [Display(Name = "UserName", ResourceType = typeof(Translation))]
+
         public string UserName { get; set; }
 
         [Required]

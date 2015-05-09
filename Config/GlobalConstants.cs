@@ -39,5 +39,7 @@
         public const string FriendlyUrlsRegex = @"[a-zA-ZА-Я-а-я0-9]+";
 
         public static string DefaultLoginEmail = "webdude@webdude.eu";
+
+        public const string UserNameRegex = @"[\w]+";
     }
 }

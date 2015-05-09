@@ -14,6 +14,6 @@
 
         public const string Posts = "Posts";
 
-        public const string Author = "Author";
+        public const string Author = "Authors";
     }
 }
