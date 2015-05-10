@@ -4,21 +4,23 @@
 
     using Data.Contracts;
 
+    using Models.Content;
+
     public class MemoryCacheService : BaseCacheService, ICacheService
     {
-        private readonly IUnitOfWork data;
+        private readonly IUnitOfWork unitOfWork;
 
         public MemoryCacheService(IUnitOfWork data)
         {
-            this.data = data;
+            this.unitOfWork = data;
         }
 
-        public IList<string> Countries
+        public IList<Post> HomePosts
         {
             get
             {
-                return this.Get<IList<string>>("Countries", () => null);
+                return this.Get<IList<Post>>("HomePagePosts", () => null);
             }
-        }
+        } 
     }
 }

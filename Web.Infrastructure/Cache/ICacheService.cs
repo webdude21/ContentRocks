@@ -2,8 +2,10 @@
 {
     using System.Collections.Generic;
 
+    using Models.Content;
+
     public interface ICacheService
     {
-        IList<string> Countries { get; }
+        IList<Post> HomePosts { get; }
     }
 }
