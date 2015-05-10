@@ -16,9 +16,6 @@
     <div class="article-content">
         @Html.Raw(Model.Content)
     </div>
-    <blockquote class="pull-right">
-        <small>@Model.PostedOnBy</small>
-    </blockquote>
 </article>
 <p>
     @Html.ActionLink(Translation.BackToList, Actions.Index)
