@@ -1,8 +1,8 @@
 ﻿namespace Web
 {
+    using Config;
     using System.Web.Mvc;
     using System.Web.Routing;
-
     using Web.Infrastructure.Constants;
 
     public class RouteConfig
@@ -20,6 +20,10 @@
                 new { controller = PostRoute.DefaultController, action = PostRoute.Detail },
                 new { id = PostRoute.IdMatcher, friendlyUrl = PostRoute.FriendlyUrlMatcher },
                 new[] { Assemblies.NoAreaControllersNamespace });
+
+            routes.MapRoute(ImageRoute.Name, ImageRoute.UrlPattern,
+                 new { controller = ImageRoute.DefaultController, action = Actions.GetImage },
+                 new { fileName = ImageRoute.FileNameMatcher });
 
             routes.MapRoute(DefaultRoute.Name, DefaultRoute.UrlPattern,
                 new

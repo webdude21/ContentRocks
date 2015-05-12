@@ -88,6 +88,7 @@
     <Compile Include="Constants\AuthorRoute.cs" />
     <Compile Include="Constants\CategoryPostRoutes.cs" />
     <Compile Include="Constants\DefaultApiRoute.cs" />
+    <Compile Include="Constants\ImageRoute.cs" />
     <Compile Include="Constants\Partials.cs" />
     <Compile Include="Constants\PostRoute.cs" />
     <Compile Include="Constants\DefaultRoute.cs" />
@@ -95,8 +96,10 @@
     <Compile Include="Constants\Resources.cs" />
     <Compile Include="CultureHelper.cs" />
     <Compile Include="Helpers\Bootstrap.cs" />
+    <Compile Include="Helpers\ImageUploader.cs" />
     <Compile Include="Identity\CurrentUser.cs" />
     <Compile Include="Identity\ICurrentUser.cs" />
+    <Compile Include="IImageUploader.cs" />
     <Compile Include="Mappings\AutoMapperConfig.cs" />
     <Compile Include="Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Mappings\IMapFrom.cs" />
