@@ -565,6 +565,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Upload more files.
+        /// </summary>
+        public static string UploadMoreFiles {
+            get {
+                return ResourceManager.GetString("UploadMoreFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User Name.
         /// </summary>
         public static string UserName {

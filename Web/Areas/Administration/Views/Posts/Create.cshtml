@@ -53,9 +53,10 @@
             <div class="col-md-offset-2">
                 <input type="submit" value="@Translation.Create" class="btn btn-success" />
                 <input type="reset" value="@Translation.Reset" class="btn btn-danger" />
+                <span id="add-input-file" class="btn btn-default">@Translation.UploadMoreFiles</span>
                 @Html.ActionLink(Translation.Cancel, Actions.Index, new { }, new { @class = "btn btn-info" })
             </div>
-        </div>
+        </div>  
     </div>
 }
 

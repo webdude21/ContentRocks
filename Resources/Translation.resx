@@ -291,4 +291,7 @@
   <data name="UploadImages" xml:space="preserve">
     <value>Upload Images</value>
   </data>
+  <data name="UploadMoreFiles" xml:space="preserve">
+    <value>Upload more files</value>
+  </data>
 </root>
