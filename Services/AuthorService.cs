@@ -1,4 +1,4 @@
-﻿namespace Services.Contracts
+﻿namespace Services
 {
     using System;
     using System.Data.Entity;
@@ -10,6 +10,7 @@
 
     using Models;
     using Models.Identity;
+    using Services.Contracts;
 
     public class AuthorService : IAuthorService
     {

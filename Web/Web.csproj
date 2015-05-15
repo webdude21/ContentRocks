@@ -216,6 +216,7 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
@@ -237,6 +238,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Content\CategoryWithPostsViewModel.cs" />
     <Compile Include="ViewModels\Content\CommentViewModel.cs" />
+    <Compile Include="ViewModels\Content\ImageViewModel.cs" />
     <Compile Include="ViewModels\Contracts\IMetaInfoViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\Content\PostViewModel.cs" />

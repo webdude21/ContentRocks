@@ -16,6 +16,7 @@
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
+    using Web.Infrastructure;
 
     public class PostsController : AdminController
     {
@@ -64,8 +65,8 @@
         [ValidateAntiForgeryToken]
         public ActionResult Edit(PostViewModel postViewModel)
         {
-            var categoryToUpdate = this.postService.GetBy(postViewModel.Id);
-            this.TryUpdateModel(categoryToUpdate);
+            var postToUpdate = this.postService.GetBy(postViewModel.Id);
+            this.TryUpdateModel(postToUpdate);
 
             if (this.ModelState.IsValid)
             {
