@@ -19,5 +19,7 @@
         Pager GetPager(int? currentPage, IQueryable<T> query);
 
         void Update();
+
+        void Add(T entity);
     }
 }

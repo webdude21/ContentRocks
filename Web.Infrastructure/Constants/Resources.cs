@@ -29,5 +29,9 @@
         public const string RespondPath = "~/Scripts/respond.js";
 
         public const string SiteCssPath = "~/Content/site.css";
+
+        public const string FileUpload = "~/bundles/filesManagment";
+
+        public const string FileUploadPath = "~/Scripts/upload.js";
     }
 }

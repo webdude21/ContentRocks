@@ -121,5 +121,13 @@
             this.DataSet.Remove(entity);
             this.SaveChanges();
         }
+
+
+        public void Add(T entity)
+        {
+            Checker.CheckForNull(entity, "entity");
+            this.DataSet.Add(entity);
+            this.SaveChanges();
+        }
     }
 }

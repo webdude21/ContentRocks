@@ -40,6 +40,15 @@
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <fieldset id="form-upload">
+            <legend>@Translation.UploadImages</legend>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control" type="file" name="file_0" id="file_0" />
+                </div>
+            </div>
+        </fieldset>
         <div class="form-group">
             <div class="col-md-offset-2">
                 <input type="submit" value="@Translation.Create" class="btn btn-success" />
@@ -52,4 +61,5 @@
 
 @section Scripts {
     @Scripts.Render(ClientResources.JQueryValidation)
+    @Scripts.Render(ClientResources.FileUpload)
 }

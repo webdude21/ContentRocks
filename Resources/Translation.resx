@@ -288,4 +288,7 @@
   <data name="By" xml:space="preserve">
     <value>By</value>
   </data>
+  <data name="UploadImages" xml:space="preserve">
+    <value>Upload Images</value>
+  </data>
 </root>

@@ -14,6 +14,7 @@
 
     using Web.Controllers;
     using Web.ViewModels.Content;
+    using Web.Infrastructure;
 
     [TestClass]
     public class PostsControllerTest
@@ -24,6 +25,7 @@
         {
             var dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
             var postService = new Mock<IPostService>();
+            var imageUploader = new Mock<IImageUploader>();
             postService.Setup(m => m.GetTheLatestPosts()).Returns(dataGenerator.GetPosts(20));
             var autoMapperConfig = new AutoMapperConfig();
             autoMapperConfig.Execute();

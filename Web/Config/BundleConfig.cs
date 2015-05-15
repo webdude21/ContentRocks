@@ -28,6 +28,8 @@
             bundles.Add(new ScriptBundle(ClientResources.Modernizr).Include(ClientResources.ModernizrPath));
 
             bundles.Add(new ScriptBundle(ClientResources.Bootstrap).Include(ClientResources.BootstrapPath, ClientResources.RespondPath));
+
+            bundles.Add(new ScriptBundle(ClientResources.FileUpload).Include(ClientResources.FileUploadPath));
         }
 
         public static void RegisterStyles(BundleCollection bundles)

@@ -288,4 +288,7 @@
   <data name="PostsCount" xml:space="preserve">
     <value>Брой статии</value>
   </data>
+  <data name="UploadImages" xml:space="preserve">
+    <value>Качване на изображения</value>
+  </data>
 </root>

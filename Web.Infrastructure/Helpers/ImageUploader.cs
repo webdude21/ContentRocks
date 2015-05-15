@@ -8,10 +8,18 @@
 
     using Models.Content;
     using Config;
+    using Services.Contracts;
 
     public class ImageUploader : IImageUploader
     {
-        public void UploadImages(HttpRequestBase request, HttpServerUtilityBase serverUtility, ICollection<Image> images)
+        private IImageService imageService;
+
+        public ImageUploader(IImageService imageService)
+        {
+            this.imageService = imageService;
+        }
+
+        public void UploadImages(HttpRequestBase request, HttpServerUtilityBase serverUtility)
         {
             foreach (string upload in request.Files)
             {
@@ -42,7 +50,7 @@
                     MimeType = fileBase.ContentType
                 };
 
-                images.Add(fileTosave);
+                this.imageService.Add(fileTosave);
                 var postedFileBase = fileBase;
                 postedFileBase.SaveAs(Path.Combine(pathToSave, resultFileName));
             }
