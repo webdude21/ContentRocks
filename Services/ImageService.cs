@@ -6,7 +6,7 @@
     using System.Data.Entity;
     using System.Linq;
 
-    class ImageService : BaseService<Image>, IImageService
+    public class ImageService : BaseService<Image>, IImageService
     {
         public ImageService(IUnitOfWork unitOfWork)
             : base(unitOfWork)

@@ -1,0 +1,29 @@
+﻿@using (@Ajax.BeginForm(Actions.UploadImage, Controllers.Images, new { area = Areas.Administration }, new AjaxOptions
+                    {
+                        HttpMethod = "Post",
+                        UpdateTargetId = "file_0",
+                        InsertionMode = InsertionMode.ReplaceWith,
+                    }, new { }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <fieldset id="form-upload">
+            <legend>@Translation.UploadImages</legend>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-control" type="file" name="file_0" id="file_0" />
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <div class="col-md-offset-2">
+                <input type="submit" value="@Translation.UploadImages" class="btn btn-success" />
+                <span id="add-input-file" class="btn btn-default">@Translation.UploadMoreFiles</span>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render(ClientResources.FileUpload)
+}

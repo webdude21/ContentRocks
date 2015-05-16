@@ -5,7 +5,7 @@
 
     using Web.Infrastructure.Helpers;
 
-    class HelpersRegistry : INinjectRegistry
+    public class HelpersRegistry : INinjectRegistry
     {
         public void Register(IKernel kernel)
         {

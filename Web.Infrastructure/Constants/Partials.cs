@@ -23,5 +23,7 @@
         public const string AdminPostsListPartial = "_AdminPostsListPartial";
 
         public const string AdminCategoriesListPartial = "_AdminCategoriesListPartial";
+
+        public const string UploadFormPartial = "_UploadFormPartial";
     }
 }

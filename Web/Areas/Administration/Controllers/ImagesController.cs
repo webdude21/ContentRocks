@@ -39,7 +39,6 @@
         public ActionResult UploadImage(Image model)
         {
             this.imageUploader.UploadImages(this.Request, this.Server);
-
             return null;
         }
     }

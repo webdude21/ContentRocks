@@ -41,26 +41,18 @@
             </div>
         </div>
 
-        <fieldset id="form-upload">
-            <legend>@Translation.UploadImages</legend>
-            <div class="form-group">
-                <div class="col-md-10">
-                    <input class="form-control" type="file" name="file_0" id="file_0" />
-                </div>
-            </div>
-        </fieldset>
         <div class="form-group">
             <div class="col-md-offset-2">
                 <input type="submit" value="@Translation.Create" class="btn btn-success" />
                 <input type="reset" value="@Translation.Reset" class="btn btn-danger" />
-                <span id="add-input-file" class="btn btn-default">@Translation.UploadMoreFiles</span>
                 @Html.ActionLink(Translation.Cancel, Actions.Index, new { }, new { @class = "btn btn-info" })
             </div>
-        </div>  
+        </div>
     </div>
 }
 
+@Html.Partial(Partials.UploadFormPartial)
+
 @section Scripts {
     @Scripts.Render(ClientResources.JQueryValidation)
-    @Scripts.Render(ClientResources.FileUpload)
 }
