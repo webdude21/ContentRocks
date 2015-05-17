@@ -56,7 +56,7 @@
 
         public const string Delete = "Delete";
 
-        public const string GetImage = "GetImage";
+        public const string GetFile = "GetFile";
 
         public const string UploadImage = "UploadImage";
     }

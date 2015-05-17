@@ -16,6 +16,6 @@
 
         public const string Author = "Authors";
 
-        public const string Images = "Images";
+        public const string Files = "Files";
     }
 }

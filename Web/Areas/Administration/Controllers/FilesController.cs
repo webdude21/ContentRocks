@@ -3,21 +3,22 @@
     using Models.Content;
     using Services.Contracts;
     using System.Net;
+    using System.Web;
     using System.Web.Mvc;
     using Web.Infrastructure;
     using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
 
-    public class ImagesController : AdminController
+    public class FilesController : AdminController
     {
-        private IImageService imageService;
+        private IFileUploadService fileUploadService;
 
-        private IImageUploader imageUploader;
+        private IFileUploader imageUploader;
 
-        public ImagesController(IImageService imageService, ICurrentUser user, IImageUploader imageUploader)
+        public FilesController(IFileUploadService imageService, ICurrentUser user, IFileUploader imageUploader)
             : base(user)
         {
-            this.imageService = imageService;
+            this.fileUploadService = imageService;
             this.imageUploader = imageUploader;
         }
 
@@ -30,16 +31,16 @@
                 this.HttpNotFound();
             }
 
-            this.imageService.DeleteBy(id);
+            this.fileUploadService.DeleteBy(id);
             return this.Json(string.Empty, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UploadImage(Image model)
+        public ActionResult UploadFiles(HttpPostedFileBase file)
         {
-            this.imageUploader.UploadImages(this.Request, this.Server);
-            return null;
+            this.imageUploader.UploadFiles(this.Request, this.Server);
+            return this.Json(string.Empty, JsonRequestBehavior.DenyGet);
         }
     }
 }

@@ -6,16 +6,16 @@
     using Web.Infrastructure;
     using Web.ViewModels.Content;
 
-    public class ImagesController : BaseController
+    public class FilesController : BaseController
     {
-        private IImageService imageService;
+        private IFileUploadService imageService;
 
-        public ImagesController(IImageService imageService): base()
+        public FilesController(IFileUploadService imageService): base()
         {
             this.imageService = imageService;
         }
 
-        public ActionResult GetImage(string fileName)
+        public ActionResult GetFile(string fileName)
         {
             var image = this.imageService.GetBy(fileName);
             return this.File(Server.MapPath("~" + image.Url), image.MimeType, image.FileName);

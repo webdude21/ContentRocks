@@ -10,16 +10,16 @@
     using Config;
     using Services.Contracts;
 
-    public class ImageUploader : IImageUploader
+    public class FileUploader : IFileUploader
     {
-        private IImageService imageService;
+        private IFileUploadService fileService;
 
-        public ImageUploader(IImageService imageService)
+        public FileUploader(IFileUploadService fileService)
         {
-            this.imageService = imageService;
+            this.fileService = fileService;
         }
 
-        public void UploadImages(HttpRequestBase request, HttpServerUtilityBase serverUtility)
+        public void UploadFiles(HttpRequestBase request, HttpServerUtilityBase serverUtility)
         {
             foreach (string upload in request.Files)
             {
@@ -43,20 +43,20 @@
 
                 var originalFileName = Path.GetFileName(fileBase.FileName);
                 var resultFileName = Guid.NewGuid() + "_" + originalFileName;
-                var fileTosave = new Image
+                var fileTosave = new FileInfo
                 {
                     FileName = originalFileName,
                     Url = relativePath + resultFileName,
                     MimeType = fileBase.ContentType
                 };
 
-                this.imageService.Add(fileTosave);
+                this.fileService.Add(fileTosave);
                 var postedFileBase = fileBase;
                 postedFileBase.SaveAs(Path.Combine(pathToSave, resultFileName));
             }
         }
 
-        public void DeleteImagesFromFileSystem(List<Image> imagesToDelete, HttpServerUtilityBase server)
+        public void DeleteFilesFromFileSystem(List<FileInfo> imagesToDelete, HttpServerUtilityBase server)
         {
             var pathsToDelete = imagesToDelete.Where(image => image.Url.Contains(GlobalConstants.PostImagesRelativePath))
                     .Select(image => server.MapPath("~" + image.Url))

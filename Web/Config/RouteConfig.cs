@@ -21,9 +21,9 @@
                 new { id = PostRoute.IdMatcher, friendlyUrl = PostRoute.FriendlyUrlMatcher },
                 new[] { Assemblies.NoAreaControllersNamespace });
 
-            routes.MapRoute(ImageRoute.Name, ImageRoute.UrlPattern,
-                 new { controller = ImageRoute.DefaultController, action = Actions.GetImage },
-                 new { fileName = ImageRoute.FileNameMatcher });
+            routes.MapRoute(FileRoute.Name, FileRoute.UrlPattern,
+                 new { controller = FileRoute.DefaultController, action = Actions.GetFile },
+                 new { fileName = FileRoute.FileNameMatcher });
 
             routes.MapRoute(DefaultRoute.Name, DefaultRoute.UrlPattern,
                 new

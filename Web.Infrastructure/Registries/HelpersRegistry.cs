@@ -9,7 +9,7 @@
     {
         public void Register(IKernel kernel)
         {
-            kernel.Bind<IImageUploader>().To<ImageUploader>().InRequestScope();
+            kernel.Bind<IFileUploader>().To<FileUploader>().InRequestScope();
         }
     }
 }

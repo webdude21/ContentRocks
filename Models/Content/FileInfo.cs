@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Image : BaseModel
+    public class FileInfo : BaseModel
     {
         [MaxLength(200)]
         public string FileName { get; set; }
