@@ -43,7 +43,7 @@
 
                 var originalFileName = Path.GetFileName(fileBase.FileName);
                 var resultFileName = Guid.NewGuid() + "_" + originalFileName;
-                var fileTosave = new FileInfo
+                var fileTosave = new FileEntity
                 {
                     FileName = originalFileName,
                     Url = relativePath + resultFileName,
@@ -56,7 +56,7 @@
             }
         }
 
-        public void DeleteFilesFromFileSystem(List<FileInfo> imagesToDelete, HttpServerUtilityBase server)
+        public void DeleteFilesFromFileSystem(List<FileEntity> imagesToDelete, HttpServerUtilityBase server)
         {
             var pathsToDelete = imagesToDelete.Where(image => image.Url.Contains(GlobalConstants.PostImagesRelativePath))
                     .Select(image => server.MapPath("~" + image.Url))

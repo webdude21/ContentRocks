@@ -6,14 +6,14 @@
     using System.Data.Entity;
     using System.Linq;
 
-    public class FileService : BaseService<FileInfo>, IFileUploadService
+    public class FileService : BaseService<FileEntity>, IFileUploadService
     {
         public FileService(IUnitOfWork unitOfWork)
             : base(unitOfWork)
         {
         }
 
-        public FileInfo GetBy(string filename)
+        public FileEntity GetBy(string filename)
         {
             return this.DataSet.FirstOrDefault(file => file.FileName == filename);
         }

@@ -8,6 +8,6 @@
     {
         void UploadFiles(HttpRequestBase request, HttpServerUtilityBase serverUtility);
 
-        void DeleteFilesFromFileSystem(List<FileInfo> imagesToDelete, HttpServerUtilityBase server);
+        void DeleteFilesFromFileSystem(List<FileEntity> imagesToDelete, HttpServerUtilityBase server);
     }
 }

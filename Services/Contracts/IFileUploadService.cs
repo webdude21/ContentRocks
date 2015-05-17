@@ -3,8 +3,8 @@ namespace Services.Contracts
 {
     using Models.Content;
 
-    public interface IFileUploadService : IEntityService<FileInfo>
+    public interface IFileUploadService : IEntityService<FileEntity>
     {
-        FileInfo GetBy(string filename);
+        FileEntity GetBy(string filename);
     }
 }

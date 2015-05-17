@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class FileInfo : BaseModel
+    public class FileEntity : BaseModel
     {
         [MaxLength(200)]
         public string FileName { get; set; }

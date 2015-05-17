@@ -105,6 +105,6 @@
                     result => result.MapFrom(fullModel => fullModel.Author.Id));
         }
 
-        public ICollection<FileInfo> Images { get; set; }
+        public ICollection<FileEntity> Images { get; set; }
     }
 }
