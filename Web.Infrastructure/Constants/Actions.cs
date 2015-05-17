@@ -58,6 +58,6 @@
 
         public const string GetFile = "GetFile";
 
-        public const string UploadImage = "UploadImage";
+        public const string Upload = "Upload";
     }
 }

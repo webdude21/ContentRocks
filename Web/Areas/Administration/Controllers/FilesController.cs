@@ -35,9 +35,15 @@
             return this.Json(string.Empty, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public ActionResult Upload()
+        {
+            return this.View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UploadFiles(HttpPostedFileBase file)
+        public ActionResult Upload(HttpPostedFileBase file)
         {
             this.imageUploader.UploadFiles(this.Request, this.Server);
             return this.Json(string.Empty, JsonRequestBehavior.DenyGet);
