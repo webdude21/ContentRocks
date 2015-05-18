@@ -30,10 +30,6 @@
 
         public const string SiteCssPath = "~/Content/site.css";
 
-        public const string FileUpload = "~/bundles/filesManagment";
-
-        public const string FileUploadPath = "~/Scripts/upload.js";
-
         public const string JQueryFileUploadPath = "~/Scripts/jQuery.FileUpload/*.js";
 
         public const string JQueryFileUpload = "~/bundles/jquery-fileupload";

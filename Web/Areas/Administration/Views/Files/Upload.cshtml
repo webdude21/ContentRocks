@@ -26,11 +26,12 @@
     </div>
 }
 @section Scripts {
+@Scripts.Render(ClientResources.JQueryFileUpload)
     <script type="text/javascript">
         $(function () {
             $('#fileupload').fileupload({
                 dataType: "json",
-                url: @Url.Action(Actions.Upload, Controllers.Files, new { area = Areas.Administration })
+                url: "api/Administration/Files/Upload",
                 limitConcurrentUploads: 1,
                 sequentialUploads: true,
                 progressInterval: 100,

@@ -1,13 +1,13 @@
 ﻿namespace Web.Areas.Administration.Controllers
 {
-    using Models.Content;
-    using Services.Contracts;
     using System.Net;
     using System.Web;
     using System.Web.Mvc;
+
+    using Services.Contracts;
+
     using Web.Infrastructure;
     using Web.Infrastructure.Identity;
-    using Web.ViewModels.Content;
 
     public class FilesController : AdminController
     {
@@ -25,9 +25,9 @@
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            if (!Request.IsAjaxRequest())
+            if (!this.Request.IsAjaxRequest())
             {
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 this.HttpNotFound();
             }
 

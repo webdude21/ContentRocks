@@ -29,7 +29,7 @@
 
             bundles.Add(new ScriptBundle(ClientResources.Bootstrap).Include(ClientResources.BootstrapPath, ClientResources.RespondPath));
 
-            bundles.Add(new ScriptBundle(ClientResources.FileUpload).Include(ClientResources.FileUploadPath));
+            bundles.Add(new ScriptBundle(ClientResources.JQueryFileUpload).Include(ClientResources.JQueryFileUploadPath));
         }
 
         public static void RegisterStyles(BundleCollection bundles)
