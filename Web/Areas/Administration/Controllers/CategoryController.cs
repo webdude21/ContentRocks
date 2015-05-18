@@ -28,8 +28,9 @@
         {
             if (this.ModelState.IsValid)
             {
-                categoryViewModel.Author = this.CurrentUser.Get();
-                this.categoryService.AddCategory(CategoryViewModel.GetCategoryFrom(categoryViewModel));
+                var newCategory = CategoryViewModel.GetCategoryFrom(categoryViewModel);
+                newCategory.Author = this.CurrentUser.Get();
+                this.categoryService.AddCategory(newCategory);
                 return this.RedirectToAction(Actions.Index);
             }
 

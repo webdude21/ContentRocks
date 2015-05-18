@@ -199,7 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
-    <Compile Include="Areas\Administration\Api\UploadController.cs" />
+    <Compile Include="Controllers\Api\UploadController.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\FilesController.cs" />
     <Compile Include="Areas\Administration\Controllers\PostsController.cs" />
@@ -344,7 +344,6 @@
     <Content Include="Scripts\jquery-ui-1.9.0.min.js" />
     <Content Include="Scripts\jQuery.FileUpload\cors\jquery.postmessage-transport.js" />
     <Content Include="Scripts\jQuery.FileUpload\cors\jquery.xdr-transport.js" />
-    <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-angular.js" />
     <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-audio.js" />
     <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-image.js" />
     <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-jquery-ui.js" />

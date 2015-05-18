@@ -30,8 +30,12 @@
 
         public const string SiteCssPath = "~/Content/site.css";
 
-        public const string JQueryFileUploadPath = "~/Scripts/jQuery.FileUpload/*.js";
+        public const string JQueryFileUploadPath = "~/Scripts/jQuery.FileUpload/jquery.fileupload.js";
 
         public const string JQueryFileUpload = "~/bundles/jquery-fileupload";
+
+        public const string JQueryUiPath = "~/Scripts/jquery-ui-1.9.0.js";
+
+        public const string JQueryUi = "~/bundles/jQuery-ui";
     }
 }

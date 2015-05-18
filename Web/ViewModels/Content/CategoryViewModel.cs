@@ -17,8 +17,6 @@
 
     public class CategoryViewModel : BaseViewModel, IMapFrom<Category>
     {
-        public virtual ApplicationUser Author { get; set; }
-
         public string ConfirmDelete
         {
             get

@@ -1,4 +1,4 @@
-﻿namespace Web.Areas.Administration.Api
+﻿namespace Web.Areas.Api
 {
     using System.Net;
     using System.Net.Http;

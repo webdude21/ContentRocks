@@ -14,7 +14,7 @@
 
             bundles.Add(new StyleBundle(ClientResources.Css).Include(ClientResources.BootstrapStylesPath, ClientResources.SiteCssPath));
 
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
 
         public static void RegisterScripts(BundleCollection bundles)
@@ -29,7 +29,8 @@
 
             bundles.Add(new ScriptBundle(ClientResources.Bootstrap).Include(ClientResources.BootstrapPath, ClientResources.RespondPath));
 
-            bundles.Add(new ScriptBundle(ClientResources.JQueryFileUpload).Include(ClientResources.JQueryFileUploadPath));
+            bundles.Add(new ScriptBundle(ClientResources.JQueryFileUpload).Include(ClientResources.JQueryUiPath,
+                    ClientResources.JQueryFileUploadPath));
         }
 
         public static void RegisterStyles(BundleCollection bundles)
