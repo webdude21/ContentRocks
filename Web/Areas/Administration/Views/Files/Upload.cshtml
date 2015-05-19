@@ -29,10 +29,10 @@
 @section Scripts {
     @Scripts.Render(ClientResources.JQueryFileUpload)
     <script type="text/javascript">
-        $(function () {
-            $('#fileupload').fileupload({
-                dataType: "json",
-                url: "@Url.RouteUrl(DefaultApiRoute.Name, new { httproute = "", controller = Controllers.Upload})",
+    $(function () {
+        $('#fileupload').fileupload({
+            dataType: "json",
+            url: "@Url.RouteUrl(DefaultApiRoute.Name, new { httproute = "", controller = Controllers.Upload})",
                 limitConcurrentUploads: 1,
                 sequentialUploads: true,
                 progressInterval: 100,
@@ -46,7 +46,7 @@
                     });
                 },
                 done: function (e, data) {
-                    data.context.text(data.files[0].name + '... @Translation.Completed');
+                    data.context.html($('<a href="' + data.result.Url + '">' + data.result.FileName + '</a><span> ... @Translation.Completed</span>'));
                     $('</div><div class="progress progress-striped active"><div class="progress-bar" style="width:100%"></div></div>').appendTo(data.context);
                 },
                 progressall: function (e, data) {

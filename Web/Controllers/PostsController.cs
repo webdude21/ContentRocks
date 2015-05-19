@@ -1,12 +1,16 @@
 ﻿namespace Web.Controllers
 {
     using AutoMapper.QueryableExtensions;
+
     using Common;
+
     using Config;
+
     using Services.Contracts;
+
     using System.Linq;
     using System.Web.Mvc;
-    using Web.Infrastructure;
+
     using Web.Infrastructure.Constants;
     using Web.ViewModels;
     using Web.ViewModels.Content;
