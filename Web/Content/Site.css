@@ -27,3 +27,20 @@ header .glyphicon {
     padding-left: 5px;
     padding-right: 5px;
 }
+
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    -ms-opacity: 0;
+    opacity: 0;
+    font-size: 200px;
+    direction: ltr;
+    cursor: pointer;
+}

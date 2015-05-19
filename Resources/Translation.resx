@@ -297,4 +297,10 @@
   <data name="UploadFiles" xml:space="preserve">
     <value>Upload files</value>
   </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="AddFiles" xml:space="preserve">
+    <value>Add files</value>
+  </data>
 </root>

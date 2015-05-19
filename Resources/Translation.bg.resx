@@ -297,4 +297,10 @@
   <data name="UploadFiles" xml:space="preserve">
     <value>Качване на файлове</value>
   </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Готово</value>
+  </data>
+  <data name="AddFiles" xml:space="preserve">
+    <value>Добавяне на файлове</value>
+  </data>
 </root>

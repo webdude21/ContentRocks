@@ -1,5 +1,10 @@
 ﻿@model Web.ViewModels.Content.CategoryViewModel
 
+@{
+    ViewBag.Title = Translation.CreateNewCategory;
+}
+<h4>@ViewBag.Title</h4>
+<hr />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()

@@ -9,7 +9,6 @@
     using Config;
 
     using Models.Content;
-    using Models.Identity;
 
     using Resources;
 
@@ -21,8 +20,7 @@
         {
             get
             {
-                return Translation.AreYouSureYouWantToDeleteThis + Environment.NewLine
-                       + Translation.ThisWillDeleteAllPostInTheCategory;
+                return Translation.AreYouSureYouWantToDeleteThis + Environment.NewLine + Translation.ThisWillDeleteAllPostInTheCategory;
             }
         }
 
