@@ -6,8 +6,10 @@
 
     public interface IFileUploader
     {
-        void UploadFiles(HttpRequestBase request, HttpServerUtilityBase serverUtility);
+        void UploadFiles(HttpRequestBase request);
 
-        void DeleteFilesFromFileSystem(List<FileEntity> imagesToDelete, HttpServerUtilityBase server);
+        void DeleteFilesFromFileSystem(List<FileEntity> imagesToDelete);
+
+        FileEntity SaveFile(HttpPostedFile file);
     }
 }

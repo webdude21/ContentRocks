@@ -42,6 +42,6 @@
 
         public const string UserNameRegex = @"[\w]+";
 
-        public const string PostImagesRelativePath = "/Content/UploadedFiles/";
+        public const string PostedFilesRelativePath = "/Content/UploadedFiles/";
     }
 }

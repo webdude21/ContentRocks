@@ -11,6 +11,7 @@
 
     using Microsoft.AspNet.Identity.EntityFramework;
 
+    using Models.Content;
     using Models.Contracts;
     using Models.Identity;
 
@@ -35,6 +36,12 @@
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FileEntity>().ToTable("FileEntity");
+            base.OnModelCreating(modelBuilder);
         }
 
         private void ApplyAuditInfoRules()

@@ -12,9 +12,9 @@
                 <div class="progress-bar" id="overallbar" style="width: 0%">
                 </div>
             </div>
-            <span class="btn btn-success fileinput-button">
-                <i class="glyphicon glyphicon-plus"></i>@Translation.AddFiles ...
-                <input type="file" id="fileupload" name="fileupload" accept="image/*" multiple="multiple">
+            <span class="btn btn-primary fileinput-button">
+                <i class="glyphicon glyphicon-plus"></i> @Translation.AddFiles
+                <input type="file" id="fileupload" name="fileupload" multiple="multiple">
             </span>
             <button id="btnUploadAll" class="btn btn-success pull-right" type="button">@Translation.UploadFiles</button>
         </div>
@@ -32,11 +32,11 @@
         $(function () {
             $('#fileupload').fileupload({
                 dataType: "json",
-                url: "/api/upload",
+                url: "@Url.RouteUrl(DefaultApiRoute.Name, new { httproute = "", controller = Controllers.Upload})",
                 limitConcurrentUploads: 1,
                 sequentialUploads: true,
                 progressInterval: 100,
-                maxChunkSize: 10000,
+                maxChunkSize: 52428800,
                 add: function (e, data) {
                     $('#filelistholder').removeClass('hide');
                     data.context = $('<div />').text(data.files[0].name).appendTo('#filelistholder');

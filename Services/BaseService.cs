@@ -122,7 +122,6 @@
             this.SaveChanges();
         }
 
-
         public void Add(T entity)
         {
             Checker.CheckForNull(entity, "entity");

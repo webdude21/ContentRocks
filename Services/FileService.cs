@@ -3,7 +3,6 @@
     using Data.Contracts;
     using Models.Content;
     using Services.Contracts;
-    using System.Data.Entity;
     using System.Linq;
 
     public class FileService : BaseService<FileEntity>, IFileUploadService

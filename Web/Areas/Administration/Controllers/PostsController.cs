@@ -16,7 +16,6 @@
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
-    using Web.Infrastructure;
 
     public class PostsController : AdminController
     {

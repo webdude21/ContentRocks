@@ -13,6 +13,6 @@ namespace Web.Infrastructure.Constants
 
         public const string Name = "Files";
 
-        public static string UrlPattern = GlobalConstants.PostImagesRelativePath.Substring(1) + "{fileName}";
+        public static string UrlPattern = GlobalConstants.PostedFilesRelativePath.Substring(1) + "{fileName}";
     }
 }

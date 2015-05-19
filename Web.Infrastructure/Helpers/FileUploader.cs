@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Web;
+    using System.Web.Hosting;
 
     using Models.Content;
     using Config;
@@ -12,14 +13,35 @@
 
     public class FileUploader : IFileUploader
     {
-        private IFileUploadService fileService;
+        private readonly IFileUploadService fileService;
 
         public FileUploader(IFileUploadService fileService)
         {
             this.fileService = fileService;
         }
 
-        public void UploadFiles(HttpRequestBase request, HttpServerUtilityBase serverUtility)
+        public FileEntity SaveFile(HttpPostedFile file)
+        {
+            var relativePath = GlobalConstants.PostedFilesRelativePath + DateTime.Now.ToString("dd-MM-yyyy") + "/";
+            var pathToSave = HostingEnvironment.MapPath("~" + relativePath);
+            MakeDirectoryIfNeeded(pathToSave);
+
+            var originalFileName = Path.GetFileName(file.FileName);
+            var resultFileName = Guid.NewGuid() + "_" + originalFileName;
+            var fileTosave = new FileEntity
+            {
+                FileName = originalFileName,
+                Url = relativePath + resultFileName,
+                MimeType = file.ContentType
+            };
+
+            this.fileService.Add(fileTosave);
+            file.SaveAs(Path.Combine(pathToSave, resultFileName));
+
+            return fileTosave;
+        }
+
+        public void UploadFiles(HttpRequestBase request)
         {
             foreach (string upload in request.Files)
             {
@@ -29,10 +51,10 @@
                     continue;
                 }
 
-                var relativePath = GlobalConstants.PostImagesRelativePath + DateTime.Now.ToString("dd-MM-yyyy/");
-                var pathToSave = serverUtility.MapPath("~" + relativePath);
+                var relativePath = GlobalConstants.PostedFilesRelativePath + DateTime.Now.ToString("dd-MM-yyyy");
+                var pathToSave = HostingEnvironment.MapPath("~" + relativePath);
 
-                this.MakeDirectoryIfNeeded(pathToSave);
+                MakeDirectoryIfNeeded(pathToSave);
 
                 var fileBase = request.Files[upload];
 
@@ -56,10 +78,10 @@
             }
         }
 
-        public void DeleteFilesFromFileSystem(List<FileEntity> imagesToDelete, HttpServerUtilityBase server)
+        public void DeleteFilesFromFileSystem(List<FileEntity> imagesToDelete)
         {
-            var pathsToDelete = imagesToDelete.Where(image => image.Url.Contains(GlobalConstants.PostImagesRelativePath))
-                    .Select(image => server.MapPath("~" + image.Url))
+            var pathsToDelete = imagesToDelete.Where(image => image.Url.Contains(GlobalConstants.PostedFilesRelativePath))
+                    .Select(image => HostingEnvironment.MapPath("~" + image.Url))
                     .Where(File.Exists);
 
             foreach (var pathToDelete in pathsToDelete)
@@ -68,7 +90,7 @@
             }
         }
 
-        private void MakeDirectoryIfNeeded(string pathToSave)
+        private static void MakeDirectoryIfNeeded(string pathToSave)
         {
             if (!Directory.Exists(pathToSave))
             {

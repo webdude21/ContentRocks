@@ -3,8 +3,6 @@
     using System.Data.Entity;
     using System.Linq;
 
-    using Common;
-
     using Data.Contracts;
 
     using Models.Content;
@@ -23,10 +21,7 @@
 
         public void AddPost(Post newPost)
         {
-            Checker.CheckForNull(newPost, "newPost");
-            this.CheckIfEntityExists(newPost.Id);
-            this.DataSet.Add(newPost);
-            this.SaveChanges();
+            this.Add(newPost);
         }
 
         public IQueryable<Post> GetBy(int id, string friendlyUrl)
