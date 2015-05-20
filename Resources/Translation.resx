@@ -303,4 +303,10 @@
   <data name="AddFiles" xml:space="preserve">
     <value>Add files</value>
   </data>
+  <data name="UploadedFiles" xml:space="preserve">
+    <value>Uploaded files</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Filename</value>
+  </data>
 </root>

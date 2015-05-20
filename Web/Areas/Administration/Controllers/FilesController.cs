@@ -1,20 +1,31 @@
 ﻿namespace Web.Areas.Administration.Controllers
 {
+    using System.Linq;
     using System.Net;
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
+
+    using Common;
+
+    using Config;
+
     using Services.Contracts;
 
+    using Web.Areas.Administration.ViewModels.Content;
+    using Web.Infrastructure.Constants;
     using Web.Infrastructure.Identity;
+    using Web.ViewModels;
+    using Web.ViewModels.Content;
 
     public class FilesController : AdminController
     {
         private readonly IFileUploadService fileUploadService;
 
-        public FilesController(IFileUploadService imageService, ICurrentUser user)
+        public FilesController(IFileUploadService fileUploadService, ICurrentUser user)
             : base(user)
         {
-            this.fileUploadService = imageService;
+            this.fileUploadService = fileUploadService;
         }
 
         [HttpDelete]
@@ -31,9 +42,24 @@
         }
 
         [HttpGet]
+        public ActionResult Index(int? page = 1)
+        {
+            return this.View(this.fileUploadService.GetWithPaginating(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+                        .Project()
+                        .To<FileEntityViewModel>()
+                        .ToList());
+        }
+
+        [HttpGet]
         public ActionResult Upload()
         {
             return this.View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult Pager(int? page)
+        {
+            return this.PartialView(Partials.Pager, PagerViewModel.ConvertFrom(this.fileUploadService.GetPager(page)));
         }
     }
 }

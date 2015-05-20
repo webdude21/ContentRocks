@@ -128,5 +128,10 @@
             this.DataSet.Add(entity);
             this.SaveChanges();
         }
+
+        public IQueryable<T> GetWithPaginating(int count, int page = 1)
+        {
+            return this.GetDataWithPaging(this.dataSet.OrderBy(entity => entity.Id), count, page);
+        }
     }
 }

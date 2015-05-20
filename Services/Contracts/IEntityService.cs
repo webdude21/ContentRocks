@@ -21,5 +21,7 @@
         void Update();
 
         void Add(T entity);
+
+        IQueryable<T> GetWithPaginating(int count, int page = 1);
     }
 }

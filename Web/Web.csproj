@@ -199,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Content\FileEntityViewModel.cs" />
     <Compile Include="Controllers\Api\UploadController.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\FilesController.cs" />
@@ -328,6 +329,7 @@
     <Content Include="Areas\Administration\Views\Category\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Category\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Files\Index.cshtml" />
     <None Include="Areas\Administration\Views\Posts\Create.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -335,6 +337,7 @@
     <Content Include="Areas\Administration\Views\Posts\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_AdminCategoriesListPartial.cshtml" />
     <Content Include="Areas\Administration\Views\Files\Upload.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_AdminFilesListPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

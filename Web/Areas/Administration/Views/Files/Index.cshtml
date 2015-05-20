@@ -1,0 +1,15 @@
+﻿@model List<Web.Areas.Administration.ViewModels.Content.FileEntityViewModel>
+
+@{
+    ViewBag.Title = Translation.UploadedFiles;
+}
+
+<h4>@ViewBag.Title</h4>
+@{
+    Html.RenderPartial(Partials.AdminFilesListPartial, Model);
+}
+
+@Html.Action(Actions.Pager, Controllers.Files, new { area = Areas.Administration })
+@section scripts {
+    @Scripts.Render(ClientResources.JQueryUnobtrusive)
+}

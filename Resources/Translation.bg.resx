@@ -303,4 +303,10 @@
   <data name="AddFiles" xml:space="preserve">
     <value>Добавяне на файлове</value>
   </data>
+  <data name="UploadedFiles" xml:space="preserve">
+    <value>Качени файлове</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Име на файла</value>
+  </data>
 </root>
