@@ -13,19 +13,22 @@
     using Services.Contracts;
 
     using Web.Areas.Administration.ViewModels.Content;
+    using Web.Infrastructure;
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Identity;
     using Web.ViewModels;
-    using Web.ViewModels.Content;
 
     public class FilesController : AdminController
     {
         private readonly IFileUploadService fileUploadService;
 
-        public FilesController(IFileUploadService fileUploadService, ICurrentUser user)
+        private readonly IFileUploader fileUploader;
+
+        public FilesController(IFileUploadService fileUploadService, ICurrentUser user, IFileUploader fileUploader)
             : base(user)
         {
             this.fileUploadService = fileUploadService;
+            this.fileUploader = fileUploader;
         }
 
         [HttpDelete]
@@ -37,7 +40,7 @@
                 this.HttpNotFound();
             }
 
-            this.fileUploadService.DeleteBy(id);
+            this.fileUploader.DeleteFile(id);
             return this.Json(string.Empty, JsonRequestBehavior.AllowGet);
         }
 

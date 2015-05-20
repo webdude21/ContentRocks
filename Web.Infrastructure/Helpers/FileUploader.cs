@@ -41,6 +41,12 @@
             return fileTosave;
         }
 
+        public void DeleteFile(int id)
+        {
+            this.DeleteFilesFromFileSystem(new List<FileEntity>{this.fileService.GetBy(id)});
+            this.fileService.DeleteBy(id);
+        }
+
         public void UploadFiles(HttpRequestBase request)
         {
             foreach (string upload in request.Files)
@@ -78,10 +84,10 @@
             }
         }
 
-        public void DeleteFilesFromFileSystem(List<FileEntity> imagesToDelete)
+        public void DeleteFilesFromFileSystem(List<FileEntity> filesToDelete)
         {
-            var pathsToDelete = imagesToDelete.Where(image => image.Url.Contains(GlobalConstants.PostedFilesRelativePath))
-                    .Select(image => HostingEnvironment.MapPath("~" + image.Url))
+            var pathsToDelete = filesToDelete.Where(file => file.Url.Contains(GlobalConstants.PostedFilesRelativePath))
+                    .Select(file => HostingEnvironment.MapPath("~" + file.Url))
                     .Where(File.Exists);
 
             foreach (var pathToDelete in pathsToDelete)

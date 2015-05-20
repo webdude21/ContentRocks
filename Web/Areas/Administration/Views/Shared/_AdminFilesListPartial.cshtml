@@ -14,8 +14,7 @@
                 <tr id="@fileEntity.GetHtmlId">
                     <td><a href="@fileEntity.Url">@fileEntity.FileName</a></td>
                     <td>
-                        @Html.ActionLink(Translation.Edit, Actions.Edit, Controllers.Category, new { area = Areas.Administration, id = fileEntity.Id }, new { @class = "btn btn-info" })
-                        @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Category, new { area = Areas.Administration, id = fileEntity.Id },
+                        @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Files, new { area = Areas.Administration, id = fileEntity.Id },
                     new AjaxOptions
                     {
                         HttpMethod = "Delete",

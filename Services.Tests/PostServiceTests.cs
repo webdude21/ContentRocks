@@ -50,15 +50,6 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void AddingFailsWithExceptionIfIdIsTaken()
-        {
-            var post = this.dataGenerator.GetPost(this.pageSize);
-            this.repository.As<IDbSet<Post>>().Setup(m => m.Find(this.pageSize)).Returns(post);
-            this.postService.AddPost(post);
-        }
-
-        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void AddingNullAsUnitOfWorkThrowsException()
         {

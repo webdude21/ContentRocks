@@ -11,5 +11,7 @@
         void DeleteFilesFromFileSystem(List<FileEntity> imagesToDelete);
 
         FileEntity SaveFile(HttpPostedFile file);
+
+        void DeleteFile(int id);
     }
 }
