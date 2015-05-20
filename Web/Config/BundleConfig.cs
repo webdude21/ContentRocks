@@ -31,6 +31,8 @@
 
             bundles.Add(new ScriptBundle(ClientResources.JQueryFileUpload).Include(ClientResources.JQueryUiPath,
                     ClientResources.JQueryFileUploadPath));
+
+            bundles.Add(new ScriptBundle(ClientResources.ZeroClipBoard).Include(ClientResources.ZeroClipBoardPath));
         }
 
         public static void RegisterStyles(BundleCollection bundles)

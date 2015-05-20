@@ -5,6 +5,6 @@ namespace Services.Contracts
 
     public interface IFileUploadService : IEntityService<FileEntity>
     {
-        FileEntity GetBy(string filename);
+        FileEntity GetBy(string url);
     }
 }

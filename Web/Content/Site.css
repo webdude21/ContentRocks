@@ -44,3 +44,7 @@ header .glyphicon {
     direction: ltr;
     cursor: pointer;
 }
+
+.copy-button {
+    font-size: 2rem;
+}

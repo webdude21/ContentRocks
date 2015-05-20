@@ -11,9 +11,9 @@
         {
         }
 
-        public FileEntity GetBy(string filename)
+        public FileEntity GetBy(string url)
         {
-            return this.DataSet.FirstOrDefault(file => file.FileName == filename);
+            return this.DataSet.FirstOrDefault(file => file.Url == url);
         }
     }
 }

@@ -1,11 +1,9 @@
 ﻿
 namespace Web.Infrastructure.Constants
 {
-    using Config;
-
     public static class FileRoute
     {
-        public const string DefaultController = Controllers.Files;
+        public const string DefaultController = Controllers.FileDownload;
 
         public const string Detail = Actions.GetFile;
 
@@ -13,6 +11,6 @@ namespace Web.Infrastructure.Constants
 
         public const string Name = "Files";
 
-        public static string UrlPattern = GlobalConstants.PostedFilesRelativePath.Substring(1) + "{fileName}";
+        public static string UrlPattern = "{url}";
     }
 }

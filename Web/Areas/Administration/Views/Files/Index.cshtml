@@ -10,6 +10,15 @@
 }
 
 @Html.Action(Actions.Pager, Controllers.Files, new { area = Areas.Administration })
+@Html.ActionLink(Translation.UploadFiles, Actions.Upload, Controllers.Files,
+new { area = Areas.Administration }, new { @class = "btn btn-default col-md-offset-5" })
 @section scripts {
     @Scripts.Render(ClientResources.JQueryUnobtrusive)
+    @Scripts.Render(ClientResources.ZeroClipBoard)
+    <script>
+        $(function () {
+            ZeroClipboard.config({ moviePath: "http://localhost:11112/Scripts/ZeroClipboard.swf" });
+            var clip = new ZeroClipboard($(".copy-button"));
+        });
+    </script>
 }

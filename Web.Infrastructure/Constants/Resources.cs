@@ -2,6 +2,10 @@
 {
     public class ClientResources
     {
+        public const string ZeroClipBoardPath = "~/Scripts/ZeroClipboard.js";
+
+        public const string ZeroClipBoard = "~/bundles/zeroclipboard";
+
         public const string Bootstrap = "~/bundles/bootstrap";
 
         public const string BootstrapPath = "~/Scripts/bootstrap.js";

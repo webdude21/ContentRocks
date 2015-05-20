@@ -23,7 +23,7 @@
 
             routes.MapRoute(FileRoute.Name, FileRoute.UrlPattern,
                  new { controller = FileRoute.DefaultController, action = Actions.GetFile },
-                 new { fileName = FileRoute.FileNameMatcher });
+                 new { url = FileRoute.FileNameMatcher });
 
             routes.MapRoute(DefaultRoute.Name, DefaultRoute.UrlPattern,
                 new

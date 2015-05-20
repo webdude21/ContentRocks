@@ -17,6 +17,14 @@
 
         public string Url { get; set; }
 
+        public string UrlWithoutSlash
+        {
+            get
+            {
+                return this.Url.Substring(1);
+            }
+        }
+
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }

@@ -309,4 +309,7 @@
   <data name="FileName" xml:space="preserve">
     <value>Filename</value>
   </data>
+  <data name="Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
 </root>
