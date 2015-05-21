@@ -2,32 +2,29 @@
 
 <table class="table table-striped table-hover">
     <thead>
-        <tr>
-            <th>@Translation.FileName</th>
-            <th>@Translation.Link</th>
-            <th>@Translation.Actions</th>
-        </tr>
+    <tr>
+        <th>@Translation.FileName</th>
+        <th>@Translation.Link</th>
+        <th>@Translation.Actions</th>
+    </tr>
     </thead>
     <tbody>
-        @{
-            foreach (var fileEntity in Model)
-            {
-                <tr id="@fileEntity.GetHtmlId">
-                    <td><a href="@fileEntity.Url">@fileEntity.FileName</a></td>
-                    <td>
-                        <span class="glyphicon glyphicon-copy btn-default copy-button" data-clipboard-text="@Url.RouteUrl(FileRoute.Name,
-                        new { url = fileEntity.UrlWithoutSlash }, "http")"></span>
-                        <input type="text" class="col-md-10" value="@Url.RouteUrl(FileRoute.Name, new { url = fileEntity.UrlWithoutSlash }, "http")" />
-                    </td>
-                    <td>
-                        @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Files, 
-                        new { area = Areas.Administration, id = fileEntity.Id }, 
-                        new AjaxOptions { HttpMethod = "Delete", UpdateTargetId = fileEntity.GetHtmlId, 
-                            InsertionMode = InsertionMode.ReplaceWith, Confirm = fileEntity.ConfirmDelete }, 
-                            new { @class = "btn btn-danger" })
-                    </td>
-                </tr>
-            }
+    @{
+        foreach (var fileEntity in Model)
+        {
+            <tr id="@fileEntity.GetHtmlId">
+                <td>
+                    <a href="@fileEntity.Url">@fileEntity.FileName</a>
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-copy btn-default copy-button" data-clipboard-text="@Url.RouteUrl(FileRoute.Name, new { url = fileEntity.UrlWithoutSlash }, "http")"></span>
+                    <input type="text" class="col-md-10" value="@Url.RouteUrl(FileRoute.Name, new { url = fileEntity.UrlWithoutSlash }, "http")"/>
+                </td>
+                <td>
+                    @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Files, new { area = Areas.Administration, id = fileEntity.Id }, new AjaxOptions { HttpMethod = "Delete", UpdateTargetId = fileEntity.GetHtmlId, InsertionMode = InsertionMode.ReplaceWith, Confirm = fileEntity.ConfirmDelete }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
         }
+    }
     </tbody>
 </table>

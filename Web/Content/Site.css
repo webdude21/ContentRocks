@@ -14,13 +14,11 @@
    will truncate terms that are too long to fit in the left column 
 */
 
-.dl-horizontal dt {
-    white-space: normal;
-}
+.dl-horizontal dt { white-space: normal; }
 
 .article-content {
-    padding-top: 15px;
     padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 header .glyphicon {
@@ -29,20 +27,20 @@ header .glyphicon {
 }
 
 .fileinput-button {
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .fileinput-button input {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
     -ms-opacity: 0;
-    opacity: 0;
-    font-size: 200px;
-    direction: ltr;
     cursor: pointer;
+    direction: ltr;
+    font-size: 200px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .copy-button {
@@ -50,6 +48,4 @@ header .glyphicon {
     margin-left: 1rem;
 }
 
-.article-content {
-    overflow: hidden;
-}
+.article-content { overflow: hidden; }

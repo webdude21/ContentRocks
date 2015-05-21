@@ -32,7 +32,11 @@ namespace Data.Migrations
                 var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
                 roleManager.Create(new IdentityRole(GlobalConstants.AdministratorRoleName));
-                var author = new ApplicationUser { Email = GlobalConstants.DefaultLoginEmail, UserName = GlobalConstants.DefaultUserName };
+                var author = new ApplicationUser
+                                 {
+                                     Email = GlobalConstants.DefaultLoginEmail,
+                                     UserName = GlobalConstants.DefaultUserName
+                                 };
                 userManager.Create(author, author.UserName);
                 userManager.AddToRole(author.Id, GlobalConstants.AdministratorRoleName);
                 category.Author = author;

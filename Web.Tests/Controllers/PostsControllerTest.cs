@@ -13,8 +13,8 @@
     using TestStack.FluentMVCTesting;
 
     using Web.Controllers;
-    using Web.ViewModels.Content;
     using Web.Infrastructure;
+    using Web.ViewModels.Content;
 
     [TestClass]
     public class PostsControllerTest

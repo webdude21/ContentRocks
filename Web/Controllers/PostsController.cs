@@ -1,5 +1,8 @@
 ﻿namespace Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
     using AutoMapper.QueryableExtensions;
 
     using Common;
@@ -7,9 +10,6 @@
     using Config;
 
     using Services.Contracts;
-
-    using System.Linq;
-    using System.Web.Mvc;
 
     using Web.Infrastructure.Constants;
     using Web.ViewModels;
@@ -31,8 +31,7 @@
 
         public ActionResult Index(int? page)
         {
-            return this.View(this.postService
-                        .GetTheLatestPosts(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+            return this.View(this.postService.GetTheLatestPosts(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
                         .Project()
                         .To<PostViewModel>()
                         .ToList());

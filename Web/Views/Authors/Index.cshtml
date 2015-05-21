@@ -7,20 +7,21 @@
 
 <table class="table table-striped table-hover ">
     <thead>
-        <tr>
-            <th>@Translation.UserName</th>
-            <th>@Translation.PostsCount</th>
-        </tr>
+    <tr>
+        <th>@Translation.UserName</th>
+        <th>@Translation.PostsCount</th>
+    </tr>
     </thead>
     <tbody>
-        @{
-            foreach (var author in Model)
-            {
-                <tr>
-                    <td>@Html.RouteLink(author.UserName, AuthorRoute.Name, new { username = author.UserName })</td>
-                    <td><span class="badge">@author.PostsCount</span></td>
-                </tr>
-            }
+    @{
+        foreach (var author in Model)
+        {
+            <tr>
+                <td>@Html.RouteLink(author.UserName, AuthorRoute.Name, new { username = author.UserName })</td>
+                <td>
+                    <span class="badge">@author.PostsCount</span></td>
+            </tr>
         }
+    }
     </tbody>
 </table>

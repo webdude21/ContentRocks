@@ -51,7 +51,8 @@
                         .To<PostViewModel>()
                         .ToList();
 
-                this.HttpContext.Cache.Add(cacheKey, posts, null, DateTime.Now.AddHours(1), TimeSpan.Zero, CacheItemPriority.Default, null);
+                this.HttpContext.Cache.Add(cacheKey, posts, null, DateTime.Now.AddHours(1), 
+                    TimeSpan.Zero, CacheItemPriority.Default, null);
             }
             else
             {

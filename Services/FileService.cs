@@ -1,13 +1,17 @@
 ﻿namespace Services
 {
-    using Data.Contracts;
-    using Models.Content;
-    using Services.Contracts;
     using System.Linq;
+
+    using Data.Contracts;
+
+    using Models.Content;
+
+    using Services.Contracts;
 
     public class FileService : BaseService<FileEntity>, IFileUploadService
     {
-        public FileService(IUnitOfWork unitOfWork): base(unitOfWork)
+        public FileService(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
         }
 

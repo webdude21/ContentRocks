@@ -21,6 +21,6 @@
             {
                 return this.Get<IList<Post>>("HomePagePosts", () => null);
             }
-        } 
+        }
     }
 }

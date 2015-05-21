@@ -1,5 +1,4 @@
-﻿
-namespace Services.Contracts
+﻿namespace Services.Contracts
 {
     using Models.Content;
 

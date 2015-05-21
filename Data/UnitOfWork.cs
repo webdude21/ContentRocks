@@ -17,7 +17,8 @@
 
     public class UnitOfWork : IdentityDbContext<ApplicationUser>, IUnitOfWork
     {
-        public UnitOfWork() : base(GlobalConstants.ConnectionString)
+        public UnitOfWork()
+            : base(GlobalConstants.ConnectionString)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<UnitOfWork, Configuration>());
         }
@@ -46,7 +47,10 @@
 
         private void ApplyAuditInfoRules()
         {
-            var addedOrModifiedEntries = this.ChangeTracker.Entries().Where(e =>
+            var addedOrModifiedEntries =
+                this.ChangeTracker.Entries()
+                    .Where(
+                        e =>
                         e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified)));
 
             foreach (var entry in addedOrModifiedEntries)

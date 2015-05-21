@@ -10,8 +10,7 @@
 }
 
 @Html.Action(Actions.Pager, Controllers.Posts, new { area = string.Empty })
-@Html.ActionLink(Translation.CreateBlogPost, Actions.Create, Controllers.Posts, 
-new { area = Areas.Administration }, new { @class = "btn btn-default col-md-offset-5" })
+@Html.ActionLink(Translation.CreateBlogPost, Actions.Create, Controllers.Posts, new { area = Areas.Administration }, new { @class = "btn btn-default col-md-offset-5" })
 @section scripts {
     @Scripts.Render(ClientResources.JQueryUnobtrusive)
 }

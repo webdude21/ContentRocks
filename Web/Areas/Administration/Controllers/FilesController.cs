@@ -20,9 +20,9 @@
 
     public class FilesController : AdminController
     {
-        private readonly IFileUploadService fileUploadService;
-
         private readonly IFileUploader fileUploader;
+
+        private readonly IFileUploadService fileUploadService;
 
         public FilesController(IFileUploadService fileUploadService, ICurrentUser user, IFileUploader fileUploader)
             : base(user)
@@ -47,22 +47,24 @@
         [HttpGet]
         public ActionResult Index(int? page = 1)
         {
-            return this.View(this.fileUploadService.GetWithPaginating(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+            return
+                this.View(
+                    this.fileUploadService.GetWithPaginating(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
                         .Project()
                         .To<FileEntityViewModel>()
                         .ToList());
-        }
-
-        [HttpGet]
-        public ActionResult Upload()
-        {
-            return this.View();
         }
 
         [ChildActionOnly]
         public ActionResult Pager(int? page)
         {
             return this.PartialView(Partials.Pager, PagerViewModel.ConvertFrom(this.fileUploadService.GetPager(page)));
+        }
+
+        [HttpGet]
+        public ActionResult Upload()
+        {
+            return this.View();
         }
     }
 }

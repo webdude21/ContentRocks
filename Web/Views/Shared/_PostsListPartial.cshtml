@@ -2,24 +2,24 @@
 
 <table class="table table-striped table-hover ">
     <thead>
-        <tr>
-            <th>@Translation.Title</th>
-            <th>@Translation.PostedOn</th>
-            <th>@Translation.PostedBy</th>
-            <th>@Translation.Category</th>
-        </tr>
+    <tr>
+        <th>@Translation.Title</th>
+        <th>@Translation.PostedOn</th>
+        <th>@Translation.PostedBy</th>
+        <th>@Translation.Category</th>
+    </tr>
     </thead>
     <tbody>
-        @{
-            foreach (var post in Model)
-            {
-                <tr>
-                    <td>@Html.RouteLink(post.Title, PostRoute.Name, new { area = string.Empty, id = post.Id, friendlyUrl = post.FriendlyUrl })</td>
-                    <td>@post.PostedOn</td>
-                    <td>@Html.RouteLink(post.AuthorName, AuthorRoute.Name, new { username = post.AuthorName })</td>
-                    <td>@Html.ActionLink(post.Category.Title, Actions.Detail, Controllers.Category, new { id = post.Category.Id }, new { area = string.Empty })</td>
-                </tr>
-            }
+    @{
+        foreach (var post in Model)
+        {
+            <tr>
+                <td>@Html.RouteLink(post.Title, PostRoute.Name, new { area = string.Empty, id = post.Id, friendlyUrl = post.FriendlyUrl })</td>
+                <td>@post.PostedOn</td>
+                <td>@Html.RouteLink(post.AuthorName, AuthorRoute.Name, new { username = post.AuthorName })</td>
+                <td>@Html.ActionLink(post.Category.Title, Actions.Detail, Controllers.Category, new { id = post.Category.Id }, new { area = string.Empty })</td>
+            </tr>
         }
+    }
     </tbody>
 </table>

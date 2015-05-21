@@ -10,15 +10,23 @@
 
         public const string Contact = "Contact";
 
+        public const string Create = "Create";
+
+        public const string Delete = "Delete";
+
         public const string Detail = "Detail";
 
         public const string DropdownList = "DropdownList";
+
+        public const string Edit = "Edit";
 
         public const string ExternalLogin = "ExternalLogin";
 
         public const string ExternalLoginConfirmation = "ExternalLoginConfirmation";
 
         public const string ForgotPassword = "ForgotPassword";
+
+        public const string GetFile = "GetFile";
 
         public const string Index = "Index";
 
@@ -46,18 +54,10 @@
 
         public const string SetPassword = "SetPassword";
 
+        public const string Upload = "Upload";
+
         public const string VerifyCode = "VerifyCode";
 
         public const string VerifyPhoneNumber = "VerifyPhoneNumber";
-
-        public const string Create = "Create";
-
-        public const string Edit = "Edit";
-
-        public const string Delete = "Delete";
-
-        public const string GetFile = "GetFile";
-
-        public const string Upload = "Upload";
     }
 }

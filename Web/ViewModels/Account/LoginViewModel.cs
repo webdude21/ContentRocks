@@ -7,11 +7,6 @@ namespace Web.ViewModels.Account
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "UserName", ResourceType = typeof(Translation))]
-
-        public string UserName { get; set; }
-
-        [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password", ResourceType = typeof(Translation))]
         public string Password { get; set; }
@@ -19,5 +14,8 @@ namespace Web.ViewModels.Account
         [Display(Name = "RememberMe", ResourceType = typeof(Translation))]
         public bool RememberMe { get; set; }
 
+        [Required]
+        [Display(Name = "UserName", ResourceType = typeof(Translation))]
+        public string UserName { get; set; }
     }
 }

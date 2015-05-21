@@ -6,22 +6,22 @@
 
     public interface IEntityService<T> : IService
     {
+        void Add(T entity);
+
+        void DeleteBy(int id);
+
         IQueryable<T> GetAll();
 
         T GetBy(int id);
 
         int GetPageCount(int pageSize);
 
-        void DeleteBy(int id);
-
         Pager GetPager(int? currentPage);
 
         Pager GetPager(int? currentPage, IQueryable<T> query);
 
-        void Update();
-
-        void Add(T entity);
-
         IQueryable<T> GetWithPaginating(int count, int page = 1);
+
+        void Update();
     }
 }

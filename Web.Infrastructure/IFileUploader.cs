@@ -1,17 +1,18 @@
 ﻿namespace Web.Infrastructure
 {
-    using Models.Content;
     using System.Collections.Generic;
     using System.Web;
 
+    using Models.Content;
+
     public interface IFileUploader
     {
-        void UploadFiles(HttpRequestBase request);
+        void DeleteFile(int id);
 
         void DeleteFilesFromFileSystem(List<FileEntity> imagesToDelete);
 
         FileEntity SaveFile(HttpPostedFile file);
 
-        void DeleteFile(int id);
+        void UploadFiles(HttpRequestBase request);
     }
 }

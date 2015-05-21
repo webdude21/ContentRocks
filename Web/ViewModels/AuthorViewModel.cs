@@ -15,8 +15,7 @@
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<ApplicationUser, AuthorViewModel>()
-                .ForMember(sourceModel => sourceModel.PostsCount,
-                    result => result.MapFrom(fullModel => fullModel.Posts.Count));
+                .ForMember(sourceModel => sourceModel.PostsCount, result => result.MapFrom(fullModel => fullModel.Posts.Count));
         }
     }
 }

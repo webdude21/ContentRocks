@@ -4,22 +4,44 @@
     <ul class="pagination">
         @if (Model.PreviousPageButtonEnabled)
         {
-            <li><a href="@Model.PreviousPageParam"><i class="glyphicon glyphicon-backward"></i></a></li>
+                <li>
+                <a href="@Model.FirstPageParam">
+                    <i class="glyphicon glyphicon-fast-backward"></i>
+                </a>
+            </li>
+            <li>
+                <a href="@Model.PreviousPageParam">
+                    <i class="glyphicon glyphicon-backward"></i>
+                </a>
+            </li>
         }
         @for (var page = 1; page <= Model.TotalPages; page++)
         {
             if (Model.CurrentPage == page)
             {
-                <li class="active"><span>@page</span></li>
+                <li class="active">
+                    <span>@page</span>
+                </li>
             }
             else
             {
-                <li><a href="@Model.GetPageParam(page)">@page</a></li>
+                <li>
+                    <a href="@Model.GetPageParam(page)">@page</a>
+                </li>
             }
         }
         @if (Model.NextPageButtonEnabled)
         {
-            <li><a href="@Model.NextPageParam"><i class="glyphicon glyphicon-forward"></i></a></li>
+            <li>
+                <a href="@Model.NextPageParam">
+                    <i class="glyphicon glyphicon-forward"></i>
+                </a>
+            </li>
+            <li>
+                <a href="@Model.LastPageParam">
+                    <i class="glyphicon glyphicon-fast-forward"></i>
+                </a>
+            </li>
         }
     </ul>
 </div>

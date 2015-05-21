@@ -15,8 +15,8 @@
         [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
         public string FriendlyUrl { get; set; }
 
-        public string Title { get; set; }
-
         public ICollection<PostViewModel> Posts { get; set; }
+
+        public string Title { get; set; }
     }
 }

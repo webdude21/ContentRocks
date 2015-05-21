@@ -7,8 +7,6 @@
         @Html.Raw(Model.Content.TrimWithEllipsis(GlobalConstants.HomePagePostsCharLimit))
     </article>
     <p>
-        @Html.RouteLink(Translation.ReadMore, PostRoute.Name,
-        new { area = string.Empty, id = Model.Id, friendlyUrl = Model.FriendlyUrl },
-        new { @class = "btn btn-primary" })
+        @Html.RouteLink(Translation.ReadMore, PostRoute.Name, new { area = string.Empty, id = Model.Id, friendlyUrl = Model.FriendlyUrl }, new { @class = "btn btn-primary" })
     </p>
 </div>

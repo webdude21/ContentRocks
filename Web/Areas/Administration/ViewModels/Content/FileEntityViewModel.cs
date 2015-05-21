@@ -11,25 +11,17 @@
 
     public class FileEntityViewModel : BaseViewModel, IMapFrom<FileEntity>
     {
-        public string FileName { get; set; }
-
-        public string MimeType { get; set; }
-
-        public string Url { get; set; }
-
-        public string UrlWithoutSlash
+        public string ConfirmDelete
         {
             get
             {
-                return this.Url.Substring(1);
+                return Translation.AreYouSureYouWantToDeleteThis;
             }
         }
 
         public DateTime CreatedOn { get; set; }
 
-        public DateTime? ModifiedOn { get; set; }
-
-        public bool PreserveCreatedOn { get; set; }
+        public string FileName { get; set; }
 
         public string GetHtmlId
         {
@@ -38,11 +30,20 @@
                 return string.Format("file-{0}", this.Id);
             }
         }
-        public string ConfirmDelete
+
+        public string MimeType { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
+
+        public string Url { get; set; }
+
+        public string UrlWithoutSlash
         {
             get
             {
-                return Translation.AreYouSureYouWantToDeleteThis;
+                return this.Url.Substring(1);
             }
         }
     }

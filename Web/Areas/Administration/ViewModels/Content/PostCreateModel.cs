@@ -13,7 +13,10 @@
     public class PostCreateViewModel
     {
         [NotMapped]
-        public const string ModelBinderProperties = "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId,FriendlyUrl";
+        public const string ModelBinderProperties =
+            "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId,FriendlyUrl";
+
+        public virtual ApplicationUser Author { get; set; }
 
         public int CategoryId { get; set; }
 
@@ -35,8 +38,6 @@
         [MaxLength(200)]
         [Display(Name = "Title", ResourceType = typeof(Translation))]
         public string Title { get; set; }
-
-        public virtual ApplicationUser Author { get; set; }
 
         public static Post GetPostFrom(PostCreateViewModel product)
         {

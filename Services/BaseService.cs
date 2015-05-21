@@ -14,7 +14,8 @@
 
     using Services.Contracts;
 
-    public abstract class BaseService<T> : IEntityService<T> where T : BaseModel
+    public abstract class BaseService<T> : IEntityService<T>
+        where T : BaseModel
     {
         private readonly IDbSet<T> dataSet;
 
@@ -52,6 +53,21 @@
             }
         }
 
+        public void Add(T entity)
+        {
+            Checker.CheckForNull(entity, "entity");
+            this.DataSet.Add(entity);
+            this.SaveChanges();
+        }
+
+        public void DeleteBy(int id)
+        {
+            var entity = this.dataSet.Find(id);
+            Checker.CheckForNull(entity, "entity");
+            this.DataSet.Remove(entity);
+            this.SaveChanges();
+        }
+
         public virtual IQueryable<T> GetAll()
         {
             return this.DataSet;
@@ -86,6 +102,11 @@
                        };
         }
 
+        public IQueryable<T> GetWithPaginating(int count, int page = 1)
+        {
+            return this.GetDataWithPaging(this.dataSet.OrderBy(entity => entity.Id), count, page);
+        }
+
         public void Update()
         {
             this.SaveChanges();
@@ -112,26 +133,6 @@
         protected virtual void SaveChanges()
         {
             this.unitOfWork.SaveChanges();
-        }
-
-        public void DeleteBy(int id)
-        {
-            var entity = this.dataSet.Find(id);
-            Checker.CheckForNull(entity, "entity");
-            this.DataSet.Remove(entity);
-            this.SaveChanges();
-        }
-
-        public void Add(T entity)
-        {
-            Checker.CheckForNull(entity, "entity");
-            this.DataSet.Add(entity);
-            this.SaveChanges();
-        }
-
-        public IQueryable<T> GetWithPaginating(int count, int page = 1)
-        {
-            return this.GetDataWithPaging(this.dataSet.OrderBy(entity => entity.Id), count, page);
         }
     }
 }

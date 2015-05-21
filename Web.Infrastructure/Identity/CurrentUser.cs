@@ -11,6 +11,7 @@
     public class CurrentUser : ICurrentUser
     {
         private readonly IIdentity currentIdentity;
+
         private readonly IUnitOfWork unitOfWork;
 
         private ApplicationUser user;

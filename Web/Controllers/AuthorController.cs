@@ -17,9 +17,9 @@
 
     public class AuthorsController : BaseController
     {
-        private readonly IPostService postService;
-
         private readonly IAuthorService authorService;
+
+        private readonly IPostService postService;
 
         public AuthorsController(IPostService postService, IAuthorService authorService)
         {
@@ -29,9 +29,9 @@
 
         public ActionResult Detail(string username, int? page)
         {
-            return this.View(this.postService
-                .GetTheLatestPostsByAuthor(username, GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
-                .Project().To<PostViewModel>().ToList());
+            return this.View(this.postService.GetTheLatestPostsByAuthor(username,
+                        GlobalConstants.PageSize,
+                        Checker.GetValidPageNumber(page)).Project().To<PostViewModel>().ToList());
         }
 
         public ActionResult Index()
@@ -42,9 +42,9 @@
         [ChildActionOnly]
         public ActionResult Pager(string username, int? page)
         {
-            return this.PartialView(Partials.Pager, PagerViewModel
-                .ConvertFrom(this.postService.GetPager(page, this
-                .postService.GetTheLatestPostsByAuthor(username))));
+            return this.PartialView(Partials.Pager, PagerViewModel.ConvertFrom(this
+                .postService
+                .GetPager(page, this.postService.GetTheLatestPostsByAuthor(username))));
         }
     }
 }

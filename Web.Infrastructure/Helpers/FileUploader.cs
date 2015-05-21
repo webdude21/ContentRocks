@@ -7,8 +7,10 @@
     using System.Web;
     using System.Web.Hosting;
 
-    using Models.Content;
     using Config;
+
+    using Models.Content;
+
     using Services.Contracts;
 
     public class FileUploader : IFileUploader
@@ -20,6 +22,25 @@
             this.fileService = fileService;
         }
 
+        public void DeleteFile(int id)
+        {
+            this.DeleteFilesFromFileSystem(new List<FileEntity> { this.fileService.GetBy(id) });
+            this.fileService.DeleteBy(id);
+        }
+
+        public void DeleteFilesFromFileSystem(List<FileEntity> filesToDelete)
+        {
+            var pathsToDelete =
+                filesToDelete.Where(file => file.Url.Contains(GlobalConstants.PostedFilesRelativePath))
+                    .Select(file => HostingEnvironment.MapPath("~" + file.Url))
+                    .Where(File.Exists);
+
+            foreach (var pathToDelete in pathsToDelete)
+            {
+                File.Delete(pathToDelete);
+            }
+        }
+
         public FileEntity SaveFile(HttpPostedFile file)
         {
             var relativePath = GlobalConstants.PostedFilesRelativePath + DateTime.Now.ToString("dd-MM-yyyy") + "/";
@@ -29,22 +50,16 @@
             var originalFileName = Path.GetFileName(file.FileName);
             var resultFileName = Guid.NewGuid() + "_" + originalFileName;
             var fileTosave = new FileEntity
-            {
-                FileName = originalFileName,
-                Url = relativePath + resultFileName,
-                MimeType = file.ContentType
-            };
+                                 {
+                                     FileName = originalFileName,
+                                     Url = relativePath + resultFileName,
+                                     MimeType = file.ContentType
+                                 };
 
             this.fileService.Add(fileTosave);
             file.SaveAs(Path.Combine(pathToSave, resultFileName));
 
             return fileTosave;
-        }
-
-        public void DeleteFile(int id)
-        {
-            this.DeleteFilesFromFileSystem(new List<FileEntity>{this.fileService.GetBy(id)});
-            this.fileService.DeleteBy(id);
         }
 
         public void UploadFiles(HttpRequestBase request)
@@ -72,27 +87,15 @@
                 var originalFileName = Path.GetFileName(fileBase.FileName);
                 var resultFileName = Guid.NewGuid() + "_" + originalFileName;
                 var fileTosave = new FileEntity
-                {
-                    FileName = originalFileName,
-                    Url = relativePath + resultFileName,
-                    MimeType = fileBase.ContentType
-                };
+                                     {
+                                         FileName = originalFileName,
+                                         Url = relativePath + resultFileName,
+                                         MimeType = fileBase.ContentType
+                                     };
 
                 this.fileService.Add(fileTosave);
                 var postedFileBase = fileBase;
                 postedFileBase.SaveAs(Path.Combine(pathToSave, resultFileName));
-            }
-        }
-
-        public void DeleteFilesFromFileSystem(List<FileEntity> filesToDelete)
-        {
-            var pathsToDelete = filesToDelete.Where(file => file.Url.Contains(GlobalConstants.PostedFilesRelativePath))
-                    .Select(file => HostingEnvironment.MapPath("~" + file.Url))
-                    .Where(File.Exists);
-
-            foreach (var pathToDelete in pathsToDelete)
-            {
-                File.Delete(pathToDelete);
             }
         }
 

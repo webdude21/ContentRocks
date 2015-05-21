@@ -1,6 +1,5 @@
 ﻿namespace Services
 {
-    using System;
     using System.Data.Entity;
     using System.Linq;
 
@@ -8,8 +7,8 @@
 
     using Data.Contracts;
 
-    using Models;
     using Models.Identity;
+
     using Services.Contracts;
 
     public class AuthorService : IAuthorService
@@ -24,6 +23,14 @@
             this.dataSet = this.unitOfWork.Set<ApplicationUser>();
         }
 
+        public void DeleteBy(string id)
+        {
+            var entity = this.dataSet.Find(id);
+            Checker.CheckForNull(entity, "entity");
+            this.dataSet.Remove(entity);
+            this.SaveChanges();
+        }
+
         public IQueryable<ApplicationUser> GetAll()
         {
             return this.dataSet;
@@ -32,14 +39,6 @@
         public ApplicationUser GetBy(string username)
         {
             return this.dataSet.FirstOrDefault(author => author.UserName == username);
-        }
-
-        public void DeleteBy(string id)
-        {
-            var entity = this.dataSet.Find(id);
-            Checker.CheckForNull(entity, "entity");
-            this.dataSet.Remove(entity);
-            this.SaveChanges();
         }
 
         private void SaveChanges()

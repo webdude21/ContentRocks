@@ -1,5 +1,4 @@
-﻿
-namespace Web.Infrastructure.Constants
+﻿namespace Web.Infrastructure.Constants
 {
     public static class FileRoute
     {

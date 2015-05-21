@@ -2,7 +2,7 @@
 @model Web.ViewModels.Account.ExternalLoginListViewModel
 
 <h4>Use another service to log in.</h4>
-<hr />
+<hr/>
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
     using (Html.BeginForm(Actions.ExternalLogin, Controllers.Account, new { Model.ReturnUrl }))

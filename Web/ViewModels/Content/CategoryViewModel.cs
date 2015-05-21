@@ -20,7 +20,8 @@
         {
             get
             {
-                return Translation.AreYouSureYouWantToDeleteThis + Environment.NewLine + Translation.ThisWillDeleteAllPostInTheCategory;
+                return Translation.AreYouSureYouWantToDeleteThis + Environment.NewLine
+                       + Translation.ThisWillDeleteAllPostInTheCategory;
             }
         }
 

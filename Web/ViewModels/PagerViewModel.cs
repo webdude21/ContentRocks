@@ -8,19 +8,19 @@
 
         public int CurrentPage { get; set; }
 
+        public bool NextPageButtonEnabled
+        {
+            get
+            {
+                return this.CurrentPage < this.TotalPages;
+            }
+        }
+
         public string NextPageParam
         {
             get
             {
                 return PageUrlParam + (this.CurrentPage + 1);
-            }
-        }
-
-        public string PreviousPageParam
-        {
-            get
-            {
-                return PageUrlParam + (this.CurrentPage - 1);
             }
         }
 
@@ -32,11 +32,11 @@
             }
         }
 
-        public bool NextPageButtonEnabled
+        public string PreviousPageParam
         {
             get
             {
-                return this.CurrentPage < this.TotalPages;
+                return PageUrlParam + (this.CurrentPage - 1);
             }
         }
 
@@ -50,6 +50,22 @@
         public string GetPageParam(int page)
         {
             return PageUrlParam + page;
+        }
+
+        public string LastPageParam
+        {
+            get
+            {
+                return PageUrlParam + (this.TotalPages);
+            }
+        }
+
+        public string FirstPageParam
+        {
+            get
+            {
+                return PageUrlParam + 1;
+            }
         }
     }
 }
