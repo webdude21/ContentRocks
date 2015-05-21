@@ -1,6 +1,5 @@
 ﻿namespace Web
 {
-    using Config;
     using System.Web.Mvc;
     using System.Web.Routing;
     using Web.Infrastructure.Constants;
@@ -21,18 +20,15 @@
                 new { id = PostRoute.IdMatcher, friendlyUrl = PostRoute.FriendlyUrlMatcher },
                 new[] { Assemblies.NoAreaControllersNamespace });
 
+            routes.MapRoute(DefaultRoute.Name, DefaultRoute.UrlPattern,
+                new { controller = DefaultRoute.DefaultController,
+                    action = DefaultRoute.DefaultAction,
+                    id = UrlParameter.Optional },
+                new[] { Assemblies.NoAreaControllersNamespace });
+
             routes.MapRoute(FileRoute.Name, FileRoute.UrlPattern,
                  new { controller = FileRoute.DefaultController, action = Actions.GetFile },
                  new { url = FileRoute.FileNameMatcher });
-
-            routes.MapRoute(DefaultRoute.Name, DefaultRoute.UrlPattern,
-                new
-                {
-                    controller = DefaultRoute.DefaultController,
-                    action = DefaultRoute.DefaultAction,
-                    id = UrlParameter.Optional
-                },
-                new[] { Assemblies.NoAreaControllersNamespace });
         }
     }
 }
