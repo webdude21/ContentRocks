@@ -14,5 +14,7 @@
         FileEntity SaveFile(HttpPostedFile file);
 
         void UploadFiles(HttpRequestBase request);
+
+        void DeleteAllFiles();
     }
 }

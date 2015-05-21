@@ -23,5 +23,7 @@
         IQueryable<T> GetWithPaginating(int count, int page = 1);
 
         void Update();
+
+        void DeleteAll();
     }
 }

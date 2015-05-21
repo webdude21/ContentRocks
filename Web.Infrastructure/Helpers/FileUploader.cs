@@ -28,10 +28,16 @@
             this.fileService.DeleteBy(id);
         }
 
+        public void DeleteAllFiles()
+        {
+            var pathToDelete = HostingEnvironment.MapPath("~" + GlobalConstants.PostedFilesRelativePath);
+            DeleteDirectory(pathToDelete);
+            this.fileService.DeleteAll();
+        }
+
         public void DeleteFilesFromFileSystem(List<FileEntity> filesToDelete)
         {
-            var pathsToDelete =
-                filesToDelete.Where(file => file.Url.Contains(GlobalConstants.PostedFilesRelativePath))
+            var pathsToDelete = filesToDelete.Where(file => file.Url.Contains(GlobalConstants.PostedFilesRelativePath))
                     .Select(file => HostingEnvironment.MapPath("~" + file.Url))
                     .Where(File.Exists);
 
@@ -104,6 +110,14 @@
             if (!Directory.Exists(pathToSave))
             {
                 Directory.CreateDirectory(pathToSave);
+            }
+        }
+
+        private static void DeleteDirectory(string pathToDelete)
+        {
+            if (Directory.Exists(pathToDelete))
+            {
+                Directory.Delete(pathToDelete, true);
             }
         }
     }

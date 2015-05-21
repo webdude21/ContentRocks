@@ -14,6 +14,8 @@
 
         public const string Delete = "Delete";
 
+        public const string DeleteAll = "DeleteAll";
+
         public const string Detail = "Detail";
 
         public const string DropdownList = "DropdownList";

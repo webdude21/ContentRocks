@@ -14,8 +14,7 @@
 
     using Services.Contracts;
 
-    public abstract class BaseService<T> : IEntityService<T>
-        where T : BaseModel
+    public abstract class BaseService<T> : IEntityService<T> where T : BaseModel
     {
         private readonly IDbSet<T> dataSet;
 
@@ -109,6 +108,16 @@
 
         public void Update()
         {
+            this.SaveChanges();
+        }
+
+        public void DeleteAll()
+        {
+            foreach (var entity in this.DataSet)
+            {
+                this.DataSet.Remove(entity);
+            }
+
             this.SaveChanges();
         }
 

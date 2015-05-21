@@ -312,4 +312,7 @@
   <data name="Link" xml:space="preserve">
     <value>Link</value>
   </data>
+  <data name="ThisWillDeleteAllFiles" xml:space="preserve">
+    <value>This will delete all files</value>
+  </data>
 </root>

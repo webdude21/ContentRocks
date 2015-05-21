@@ -44,12 +44,23 @@
             return this.Json(string.Empty, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpDelete]
+        public ActionResult DeleteAll()
+        {
+            if (!this.Request.IsAjaxRequest())
+            {
+                this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                this.HttpNotFound();
+            }
+
+            this.fileUploader.DeleteAllFiles();
+            return this.JavaScript("window.location = '/'");
+        }
+
         [HttpGet]
         public ActionResult Index(int? page = 1)
         {
-            return
-                this.View(
-                    this.fileUploadService.GetWithPaginating(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+            return this.View(this.fileUploadService.GetWithPaginating(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
                         .Project()
                         .To<FileEntityViewModel>()
                         .ToList());

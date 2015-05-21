@@ -312,4 +312,7 @@
   <data name="Link" xml:space="preserve">
     <value>Връзка</value>
   </data>
+  <data name="ThisWillDeleteAllFiles" xml:space="preserve">
+    <value>Това действие ще изтрие всички файлове!</value>
+  </data>
 </root>

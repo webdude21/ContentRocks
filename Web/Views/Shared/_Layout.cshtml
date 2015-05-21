@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - @GlobalConstants.SiteName</title>
     @RenderSection("MetaInformation", false)
@@ -9,17 +9,17 @@
     @Scripts.Render(ClientResources.Modernizr)
 </head>
 <body>
-@Html.Partial(Partials.Menu)
-<div class="container body-content">
-    @RenderBody()
-    <hr/>
-    <footer class="text-center">
-        <a href="@GlobalConstants.GitHubLink">@Translation.Copyright</a>
-    </footer>
-</div>
+    @Html.Partial(Partials.Menu)
+    <div id="page-container" class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="text-center">
+            <a href="@GlobalConstants.GitHubLink">@Translation.Copyright</a>
+        </footer>
+    </div>
 
-@Scripts.Render(ClientResources.JQuery)
-@Scripts.Render(ClientResources.Bootstrap)
-@RenderSection("scripts", false)
+    @Scripts.Render(ClientResources.JQuery)
+    @Scripts.Render(ClientResources.Bootstrap)
+    @RenderSection("scripts", false)
 </body>
 </html>

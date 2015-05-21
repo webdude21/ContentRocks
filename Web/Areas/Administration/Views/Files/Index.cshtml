@@ -8,14 +8,22 @@
 @{
     Html.RenderPartial(Partials.AdminFilesListPartial, Model);
 }
-
 @Html.Action(Actions.Pager, Controllers.Files, new { area = Areas.Administration })
-@Html.ActionLink(Translation.UploadFiles, Actions.Upload, Controllers.Files, new { area = Areas.Administration }, new { @class = "btn btn-default col-md-offset-5" })
+@Html.ActionLink(Translation.UploadFiles, Actions.Upload, Controllers.Files,
+new { area = Areas.Administration }, new { @class = "btn btn-default col-md-offset-5" })
+@Ajax.ActionLink(Translation.Delete, Actions.DeleteAll, Controllers.Files, new { area = Areas.Administration },
+    new AjaxOptions
+    {
+        HttpMethod = "Delete",
+        UpdateTargetId = "page-container",
+        InsertionMode = InsertionMode.ReplaceWith,
+        Confirm = Translation.ThisWillDeleteAllFiles,
+    }, new { @class = "btn btn-danger" })
 @section scripts {
     @Scripts.Render(ClientResources.JQueryUnobtrusive)
     @Scripts.Render(ClientResources.ZeroClipBoard)
     <script>
-        $(function() {
+        $(function () {
             ZeroClipboard.config({ moviePath: "http://localhost:11112/Scripts/ZeroClipboard.swf" });
             var clip = new ZeroClipboard($(".copy-button"));
         });

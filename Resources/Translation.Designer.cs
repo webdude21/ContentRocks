@@ -574,6 +574,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This will delete all files.
+        /// </summary>
+        public static string ThisWillDeleteAllFiles {
+            get {
+                return ResourceManager.GetString("ThisWillDeleteAllFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This will delete all post in the category!.
         /// </summary>
         public static string ThisWillDeleteAllPostInTheCategory {
