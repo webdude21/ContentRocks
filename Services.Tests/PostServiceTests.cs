@@ -95,7 +95,7 @@
             const string FriendlyUrl = "friendlyUrl";
             var post = this.postService.GetBy(PostId);
             post.FriendlyUrl = FriendlyUrl;
-            var retrievedPost = this.postService.GetBy(PostId, FriendlyUrl).FirstOrDefault();
+            var retrievedPost = this.postService.GetBy(PostId, FriendlyUrl);
             Assert.AreEqual(post, retrievedPost);
         }
 

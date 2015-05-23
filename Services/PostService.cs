@@ -24,9 +24,9 @@
             this.Add(newPost);
         }
 
-        public IQueryable<Post> GetBy(int id, string friendlyUrl)
+        public Post GetBy(int id, string friendlyUrl)
         {
-            return this.DataSet.Where(p => p.Id == id && p.FriendlyUrl == friendlyUrl);
+            return this.DataSet.FirstOrDefault(p => p.Id == id && p.FriendlyUrl == friendlyUrl);
         }
 
         public IQueryable<Post> GetTheLatestPosts()

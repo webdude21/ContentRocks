@@ -8,7 +8,7 @@ namespace Services.Contracts
     {
         void AddPost(Post newPost);
 
-        IQueryable<Post> GetBy(int id, string friendlyUrl);
+        Post GetBy(int id, string friendlyUrl);
 
         IQueryable<Post> GetTheLatestPosts();
 

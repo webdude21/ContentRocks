@@ -219,6 +219,7 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
@@ -240,9 +241,10 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Content\CategoryWithPostsViewModel.cs" />
     <Compile Include="ViewModels\Content\CommentViewModel.cs" />
+    <Compile Include="ViewModels\Content\PageViewModel.cs" />
+    <Compile Include="ViewModels\Content\PostViewModel.cs" />
     <Compile Include="ViewModels\Contracts\IMetaInfoViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
-    <Compile Include="ViewModels\Content\PostViewModel.cs" />
     <Compile Include="ViewModels\PagerViewModel.cs" />
     <Compile Include="ViewModels\Seo\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -581,6 +583,7 @@
     <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
     <Content Include="Views\Authors\Index.cshtml" />
     <Content Include="Views\Authors\Detail.cshtml" />
+    <Content Include="Views\Page\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

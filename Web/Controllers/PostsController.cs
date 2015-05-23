@@ -3,6 +3,7 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using AutoMapper;
     using AutoMapper.QueryableExtensions;
 
     using Common;
@@ -26,7 +27,7 @@
 
         public ActionResult Detail(int id, string friendlyUrl)
         {
-            return this.View(this.postService.GetBy(id, friendlyUrl).Project().To<PostViewModel>().FirstOrDefault());
+            return this.View(Mapper.Map<PostViewModel>(this.postService.GetBy(id, friendlyUrl)));
         }
 
         public ActionResult Index(int? page)

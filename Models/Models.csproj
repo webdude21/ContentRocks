@@ -47,6 +47,7 @@
     <Compile Include="Content\Category.cs" />
     <Compile Include="Content\Comment.cs" />
     <Compile Include="Content\FileEntity.cs" />
+    <Compile Include="Content\Page.cs" />
     <Compile Include="Contracts\IAuditInfo.cs" />
     <Compile Include="Contracts\IDeletableEntity.cs" />
     <Compile Include="Contracts\IFriendlyUrl.cs" />
