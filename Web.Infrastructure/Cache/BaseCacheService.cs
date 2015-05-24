@@ -12,7 +12,6 @@
             {
                 item = getItemCallback();
                 HttpContext.Current.Cache.Insert(cacheId, item);
-                return item;
             }
             return item;
         }

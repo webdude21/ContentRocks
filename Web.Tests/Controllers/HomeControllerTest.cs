@@ -1,7 +1,6 @@
 ﻿namespace Web.Tests.Controllers
 {
-    using System.Web;
-    using System.Web.Caching;
+    using System.Linq;
 
     using Common;
 
@@ -9,9 +8,8 @@
 
     using Moq;
 
-    using Services.Contracts;
-
     using Web.Controllers;
+    using Web.Infrastructure.Cache;
 
     [TestClass]
     public class HomeControllerTest
@@ -21,13 +19,11 @@
         public HomeControllerTest()
         {
             var dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
-            var httpContext = new Mock<HttpContextBase>();
-            httpContext.Setup(h => h.Cache).Returns(new Cache());
-            var postService = new Mock<IPostService>();
-            postService.Setup(m => m.GetTheLatestPosts()).Returns(dataGenerator.GetPosts(3));
+            var cacheService = new Mock<ICacheService>();
+            cacheService.Setup(m => m.HomePosts).Returns(dataGenerator.GetPosts(3).ToList());
             var autoMapperConfig = new AutoMapperConfig();
             autoMapperConfig.Execute();
-            this.controller = new HomeController(postService.Object);
+            this.controller = new HomeController(cacheService.Object);
         }
     }
 }
