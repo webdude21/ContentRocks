@@ -13,6 +13,7 @@
     using Services.Contracts;
 
     using Web.Areas.Administration.ViewModels.Content;
+    using Web.Infrastructure.Cache;
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
@@ -35,6 +36,7 @@
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
+        [ClearCacheAfter]
         public ActionResult Create([Bind(Include = PostCreateViewModel.ModelBinderProperties)] PostCreateViewModel post)
         {
             if (this.ModelState.IsValid)
@@ -48,6 +50,7 @@
         }
 
         [HttpDelete]
+        [ClearCacheAfter]
         public ActionResult Delete(int id)
         {
             this.postService.DeleteBy(id);
@@ -62,6 +65,7 @@
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
+        [ClearCacheAfter]
         public ActionResult Edit(PostViewModel postViewModel)
         {
             var postToUpdate = this.postService.GetBy(postViewModel.Id);

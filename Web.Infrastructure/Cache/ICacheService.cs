@@ -7,5 +7,7 @@
     public interface ICacheService
     {
         IList<Post> HomePosts { get; }
+
+        IList<Page> GetAllPages { get; }
     }
 }

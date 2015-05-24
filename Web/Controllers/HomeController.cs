@@ -19,7 +19,8 @@
 
         public ActionResult Index()
         {
-            return this.View(Mapper.Map<IEnumerable<PostViewModel>>(this.cacheService.HomePosts));
+            var homePosts = this.cacheService.HomePosts;
+            return this.View(Mapper.Map<IEnumerable<PostViewModel>>(homePosts));
         }
     }
 }

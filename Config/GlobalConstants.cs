@@ -20,7 +20,7 @@
 
         public const string GitHubLink = "https://github.com/webdude21/ContentRocks";
 
-        public const int HomePagePostsCharLimit = 300;
+        public const int HomePagePostsCharLimit = 317;
 
         public const int HomePagePostsCount = 6;
 
