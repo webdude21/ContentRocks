@@ -52,6 +52,10 @@
       <Project>{44CEEEEE-E7E3-4E06-BD14-6D0CC3E549B1}</Project>
       <Name>Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{0C7A9224-2933-4EAE-AC6F-22F75898CC7E}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

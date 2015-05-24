@@ -8,6 +8,8 @@
     using Models.Content;
     using Models.SEO;
 
+    using Resources;
+
     public class ContentFactory : IContentFactory
     {
         private readonly IRandomDataGenerator randomGenerator;
@@ -94,6 +96,20 @@
     <p style=""text-align: justify;"">
     </p>
 </div>"
+                       };
+        }
+
+        public Page GetAboutPage()
+        {
+            return new Page
+                       {
+                           FriendlyUrl = "about",
+                           MetaDescription = "The about page",
+                           Title = Translation.About,
+                           MetaTitle = Translation.About,
+                           ModifiedOn = this.randomGenerator.GeneraDateTime(),
+                           CreatedOn = this.randomGenerator.GeneraDateTime(),
+                           Content = @"<div class=""entry-content"">Use this area to provide additional information</div>"
                        };
         }
     }

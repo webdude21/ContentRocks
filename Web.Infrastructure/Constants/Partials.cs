@@ -8,6 +8,8 @@
 
         public const string AdminMenu = "_AdminMenu";
 
+        public const string AdminPagesListPartial = "_AdminPagesListPartial";
+
         public const string AdminPostsListPartial = "_AdminPostsListPartial";
 
         public const string ExternalLoginsList = "_ExternalLoginsListPartial";

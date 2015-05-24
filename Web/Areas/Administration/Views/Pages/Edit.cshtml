@@ -1,17 +1,14 @@
-﻿@model  Web.Areas.Administration.ViewModels.Content.PostCreateViewModel
+﻿@model  Web.ViewModels.Content.PageViewModel
 @{
-    ViewBag.Title = Translation.CreateBlogPost;
+    ViewBag.Title = Translation.CreatePage;
 }
 <h4>@ViewBag.Title</h4>
-<hr/>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.Action(Actions.DropdownList, Controllers.Category, new { area = string.Empty })
 
         <div class="form-group">
             @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
@@ -47,7 +44,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2">
-                <input type="submit" value="@Translation.Create" class="btn btn-success"/>
+                <input type="submit" value="@Translation.Edit" class="btn btn-success"/>
                 <input type="reset" value="@Translation.Reset" class="btn btn-danger"/>
                 @Html.ActionLink(Translation.Cancel, Actions.Index, new { }, new { @class = "btn btn-info" })
             </div>

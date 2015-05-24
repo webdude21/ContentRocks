@@ -41,7 +41,9 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FileEntity>().ToTable("FileEntity");
+ 
+            modelBuilder.Entity<FileEntity>().ToTable("FileEntities");
+            modelBuilder.Entity<Page>().ToTable("Pages");
             base.OnModelCreating(modelBuilder);
         }
 

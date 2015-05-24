@@ -20,7 +20,7 @@
 
         public ICollection<CommentViewModel> Comments { get; set; }
 
-        public string GetHtmlId
+        public override string GetHtmlId
         {
             get
             {

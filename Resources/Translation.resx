@@ -315,4 +315,10 @@
   <data name="ThisWillDeleteAllFiles" xml:space="preserve">
     <value>This will delete all files</value>
   </data>
+  <data name="Pages" xml:space="preserve">
+    <value>Pages</value>
+  </data>
+  <data name="CreatePage" xml:space="preserve">
+    <value>Create page</value>
+  </data>
 </root>

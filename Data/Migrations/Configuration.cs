@@ -24,6 +24,7 @@ namespace Data.Migrations
         protected override void Seed(UnitOfWork context)
         {
             var posts = context.Set<Post>();
+            var pages = context.Set<Page>();
 
             if (!posts.Any())
             {
@@ -41,8 +42,10 @@ namespace Data.Migrations
                 userManager.AddToRole(author.Id, GlobalConstants.AdministratorRoleName);
                 category.Author = author;
                 var post = dataGenerator.GetRealisticPost();
+                var page = dataGenerator.GetAboutPage();
                 post.Author = author;
                 post.Category = category;
+                pages.Add(page);
                 posts.Add(post);
             }
         }

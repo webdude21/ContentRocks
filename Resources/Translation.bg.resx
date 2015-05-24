@@ -315,4 +315,10 @@
   <data name="ThisWillDeleteAllFiles" xml:space="preserve">
     <value>Това действие ще изтрие всички файлове!</value>
   </data>
+  <data name="Pages" xml:space="preserve">
+    <value>Страници</value>
+  </data>
+  <data name="CreatePage" xml:space="preserve">
+    <value>Създаване на страница</value>
+  </data>
 </root>

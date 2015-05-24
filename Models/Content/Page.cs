@@ -1,21 +1,13 @@
 namespace Models.Content
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using Config;
 
-    using Models.SEO;
+    using Models.Contracts;
 
-    public class Page : AuthoredContent
+    public class Page : AuthoredContent, IFriendlyUrl, IMetaInfo
     {
-        public Page()
-        {
-            this.tags = new HashSet<Tag>();
-        }
-
-        private ICollection<Tag> tags;
-
         [DataType(DataType.Html)]
         public string Content { get; set; }
 
@@ -26,18 +18,6 @@ namespace Models.Content
         public string MetaDescription { get; set; }
 
         public string MetaTitle { get; set; }
-
-        public virtual ICollection<Tag> Tags
-        {
-            get
-            {
-                return this.tags;
-            }
-            set
-            {
-                this.tags = value;
-            }
-        }
 
         [MaxLength(200)]
         public string Title { get; set; }

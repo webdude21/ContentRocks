@@ -44,6 +44,14 @@
         [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
         public string FriendlyUrl { get; set; }
 
+        public virtual string GetHtmlId
+        {
+            get
+            {
+                return string.Format("page-{0}", this.Id);
+            }
+        }
+
         public string MetaDescription { get; set; }
 
         public string MetaTitle { get; set; }

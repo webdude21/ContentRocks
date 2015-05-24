@@ -2,6 +2,8 @@
 {
     public static class Controllers
     {
+        public const string Pages = "Pages";
+
         public const string Account = "Account";
 
         public const string Admin = "Admin";
