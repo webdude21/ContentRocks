@@ -29,15 +29,21 @@
 
             bundles.Add(new ScriptBundle(ClientResources.Bootstrap).Include(ClientResources.BootstrapPath, ClientResources.RespondPath));
 
-            bundles.Add(new ScriptBundle(ClientResources.JQueryFileUpload).Include(ClientResources.JQueryUiPath,
-                    ClientResources.JQueryFileUploadPath));
+            bundles.Add(new ScriptBundle(ClientResources.JQueryFileUpload).Include(ClientResources.JQueryUiPath, ClientResources.JQueryFileUploadPath));
 
             bundles.Add(new ScriptBundle(ClientResources.ZeroClipBoard).Include(ClientResources.ZeroClipBoardPath));
+
+            bundles.Add(new ScriptBundle(ClientResources.CodeMirror).Include(ClientResources.CodeMirrorMainPath,
+                     "~/Scripts/CodeMirror/mode/clike.js",
+                     "~/Scripts/CodeMirror/mode/javascript.js"));
         }
 
         public static void RegisterStyles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle(ClientResources.Css).Include(ClientResources.BootstrapStylesPath, ClientResources.SiteCssPath));
+            bundles.Add(new StyleBundle(ClientResources.CodeMirrorStyles).Include(ClientResources.CodeMirrorStylesPath,
+                "~/Content/CodeMirror/theme/tomorrow-night-eighties.css",
+                "~/Content/CodeMirror/theme/monokai.css"));
         }
     }
 }

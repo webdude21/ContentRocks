@@ -2,6 +2,12 @@
 {
     public class ClientResources
     {
+        public const string CodeMirrorStylesPath = "~/Content/CodeMirror/codemirror.css";
+
+        public const string CodeMirrorStyles = "~/Content/codemirror";
+
+        public const string CodeMirror = "~/bundles/codemirror";
+
         public const string Bootstrap = "~/bundles/bootstrap";
 
         public const string BootstrapPath = "~/Scripts/bootstrap.js";
@@ -41,5 +47,7 @@
         public const string ZeroClipBoard = "~/bundles/zeroclipboard";
 
         public const string ZeroClipBoardPath = "~/Scripts/ZeroClipboard.js";
+
+        public const string CodeMirrorMainPath = "~/Scripts/CodeMirror/codemirror.js";
     }
 }
