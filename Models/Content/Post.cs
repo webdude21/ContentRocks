@@ -12,6 +12,8 @@
     {
         private ICollection<Comment> comments;
 
+        private ICollection<Tag> tags;
+
         public Post()
         {
             this.comments = new HashSet<Comment>();
@@ -33,8 +35,6 @@
                 this.comments = value;
             }
         }
-
-        private ICollection<Tag> tags;
 
         [DataType(DataType.Html)]
         public string Content { get; set; }

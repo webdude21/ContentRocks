@@ -1,0 +1,8 @@
+﻿@model Web.ViewModels.Content.PageViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+@section MetaInformation {
+    @Html.Partial(Partials.Seo, Model)
+}
+@Html.Raw(Model.Content)

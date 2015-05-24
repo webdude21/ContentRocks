@@ -8,16 +8,16 @@
 
     using Web.ViewModels.Content;
 
-    public class PageController : BaseController
+    public class PagesController : BaseController
     {
         private readonly IPageService pageService;
 
-        public PageController(IPageService pageService)
+        public PagesController(IPageService pageService)
         {
             this.pageService = pageService;
         }
 
-        public ActionResult Index(string friendlyUrl)
+        public ActionResult Detail(string friendlyUrl)
         {
             return this.View(Mapper.Map<PageViewModel>(this.pageService.GetBy(friendlyUrl)));
         }

@@ -21,6 +21,11 @@
                 new { id = PostRoute.IdMatcher, friendlyUrl = PostRoute.FriendlyUrlMatcher },
                 new[] { Assemblies.NoAreaControllersNamespace });
 
+            routes.MapRoute(PageRoute.Name, PageRoute.UrlPattern,
+                new { controller = PageRoute.DefaultController, action = PageRoute.Detail },
+                new { friendlyUrl = PageRoute.FriendlyUrlMatcher },
+                new[] { Assemblies.NoAreaControllersNamespace });
+
             routes.MapRoute(DefaultRoute.Name, DefaultRoute.UrlPattern,
                 new { controller = DefaultRoute.DefaultController,
                     action = DefaultRoute.DefaultAction,

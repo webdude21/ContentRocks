@@ -90,6 +90,7 @@
     <Compile Include="Constants\DefaultApiRoute.cs" />
     <Compile Include="Constants\FileRoute.cs" />
     <Compile Include="Constants\Partials.cs" />
+    <Compile Include="Constants\PageRoute.cs" />
     <Compile Include="Constants\PostRoute.cs" />
     <Compile Include="Constants\DefaultRoute.cs" />
     <Compile Include="Constants\Controllers.cs" />

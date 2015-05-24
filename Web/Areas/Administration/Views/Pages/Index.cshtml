@@ -6,7 +6,7 @@
 @{
     Html.RenderPartial(Partials.AdminPagesListPartial, Model);
 }
-@Html.Action(Actions.Pager, Controllers.Pages, new { area = string.Empty })
+@Html.Action(Actions.Pager, Controllers.Pages, new { area = Areas.Administration })
 @Html.ActionLink(Translation.CreatePage, Actions.Create, Controllers.Pages, new { area = Areas.Administration }, new { @class = "btn btn-default col-md-offset-5" })
 @section scripts {
     @Scripts.Render(ClientResources.JQueryUnobtrusive)
