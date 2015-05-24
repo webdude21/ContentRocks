@@ -2,6 +2,8 @@
 {
     public static class Partials
     {
+        public const string PagesMenu = "_PagesMenu"; 
+
         public const string AdminCategoriesListPartial = "_AdminCategoriesListPartial";
 
         public const string AdminFilesListPartial = "_AdminFilesListPartial";

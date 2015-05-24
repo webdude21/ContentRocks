@@ -20,8 +20,7 @@
 
         private static IEnumerable<string> GetControllerNames()
         {
-            return
-                Assembly.GetCallingAssembly()
+            return Assembly.GetCallingAssembly()
                     .GetTypes()
                     .Where(type => type.IsSubclassOf(typeof(AdminController)) && !type.IsAbstract)
                     .ToList()

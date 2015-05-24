@@ -12,6 +12,6 @@
 
         public const string Name = "Pages";
 
-        public const string UrlPattern = "{friendlyUrl}";
+        public const string UrlPattern = "pages/{friendlyUrl}";
     }
 }

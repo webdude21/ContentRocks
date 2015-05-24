@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Web.ViewModels.Content.PageViewModel>
+
+@foreach (var page in Model)
+{
+    <li>@Html.RouteLink(page.Title, PageRoute.Name, new { area = string.Empty, friendlyUrl = page.FriendlyUrl })</li>
+}

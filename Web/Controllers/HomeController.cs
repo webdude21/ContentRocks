@@ -25,16 +25,6 @@
             this.postService = postService;
         }
 
-        public ActionResult About()
-        {
-            return this.View();
-        }
-
-        public ActionResult Contact()
-        {
-            return this.View();
-        }
-
         public ActionResult Index()
         {
             return this.View(this.GetFromCache(HomePagePosts));

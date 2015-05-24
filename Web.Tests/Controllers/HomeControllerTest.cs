@@ -11,8 +11,6 @@
 
     using Services.Contracts;
 
-    using TestStack.FluentMVCTesting;
-
     using Web.Controllers;
 
     [TestClass]
@@ -26,22 +24,11 @@
             var httpContext = new Mock<HttpContextBase>();
             httpContext.Setup(h => h.Cache).Returns(new Cache());
             var postService = new Mock<IPostService>();
+            var pagesService = new Mock<IPageService>();
             postService.Setup(m => m.GetTheLatestPosts()).Returns(dataGenerator.GetPosts(3));
             var autoMapperConfig = new AutoMapperConfig();
             autoMapperConfig.Execute();
-            this.controller = new HomeController(postService.Object);
-        }
-
-        [TestMethod]
-        public void About()
-        {
-            this.controller.WithCallTo(c => c.About()).ShouldRenderDefaultView();
-        }
-
-        [TestMethod]
-        public void Contact()
-        {
-            this.controller.WithCallTo(c => c.Contact()).ShouldRenderDefaultView();
+            this.controller = new HomeController(postService.Object, pagesService.Object);
         }
     }
 }

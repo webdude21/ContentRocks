@@ -103,7 +103,7 @@
         {
             return new Page
                        {
-                           FriendlyUrl = "about",
+                           FriendlyUrl = "За-Нас",
                            MetaDescription = "The about page",
                            Title = Translation.About,
                            MetaTitle = Translation.About,

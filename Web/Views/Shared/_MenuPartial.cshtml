@@ -13,8 +13,7 @@
                 <li>@Html.ActionLink(Translation.Home, Actions.Index, Controllers.Home, new { area = string.Empty }, new { })</li>
                 <li>@Html.ActionLink(Translation.Posts, Actions.Index, Controllers.Posts, new { area = string.Empty }, new { })</li>
                 <li>@Html.ActionLink(Translation.Categories, Actions.Index, Controllers.Category, new { area = string.Empty }, new { })</li>
-                <li>@Html.ActionLink(Translation.About, Actions.About, Controllers.Home, new { area = string.Empty }, new { })</li>
-                <li>@Html.ActionLink(Translation.Contact, Actions.Contact, Controllers.Home, new { area = string.Empty }, new { })</li>
+                @Html.Action(Actions.Menu, Controllers.Pages, new { area = string.Empty })
             </ul>
             @Html.Partial(Partials.Login)
         </div>
