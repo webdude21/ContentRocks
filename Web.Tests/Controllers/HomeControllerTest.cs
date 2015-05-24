@@ -24,11 +24,10 @@
             var httpContext = new Mock<HttpContextBase>();
             httpContext.Setup(h => h.Cache).Returns(new Cache());
             var postService = new Mock<IPostService>();
-            var pagesService = new Mock<IPageService>();
             postService.Setup(m => m.GetTheLatestPosts()).Returns(dataGenerator.GetPosts(3));
             var autoMapperConfig = new AutoMapperConfig();
             autoMapperConfig.Execute();
-            this.controller = new HomeController(postService.Object, pagesService.Object);
+            this.controller = new HomeController(postService.Object);
         }
     }
 }

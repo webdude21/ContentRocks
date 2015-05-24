@@ -3,7 +3,10 @@
     using System.Web.Mvc;
     using System.Web.Routing;
 
+    using Models.Content;
+
     using Web.Infrastructure.Constants;
+    using Web.Infrastructure.Validators;
 
     public class RouteConfig
     {
@@ -18,12 +21,12 @@
 
             routes.MapRoute(PostRoute.Name, PostRoute.UrlPattern,
                 new { controller = PostRoute.DefaultController, action = PostRoute.Detail },
-                new { id = PostRoute.IdMatcher, friendlyUrl = PostRoute.FriendlyUrlMatcher },
+                new { id = PostRoute.IdMatcher, friendlyUrl = new FriendlyUrlValidator<Post>() },
                 new[] { Assemblies.NoAreaControllersNamespace });
 
             routes.MapRoute(PageRoute.Name, PageRoute.UrlPattern,
                 new { controller = PageRoute.DefaultController, action = PageRoute.Detail },
-                new { friendlyUrl = PageRoute.FriendlyUrlMatcher },
+                new { friendlyUrl = new FriendlyUrlValidator<Page>() },
                 new[] { Assemblies.NoAreaControllersNamespace });
 
             routes.MapRoute(DefaultRoute.Name, DefaultRoute.UrlPattern,

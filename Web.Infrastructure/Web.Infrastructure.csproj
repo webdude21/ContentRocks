@@ -111,6 +111,7 @@
     <Compile Include="Registries\IdentityRegistry.cs" />
     <Compile Include="Registries\INinjectRegistry.cs" />
     <Compile Include="Registries\ServiceBindingsRegister.cs" />
+    <Compile Include="Validators\PagesFriendlyUrlValidator.cs" />
     <Compile Include="Validators\IValidator.cs" />
   </ItemGroup>
   <ItemGroup>
