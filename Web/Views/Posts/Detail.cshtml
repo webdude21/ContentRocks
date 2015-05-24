@@ -7,7 +7,7 @@
 }
 <article>
     <header>
-        <h3>@Html.RouteLink(Model.Title, PostRoute.Name, new { area = string.Empty, id = Model.Id, friendlyUrl = Model.FriendlyUrl })</h3>
+        <h3>@Html.RouteLink(Model.Title, PostRoute.Name, new { area = string.Empty, friendlyUrl = Model.FriendlyUrl })</h3>
         <span class="glyphicon glyphicon-calendar"></span><time>@Model.PostedOn</time>
         <span class="glyphicon glyphicon-folder-open"></span>@Html.ActionLink(Model.Category.Title, Actions.Detail, Controllers.Category, new { id = Model.Category.Id }, new { area = string.Empty })
         <span class="glyphicon glyphicon-user"></span><span>@Html.RouteLink(Model.AuthorName, AuthorRoute.Name, new { username = Model.AuthorName })</span>

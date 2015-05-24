@@ -53,10 +53,12 @@
     <Compile Include="Contracts\ICategoryService.cs" />
     <Compile Include="Contracts\IEntityService.cs" />
     <Compile Include="Contracts\IFileUploadService.cs" />
+    <Compile Include="Contracts\IFriendlyUrlService.cs" />
     <Compile Include="Contracts\IPageService.cs" />
     <Compile Include="Contracts\IPostService.cs" />
     <Compile Include="Contracts\IService.cs" />
     <Compile Include="FileService.cs" />
+    <Compile Include="FriendlyUrlService.cs" />
     <Compile Include="PageService.cs" />
     <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

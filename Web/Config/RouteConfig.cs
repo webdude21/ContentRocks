@@ -21,7 +21,7 @@
 
             routes.MapRoute(PostRoute.Name, PostRoute.UrlPattern,
                 new { controller = PostRoute.DefaultController, action = PostRoute.Detail },
-                new { id = PostRoute.IdMatcher, friendlyUrl = new FriendlyUrlValidator<Post>() },
+                new { friendlyUrl = new FriendlyUrlValidator<Post>() },
                 new[] { Assemblies.NoAreaControllersNamespace });
 
             routes.MapRoute(PageRoute.Name, PageRoute.UrlPattern,

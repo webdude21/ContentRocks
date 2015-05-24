@@ -2,8 +2,7 @@
 {
     using Models.Content;
 
-    public interface IPageService : IEntityService<Page>
+    public interface IPageService : IEntityService<Page>, IFriendlyUrlService<Page>
     {
-        Page GetBy(string friendlyUrl);
     }
 }

@@ -4,7 +4,7 @@ namespace Services.Contracts
 
     using Models.Content;
 
-    public interface IPostService : IEntityService<Post>
+    public interface IPostService : IEntityService<Post>, IFriendlyUrlService<Post>
     {
         void AddPost(Post newPost);
 

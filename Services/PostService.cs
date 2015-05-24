@@ -9,7 +9,7 @@
 
     using Services.Contracts;
 
-    public class PostService : BaseService<Post>, IPostService
+    public class PostService : FriendlyUrlService<Post>, IPostService
     {
         public PostService(IUnitOfWork unitOfWork)
             : base(unitOfWork)

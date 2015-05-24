@@ -14,7 +14,7 @@
         foreach (var post in Model)
         {
             <tr>
-                <td>@Html.RouteLink(post.Title, PostRoute.Name, new { area = string.Empty, id = post.Id, friendlyUrl = post.FriendlyUrl })</td>
+                <td>@Html.RouteLink(post.Title, PostRoute.Name, new { area = string.Empty, friendlyUrl = post.FriendlyUrl })</td>
                 <td>@post.PostedOn</td>
                 <td>@Html.RouteLink(post.AuthorName, AuthorRoute.Name, new { username = post.AuthorName })</td>
                 <td>@Html.ActionLink(post.Category.Title, Actions.Detail, Controllers.Category, new { id = post.Category.Id }, new { area = string.Empty })</td>

@@ -25,9 +25,9 @@
             this.postService = postService;
         }
 
-        public ActionResult Detail(int id, string friendlyUrl)
+        public ActionResult Detail(string friendlyUrl)
         {
-            return this.View(Mapper.Map<PostViewModel>(this.postService.GetBy(id, friendlyUrl)));
+            return this.View(Mapper.Map<PostViewModel>(this.postService.GetBy(friendlyUrl)));
         }
 
         public ActionResult Index(int? page)
