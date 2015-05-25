@@ -10,15 +10,12 @@
 
     using Resources;
 
-    public class PostCreateViewModel
+    public class PageCreateViewModel
     {
         [NotMapped]
-        public const string ModelBinderProperties =
-            "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId,FriendlyUrl";
+        public const string ModelBinderProperties = "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId,FriendlyUrl";
 
         public virtual ApplicationUser Author { get; set; }
-
-        public int CategoryId { get; set; }
 
         [DataType(DataType.Html)]
         [Display(Name = "Content", ResourceType = typeof(Translation))]
@@ -39,18 +36,17 @@
         [Display(Name = "Title", ResourceType = typeof(Translation))]
         public string Title { get; set; }
 
-        public static Post GetPostFrom(PostCreateViewModel postCreateModel)
+        public static Page GetPostFrom(PageCreateViewModel pageCreateModel)
         {
-            return new Post
-                       {
-                           CategoryId = postCreateModel.CategoryId,
-                           Content = postCreateModel.Content,
-                           Author = postCreateModel.Author,
-                           FriendlyUrl = postCreateModel.FriendlyUrl,
-                           MetaDescription = postCreateModel.MetaDescription,
-                           MetaTitle = postCreateModel.MetaTitle,
-                           Title = postCreateModel.Title
-                       };
+            return new Page
+            {
+                Content = pageCreateModel.Content,
+                Author = pageCreateModel.Author,
+                FriendlyUrl = pageCreateModel.FriendlyUrl,
+                MetaDescription = pageCreateModel.MetaDescription,
+                MetaTitle = pageCreateModel.MetaTitle,
+                Title = pageCreateModel.Title
+            };
         }
     }
 }

@@ -221,6 +221,7 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\PagesController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Content\FileEntityViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Content\PageCreateModel.cs" />
     <Compile Include="Controllers\Api\UploadController.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\FilesController.cs" />

@@ -13,6 +13,7 @@
     using Services.Contracts;
 
     using Web.Areas.Administration.ViewModels.Content;
+    using Web.Infrastructure.Cache;
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Identity;
     using Web.ViewModels;
@@ -36,13 +37,13 @@
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = PostCreateViewModel.ModelBinderProperties)] PostCreateViewModel post)
+        [ClearInMemoryCache]
+        public ActionResult Create([Bind(Include = PageCreateViewModel.ModelBinderProperties)] PageCreateViewModel page)
         {
             if (this.ModelState.IsValid)
             {
-                post.Author = this.CurrentUser.Get();
-                // this.pageService.Add(PageViewModel.GetPostFrom(post));
-                // TODO Fix this shit
+                page.Author = this.CurrentUser.Get();
+                this.pageService.Add(PageCreateViewModel.GetPostFrom(page));
                 return this.RedirectToAction(Actions.Index);
             }
 
@@ -50,6 +51,7 @@
         }
 
         [HttpDelete]
+        [ClearInMemoryCache]
         public ActionResult Delete(int id)
         {
             this.pageService.DeleteBy(id);
@@ -64,6 +66,7 @@
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
+        [ClearInMemoryCache]
         public ActionResult Edit(PageViewModel pageViewModel)
         {
             var postToUpdate = this.pageService.GetBy(pageViewModel.Id);

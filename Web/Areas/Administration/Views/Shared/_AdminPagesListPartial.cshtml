@@ -11,14 +11,15 @@
     </thead>
     <tbody>
         @{
-            foreach (var post in Model)
+            foreach (var page in Model)
             {
-                <tr>
-                    <td>@Html.RouteLink(post.Title, PageRoute.Name, new { area = string.Empty, friendlyUrl = post.FriendlyUrl })</td>
-                    <td>@post.PostedOn</td>
+                <tr id="@page.GetHtmlId">
+                    <td>@Html.RouteLink(page.Title, PageRoute.Name, new { area = string.Empty, friendlyUrl = page.FriendlyUrl })</td>
+                    <td>@page.PostedOn</td>
                     <td>
-                        @Html.ActionLink(Translation.Edit, Actions.Edit, Controllers.Pages, new { area = Areas.Administration, id = post.Id }, new { @class = "btn btn-info" })
-                        @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Pages, new { area = Areas.Administration, id = post.Id }, new AjaxOptions { HttpMethod = "Delete", UpdateTargetId = post.GetHtmlId, InsertionMode = InsertionMode.ReplaceWith, Confirm = post.ConfirmDelete }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink(Translation.Edit, Actions.Edit, Controllers.Pages, new { area = Areas.Administration, id = page.Id }, new { @class = "btn btn-info" })
+                        @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Pages, new { area = Areas.Administration, id = page.Id },
+                        new AjaxOptions { HttpMethod = "Delete", UpdateTargetId = page.GetHtmlId, InsertionMode = InsertionMode.ReplaceWith, Confirm = page.ConfirmDelete }, new { @class = "btn btn-danger" })
                     </td>
                 </tr>
             }
