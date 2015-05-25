@@ -25,7 +25,7 @@
         </ul>
     }
 }
-else
+else if (!GlobalConstants.ShowOnlyStaticPages)
 {
     <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink(Translation.Register, Actions.Register, Controllers.Account, new { area = string.Empty }, new { id = "registerLink" })</li>

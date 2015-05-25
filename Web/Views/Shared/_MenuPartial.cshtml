@@ -10,9 +10,12 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink(Translation.Home, Actions.Index, Controllers.Home, new { area = string.Empty }, new { })</li>
-                <li>@Html.ActionLink(Translation.Posts, Actions.Index, Controllers.Posts, new { area = string.Empty }, new { })</li>
-                <li>@Html.ActionLink(Translation.Categories, Actions.Index, Controllers.Category, new { area = string.Empty }, new { })</li>
+                @if (!GlobalConstants.ShowOnlyStaticPages)
+                {
+                    <li>@Html.ActionLink(Translation.Home, Actions.Index, Controllers.Home, new { area = string.Empty }, new { })</li>
+                    <li>@Html.ActionLink(Translation.Posts, Actions.Index, Controllers.Posts, new { area = string.Empty }, new { })</li>
+                    <li>@Html.ActionLink(Translation.Categories, Actions.Index, Controllers.Category, new { area = string.Empty }, new { })</li>
+                }
                 @Html.Action(Actions.Menu, Controllers.Pages, new { area = string.Empty })
             </ul>
             @Html.Partial(Partials.Login)
