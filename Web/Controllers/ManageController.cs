@@ -9,6 +9,7 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
+    using Web.Infrastructure.Cache;
     using Web.ViewModels;
 
     [Authorize]

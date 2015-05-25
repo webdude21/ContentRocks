@@ -36,7 +36,7 @@
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        [ClearCacheAfter]
+        [ClearInMemoryCache]
         public ActionResult Create([Bind(Include = PostCreateViewModel.ModelBinderProperties)] PostCreateViewModel post)
         {
             if (this.ModelState.IsValid)
@@ -50,7 +50,7 @@
         }
 
         [HttpDelete]
-        [ClearCacheAfter]
+        [ClearInMemoryCache]
         public ActionResult Delete(int id)
         {
             this.postService.DeleteBy(id);
@@ -65,7 +65,7 @@
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        [ClearCacheAfter]
+        [ClearInMemoryCache]
         public ActionResult Edit(PostViewModel postViewModel)
         {
             var postToUpdate = this.postService.GetBy(postViewModel.Id);

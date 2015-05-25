@@ -82,6 +82,7 @@
   <ItemGroup>
     <Compile Include="Cache\BaseCacheService.cs" />
     <Compile Include="Cache\ClearCacheAttribute.cs" />
+    <Compile Include="Cache\ClearOutputCacheAfterAttribute.cs" />
     <Compile Include="Cache\ICacheService.cs" />
     <Compile Include="Cache\MemoryCacheService.cs" />
     <Compile Include="Constants\Actions.cs" />

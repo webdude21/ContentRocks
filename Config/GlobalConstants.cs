@@ -43,5 +43,7 @@
         public static readonly int PageSize = ApplicationSettings.Default.PageSize;
 
         public static readonly string SiteName = ApplicationSettings.Default.Name;
+
+        public const int CacheDuration = 60 * 60 * 24; // 24 hours
     }
 }
