@@ -5,8 +5,6 @@
 
     using AutoMapper;
 
-    using Config;
-
     using Services.Contracts;
 
     using Web.Infrastructure.Cache;
@@ -25,7 +23,6 @@
             this.pageService = pageService;
         }
 
-        [OutputCache(Duration = GlobalConstants.CacheDuration, VaryByParam = "friendlyUrl")]
         public ActionResult Detail(string friendlyUrl)
         {
             return this.View(Mapper.Map<PageViewModel>(this.pageService.GetBy(friendlyUrl)));

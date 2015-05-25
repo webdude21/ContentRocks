@@ -25,7 +25,6 @@
             this.postService = postService;
         }
 
-        [OutputCache(Duration = GlobalConstants.CacheDuration, VaryByParam = "friendlyUrl")]
         public ActionResult Detail(string friendlyUrl)
         {
             return this.View(Mapper.Map<PostViewModel>(this.postService.GetBy(friendlyUrl)));

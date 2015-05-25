@@ -35,6 +35,7 @@
         }
 
         [DataType(DataType.Html)]
+        [Display(Name = "Content", ResourceType = typeof(Translation))]
         public string Content { get; set; }
 
         public DateTime CreatedOn { get; set; }
@@ -52,8 +53,10 @@
             }
         }
 
+        [Display(Name = "MetaDescription", ResourceType = typeof(Translation))]
         public string MetaDescription { get; set; }
 
+        [Display(Name = "MetaTitle", ResourceType = typeof(Translation))]
         public string MetaTitle { get; set; }
 
         public string PostedOn
@@ -74,6 +77,7 @@
 
         public ICollection<TagViewModel> Tags { get; set; }
 
+        [Display(Name = "Title", ResourceType = typeof(Translation))]
         public string Title { get; set; }
     }
 }

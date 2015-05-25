@@ -13,7 +13,6 @@
     using Services.Contracts;
 
     using Web.Areas.Administration.ViewModels.Content;
-    using Web.Infrastructure.Cache;
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Identity;
     using Web.ViewModels;
@@ -51,7 +50,6 @@
         }
 
         [HttpDelete]
-        [ClearInMemoryCache]
         public ActionResult Delete(int id)
         {
             this.pageService.DeleteBy(id);
@@ -66,7 +64,6 @@
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        [ClearInMemoryCache]
         public ActionResult Edit(PageViewModel pageViewModel)
         {
             var postToUpdate = this.pageService.GetBy(pageViewModel.Id);
