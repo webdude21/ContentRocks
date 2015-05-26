@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using System.Web.UI;
 
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
@@ -25,6 +26,7 @@
             this.postService = postService;
         }
 
+        [OutputCache(CacheProfile = GlobalConstants.CacheForAnHourOnTheServer)]
         public ActionResult Detail(string friendlyUrl)
         {
             return this.View(Mapper.Map<PostViewModel>(this.postService.GetBy(friendlyUrl)));

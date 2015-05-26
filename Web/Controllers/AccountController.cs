@@ -11,6 +11,7 @@
 
     using Models.Identity;
 
+    using Web.Infrastructure.Cache;
     using Web.ViewModels.Account;
 
     [Authorize]
@@ -228,6 +229,7 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [ClearOutputCache]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!this.ModelState.IsValid)

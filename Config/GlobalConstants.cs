@@ -44,7 +44,9 @@
 
         public static readonly string SiteName = ApplicationSettings.Default.Name;
 
-        public const int CacheDuration = 60 * 60 * 24; // 24 hours
+        public const int CacheDuration = 60 * 60; // an hour
+
+        public const string CacheForAnHourOnTheServer = "CacheForAnHourOnTheServer";
 
         public const bool ShowOnlyStaticPages = false;
     }

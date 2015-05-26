@@ -2,8 +2,11 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using System.Web.UI;
 
     using AutoMapper;
+
+    using Config;
 
     using Services.Contracts;
 
@@ -23,6 +26,7 @@
             this.pageService = pageService;
         }
 
+        [OutputCache(CacheProfile = GlobalConstants.CacheForAnHourOnTheServer)]
         public ActionResult Detail(string friendlyUrl)
         {
             return this.View(Mapper.Map<PageViewModel>(this.pageService.GetBy(friendlyUrl)));
