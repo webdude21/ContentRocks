@@ -129,12 +129,7 @@
             {
                 return this.View(model);
             }
-            var result =
-                await
-                this.UserManager.ChangePasswordAsync(
-                    this.User.Identity.GetUserId(),
-                    model.OldPassword,
-                    model.NewPassword);
+            var result =  await this.UserManager.ChangePasswordAsync(this.User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
             if (result.Succeeded)
             {
                 var user = await this.UserManager.FindByIdAsync(this.User.Identity.GetUserId());

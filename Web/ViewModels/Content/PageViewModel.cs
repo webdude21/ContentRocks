@@ -12,7 +12,9 @@
 
     using Resources;
 
+    using Web.Infrastructure;
     using Web.Infrastructure.Mappings;
+    using Web.Infrastructure.Validators;
     using Web.ViewModels.Contracts;
     using Web.ViewModels.Seo;
 
@@ -22,6 +24,11 @@
         {
             get
             {
+                if (this.Tags == null)
+                {
+                    return string.Empty;
+                }
+
                 return string.Join(", ", this.Tags.Select(t => t.Name));
             }
         }
@@ -43,6 +50,7 @@
         [MaxLength(50)]
         [Display(Name = "FriendlyUrl", ResourceType = typeof(Translation))]
         [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
+        [CheckForExistingFriendlyUrl]
         public string FriendlyUrl { get; set; }
 
         public virtual string GetHtmlId

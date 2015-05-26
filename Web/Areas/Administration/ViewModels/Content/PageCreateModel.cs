@@ -10,6 +10,9 @@
 
     using Resources;
 
+    using Web.Infrastructure;
+    using Web.Infrastructure.Validators;
+
     public class PageCreateViewModel
     {
         [NotMapped]
@@ -24,6 +27,7 @@
         [MaxLength(50)]
         [Display(Name = "FriendlyUrl", ResourceType = typeof(Translation))]
         [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
+        [CheckForExistingFriendlyUrl]
         public string FriendlyUrl { get; set; }
 
         [Display(Name = "MetaDescription", ResourceType = typeof(Translation))]
