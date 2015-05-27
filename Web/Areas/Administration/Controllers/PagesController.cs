@@ -15,6 +15,7 @@
     using Web.Areas.Administration.ViewModels.Content;
     using Web.Infrastructure.Cache;
     using Web.Infrastructure.Constants;
+    using Web.Infrastructure.Filters;
     using Web.Infrastructure.Identity;
     using Web.ViewModels;
     using Web.ViewModels.Content;
@@ -58,6 +59,7 @@
             return this.Json(string.Empty);
         }
 
+        [NullModelCheck("Page not found")]
         public ActionResult Edit(int id)
         {
             return this.View(Mapper.Map<PageViewModel>(this.pageService.GetBy(id)));

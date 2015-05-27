@@ -80,6 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionResults\HttpStatusCodeViewResult.cs" />
     <Compile Include="Cache\BaseCacheService.cs" />
     <Compile Include="Cache\ClearCacheAttribute.cs" />
     <Compile Include="Cache\ClearOutputCacheAfterAttribute.cs" />
@@ -100,6 +101,8 @@
     <Compile Include="Constants\Controllers.cs" />
     <Compile Include="Constants\Resources.cs" />
     <Compile Include="CultureHelper.cs" />
+    <Compile Include="ActionResults\HttpStatusCodePartialViewResult.cs" />
+    <Compile Include="Filters\NullModelCheckAttribute.cs" />
     <Compile Include="Validators\FriendlyUrlValidationAttribute.cs" />
     <Compile Include="Helpers\Bootstrap.cs" />
     <Compile Include="Helpers\FileUploader.cs" />

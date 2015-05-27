@@ -14,6 +14,7 @@
 
     using Web.Areas.Administration.ViewModels.Content;
     using Web.Infrastructure.Constants;
+    using Web.Infrastructure.Filters;
     using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
 
@@ -54,6 +55,7 @@
             return this.Json(string.Empty);
         }
 
+        [NullModelCheck("Post not found")]
         public ActionResult Edit(int id)
         {
             return this.View(Mapper.Map<PostViewModel>(this.postService.GetBy(id)));

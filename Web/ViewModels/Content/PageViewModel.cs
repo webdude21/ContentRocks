@@ -12,7 +12,6 @@
 
     using Resources;
 
-    using Web.Infrastructure;
     using Web.Infrastructure.Mappings;
     using Web.Infrastructure.Validators;
     using Web.ViewModels.Contracts;

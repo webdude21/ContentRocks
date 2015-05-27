@@ -9,6 +9,7 @@
     using Services.Contracts;
 
     using Web.Infrastructure.Constants;
+    using Web.Infrastructure.Filters;
     using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
 
@@ -49,6 +50,7 @@
             return this.Json(string.Empty);
         }
 
+        [NullModelCheck("Category not found")]
         public ActionResult Edit(int id)
         {
             return this.View(Mapper.Map<CategoryViewModel>(this.categoryService.GetBy(id)));
