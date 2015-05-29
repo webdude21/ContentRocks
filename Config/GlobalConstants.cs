@@ -34,7 +34,7 @@
 
         public const string UserNameRegex = @"[\w]+";
 
-        public static readonly string ConnectionString = ApplicationSettings.Default.ConnectionName;
+        public static string ConnectionString = ApplicationSettings.Default.ConnectionName;
 
         public static readonly string HomeAdvert = ApplicationSettings.Default.HomeAdvert;
 

@@ -9,7 +9,7 @@
       <Value Profile="(Default)">Content Rocks CMS</Value>
     </Setting>
     <Setting Name="ConnectionName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">ProductionConnection</Value>
+      <Value Profile="(Default)">DefaultConnection</Value>
     </Setting>
     <Setting Name="FacebookApiKey" Type="System.String" Scope="Application">
       <Value Profile="(Default)">FacebookApiKey</Value>

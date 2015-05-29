@@ -43,7 +43,7 @@ namespace Config {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ProductionConnection")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DefaultConnection")]
         public string ConnectionName {
             get {
                 return ((string)(this["ConnectionName"]));

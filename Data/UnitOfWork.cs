@@ -18,7 +18,7 @@
     public class UnitOfWork : IdentityDbContext<ApplicationUser>, IUnitOfWork
     {
         public UnitOfWork()
-            : base(GlobalConstants.ConnectionString)
+            : base()
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<UnitOfWork, Configuration>());
         }
