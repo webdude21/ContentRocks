@@ -105,9 +105,6 @@ AutoTest.Net/
 # Installshield output folder
 [Ee]xpress/
 
-# TyneMce
-Web/Scripts
-
 # Nuget
 .nuget
 
