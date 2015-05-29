@@ -5,6 +5,7 @@
     using System.Web.UI;
 
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
 
     using Config;
 
@@ -16,17 +17,13 @@
 
     public class PagesController : BaseController
     {
-        private readonly ICacheService cacheService;
-
         private readonly IPageService pageService;
 
-        public PagesController(ICacheService cacheService, IPageService pageService)
+        public PagesController(IPageService pageService)
         {
-            this.cacheService = cacheService;
             this.pageService = pageService;
         }
 
-        [OutputCache(CacheProfile = GlobalConstants.CacheForAnHourOnTheServer)]
         public ActionResult Detail(string friendlyUrl)
         {
             return this.View(Mapper.Map<PageViewModel>(this.pageService.GetBy(friendlyUrl)));
@@ -35,7 +32,7 @@
         [ChildActionOnly]
         public ActionResult Menu()
         {
-            return this.PartialView(Partials.PagesMenu, Mapper.Map<IEnumerable<PageViewShortModel>>(this.cacheService.GetAllPages));
+            return this.PartialView(Partials.PagesMenu, this.pageService.GetAll().Project().To<PageViewShortModel>());
         }
     }
 }

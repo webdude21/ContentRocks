@@ -78,7 +78,6 @@
             return this.View(postViewModel);
         }
 
-        // GET: Administration/Posts
         public ActionResult Index(int? page)
         {
             return this.View(this.postService.GetTheLatestPosts(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
