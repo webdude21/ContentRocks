@@ -229,7 +229,6 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        [ClearOutputCache]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!this.ModelState.IsValid)
