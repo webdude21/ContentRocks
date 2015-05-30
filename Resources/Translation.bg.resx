@@ -321,4 +321,7 @@
   <data name="CreatePage" xml:space="preserve">
     <value>Създаване на страница</value>
   </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>Страницата не беше намерена</value>
+  </data>
 </root>

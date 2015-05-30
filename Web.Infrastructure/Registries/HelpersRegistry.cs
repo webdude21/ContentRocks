@@ -11,7 +11,7 @@
         public void Register(IKernel kernel)
         {
             kernel.Bind<IFileUploader>().To<FileUploader>().InRequestScope();
-            kernel.Bind<ICacheService>().To<MemoryCacheService>().InSingletonScope();
+            kernel.Bind<ICacheService>().To<MemoryCacheService>().InRequestScope();
         }
     }
 }

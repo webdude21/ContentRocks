@@ -14,7 +14,9 @@
    will truncate terms that are too long to fit in the left column 
 */
 
-.dl-horizontal dt { white-space: normal; }
+.dl-horizontal dt {
+    white-space: normal;
+}
 
 .article-content {
     padding-bottom: 15px;
@@ -48,4 +50,6 @@ header .glyphicon {
     margin-left: 1rem;
 }
 
-.article-content { overflow: hidden; }
+.article-content {
+    overflow: hidden;
+}

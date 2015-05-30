@@ -1,8 +1,9 @@
-﻿using System.Net;
-using System.Web.Mvc;
-
+﻿
 namespace Web.Infrastructure.ActionResults
 {
+    using System.Net;
+    using System.Web.Mvc;
+
     public class HttpStatusCodePartialViewResult : PartialViewResult
     {
         private readonly string description;

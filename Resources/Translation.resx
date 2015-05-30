@@ -321,4 +321,7 @@
   <data name="CreatePage" xml:space="preserve">
     <value>Create page</value>
   </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>The page was not found</value>
+  </data>
 </root>

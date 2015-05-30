@@ -12,7 +12,7 @@
         public NullModelCheckAttribute(string description = null)
         {
             this.Description = description;
-            this.ViewName = "NotFound";
+            this.ViewName = "Error";
             this.StatusCode = HttpStatusCode.NotFound;
         }
 
