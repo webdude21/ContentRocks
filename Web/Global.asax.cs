@@ -13,7 +13,6 @@
     {
         protected void Application_Start()
         {
-            GlobalConstants.ConnectionString = Environment.ExpandEnvironmentVariables(ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"]);
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new RazorViewEngine());
             AreaRegistration.RegisterAllAreas();
