@@ -1,28 +1,26 @@
-﻿
-@model IEnumerable<Web.ViewModels.Content.PageViewModel>
+﻿@model IEnumerable<Web.ViewModels.Content.PageViewModel>
 
 <table class="table table-striped table-hover ">
     <thead>
-        <tr>
-            <th>@Translation.Title</th>
-            <th>@Translation.PostedOn</th>
-            <th>@Translation.Actions</th>
-        </tr>
+    <tr>
+        <th>@Translation.Title</th>
+        <th>@Translation.PostedOn</th>
+        <th>@Translation.Actions</th>
+    </tr>
     </thead>
     <tbody>
-        @{
-            foreach (var page in Model)
-            {
-                <tr id="@page.GetHtmlId">
-                    <td>@Html.RouteLink(page.Title, PageRoute.Name, new { area = string.Empty, friendlyUrl = page.FriendlyUrl })</td>
-                    <td>@page.PostedOn</td>
-                    <td>
-                        @Html.ActionLink(Translation.Edit, Actions.Edit, Controllers.Pages, new { area = Areas.Administration, id = page.Id }, new { @class = "btn btn-info" })
-                        @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Pages, new { area = Areas.Administration, id = page.Id },
-                        new AjaxOptions { HttpMethod = "Delete", UpdateTargetId = page.GetHtmlId, InsertionMode = InsertionMode.ReplaceWith, Confirm = page.ConfirmDelete }, new { @class = "btn btn-danger" })
-                    </td>
-                </tr>
-            }
+    @{
+        foreach (var page in Model)
+        {
+            <tr id="@page.GetHtmlId">
+                <td>@Html.RouteLink(page.Title, PageRoute.Name, new { area = string.Empty, friendlyUrl = page.FriendlyUrl })</td>
+                <td>@page.PostedOn</td>
+                <td>
+                    @Html.ActionLink(Translation.Edit, Actions.Edit, Controllers.Pages, new { area = Areas.Administration, id = page.Id }, new { @class = "btn btn-info" })
+                    @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Pages, new { area = Areas.Administration, id = page.Id }, new AjaxOptions { HttpMethod = "Delete", UpdateTargetId = page.GetHtmlId, InsertionMode = InsertionMode.ReplaceWith, Confirm = page.ConfirmDelete }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
         }
+    }
     </tbody>
 </table>

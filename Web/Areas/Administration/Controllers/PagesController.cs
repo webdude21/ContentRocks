@@ -13,7 +13,6 @@
     using Services.Contracts;
 
     using Web.Areas.Administration.ViewModels.Content;
-    using Web.Infrastructure.Cache;
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Filters;
     using Web.Infrastructure.Identity;

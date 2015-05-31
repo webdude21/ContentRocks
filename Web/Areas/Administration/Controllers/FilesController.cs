@@ -60,7 +60,9 @@
         [HttpGet]
         public ActionResult Index(int? page = 1)
         {
-            return this.View(this.fileUploadService.GetWithPaginating(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+            return
+                this.View(
+                    this.fileUploadService.GetWithPaginating(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
                         .Project()
                         .To<FileEntityViewModel>()
                         .ToList());

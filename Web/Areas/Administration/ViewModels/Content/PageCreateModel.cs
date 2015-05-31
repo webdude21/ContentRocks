@@ -10,7 +10,6 @@
 
     using Resources;
 
-    using Web.Infrastructure;
     using Web.Infrastructure.Validators;
 
     public class PageCreateViewModel
@@ -43,14 +42,14 @@
         public static Page GetPostFrom(PageCreateViewModel pageCreateModel)
         {
             return new Page
-            {
-                Content = pageCreateModel.Content,
-                Author = pageCreateModel.Author,
-                FriendlyUrl = pageCreateModel.FriendlyUrl,
-                MetaDescription = pageCreateModel.MetaDescription,
-                MetaTitle = pageCreateModel.MetaTitle,
-                Title = pageCreateModel.Title
-            };
+                       {
+                           Content = pageCreateModel.Content,
+                           Author = pageCreateModel.Author,
+                           FriendlyUrl = pageCreateModel.FriendlyUrl,
+                           MetaDescription = pageCreateModel.MetaDescription,
+                           MetaTitle = pageCreateModel.MetaTitle,
+                           Title = pageCreateModel.Title
+                       };
         }
     }
 }

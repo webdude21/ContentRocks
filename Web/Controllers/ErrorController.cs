@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace Web.Controllers
+﻿namespace Web.Controllers
 {
+    using System.Web.Mvc;
+
     public class ErrorController : Controller
     {
-        // GET: Error
         public ActionResult PageNotFound()
         {
-            Response.StatusCode = 404;
-            return View();
+            this.Response.StatusCode = 404;
+            return this.View();
         }
     }
 }

@@ -2,11 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using System.Web.UI;
 
     using AutoMapper;
-
-    using Config;
 
     using Services.Contracts;
 

@@ -10,14 +10,12 @@
 
     using Resources;
 
-    using Web.Infrastructure;
     using Web.Infrastructure.Validators;
 
     public class PostCreateViewModel
     {
         [NotMapped]
-        public const string ModelBinderProperties =
-            "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId,FriendlyUrl";
+        public const string ModelBinderProperties = "Id,Title,Content,MetaDescription,MetaKeywords,CategoryId,FriendlyUrl";
 
         public virtual ApplicationUser Author { get; set; }
 

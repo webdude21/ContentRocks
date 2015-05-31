@@ -8,6 +8,22 @@
 
         public int CurrentPage { get; set; }
 
+        public string FirstPageParam
+        {
+            get
+            {
+                return PageUrlParam + 1;
+            }
+        }
+
+        public string LastPageParam
+        {
+            get
+            {
+                return PageUrlParam + (this.TotalPages);
+            }
+        }
+
         public bool NextPageButtonEnabled
         {
             get
@@ -50,22 +66,6 @@
         public string GetPageParam(int page)
         {
             return PageUrlParam + page;
-        }
-
-        public string LastPageParam
-        {
-            get
-            {
-                return PageUrlParam + (this.TotalPages);
-            }
-        }
-
-        public string FirstPageParam
-        {
-            get
-            {
-                return PageUrlParam + 1;
-            }
         }
     }
 }
