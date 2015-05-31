@@ -1,6 +1,7 @@
 ﻿namespace Services
 {
     using System.Data.Entity;
+    using System.Linq;
 
     using Data.Contracts;
 
@@ -16,5 +17,10 @@
         }
 
         public IDbSet<Page> Pages { get; set; }
+
+        public Page GetByWithTags(string friendlyUrl)
+        {
+            return this.DataSet.Include("Tags").FirstOrDefault(page => page.FriendlyUrl == friendlyUrl);
+        }
     }
 }

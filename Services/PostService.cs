@@ -8,6 +8,7 @@
     using Models.Content;
 
     using Services.Contracts;
+    using Models.SEO;
 
     public class PostService : FriendlyUrlService<Post>, IPostService
     {
@@ -47,6 +48,11 @@
         public IQueryable<Post> GetTheLatestPostsByAuthor(string username)
         {
             return this.GetTheLatestPosts().Where(p => p.Author.UserName == username);
+        }
+
+        public Post GetByWithTags(string friendlyUrl)
+        {
+            return this.DataSet.Include("Tags").FirstOrDefault(post => post.FriendlyUrl == friendlyUrl);
         }
     }
 }
