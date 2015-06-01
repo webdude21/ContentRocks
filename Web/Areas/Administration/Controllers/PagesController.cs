@@ -50,6 +50,7 @@
         }
 
         [HttpDelete]
+        [VerifyAjaxRequest]
         public ActionResult Delete(int id)
         {
             this.pageService.DeleteBy(id);

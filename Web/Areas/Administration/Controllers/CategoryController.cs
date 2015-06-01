@@ -44,6 +44,7 @@
         }
 
         [HttpDelete]
+        [VerifyAjaxRequest]
         public ActionResult Delete(int id)
         {
             this.categoryService.DeleteBy(id);

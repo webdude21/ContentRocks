@@ -103,6 +103,7 @@
     <Compile Include="CultureHelper.cs" />
     <Compile Include="ActionResults\HttpStatusCodePartialViewResult.cs" />
     <Compile Include="Filters\NullModelCheckAttribute.cs" />
+    <Compile Include="Filters\VerifyAjaxRequestAttribute.cs" />
     <Compile Include="Validators\FriendlyUrlValidationAttribute.cs" />
     <Compile Include="Helpers\Bootstrap.cs" />
     <Compile Include="Helpers\FileUploader.cs" />

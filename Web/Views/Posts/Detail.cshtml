@@ -16,6 +16,9 @@
         @Html.Raw(Model.Content)
     </div>
 </article>
-<div class="comment-box">
-    @Html.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = Areas.Administration, id = Model.Id }, new { @class = "btn btn-info" })
-</div>
+@Ajax.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = Areas.Administration, id = Model.Id },
+    new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "leave-comment" },
+        new { @class = "btn btn-info", id = "leave-comment" })
+@section scripts {
+    @Scripts.Render(ClientResources.JQueryUnobtrusive)
+}
