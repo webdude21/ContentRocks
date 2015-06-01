@@ -8,7 +8,6 @@
     using Models.Content;
 
     using Services.Contracts;
-    using Models.SEO;
 
     public class PostService : FriendlyUrlService<Post>, IPostService
     {

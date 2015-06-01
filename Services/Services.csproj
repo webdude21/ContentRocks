@@ -49,8 +49,10 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="CategoryService.cs" />
     <Compile Include="AuthorService.cs" />
+    <Compile Include="CommentService.cs" />
     <Compile Include="Contracts\IAuthorService.cs" />
     <Compile Include="Contracts\ICategoryService.cs" />
+    <Compile Include="Contracts\ICommentService.cs" />
     <Compile Include="Contracts\IEntityService.cs" />
     <Compile Include="Contracts\IFileUploadService.cs" />
     <Compile Include="Contracts\IFriendlyUrlService.cs" />

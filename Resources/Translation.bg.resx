@@ -324,4 +324,7 @@
   <data name="PageNotFound" xml:space="preserve">
     <value>Страницата не беше намерена</value>
   </data>
+  <data name="PostAComment" xml:space="preserve">
+    <value>Публикуване на коментар</value>
+  </data>
 </root>

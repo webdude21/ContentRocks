@@ -219,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Administration\Controllers\PagesController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Content\FileEntityViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Content\PageCreateModel.cs" />
@@ -397,6 +398,7 @@
     <Content Include="Areas\Administration\Views\Pages\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Pages\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Pages\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Comments\Create.cshtml" />
     <None Include="Areas\Administration\Views\Posts\Create.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

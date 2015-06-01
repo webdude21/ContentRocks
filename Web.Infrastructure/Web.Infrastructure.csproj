@@ -99,7 +99,7 @@
     <Compile Include="Constants\PostRoute.cs" />
     <Compile Include="Constants\DefaultRoute.cs" />
     <Compile Include="Constants\Controllers.cs" />
-    <Compile Include="Constants\Resources.cs" />
+    <Compile Include="Constants\ClientResources.cs" />
     <Compile Include="CultureHelper.cs" />
     <Compile Include="ActionResults\HttpStatusCodePartialViewResult.cs" />
     <Compile Include="Filters\NullModelCheckAttribute.cs" />

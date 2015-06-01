@@ -324,4 +324,7 @@
   <data name="PageNotFound" xml:space="preserve">
     <value>The page was not found</value>
   </data>
+  <data name="PostAComment" xml:space="preserve">
+    <value>Post a comment</value>
+  </data>
 </root>

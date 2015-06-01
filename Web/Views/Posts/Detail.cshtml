@@ -16,6 +16,6 @@
         @Html.Raw(Model.Content)
     </div>
 </article>
-<p>
-    @Html.ActionLink(Translation.BackToList, Actions.Index)
-</p>
+<div class="comment-box">
+    @Html.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = Areas.Administration, id = Model.Id }, new { @class = "btn btn-info" })
+</div>
