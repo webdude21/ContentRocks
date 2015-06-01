@@ -1,0 +1,6 @@
+﻿@model Web.ViewModels.Content.CommentViewModel
+
+<blockquote class="pull-right">
+    <p>@Model.Content</p>
+    <small>@Html.RouteLink(Model.AuthorName, AuthorRoute.Name, new { username = Model.AuthorName })</small>
+</blockquote>

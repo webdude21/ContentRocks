@@ -6,7 +6,7 @@
 
     public interface IEntityService<T> : IService
     {
-        void Add(T entity);
+        T Add(T entity);
 
         void DeleteBy(int id);
 

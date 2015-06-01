@@ -4,8 +4,6 @@
     using System.Data.Entity;
     using System.Linq;
 
-    using Config;
-
     using Data.Contracts;
     using Data.Migrations;
 
@@ -18,7 +16,6 @@
     public class UnitOfWork : IdentityDbContext<ApplicationUser>, IUnitOfWork
     {
         public UnitOfWork()
-            : base()
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<UnitOfWork, Configuration>());
         }

@@ -11,14 +11,15 @@
         <span class="glyphicon glyphicon-calendar"></span><time>@Model.PostedOn</time>
         <span class="glyphicon glyphicon-folder-open"></span>@Html.ActionLink(Model.Category.Title, Actions.Detail, Controllers.Category, new { id = Model.Category.Id }, new { area = string.Empty })
         <span class="glyphicon glyphicon-user"></span><span>@Html.RouteLink(Model.AuthorName, AuthorRoute.Name, new { username = Model.AuthorName })</span>
+        <span class="glyphicon glyphicon-comment"></span><span>@Ajax.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = Areas.Administration, id = Model.Id },
+        new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "comment-box" },
+        new { id = "leave-comment" })</span>
     </header>
     <div class="article-content">
         @Html.Raw(Model.Content)
     </div>
 </article>
-@Ajax.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = Areas.Administration, id = Model.Id },
-    new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "leave-comment" },
-        new { @class = "btn btn-info", id = "leave-comment" })
+<div id="comment-box"></div>
 @section scripts {
     @Scripts.Render(ClientResources.JQueryUnobtrusive)
 }

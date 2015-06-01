@@ -6,6 +6,7 @@
 
     using Services.Contracts;
 
+    using Web.Infrastructure.Constants;
     using Web.Infrastructure.Filters;
     using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
@@ -32,8 +33,8 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create(CommentViewModel comment)
         {
-            this.commentService.Add(new Comment { Content = comment.Content, Author = this.CurrentUser.Get(), PostId = comment.PostId });
-            return this.Json(string.Empty, JsonRequestBehavior.AllowGet);
+            var newComment = this.commentService.Add(new Comment { Content = comment.Content, Author = this.CurrentUser.Get(), PostId = comment.PostId });
+            return this.RedirectToAction(Actions.Detail, Controllers.Comments, new { id = newComment.Id, area = string.Empty });
         }
     }
 }
