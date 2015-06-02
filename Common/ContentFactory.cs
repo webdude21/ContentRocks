@@ -6,6 +6,7 @@
     using Common.Contracts;
 
     using Models.Content;
+    using Models.Identity;
     using Models.SEO;
 
     using Resources;
@@ -60,8 +61,7 @@
                            Id = id,
                            FriendlyUrl = this.randomGenerator.GetUrlSafeString(4, 10),
                            MetaDescription = this.randomGenerator.GetString(4, 10),
-                           Tags =
-                               new List<Tag>
+                           Tags = new List<Tag>
                                    {
                                        new Tag { Name = this.randomGenerator.GetString(5, 10) },
                                        new Tag { Name = this.randomGenerator.GetString(5, 10) }
@@ -72,6 +72,30 @@
                            CreatedOn = this.randomGenerator.GeneraDateTime()
                        };
         }
+
+        public Comment GetComment(Post post, ApplicationUser author)
+        {
+            return new Comment
+                       {
+                           Author = author,
+                           Post = post,
+                           Content = this.randomGenerator.GetString(40, 200),
+                           ModifiedOn = this.randomGenerator.GeneraDateTime(),
+                           CreatedOn = this.randomGenerator.GeneraDateTime()
+                       };
+        }
+
+        public List<Comment> GetComments(int count, Post post, ApplicationUser author)
+        {
+            var comments = new List<Comment>();
+
+            for (var i = 0; i < count; i++)
+            {
+                comments.Add(this.GetComment(post, author));
+            }
+
+            return comments;
+        } 
 
         public Post GetRealisticPost()
         {

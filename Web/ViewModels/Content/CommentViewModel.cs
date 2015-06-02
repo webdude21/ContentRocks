@@ -18,13 +18,13 @@
 
         public void CreateMappings(IConfiguration configuration)
         {
-            configuration.CreateMap<Post, PostViewModel>()
-                .ForMember(
-                    sourceModel => sourceModel.AuthorName,
-                    result => result.MapFrom(fullModel => fullModel.Author.UserName))
-                .ForMember(
-                    sourceModel => sourceModel.AuthorId,
-                    result => result.MapFrom(fullModel => fullModel.Author.Id));
+            configuration.CreateMap<Comment, CommentViewModel>()
+                  .ForMember(
+                      sourceModel => sourceModel.AuthorName,
+                      result => result.MapFrom(fullModel => fullModel.Author.UserName))
+                  .ForMember(
+                      sourceModel => sourceModel.AuthorId,
+                      result => result.MapFrom(fullModel => fullModel.Author.Id));
         }
     }
 }

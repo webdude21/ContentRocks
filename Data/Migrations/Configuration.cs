@@ -45,6 +45,7 @@ namespace Data.Migrations
                 var page = dataGenerator.GetAboutPage();
                 post.Author = author;
                 post.Category = category;
+                post.Comments = dataGenerator.GetComments(42, post, author);
                 pages.Add(page);
                 posts.Add(post);
             }

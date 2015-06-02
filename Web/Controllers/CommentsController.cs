@@ -35,7 +35,7 @@
         [VerifyAjaxRequest]
         public ActionResult GetCommentsForPost(int id, int? page)
         {
-            return this.View(this.commentService
+            return this.PartialView(this.commentService
                 .GetLatestComments(id, GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
                 .Project()
                 .To<CommentViewModel>()
