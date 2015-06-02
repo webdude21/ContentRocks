@@ -2,6 +2,8 @@
 {
     public static class Actions
     {
+        public const string GetCommentsForPost = "GetCommentsForPost";
+
         public const string About = "About";
 
         public const string AddPhoneNumber = "AddPhoneNumber";

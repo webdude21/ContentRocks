@@ -439,6 +439,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are no comments for this post.
+        /// </summary>
+        public static string NoComments {
+            get {
+                return ResourceManager.GetString("NoComments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no more comments.
+        /// </summary>
+        public static string NoMoreComments {
+            get {
+                return ResourceManager.GetString("NoMoreComments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The page was not found.
         /// </summary>
         public static string PageNotFound {
@@ -606,6 +624,15 @@ namespace Resources {
         public static string Send {
             get {
                 return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show comments.
+        /// </summary>
+        public static string ShowComments {
+            get {
+                return ResourceManager.GetString("ShowComments", resourceCulture);
             }
         }
         

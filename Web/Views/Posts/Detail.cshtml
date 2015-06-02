@@ -11,15 +11,64 @@
         <span class="glyphicon glyphicon-calendar"></span><time>@Model.PostedOn</time>
         <span class="glyphicon glyphicon-folder-open"></span>@Html.ActionLink(Model.Category.Title, Actions.Detail, Controllers.Category, new { id = Model.Category.Id }, new { area = string.Empty })
         <span class="glyphicon glyphicon-user"></span><span>@Html.RouteLink(Model.AuthorName, AuthorRoute.Name, new { username = Model.AuthorName })</span>
-        <span class="glyphicon glyphicon-comment"></span><span>@Ajax.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = Areas.Administration, id = Model.Id },
+        <span class="glyphicon glyphicon-comment"></span><span>
+            @Ajax.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = Areas.Administration, id = Model.Id },
         new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "comment-box" },
-        new { id = "leave-comment" })</span>
+        new { id = "leave-comment" })
+        </span>
     </header>
     <div class="article-content">
         @Html.Raw(Model.Content)
     </div>
 </article>
 <div id="comment-box"></div>
+<button class="btn btn-success" id="show-comments-button">@Translation.ShowComments</button>
 @section scripts {
     @Scripts.Render(ClientResources.JQueryUnobtrusive)
+    <script>
+        var currentReviewPage = 1,
+            pageSize = @GlobalConstants.PageSize,
+            loadCommentsUrl = '@Url.Action(Actions.GetCommentsForPost, Controllers.Comments, new { area = string.Empty, id = Model.Id })',
+            $commentsContainer = $('#comment-box'),
+            $showCommentsButton = $('#show-comments-button'),
+            AllCommentsWareDownloaded = false,
+            ReadCommentsClicked = false,
+            $data,
+            appendMoreComments = function() {
+                ReadCommentsClicked = true;
+                $.ajax(
+                {
+                    url: loadCommentsUrl + "?page=" + currentReviewPage,
+                    type: "GET",
+                    success: function(data) {
+                        if (data.length > 10) {
+                            $data = $(data);
+                            $commentsContainer.append($data);
+                            currentReviewPage += 1;
+                        } else if (currentReviewPage > 0) {
+                            $commentsContainer.append('@Html.Label(Translation.NoMoreComments, new { @class = "text-warning" })');
+                            $showCommentsButton.remove();
+                            AllCommentsWareDownloaded = true;
+                        } else {
+                            $commentsContainer.append('@Html.Label(Translation.NoComments)');
+                            $commentsContainer.remove();
+                            AllCommentsWareDownloaded = true;
+                        }
+                    }
+                });
+            }
+
+        $(window).scroll(function() {
+            if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+                if (!AllCommentsWareDownloaded) {
+                    if (ReadCommentsClicked) {
+                        appendMoreComments();
+                    }
+                }
+            }
+        });
+
+        $showCommentsButton.on("click", appendMoreComments);
+
+    </script>
 }

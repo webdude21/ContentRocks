@@ -1,0 +1,9 @@
+﻿@model Web.ViewModels.Content.CommentViewModel
+
+<div class="row comment">
+    <blockquote class="pull-right">
+        <p>@Model.Content</p>
+        <small>@Html.RouteLink(Model.AuthorName, AuthorRoute.Name, new { username = Model.AuthorName })</small>
+    </blockquote>
+</div>
+<hr />

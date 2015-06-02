@@ -327,4 +327,13 @@
   <data name="PostAComment" xml:space="preserve">
     <value>Публикуване на коментар</value>
   </data>
+  <data name="ShowComments" xml:space="preserve">
+    <value>Виж коментарите</value>
+  </data>
+  <data name="NoMoreComments" xml:space="preserve">
+    <value>Няма повече коментари</value>
+  </data>
+  <data name="NoComments" xml:space="preserve">
+    <value>Няма коментари за тази статия</value>
+  </data>
 </root>

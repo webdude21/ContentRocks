@@ -1,8 +1,14 @@
 ﻿namespace Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
 
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+
+    using Common;
+
+    using Config;
 
     using Services.Contracts;
 
@@ -23,6 +29,17 @@
         public ActionResult Detail(int id)
         {
             return this.PartialView(Mapper.Map<CommentViewModel>(this.commentService.GetBy(id)));
+        }
+
+        [HttpGet]
+        [VerifyAjaxRequest]
+        public ActionResult GetCommentsForPost(int id, int? page)
+        {
+            return this.View(this.commentService
+                .GetLatestComments(id, GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+                .Project()
+                .To<CommentViewModel>()
+                .ToList());
         }
     }
 }

@@ -327,4 +327,13 @@
   <data name="PostAComment" xml:space="preserve">
     <value>Post a comment</value>
   </data>
+  <data name="ShowComments" xml:space="preserve">
+    <value>Show comments</value>
+  </data>
+  <data name="NoMoreComments" xml:space="preserve">
+    <value>There are no more comments</value>
+  </data>
+  <data name="NoComments" xml:space="preserve">
+    <value>There are no comments for this post</value>
+  </data>
 </root>
