@@ -1,5 +1,7 @@
 ﻿namespace Web.ViewModels.Content
 {
+    using System.ComponentModel.DataAnnotations;
+
     using AutoMapper;
 
     using Models.Content;
@@ -12,6 +14,7 @@
 
         public string AuthorId { get; set; }
 
+       [DataType(DataType.MultilineText)]
         public string Content { get; set; }
 
         public int PostId { get; set; }
