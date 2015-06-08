@@ -21,20 +21,12 @@
             this.commentService = commentService;
         }
 
-        [HttpGet]
-        [VerifyAjaxRequest]
-        public ActionResult Create(int id)
+        public ActionResult Index(int? page)
         {
-            return this.PartialView(new CommentViewModel { PostId = id });
-        }
-
-        [HttpPost]
-        [VerifyAjaxRequest]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(CommentViewModel comment)
-        {
-            var newComment = this.commentService.Add(new Comment { Content = comment.Content, Author = this.CurrentUser.Get(), PostId = comment.PostId });
-            return this.RedirectToAction(Actions.Detail, Controllers.Comments, new { id = newComment.Id, area = string.Empty });
+            return this.View(this.postService.GetTheLatestPosts(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+                        .Project()
+                        .To<PostViewModel>()
+                        .ToList());
         }
     }
 }

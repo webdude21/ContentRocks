@@ -399,7 +399,7 @@
     <Content Include="Areas\Administration\Views\Pages\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Pages\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Pages\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
     <Content Include="Views\Comments\Detail.cshtml" />
     <None Include="Areas\Administration\Views\Posts\Create.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
@@ -764,6 +764,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Views\Comments\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

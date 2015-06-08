@@ -12,8 +12,15 @@
         <span class="glyphicon glyphicon-folder-open"></span>@Html.ActionLink(Model.Category.Title, Actions.Detail, Controllers.Category, new { id = Model.Category.Id }, new { area = string.Empty })
         <span class="glyphicon glyphicon-user"></span><span>@Html.RouteLink(Model.AuthorName, AuthorRoute.Name, new { username = Model.AuthorName })</span>
         <span class="glyphicon glyphicon-comment"></span><span>
-            @Ajax.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = Areas.Administration, id = Model.Id },
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Ajax.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = string.Empty, id = Model.Id },
                  new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "comment-post" }, new { id = "leave-comment" })
+            }
+            else
+            {
+                @Html.ActionLink(Translation.PostAComment, Actions.Login, Controllers.Account, new { area = string.Empty, returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery }, new { id = "leave-comment" })
+            }
         </span>
     </header>
     <div class="article-content">
