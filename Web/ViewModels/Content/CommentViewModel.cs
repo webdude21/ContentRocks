@@ -6,6 +6,8 @@
 
     using Models.Content;
 
+    using Resources;
+
     using Web.Infrastructure.Mappings;
 
     public class CommentViewModel : BaseViewModel, IMapFrom<Comment>, IHaveCustomMappings
@@ -14,7 +16,8 @@
 
         public string AuthorId { get; set; }
 
-       [DataType(DataType.MultilineText)]
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Comment", ResourceType = typeof(Translation))]
         public string Content { get; set; }
 
         public int PostId { get; set; }

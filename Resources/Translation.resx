@@ -336,4 +336,7 @@
   <data name="NoComments" xml:space="preserve">
     <value>There are no comments for this post</value>
   </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
 </root>

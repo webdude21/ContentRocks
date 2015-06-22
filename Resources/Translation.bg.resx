@@ -336,4 +336,7 @@
   <data name="NoComments" xml:space="preserve">
     <value>Няма коментари за тази статия</value>
   </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Коментар</value>
+  </data>
 </root>
