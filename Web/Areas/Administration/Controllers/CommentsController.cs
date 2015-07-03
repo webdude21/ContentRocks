@@ -3,19 +3,19 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using Models.Content;
-
-    using AutoMapper;
     using AutoMapper.QueryableExtensions;
+
+    using Common;
+
+    using Config;
 
     using Services.Contracts;
 
     using Web.Infrastructure.Constants;
     using Web.Infrastructure.Filters;
     using Web.Infrastructure.Identity;
+    using Web.ViewModels;
     using Web.ViewModels.Content;
-    using Config;
-    using Common;
 
     public class CommentsController : AdminController
     {
@@ -31,8 +31,22 @@
         {
             return this.View(this.commentService.GetLatestComments(GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
                         .Project()
-                        .To<PostViewModel>()
+                        .To<CommentViewModel>()
                         .ToList());
+        }
+
+        [ChildActionOnly]
+        public ActionResult Pager(int? page)
+        {
+            return this.PartialView(Partials.Pager, PagerViewModel.ConvertFrom(this.commentService.GetPager(page)));
+        }
+
+        [HttpDelete]
+        [VerifyAjaxRequest]
+        public ActionResult Delete(int id)
+        {
+            this.commentService.DeleteBy(id);
+            return this.Json(string.Empty, JsonRequestBehavior.AllowGet);
         }
     }
 }

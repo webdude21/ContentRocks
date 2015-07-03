@@ -31,5 +31,7 @@
         public const string Seo = "_SeoPartial";
 
         public const string UploadFormPartial = "_UploadFormPartial";
+
+        public const string AdminCommentsListPartial = "_AdminCommentsListPartial";
     }
 }

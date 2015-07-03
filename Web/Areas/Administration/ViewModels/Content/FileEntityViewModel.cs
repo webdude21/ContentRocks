@@ -4,21 +4,11 @@
 
     using Models.Content;
 
-    using Resources;
-
     using Web.Infrastructure.Mappings;
     using Web.ViewModels;
 
     public class FileEntityViewModel : BaseViewModel, IMapFrom<FileEntity>
     {
-        public string ConfirmDelete
-        {
-            get
-            {
-                return Translation.AreYouSureYouWantToDeleteThis;
-            }
-        }
-
         public DateTime CreatedOn { get; set; }
 
         public string FileName { get; set; }

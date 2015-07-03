@@ -13,17 +13,22 @@
         public CommentService(IUnitOfWork unitOfWork)
             : base(unitOfWork)
         {
-               
+
         }
 
-        public IQueryable<Comment> GetLatestComments(int postId, int count, int page = 1)
+        public IQueryable<Comment> GetLatestCommentsForAPost(int postId, int count, int page = 1)
         {
-            return this.GetDataWithPaging(this.GetLatestComments(postId), count, page);
+            return this.GetDataWithPaging(this.GetLatestCommentsForAPost(postId), count, page);
         }
 
-        public IQueryable<Comment> GetLatestComments(int postId)
+        public IQueryable<Comment> GetLatestCommentsForAPost(int postId)
         {
             return this.DataSet.Where(comment => comment.PostId == postId).OrderByDescending(comment => comment.CreatedOn);
+        }
+
+        public IQueryable<Comment> GetLatestComments(int count, int page = 1)
+        {
+            return this.GetDataWithPaging(this.DataSet.OrderByDescending(comment => comment.CreatedOn), count, page);
         }
     }
 }

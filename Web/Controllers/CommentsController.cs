@@ -41,7 +41,7 @@
         public ActionResult GetCommentsForPost(int id, int? page)
         {
             return this.PartialView(this.commentService
-                .GetLatestComments(id, GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
+                .GetLatestCommentsForAPost(id, GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
                 .Project()
                 .To<CommentViewModel>()
                 .ToList());

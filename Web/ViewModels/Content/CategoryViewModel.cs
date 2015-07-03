@@ -16,7 +16,7 @@
 
     public class CategoryViewModel : BaseViewModel, IMapFrom<Category>
     {
-        public string ConfirmDelete
+        public override string ConfirmDelete
         {
             get
             {

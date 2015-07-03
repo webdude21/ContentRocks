@@ -6,8 +6,10 @@
 
     public interface ICommentService : IEntityService<Comment>
     {
-        IQueryable<Comment> GetLatestComments(int postId, int count, int page = 1);
+        IQueryable<Comment> GetLatestCommentsForAPost(int postId, int count, int page = 1);
 
-        IQueryable<Comment> GetLatestComments(int postId);
+        IQueryable<Comment> GetLatestCommentsForAPost(int postId);
+
+        IQueryable<Comment> GetLatestComments(int count, int page = 1);
     }
 }

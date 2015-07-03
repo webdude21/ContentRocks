@@ -32,14 +32,6 @@
             }
         }
 
-        public string ConfirmDelete
-        {
-            get
-            {
-                return Translation.AreYouSureYouWantToDeleteThis;
-            }
-        }
-
         [DataType(DataType.Html)]
         [Display(Name = "Content", ResourceType = typeof(Translation))]
         public string Content { get; set; }
