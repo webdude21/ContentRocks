@@ -18,7 +18,7 @@
         {
             var friendlyUrl = value as string;
 
-            if (friendlyUrl == null)
+            if (string.IsNullOrWhiteSpace(friendlyUrl))
             {
                 return false;
             }
