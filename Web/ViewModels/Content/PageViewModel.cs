@@ -9,6 +9,7 @@
     using Config;
 
     using Models.Content;
+    using Models.Contracts;
 
     using Resources;
 
@@ -17,7 +18,7 @@
     using Web.ViewModels.Contracts;
     using Web.ViewModels.Seo;
 
-    public class PageViewModel : BaseViewModel, IMapFrom<Page>, IMetaInfoViewModel
+    public class PageViewModel : BaseViewModel, IMapFrom<Page>, IMetaInfoViewModel, IFriendlyUrl
     {
         public string AllTags
         {

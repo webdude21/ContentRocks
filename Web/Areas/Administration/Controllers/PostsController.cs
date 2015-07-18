@@ -68,6 +68,12 @@
         public ActionResult Edit(PostViewModel postViewModel)
         {
             var postToUpdate = this.postService.GetBy(postViewModel.Id);
+
+            if (postToUpdate.FriendlyUrl == postViewModel.FriendlyUrl)
+            {
+                this.ModelState["friendlyUrl"].Errors.Clear();
+            }
+
             this.TryUpdateModel(postToUpdate);
 
             if (this.ModelState.IsValid)

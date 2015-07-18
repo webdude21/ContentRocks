@@ -28,12 +28,7 @@
                 return false;
             }
 
-            if (this.PostService.UrlExists(friendlyUrl))
-            {
-                return false;
-            }
-
-            return true;
+            return !this.PostService.UrlExists(friendlyUrl);
         }
     }
 }

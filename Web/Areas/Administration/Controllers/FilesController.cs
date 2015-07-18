@@ -1,7 +1,6 @@
 ﻿namespace Web.Areas.Administration.Controllers
 {
     using System.Linq;
-    using System.Net;
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
