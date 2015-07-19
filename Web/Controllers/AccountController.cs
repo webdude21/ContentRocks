@@ -11,7 +11,6 @@
 
     using Models.Identity;
 
-    using Web.Infrastructure.Cache;
     using Web.ViewModels.Account;
 
     [Authorize]

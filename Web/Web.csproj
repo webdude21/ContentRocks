@@ -221,6 +221,7 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Administration\Controllers\PagesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Content\FileEntityViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Content\PageCreateModel.cs" />
     <Compile Include="Controllers\Api\UploadController.cs" />
@@ -412,6 +413,8 @@
     <Content Include="Areas\Administration\Views\Files\Upload.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_AdminFilesListPartial.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_AdminPagesListPartial.cshtml" />
+    <None Include="Areas\Administration\Views\Settings\Index.cshtml" />
+    <None Include="Areas\Administration\Views\SocialSettings\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CodeMirror\codemirror.js" />
     <Content Include="Scripts\CodeMirror\mode\apl.js" />
