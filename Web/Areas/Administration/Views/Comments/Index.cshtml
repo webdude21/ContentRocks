@@ -9,7 +9,7 @@
 @{
     Html.RenderPartial(Partials.AdminCommentsListPartial, Model);
 }
-@Html.Action(Actions.Pager, Controllers.Comments, new { area = Areas.Administration });
+@Html.Action(Actions.Pager, Controllers.Comments, new { area = Areas.Administration })
 @section scripts {
     @Scripts.Render(ClientResources.JQueryUnobtrusive)
 }
