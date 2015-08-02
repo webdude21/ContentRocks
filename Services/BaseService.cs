@@ -12,7 +12,7 @@
 
     using Models;
 
-    using Services.Contracts;
+    using Contracts;
 
     public abstract class BaseService<T> : IEntityService<T> where T : BaseModel
     {

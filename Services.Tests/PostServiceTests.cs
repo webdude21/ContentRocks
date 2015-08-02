@@ -17,7 +17,7 @@
 
     using Moq;
 
-    using Services.Contracts;
+    using Contracts;
 
     [TestClass]
     public class PostServiceTests

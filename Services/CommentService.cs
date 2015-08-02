@@ -6,7 +6,7 @@
 
     using Models.Content;
 
-    using Services.Contracts;
+    using Contracts;
 
     public class CommentService : BaseService<Comment>, ICommentService
     {

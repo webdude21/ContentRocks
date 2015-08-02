@@ -7,7 +7,7 @@
 
     using Models.Content;
 
-    using Services.Contracts;
+    using Contracts;
 
     public class PostService : FriendlyUrlService<Post>, IPostService
     {

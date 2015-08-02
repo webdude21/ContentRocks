@@ -7,7 +7,7 @@
 
     using Models.Content;
 
-    using Services.Contracts;
+    using Contracts;
 
     public class PageService : FriendlyUrlService<Page>,  IPageService
     {

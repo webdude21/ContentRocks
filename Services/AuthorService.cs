@@ -9,7 +9,7 @@
 
     using Models.Identity;
 
-    using Services.Contracts;
+    using Contracts;
 
     public class AuthorService : IAuthorService
     {

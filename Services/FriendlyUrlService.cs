@@ -7,7 +7,7 @@
     using Models;
     using Models.Contracts;
 
-    using Services.Contracts;
+    using Contracts;
 
     public class FriendlyUrlService<T> : BaseService<T>, IFriendlyUrlService<T> where T : BaseModel, IFriendlyUrl
     {
