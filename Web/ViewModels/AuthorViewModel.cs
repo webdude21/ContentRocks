@@ -4,7 +4,7 @@
 
     using Models.Identity;
 
-    using Web.Infrastructure.Mappings;
+    using Infrastructure.Mappings;
 
     public class AuthorViewModel : IMapFrom<ApplicationUser>, IHaveCustomMappings
     {

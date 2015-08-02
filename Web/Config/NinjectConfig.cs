@@ -17,9 +17,9 @@ namespace Web
     using Ninject;
     using Ninject.Web.Common;
 
-    using Web.Infrastructure;
-    using Web.Infrastructure.Constants;
-    using Web.Infrastructure.Registries;
+    using Infrastructure;
+    using Infrastructure.Constants;
+    using Infrastructure.Registries;
 
     public static class NinjectWebCommon
     {

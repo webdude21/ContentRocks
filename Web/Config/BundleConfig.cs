@@ -2,7 +2,7 @@
 {
     using System.Web.Optimization;
 
-    using Web.Infrastructure.Constants;
+    using Infrastructure.Constants;
 
     public class BundleConfig
     {

@@ -4,7 +4,7 @@
 
     using Models.SEO;
 
-    using Web.Infrastructure.Mappings;
+    using Infrastructure.Mappings;
 
     public class TagViewModel : IMapFrom<Tag>
     {

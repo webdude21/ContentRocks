@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    using Web.Infrastructure.Constants;
+    using Infrastructure.Constants;
 
     public class AdministrationAreaRegistration : AreaRegistration
     {

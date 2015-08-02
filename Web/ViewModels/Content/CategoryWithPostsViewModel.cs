@@ -7,7 +7,7 @@
 
     using Models.Content;
 
-    using Web.Infrastructure.Mappings;
+    using Infrastructure.Mappings;
 
     public class CategoryWithPostsViewModel : BaseViewModel, IMapFrom<Category>
     {

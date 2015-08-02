@@ -8,7 +8,7 @@
 
     using Resources;
 
-    using Web.Infrastructure.Mappings;
+    using Infrastructure.Mappings;
 
     public class PostViewModel : PageViewModel, IMapFrom<Post>, IHaveCustomMappings
     {

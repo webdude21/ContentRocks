@@ -5,8 +5,8 @@
 
     using Models.Content;
 
-    using Web.Infrastructure.Constants;
-    using Web.Infrastructure.Validators;
+    using Infrastructure.Constants;
+    using Infrastructure.Validators;
 
     public class RouteConfig
     {

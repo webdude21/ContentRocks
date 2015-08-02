@@ -13,8 +13,8 @@
 
     using Resources;
 
-    using Web.Infrastructure.Mappings;
-    using Web.Infrastructure.Validators;
+    using Infrastructure.Mappings;
+    using Infrastructure.Validators;
     using Web.ViewModels.Contracts;
     using Web.ViewModels.Seo;
 

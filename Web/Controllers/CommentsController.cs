@@ -12,11 +12,11 @@
 
     using Services.Contracts;
 
-    using Web.Infrastructure.Filters;
-    using Web.ViewModels.Content;
+    using Infrastructure.Filters;
+    using ViewModels.Content;
     using Models.Content;
-    using Web.Infrastructure.Constants;
-    using Web.Infrastructure.Identity;
+    using Infrastructure.Constants;
+    using Infrastructure.Identity;
 
     public class CommentsController : BaseController
     {

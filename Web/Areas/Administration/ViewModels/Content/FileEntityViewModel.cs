@@ -4,7 +4,7 @@
 
     using Models.Content;
 
-    using Web.Infrastructure.Mappings;
+    using Infrastructure.Mappings;
     using Web.ViewModels;
 
     public class FileEntityViewModel : BaseViewModel, IMapFrom<FileEntity>

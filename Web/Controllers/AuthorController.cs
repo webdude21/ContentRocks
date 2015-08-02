@@ -11,9 +11,9 @@
 
     using Services.Contracts;
 
-    using Web.Infrastructure.Constants;
-    using Web.ViewModels;
-    using Web.ViewModels.Content;
+    using Infrastructure.Constants;
+    using ViewModels;
+    using ViewModels.Content;
 
     public class AuthorsController : BaseController
     {

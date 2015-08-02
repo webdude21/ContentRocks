@@ -12,10 +12,10 @@
     using Services.Contracts;
 
     using Web.Areas.Administration.ViewModels.Content;
-    using Web.Infrastructure;
-    using Web.Infrastructure.Constants;
-    using Web.Infrastructure.Filters;
-    using Web.Infrastructure.Identity;
+    using Infrastructure;
+    using Infrastructure.Constants;
+    using Infrastructure.Filters;
+    using Infrastructure.Identity;
     using Web.ViewModels;
 
     public class FilesController : AdminController

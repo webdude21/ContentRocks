@@ -7,7 +7,7 @@
 
     using AutoMapper;
 
-    using Web.Infrastructure.Mappings;
+    using Infrastructure.Mappings;
 
     public class AutoMapperConfig
     {

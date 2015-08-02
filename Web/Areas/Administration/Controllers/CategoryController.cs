@@ -8,9 +8,9 @@
 
     using Services.Contracts;
 
-    using Web.Infrastructure.Constants;
-    using Web.Infrastructure.Filters;
-    using Web.Infrastructure.Identity;
+    using Infrastructure.Constants;
+    using Infrastructure.Filters;
+    using Infrastructure.Identity;
     using Web.ViewModels.Content;
 
     public class CategoryController : AdminController

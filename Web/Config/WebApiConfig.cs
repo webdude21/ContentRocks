@@ -2,7 +2,7 @@
 {
     using System.Web.Http;
 
-    using Web.Infrastructure.Constants;
+    using Infrastructure.Constants;
 
     public static class WebApiConfig
     {

@@ -7,9 +7,9 @@
 
     using Services.Contracts;
 
-    using Web.Infrastructure.Cache;
-    using Web.Infrastructure.Constants;
-    using Web.ViewModels.Content;
+    using Infrastructure.Cache;
+    using Infrastructure.Constants;
+    using ViewModels.Content;
 
     public class PagesController : BaseController
     {

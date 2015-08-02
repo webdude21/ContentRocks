@@ -5,8 +5,8 @@
 
     using AutoMapper;
 
-    using Web.Infrastructure.Cache;
-    using Web.ViewModels.Content;
+    using Infrastructure.Cache;
+    using ViewModels.Content;
 
     public class HomeController : BaseController
     {
@@ -19,8 +19,7 @@
 
         public ActionResult Index()
         {
-            var homePosts = this.cacheService.HomePosts;
-            return this.View(Mapper.Map<IEnumerable<PostViewModel>>(homePosts));
+            return this.View(Mapper.Map<IEnumerable<PostViewModel>>(this.cacheService.HomePosts));
         }
     }
 }

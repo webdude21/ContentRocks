@@ -7,7 +7,7 @@
 
     using Services.Contracts;
 
-    using Web.ViewModels.Content;
+    using ViewModels.Content;
 
     public class PostController : ApiController
     {

@@ -10,7 +10,7 @@
 
     using Resources;
 
-    using Web.Infrastructure.Validators;
+    using Infrastructure.Validators;
 
     public class PageCreateViewModel
     {

@@ -9,7 +9,7 @@
 
     using Resources;
 
-    using Web.Infrastructure.Mappings;
+    using Infrastructure.Mappings;
 
     public class CommentViewModel : BaseViewModel, IMapFrom<Comment>, IHaveCustomMappings
     {

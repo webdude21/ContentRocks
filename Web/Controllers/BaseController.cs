@@ -6,7 +6,7 @@
     using System.Threading;
     using System.Web.Mvc;
 
-    using Web.Infrastructure;
+    using Infrastructure;
 
     public abstract class BaseController : Controller
     {
