@@ -4,8 +4,8 @@
     using System.Data.Entity;
     using System.Linq;
 
-    using Data.Contracts;
-    using Data.Migrations;
+    using Contracts;
+    using Migrations;
 
     using Microsoft.AspNet.Identity.EntityFramework;
 
