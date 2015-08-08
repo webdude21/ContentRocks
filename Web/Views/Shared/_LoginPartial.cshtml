@@ -4,15 +4,13 @@
     using (Html.BeginForm(Actions.LogOff, Controllers.Account, new { area = string.Empty }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
-
         <ul class="nav navbar-nav navbar-right">
             @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
             {
                 @Html.Action(Actions.Menu, Controllers.Admin, new { Area = Areas.Administration })
             }
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login-menu">
-                    @User.Identity.GetUserName()<span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login-menu">@User.Identity.GetUserName()<span class="caret"></span></a>
                 <ul class="dropdown-menu" aria-labelledby="login-menu">
                     <li>
                         @Html.ActionLink(Translation.Manage, Actions.Index, Controllers.Manage, new { area = string.Empty }, new { title = Translation.Manage })
