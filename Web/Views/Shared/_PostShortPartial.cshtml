@@ -2,7 +2,7 @@
 @model Web.ViewModels.Content.PostViewModel
 
 <div class="col-md-4">
-    <h5>@Model.Title</h5>
+    <h2>@Model.Title</h2>
     <article>
         @Html.Raw(Model.Content.TrimWithEllipsis(GlobalConstants.HomePagePostsCharLimit))
     </article>
