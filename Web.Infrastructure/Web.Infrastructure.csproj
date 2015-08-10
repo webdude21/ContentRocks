@@ -106,10 +106,10 @@
     <Compile Include="Filters\VerifyAjaxRequestAttribute.cs" />
     <Compile Include="Validators\FriendlyUrlValidationAttribute.cs" />
     <Compile Include="Helpers\Bootstrap.cs" />
-    <Compile Include="Helpers\FileUploader.cs" />
+    <Compile Include="Helpers\FileSystemStorage.cs" />
     <Compile Include="Identity\CurrentUser.cs" />
     <Compile Include="Identity\ICurrentUser.cs" />
-    <Compile Include="IFileUploader.cs" />
+    <Compile Include="IFileStorage.cs" />
     <Compile Include="Mappings\AutoMapperConfig.cs" />
     <Compile Include="Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Mappings\IMapFrom.cs" />

@@ -9,9 +9,9 @@
     [Authorize]
     public class UploadController : ApiController
     {
-        private readonly IFileUploader fileUploader;
+        private readonly IFileStorage fileUploader;
 
-        public UploadController(IFileUploader fileUploader)
+        public UploadController(IFileStorage fileUploader)
         {
             this.fileUploader = fileUploader;
         }

@@ -20,11 +20,11 @@
 
     public class FilesController : AdminController
     {
-        private readonly IFileUploader fileUploader;
+        private readonly IFileStorage fileUploader;
 
         private readonly IFileUploadService fileUploadService;
 
-        public FilesController(IFileUploadService fileUploadService, ICurrentUser user, IFileUploader fileUploader)
+        public FilesController(IFileUploadService fileUploadService, ICurrentUser user, IFileStorage fileUploader)
             : base(user)
         {
             this.fileUploadService = fileUploadService;

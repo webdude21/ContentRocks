@@ -13,11 +13,11 @@
 
     using Services.Contracts;
 
-    public class FileUploader : IFileUploader
+    public class FileSystemStorage : IFileStorage
     {
         private readonly IFileUploadService fileService;
 
-        public FileUploader(IFileUploadService fileService)
+        public FileSystemStorage(IFileUploadService fileService)
         {
             this.fileService = fileService;
         }
@@ -35,7 +35,7 @@
             this.fileService.DeleteAll();
         }
 
-        public void DeleteFilesFromFileSystem(List<FileEntity> filesToDelete)
+        private void DeleteFilesFromFileSystem(List<FileEntity> filesToDelete)
         {
             var pathsToDelete = filesToDelete.Where(file => file.Url.Contains(GlobalConstants.PostedFilesRelativePath))
                     .Select(file => HostingEnvironment.MapPath("~" + file.Url))

@@ -10,7 +10,7 @@
     {
         public void Register(IKernel kernel)
         {
-            kernel.Bind<IFileUploader>().To<FileUploader>().InRequestScope();
+            kernel.Bind<IFileStorage>().To<FileSystemStorage>().InRequestScope();
             kernel.Bind<ICacheService>().To<MemoryCacheService>().InRequestScope();
         }
     }

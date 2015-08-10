@@ -38,7 +38,6 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
- 
             modelBuilder.Entity<FileEntity>().ToTable("FileEntities");
             modelBuilder.Entity<Page>().ToTable("Pages");
             base.OnModelCreating(modelBuilder);
@@ -46,11 +45,9 @@
 
         private void ApplyAuditInfoRules()
         {
-            var addedOrModifiedEntries =
-                this.ChangeTracker.Entries()
-                    .Where(
-                        e =>
-                        e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified)));
+            var addedOrModifiedEntries = this.ChangeTracker
+                .Entries()
+                .Where(e => e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified)));
 
             foreach (var entry in addedOrModifiedEntries)
             {
