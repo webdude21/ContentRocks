@@ -49,5 +49,9 @@
         public const string ZeroClipBoardPath = "~/Scripts/ZeroClipboard.js";
 
         public const string CodeMirrorMainPath = "~/Scripts/CodeMirror/codemirror.js";
+
+        public const string CommentsEndlessScroll = "~/bundles/commentsEndlessScroll";
+
+        public const string CommentsEndlessScrollPath = "~/Scripts/endlessScrollForComments.js";
     }
 }

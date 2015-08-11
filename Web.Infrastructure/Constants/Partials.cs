@@ -33,5 +33,9 @@
         public const string UploadFormPartial = "_UploadFormPartial";
 
         public const string AdminCommentsListPartial = "_AdminCommentsListPartial";
+
+        public const string PostHeaderPartial = "_PostHeaderPartial";
+
+        public const string CommentsEndlessScrollPartial = "_CommentsEndlessScrollPartial";
     }
 }

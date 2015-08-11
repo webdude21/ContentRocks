@@ -33,6 +33,8 @@
 
             bundles.Add(new ScriptBundle(ClientResources.ZeroClipBoard).Include(ClientResources.ZeroClipBoardPath));
 
+            bundles.Add(new ScriptBundle(ClientResources.CommentsEndlessScroll).Include(ClientResources.CommentsEndlessScrollPath));
+
             bundles.Add(new ScriptBundle(ClientResources.CodeMirror).Include(ClientResources.CodeMirrorMainPath,
                      "~/Scripts/CodeMirror/mode/clike.js",
                      "~/Scripts/CodeMirror/mode/javascript.js"));

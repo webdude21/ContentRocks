@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -400,6 +401,7 @@
     <Content Include="Areas\Administration\Views\Pages\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Pages\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Pages\Index.cshtml" />
+    <Content Include="Scripts\endlessScrollForComments.js" />
     <Content Include="Views\Comments\Create.cshtml" />
     <Content Include="Views\Comments\Detail.cshtml" />
     <Content Include="Areas\Administration\Views\Comments\Index.cshtml" />
@@ -766,6 +768,8 @@
     <Content Include="Views\Error\PageNotFound.cshtml" />
     <Content Include="Views\Comments\GetCommentsForPost.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CommentViewModel.cshtml" />
+    <Content Include="Views\Shared\_PostHeaderPartial.cshtml" />
+    <Content Include="Views\Shared\_CommentsEndlessScrollPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
