@@ -35,6 +35,8 @@
 
             bundles.Add(new ScriptBundle(ClientResources.CommentsEndlessScroll).Include(ClientResources.CommentsEndlessScrollPath));
 
+            bundles.Add(new ScriptBundle(ClientResources.FileUpload).Include(ClientResources.FileUploadPath));
+
             bundles.Add(new ScriptBundle(ClientResources.CodeMirror).Include(ClientResources.CodeMirrorMainPath,
                      "~/Scripts/CodeMirror/mode/clike.js",
                      "~/Scripts/CodeMirror/mode/javascript.js"));

@@ -53,5 +53,9 @@
         public const string CommentsEndlessScroll = "~/bundles/commentsEndlessScroll";
 
         public const string CommentsEndlessScrollPath = "~/Scripts/endlessScrollForComments.js";
+
+        public const string FileUpload = "~/bundles/fileUpload";
+
+        public const string FileUploadPath = "~/Scripts/file-upload.js";
     }
 }
