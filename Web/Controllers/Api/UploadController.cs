@@ -19,8 +19,7 @@
         [HttpPost]
         public IHttpActionResult Upload()
         {
-            var file = HttpContext.Current.Request.Files[0];
-            var savedFile = this.fileUploader.SaveFile(file);
+            var savedFile = this.fileUploader.SaveFile(HttpContext.Current.Request.Files[0]);
             return this.CreatedAtRoute(FileRoute.Name, new { area = string.Empty, url = savedFile.Url }, savedFile);
         }
     }

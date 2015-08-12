@@ -12,6 +12,10 @@
 
         public const string BootstrapPath = "~/Scripts/bootstrap.js";
 
+        public const string BootstrapTagsInputStyles = "~/Content/bootstrap-tagsinput";
+
+        public const string BootstrapPathTagsInputStylesPath = "~/Content/bootstrap-tagsinput.css";
+
         public const string BootstrapStylesPath = "~/Content/bootstrap.css";
 
         public const string Css = "~/Content/css";
@@ -57,5 +61,11 @@
         public const string FileUpload = "~/bundles/fileUpload";
 
         public const string FileUploadPath = "~/Scripts/file-upload.js";
+
+        public const string BootstrapTagsInput = "~/bundles/bootstrapTagsInput";
+
+        public const string BootstrapTagsInputPath = "~/Scripts/bootstrap-tagsinput.js";
+
+        public const string TokenizePath = "~/Scripts/tokenize.js";
     }
 }

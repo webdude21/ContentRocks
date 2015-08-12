@@ -280,6 +280,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-tagsinput.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CodeMirror\codemirror.css" />
@@ -389,6 +390,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
+    <Content Include="Scripts\bootstrap-tagsinput.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Administration\Views\web.config" />
@@ -403,6 +405,7 @@
     <Content Include="Areas\Administration\Views\Pages\Index.cshtml" />
     <Content Include="Scripts\endlessScrollForComments.js" />
     <Content Include="Scripts\file-upload.js" />
+    <Content Include="Scripts\tokenize.js" />
     <Content Include="Views\Comments\Create.cshtml" />
     <Content Include="Views\Comments\Detail.cshtml" />
     <Content Include="Areas\Administration\Views\Comments\Index.cshtml" />
@@ -416,8 +419,6 @@
     <Content Include="Areas\Administration\Views\Files\Upload.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_AdminFilesListPartial.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_AdminPagesListPartial.cshtml" />
-    <None Include="Areas\Administration\Views\Settings\Index.cshtml" />
-    <None Include="Areas\Administration\Views\SocialSettings\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CodeMirror\codemirror.js" />
     <Content Include="Scripts\CodeMirror\mode\apl.js" />

@@ -1,9 +1,13 @@
-﻿@model Web.ViewModels.Content.PostViewModel
-
+﻿@model  Web.ViewModels.Content.PostViewModel
 @{
     ViewBag.Title = Translation.CreateBlogPost;
 }
+
+@section Styles {
+    @Styles.Render(ClientResources.BootstrapTagsInputStyles);
+}
 <h4>@ViewBag.Title</h4>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -45,9 +49,16 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.AllTags, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AllTags, new { htmlAttributes = new Dictionary<string, object> {{ "class", "form-control" }, { "data-role", "tagsinput" }}})
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2">
-                <input type="submit" value="@Translation.Save" class="btn btn-success"/>
-                <input type="reset" value="@Translation.Reset" class="btn btn-danger"/>
+                <input type="submit" value="@Translation.Save" class="btn btn-success" />
+                <input type="reset" value="@Translation.Reset" class="btn btn-danger" />
                 @Html.ActionLink(Translation.Cancel, Actions.Index, new { }, new { @class = "btn btn-info" })
             </div>
         </div>
@@ -56,4 +67,5 @@
 
 @section Scripts {
     @Scripts.Render(ClientResources.JQueryValidation)
+    @Scripts.Render(ClientResources.BootstrapTagsInput)
 }
