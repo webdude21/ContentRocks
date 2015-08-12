@@ -30,7 +30,7 @@
                     return string.Empty;
                 }
 
-                return string.Join(", ", this.Tags.Select(t => t.Name));
+                return string.Join(",", this.Tags.Select(t => t.Name));
             }
         }
 
