@@ -15,11 +15,12 @@
 
     using Infrastructure.Mappings;
     using Infrastructure.Validators;
-    using Web.ViewModels.Contracts;
-    using Web.ViewModels.Seo;
+    using Contracts;
+    using Seo;
 
     public class PageViewModel : BaseViewModel, IMapFrom<Page>, IMetaInfoViewModel, IFriendlyUrl
     {
+        [Display(Name = "Tags", ResourceType = typeof(Translation))]
         public string AllTags
         {
             get
