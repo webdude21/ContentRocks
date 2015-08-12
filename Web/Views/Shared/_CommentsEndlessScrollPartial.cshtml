@@ -1,0 +1,14 @@
+﻿@model Web.ViewModels.Content.PostViewModel
+<div id="comment-post"></div>
+<div id="comment-box"></div>
+<button class="btn btn-success" id="show-comments-button">@Translation.ShowComments</button>
+<script>
+    var postPageVariables = (function () {
+        return {
+            pageSize: @GlobalConstants.PageSize,
+            loadCommentsUrl: '@Url.Action(Actions.GetCommentsForPost, Controllers.Comments, new { area = string.Empty, id = Model.Id })',
+            noMoreCommentsLabel: '@Html.Label(Translation.NoMoreComments, new { @class = "text-warning" })',
+            noCommentsLabel: '@Html.Label(Translation.NoComments, new { @class = "text-danger"})'
+        }
+    }())
+</script>
