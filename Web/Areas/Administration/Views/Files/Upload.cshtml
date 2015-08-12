@@ -28,12 +28,10 @@
 }
 @section Scripts {
     <script type="text/javascript">
-        var fileUploadData = (function () {
-            return {
-                url: "@Url.RouteUrl(DefaultApiRoute.Name, new { httproute = "", controller = Controllers.Upload })",
-                completedTextLocale: '@Translation.Completed'
-            }
-        }());
+        var fileUploadData = {
+            url: "@Url.RouteUrl(DefaultApiRoute.Name, new { httproute = "", controller = Controllers.Upload })",
+            completedTextLocale: '@Translation.Completed'
+        };
     </script>
     @Scripts.Render(ClientResources.JQueryFileUpload)
     @Scripts.Render(ClientResources.FileUpload)
