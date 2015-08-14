@@ -1,10 +1,8 @@
 ﻿namespace Web.ViewModels.Content
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Globalization;
-    using System.Linq;
 
     using Config;
 
@@ -16,21 +14,18 @@
     using Infrastructure.Mappings;
     using Infrastructure.Validators;
     using Contracts;
-    using Seo;
 
     public class PageViewModel : BaseViewModel, IMapFrom<Page>, IMetaInfoViewModel, IFriendlyUrl
     {
-        [Display(Name = "Tags", ResourceType = typeof(Translation))]
-        public string AllTags
+        public virtual string AllTags
         {
             get
             {
-                if (this.Tags == null)
-                {
-                    return string.Empty;
-                }
+                return string.Empty;
+            }
+            set
+            {
 
-                return string.Join(",", this.Tags.Select(t => t.Name));
             }
         }
 
@@ -75,8 +70,6 @@
                 return this.CreatedOn.ToString(CultureInfo.CurrentCulture);
             }
         }
-
-        public ICollection<TagViewModel> Tags { get; set; }
 
         [Display(Name = "Title", ResourceType = typeof(Translation))]
         public string Title { get; set; }

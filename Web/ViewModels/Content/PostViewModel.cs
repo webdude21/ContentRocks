@@ -9,6 +9,10 @@
     using Resources;
 
     using Infrastructure.Mappings;
+    using Models.SEO;
+    using System.ComponentModel.DataAnnotations;
+    using Seo;
+    using System.Linq;
 
     public class PostViewModel : PageViewModel, IMapFrom<Post>, IHaveCustomMappings
     {
@@ -19,6 +23,47 @@
         public CategoryViewModel Category { get; set; }
 
         public ICollection<CommentViewModel> Comments { get; set; }
+
+        public ICollection<TagViewModel> Tags { get; set; }
+
+        public ICollection<Tag> GetTagsFromTagViewModels(Post post)
+        {
+            var tags = new HashSet<Tag>();
+
+            foreach (var tagViewModel in this.Tags)
+            {
+                var tag = new Tag { Name = tagViewModel.Name };
+                tag.Post.Add(post);
+                tags.Add(tag);
+            }
+
+            return tags;
+        }
+
+        [Display(Name = "Tags", ResourceType = typeof(Translation))]
+        public override string AllTags
+        {
+            get
+            {
+                if (this.Tags == null)
+                {
+                    return string.Empty;
+                }
+
+                return string.Join(",", this.Tags.Select(t => t.Name));
+            }
+            set
+            {
+                var allTags = new HashSet<TagViewModel>();
+
+                foreach (var item in value.Split(','))
+                {
+                    allTags.Add(new TagViewModel { Name = item });
+                }
+
+                this.Tags = allTags;
+            }
+        }
 
         public override string GetHtmlId
         {

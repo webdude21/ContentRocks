@@ -12,7 +12,7 @@
 
     using Services.Contracts;
 
-    using Web.Areas.Administration.ViewModels.Content;
+    using ViewModels.Content;
     using Infrastructure.Constants;
     using Infrastructure.Filters;
     using Infrastructure.Identity;
@@ -74,6 +74,7 @@
                 this.ModelState["friendlyUrl"].Errors.Clear();
             }
 
+            postToUpdate.Tags = postViewModel.GetTagsFromTagViewModels(postToUpdate);
             this.TryUpdateModel(postToUpdate);
 
             if (this.ModelState.IsValid)
