@@ -22,10 +22,13 @@
     {
         private readonly IPostService postService;
 
-        public PostsController(IPostService postService, ICurrentUser user)
+        private readonly ITagService tagService;
+
+        public PostsController(IPostService postService, ITagService tagService, ICurrentUser user)
             : base(user)
         {
             this.postService = postService;
+            this.tagService = tagService;
         }
 
         public ActionResult Create()
@@ -74,7 +77,7 @@
                 this.ModelState["friendlyUrl"].Errors.Clear();
             }
 
-            postToUpdate.Tags = postViewModel.GetTagsFromTagViewModels(postToUpdate);
+            this.tagService.AddTagsToPost(postToUpdate, postViewModel.GetTagsAsStrings());
             this.TryUpdateModel(postToUpdate);
 
             if (this.ModelState.IsValid)

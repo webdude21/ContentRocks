@@ -25,7 +25,7 @@
 
         public ActionResult Detail(string friendlyUrl)
         {
-            return this.View(Mapper.Map<PageViewModel>(this.pageService.GetByWithTags(friendlyUrl)));
+            return this.View(Mapper.Map<PageViewModel>(this.pageService.GetBy(friendlyUrl)));
         }
 
         [ChildActionOnly]

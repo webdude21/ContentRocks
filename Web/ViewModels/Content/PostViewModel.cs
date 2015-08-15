@@ -9,7 +9,6 @@
     using Resources;
 
     using Infrastructure.Mappings;
-    using Models.SEO;
     using System.ComponentModel.DataAnnotations;
     using Seo;
     using System.Linq;
@@ -25,20 +24,6 @@
         public ICollection<CommentViewModel> Comments { get; set; }
 
         public ICollection<TagViewModel> Tags { get; set; }
-
-        public ICollection<Tag> GetTagsFromTagViewModels(Post post)
-        {
-            var tags = new HashSet<Tag>();
-
-            foreach (var tagViewModel in this.Tags)
-            {
-                var tag = new Tag { Name = tagViewModel.Name };
-                tag.Post.Add(post);
-                tags.Add(tag);
-            }
-
-            return tags;
-        }
 
         [Display(Name = "Tags", ResourceType = typeof(Translation))]
         public override string AllTags
@@ -63,6 +48,11 @@
 
                 this.Tags = allTags;
             }
+        }
+
+        public IEnumerable<string> GetTagsAsStrings()
+        {
+            return this.Tags.Select(t => t.Name);
         }
 
         public override string GetHtmlId

@@ -17,7 +17,5 @@ namespace Services.Contracts
         IQueryable<Post> GetTheLatestPostsByAuthor(string username, int count, int page = 1);
 
         IQueryable<Post> GetTheLatestPostsByAuthor(string username);
-
-        Post GetByWithTags(string friendlyUrl);
     }
 }

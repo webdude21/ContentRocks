@@ -60,11 +60,13 @@
     <Compile Include="Contracts\IPageService.cs" />
     <Compile Include="Contracts\IPostService.cs" />
     <Compile Include="Contracts\IService.cs" />
+    <Compile Include="Contracts\ITagService.cs" />
     <Compile Include="FileService.cs" />
     <Compile Include="FriendlyUrlService.cs" />
     <Compile Include="PageService.cs" />
     <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TagService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

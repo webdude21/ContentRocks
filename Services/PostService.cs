@@ -11,13 +11,12 @@
 
     public class PostService : FriendlyUrlService<Post>, IPostService
     {
-        public PostService(IUnitOfWork unitOfWork)
-            : base(unitOfWork)
-        {
-            this.Categories = unitOfWork.Set<Category>();
-        }
+        private IDbSet<Category> categories;
 
-        public IDbSet<Category> Categories { get; set; }
+        public PostService(IUnitOfWork unitOfWork) : base(unitOfWork)
+        {
+            this.categories = unitOfWork.Set<Category>();
+        }
 
         public void AddPost(Post newPost)
         {
@@ -49,7 +48,7 @@
             return this.GetTheLatestPosts().Where(p => p.Author.UserName == username);
         }
 
-        public Post GetByWithTags(string friendlyUrl)
+        public override Post GetBy(string friendlyUrl)
         {
             return this.DataSet.Include("Tags").FirstOrDefault(post => post.FriendlyUrl == friendlyUrl);
         }

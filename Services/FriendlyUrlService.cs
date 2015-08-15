@@ -16,7 +16,7 @@
         {
         }
 
-        public T GetBy(string friendlyUrl)
+        public virtual T GetBy(string friendlyUrl)
         {
             return this.DataSet.FirstOrDefault(p => p.FriendlyUrl == friendlyUrl);
         }

@@ -5,7 +5,7 @@
 
     using Content;
 
-    public class Tag : BaseModel
+    public class Tag
     {
         private ICollection<Post> posts;
 
@@ -15,9 +15,11 @@
         }
 
         [MaxLength(30)]
+        [Key]
+        [Required]
         public string Name { get; set; }
 
-        public virtual ICollection<Post> Post
+        public virtual ICollection<Post> Posts
         {
             get
             {

@@ -27,7 +27,7 @@
 
         public ActionResult Detail(string friendlyUrl)
         {
-            return this.View(Mapper.Map<PostViewModel>(this.postService.GetByWithTags(friendlyUrl)));
+            return this.View(Mapper.Map<PostViewModel>(this.postService.GetBy(friendlyUrl)));
         }
 
         public ActionResult Index(int? page)
