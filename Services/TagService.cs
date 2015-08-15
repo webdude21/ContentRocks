@@ -8,7 +8,7 @@
     using System.Data.Entity;
     using System.Linq;
 
-    class TagService : ITagService
+    public class TagService : ITagService
     {
         private IDbSet<Tag> tags;
 
