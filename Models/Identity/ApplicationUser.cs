@@ -11,16 +11,29 @@
 
     public class ApplicationUser : IdentityUser
     {
+        private ICollection<Post> posts;
+
         public ApplicationUser()
         {
-            this.Posts = new HashSet<Post>();
+            this.posts = new HashSet<Post>();
         }
 
-        public virtual ICollection<Post> Posts { get; }
+        public virtual ICollection<Post> Posts
+        {
+            get
+            {
+                return this.posts;
+            }
+            set
+            {
+                this.posts = value;
+            }
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
-            return await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            return userIdentity;
         }
     }
 }
