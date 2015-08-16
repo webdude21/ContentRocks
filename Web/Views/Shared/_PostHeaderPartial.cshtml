@@ -1,10 +1,14 @@
 ﻿@model Web.ViewModels.Content.PostViewModel
 <header>
     <h1>@Html.RouteLink(Model.Title, PostRoute.Name, new { area = string.Empty, friendlyUrl = Model.FriendlyUrl })</h1>
-    <span class="glyphicon glyphicon-calendar"></span><time>@Model.PostedOn</time>
-    <span class="glyphicon glyphicon-folder-open"></span>@Html.ActionLink(Model.Category.Title, Actions.Detail, Controllers.Category, new { id = Model.Category.Id }, new { area = string.Empty })
-    <span class="glyphicon glyphicon-user"></span><span>@Html.RouteLink(Model.AuthorName, AuthorRoute.Name, new { username = Model.AuthorName })</span>
-    <span class="glyphicon glyphicon-comment"></span><span>
+    <span class="glyphicon glyphicon-calendar"></span>
+    <time>@Model.PostedOn</time>
+    <span class="glyphicon glyphicon-folder-open"></span>
+    <span>@Html.ActionLink(Model.Category.Title, Actions.Detail, Controllers.Category, new { id = Model.Category.Id }, new { area = string.Empty })</span>
+    <span class="glyphicon glyphicon-user"></span>
+    <span>@Html.RouteLink(Model.AuthorName, AuthorRoute.Name, new { username = Model.AuthorName })</span>
+    <span class="glyphicon glyphicon-comment"></span>
+    <span>
         @if (User.Identity.IsAuthenticated)
         {
             @Ajax.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = string.Empty, id = Model.Id }, new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "comment-post" }, new { id = "leave-comment" })
