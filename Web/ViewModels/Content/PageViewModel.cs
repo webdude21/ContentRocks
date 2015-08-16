@@ -11,9 +11,9 @@
 
     using Resources;
 
-    using Web.Infrastructure.Mappings;
-    using Web.Infrastructure.Validators;
-    using Web.ViewModels.Contracts;
+    using Infrastructure.Mappings;
+    using Infrastructure.Validators;
+    using Contracts;
 
     public class PageViewModel : BaseViewModel, IMapFrom<Page>, IMetaInfoViewModel, IFriendlyUrl
     {
@@ -72,5 +72,7 @@
 
         [Display(Name = "MetaTitle", ResourceType = typeof(Translation))]
         public string MetaTitle { get; set; }
+
+        public string AuthorName { get; set; }
     }
 }

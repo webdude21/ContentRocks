@@ -7,5 +7,7 @@
         string MetaDescription { get; set; }
 
         string MetaTitle { get; set; }
+
+        string AuthorName { get; }
     }
 }

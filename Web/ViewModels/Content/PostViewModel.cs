@@ -10,14 +10,12 @@
 
     using Resources;
 
-    using Web.Infrastructure.Mappings;
-    using Web.ViewModels.Seo;
+    using Infrastructure.Mappings;
+    using Seo;
 
     public class PostViewModel : PageViewModel, IMapFrom<Post>, IHaveCustomMappings
     {
         public string AuthorId { get; set; }
-
-        public string AuthorName { get; set; }
 
         public CategoryViewModel Category { get; set; }
 
