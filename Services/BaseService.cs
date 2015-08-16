@@ -16,15 +16,23 @@
 
     public abstract class BaseService<T> : IEntityService<T> where T : BaseModel
     {
+        private readonly IDbSet<T> dataSet;
+
         private IUnitOfWork unitOfWork;
 
         protected BaseService(IUnitOfWork unitOfWork)
         {
             this.UnitOfWork = unitOfWork;
-            this.DataSet = unitOfWork.Set<T>();
+            this.dataSet = unitOfWork.Set<T>();
         }
 
-        protected IDbSet<T> DataSet { get; }
+        protected IDbSet<T> DataSet
+        {
+            get
+            {
+                return this.dataSet;
+            }
+        }
 
         protected IUnitOfWork UnitOfWork
         {
