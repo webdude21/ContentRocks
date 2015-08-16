@@ -4,7 +4,7 @@
 
     using Models.Content;
 
-    using Web.Infrastructure.Mappings;
+    using Infrastructure.Mappings;
     using Web.ViewModels;
 
     public class FileEntityViewModel : BaseViewModel, IMapFrom<FileEntity>
@@ -13,7 +13,13 @@
 
         public string FileName { get; set; }
 
-        public string GetHtmlId => $"file-{this.Id}";
+        public string GetHtmlId
+        {
+            get
+            {
+                return string.Format("file-{0}", this.Id);
+            }
+        }
 
         public string MimeType { get; set; }
 
@@ -23,6 +29,12 @@
 
         public string Url { get; set; }
 
-        public string UrlWithoutSlash => this.Url.Substring(1);
+        public string UrlWithoutSlash
+        {
+            get
+            {
+                return this.Url.Substring(1);
+            }
+        }
     }
 }

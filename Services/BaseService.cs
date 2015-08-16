@@ -37,7 +37,7 @@
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException(nameof(value), "The UnitOfWork shouldn't be null");
+                    throw new ArgumentNullException("value", "The UnitOfWork shouldn't be null");
                 }
 
                 this.unitOfWork = value;

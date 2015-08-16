@@ -10,7 +10,13 @@
     {
         private static IEnumerable<string> controllers;
 
-        public static IEnumerable<string> Items => controllers ?? (controllers = GetControllerNames());
+        public static IEnumerable<string> Items
+        {
+            get
+            {
+                return controllers ?? (controllers = GetControllerNames());
+            }
+        }
 
         private static IEnumerable<string> GetControllerNames()
         {
