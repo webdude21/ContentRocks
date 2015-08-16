@@ -1,6 +1,9 @@
 ﻿@model  Web.ViewModels.Contracts.IMetaInfoViewModel
 <meta name="description" content="@Model.MetaDescription" />
-<meta name="keywords" content="@Model.AllTags" />
+@if (!string.IsNullOrWhiteSpace(Model.AllTags))
+{
+    <meta name="keywords" content="@Model.AllTags">
+}
 <meta name="robots" content="@GlobalConstants.RobotsIndexFollow" />
 <meta name="revisit-after" content="1 days" />
 @if (!string.IsNullOrWhiteSpace(Model.AuthorName))
