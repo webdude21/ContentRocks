@@ -9,13 +9,13 @@
 
     using Services.Contracts;
 
-    using Web.Infrastructure.Constants;
+    using Constants;
 
     public class MemoryCacheService : BaseCacheService, ICacheService
     {
-        private readonly IPostService postService;
-
         private readonly IPageService pageService;
+
+        private readonly IPostService postService;
 
         public MemoryCacheService(IPostService postService, IPageService pageService)
         {
@@ -27,10 +27,8 @@
         {
             get
             {
-                return this.Get<IList<Post>>(CacheConstants.HomePagePosts, () => this
-                    .postService
-                    .GetTheLatestPosts(GlobalConstants.HomePagePostsCount)
-                    .ToList());
+                return this.Get<IList<Post>>(CacheConstants.HomePagePosts,
+                    () => this.postService.GetTheLatestPosts(GlobalConstants.HomePagePostsCount).ToList());
             }
         }
 
@@ -38,10 +36,7 @@
         {
             get
             {
-                return this.Get<IList<Page>>(CacheConstants.AllPages, () => this
-                    .pageService
-                    .GetAll()
-                    .ToList());
+                return this.Get<IList<Page>>(CacheConstants.AllPages, () => this.pageService.GetAll().ToList());
             }
         }
     }

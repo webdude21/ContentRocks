@@ -3,8 +3,8 @@
     using System.Web;
     using System.Web.Http;
 
-    using Infrastructure;
-    using Infrastructure.Constants;
+    using Web.Infrastructure;
+    using Web.Infrastructure.Constants;
 
     [Authorize]
     public class UploadController : ApiController

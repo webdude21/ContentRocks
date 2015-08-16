@@ -1,5 +1,4 @@
-﻿
-namespace Web.Infrastructure.ActionResults
+﻿namespace Web.Infrastructure.ActionResults
 {
     using System.Net;
     using System.Web.Mvc;

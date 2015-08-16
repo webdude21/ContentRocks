@@ -15,7 +15,7 @@
 
     using Moq;
 
-    using Contracts;
+    using Services.Contracts;
 
     [TestClass]
     public class CategoryServiceTests

@@ -11,7 +11,7 @@
 
     using Models.Identity;
 
-    using ViewModels.Account;
+    using Web.ViewModels.Account;
 
     [Authorize]
     public class AccountController : BaseController

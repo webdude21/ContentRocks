@@ -1,41 +1,38 @@
 ﻿namespace Services
 {
-    using Contracts;
-    using Data.Contracts;
-    using Models.Content;
-    using Models.SEO;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
 
+    using Data.Contracts;
+
+    using Models.Content;
+    using Models.SEO;
+
+    using Contracts;
+
     public class TagService : ITagService
     {
-        private IDbSet<Tag> tags;
+        private readonly IDbSet<Tag> tags;
 
         public TagService(IUnitOfWork unitOfWork)
         {
             this.tags = unitOfWork.Set<Tag>();
         }
 
-        public void AddTagsToPost(Post post, IEnumerable<string> tagNamesToAdd)
+        public void UpdatePostTags(Post post, IEnumerable<string> tagNamesToAdd)
         {
+            post.Tags.Clear();
+
             foreach (var tagName in tagNamesToAdd)
             {
-                var tagToAddToThePost = this.FindOrCreateTag(tagName);
-                post.Tags.Add(tagToAddToThePost);
+                post.Tags.Add(this.FindOrCreateTag(tagName));
             }
         }
 
         private Tag FindOrCreateTag(string name)
         {
-            var tag = this.tags.FirstOrDefault(t => t.Name == name);
-
-            if (tag == null)
-            {
-                tag = new Tag { Name = name };
-            }
-
-            return tag;
+            return this.tags.FirstOrDefault(t => t.Name == name) ?? new Tag { Name = name };
         }
     }
 }

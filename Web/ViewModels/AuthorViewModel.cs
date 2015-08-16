@@ -4,7 +4,7 @@
 
     using Models.Identity;
 
-    using Infrastructure.Mappings;
+    using Web.Infrastructure.Mappings;
 
     public class AuthorViewModel : IMapFrom<ApplicationUser>, IHaveCustomMappings
     {
@@ -15,7 +15,9 @@
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<ApplicationUser, AuthorViewModel>()
-                .ForMember(sourceModel => sourceModel.PostsCount, result => result.MapFrom(fullModel => fullModel.Posts.Count));
+                .ForMember(
+                    sourceModel => sourceModel.PostsCount,
+                    result => result.MapFrom(fullModel => fullModel.Posts.Count));
         }
     }
 }

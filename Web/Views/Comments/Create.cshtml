@@ -1,14 +1,13 @@
 ﻿@model Web.ViewModels.Content.CommentViewModel
 
-@using (Ajax.BeginForm(Actions.Create, Controllers.Comments,
-    new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "comment" }, new { id = "#comment" }))
+@using (Ajax.BeginForm(Actions.Create, Controllers.Comments, new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "comment" }, new { id = "#comment" }))
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
-        <hr />
+        <hr/>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-1" })
+            @Html.LabelFor(model => model.Content, new { @class = "control-label col-md-1" })
             <div class="col-md-11">
                 @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })

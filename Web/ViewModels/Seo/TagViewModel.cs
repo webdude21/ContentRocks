@@ -2,10 +2,11 @@
 {
     using System.ComponentModel.DataAnnotations;
 
+    using AutoMapper;
+
     using Models.SEO;
 
-    using Infrastructure.Mappings;
-    using AutoMapper;
+    using Web.Infrastructure.Mappings;
 
     public class TagViewModel : IMapFrom<Tag>, IHaveCustomMappings
     {
@@ -17,7 +18,9 @@
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Tag, TagViewModel>()
-                 .ForMember(sourceModel => sourceModel.PostsCount, result => result.MapFrom(fullModel => fullModel.Posts.Count));
+                .ForMember(
+                    sourceModel => sourceModel.PostsCount,
+                    result => result.MapFrom(fullModel => fullModel.Posts.Count));
         }
     }
 }

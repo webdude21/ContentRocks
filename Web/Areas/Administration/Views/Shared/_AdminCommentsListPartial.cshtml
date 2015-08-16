@@ -2,26 +2,26 @@
 
 <table class="table table-striped table-hover ">
     <thead>
-        <tr>
-            <th>@Translation.Content</th>
-            <th>@Translation.PostedOn</th>
-            <th>@Translation.PostedBy</th>
-            <th>@Translation.Actions</th>
-        </tr>
+    <tr>
+        <th>@Translation.Content</th>
+        <th>@Translation.PostedOn</th>
+        <th>@Translation.PostedBy</th>
+        <th>@Translation.Actions</th>
+    </tr>
     </thead>
     <tbody>
-        @{
-            foreach (var comment in Model)
-            {
-                <tr id="@comment.GetHtmlId">
-                    <td>@comment.Content</td>
-                    <td>@comment.PostedOn</td>
-                    <td>@comment.AuthorName</td>
-                    <td>
-                        @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Comments, new { area = Areas.Administration, id = comment.Id }, new AjaxOptions { HttpMethod = "Delete", UpdateTargetId = comment.GetHtmlId, InsertionMode = InsertionMode.ReplaceWith, Confirm = comment.ConfirmDelete }, new { @class = "btn btn-danger" })
-                    </td>
-                </tr>
-            }
+    @{
+        foreach (var comment in Model)
+        {
+            <tr id="@comment.GetHtmlId">
+                <td>@comment.Content</td>
+                <td>@comment.PostedOn</td>
+                <td>@comment.AuthorName</td>
+                <td>
+                    @Ajax.ActionLink(Translation.Delete, Actions.Delete, Controllers.Comments, new { area = Areas.Administration, id = comment.Id }, new AjaxOptions { HttpMethod = "Delete", UpdateTargetId = comment.GetHtmlId, InsertionMode = InsertionMode.ReplaceWith, Confirm = comment.ConfirmDelete }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
         }
+    }
     </tbody>
 </table>

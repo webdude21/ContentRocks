@@ -9,7 +9,7 @@
 
     using Resources;
 
-    using Infrastructure.Mappings;
+    using Web.Infrastructure.Mappings;
 
     public class CommentViewModel : BaseViewModel, IMapFrom<Comment>, IHaveCustomMappings
     {
@@ -44,12 +44,12 @@
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Comment, CommentViewModel>()
-                  .ForMember(
-                      sourceModel => sourceModel.AuthorName,
-                      result => result.MapFrom(fullModel => fullModel.Author.UserName))
-                  .ForMember(
-                      sourceModel => sourceModel.AuthorId,
-                      result => result.MapFrom(fullModel => fullModel.Author.Id));
+                .ForMember(
+                    sourceModel => sourceModel.AuthorName,
+                    result => result.MapFrom(fullModel => fullModel.Author.UserName))
+                .ForMember(
+                    sourceModel => sourceModel.AuthorId,
+                    result => result.MapFrom(fullModel => fullModel.Author.Id));
         }
     }
 }

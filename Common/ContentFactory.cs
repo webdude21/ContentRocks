@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Common.Contracts;
+    using Contracts;
 
     using Models.Content;
     using Models.Identity;
@@ -61,7 +61,8 @@
                            Id = id,
                            FriendlyUrl = this.randomGenerator.GetUrlSafeString(4, 10),
                            MetaDescription = this.randomGenerator.GetString(4, 10),
-                           Tags = new List<Tag>
+                           Tags =
+                               new List<Tag>
                                    {
                                        new Tag { Name = this.randomGenerator.GetString(5, 10) },
                                        new Tag { Name = this.randomGenerator.GetString(5, 10) }
@@ -95,7 +96,7 @@
             }
 
             return comments;
-        } 
+        }
 
         public Post GetRealisticPost()
         {
@@ -133,7 +134,8 @@
                            MetaTitle = Translation.About,
                            ModifiedOn = this.randomGenerator.GeneraDateTime(),
                            CreatedOn = this.randomGenerator.GeneraDateTime(),
-                           Content = @"<div class=""entry-content"">Use this area to provide additional information</div>"
+                           Content =
+                               @"<div class=""entry-content"">Use this area to provide additional information</div>"
                        };
         }
     }

@@ -6,7 +6,7 @@
 
     using Models.Content;
 
-    using Contracts;
+    using Services.Contracts;
 
     public class CategoryService : BaseService<Category>, ICategoryService
     {

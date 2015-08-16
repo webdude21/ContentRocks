@@ -35,18 +35,6 @@
             this.fileService.DeleteAll();
         }
 
-        private void DeleteFilesFromFileSystem(List<FileEntity> filesToDelete)
-        {
-            var pathsToDelete = filesToDelete.Where(file => file.Url.Contains(GlobalConstants.PostedFilesRelativePath))
-                    .Select(file => HostingEnvironment.MapPath("~" + file.Url))
-                    .Where(File.Exists);
-
-            foreach (var pathToDelete in pathsToDelete)
-            {
-                File.Delete(pathToDelete);
-            }
-        }
-
         public FileEntity SaveFile(HttpPostedFile file)
         {
             var relativePath = GlobalConstants.PostedFilesRelativePath + DateTime.Now.ToString("dd-MM-yyyy") + "/";
@@ -102,6 +90,19 @@
                 this.fileService.Add(fileTosave);
                 var postedFileBase = fileBase;
                 postedFileBase.SaveAs(Path.Combine(pathToSave, resultFileName));
+            }
+        }
+
+        private void DeleteFilesFromFileSystem(List<FileEntity> filesToDelete)
+        {
+            var pathsToDelete =
+                filesToDelete.Where(file => file.Url.Contains(GlobalConstants.PostedFilesRelativePath))
+                    .Select(file => HostingEnvironment.MapPath("~" + file.Url))
+                    .Where(File.Exists);
+
+            foreach (var pathToDelete in pathsToDelete)
+            {
+                File.Delete(pathToDelete);
             }
         }
 

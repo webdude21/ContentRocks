@@ -2,17 +2,11 @@
 {
     using System.Web.Mvc;
 
-    using Infrastructure.Constants;
+    using Web.Infrastructure.Constants;
 
     public class AdministrationAreaRegistration : AreaRegistration
     {
-        public override string AreaName
-        {
-            get
-            {
-                return "Administration";
-            }
-        }
+        public override string AreaName => "Administration";
 
         public override void RegisterArea(AreaRegistrationContext context)
         {

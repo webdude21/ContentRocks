@@ -16,23 +16,15 @@
 
     public abstract class BaseService<T> : IEntityService<T> where T : BaseModel
     {
-        private readonly IDbSet<T> dataSet;
-
         private IUnitOfWork unitOfWork;
 
         protected BaseService(IUnitOfWork unitOfWork)
         {
             this.UnitOfWork = unitOfWork;
-            this.dataSet = unitOfWork.Set<T>();
+            this.DataSet = unitOfWork.Set<T>();
         }
 
-        protected IDbSet<T> DataSet
-        {
-            get
-            {
-                return this.dataSet;
-            }
-        }
+        protected IDbSet<T> DataSet { get; }
 
         protected IUnitOfWork UnitOfWork
         {
@@ -45,7 +37,7 @@
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value", "The UnitOfWork shouldn't be null");
+                    throw new ArgumentNullException(nameof(value), "The UnitOfWork shouldn't be null");
                 }
 
                 this.unitOfWork = value;
@@ -62,7 +54,7 @@
 
         public void DeleteBy(int id)
         {
-            var entity = this.dataSet.Find(id);
+            var entity = this.DataSet.Find(id);
             Checker.CheckForNull(entity, "entity");
             this.DataSet.Remove(entity);
             this.SaveChanges();
@@ -83,11 +75,6 @@
             return this.GetPageCount(pageSize, this.DataSet);
         }
 
-        public int GetPageCount(int pageSize, IQueryable<T> query)
-        {
-            return (query.Count() + pageSize - 1) / pageSize;
-        }
-
         public Pager GetPager(int? currentPage)
         {
             return this.GetPager(currentPage, this.DataSet);
@@ -104,7 +91,7 @@
 
         public IQueryable<T> GetWithPaginating(int count, int page = 1)
         {
-            return this.GetDataWithPaging(this.dataSet.OrderBy(entity => entity.Id), count, page);
+            return this.GetDataWithPaging(this.DataSet.OrderBy(entity => entity.Id), count, page);
         }
 
         public void Update()
@@ -122,6 +109,11 @@
             this.SaveChanges();
         }
 
+        public int GetPageCount(int pageSize, IQueryable<T> query)
+        {
+            return (query.Count() + pageSize - 1) / pageSize;
+        }
+
         public void Update(T entity)
         {
             this.DataSet.Attach(entity);
@@ -129,7 +121,7 @@
 
         protected virtual void CheckIfEntityExists(object id)
         {
-            if (this.dataSet.Find(id) != null)
+            if (this.DataSet.Find(id) != null)
             {
                 throw new ArgumentException("Duplicate Ids aren't allowed.");
             }

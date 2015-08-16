@@ -34,6 +34,12 @@
 
         public const string UserNameRegex = @"[\w]+";
 
+        public const int CacheDuration = 60 * 60; // an hour
+
+        public const string CacheForAnHourOnTheServer = "CacheForAnHourOnTheServer";
+
+        public const bool ShowOnlyStaticPages = false;
+
         public static string ConnectionString = ApplicationSettings.Default.ConnectionName;
 
         public static readonly string HomeAdvert = ApplicationSettings.Default.HomeAdvert;
@@ -43,11 +49,5 @@
         public static readonly int PageSize = ApplicationSettings.Default.PageSize;
 
         public static readonly string SiteName = ApplicationSettings.Default.Name;
-
-        public const int CacheDuration = 60 * 60; // an hour
-
-        public const string CacheForAnHourOnTheServer = "CacheForAnHourOnTheServer";
-
-        public const bool ShowOnlyStaticPages = false;
     }
 }

@@ -2,7 +2,7 @@
 {
     public static class Partials
     {
-        public const string PagesMenu = "_PagesMenu"; 
+        public const string PagesMenu = "_PagesMenu";
 
         public const string AdminCategoriesListPartial = "_AdminCategoriesListPartial";
 

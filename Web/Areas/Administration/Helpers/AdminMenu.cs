@@ -4,19 +4,13 @@
     using System.Linq;
     using System.Reflection;
 
-    using Web.Areas.Administration.Controllers;
+    using Controllers;
 
     public static class AdminMenu
     {
         private static IEnumerable<string> controllers;
 
-        public static IEnumerable<string> Items
-        {
-            get
-            {
-                return controllers ?? (controllers = GetControllerNames());
-            }
-        }
+        public static IEnumerable<string> Items => controllers ?? (controllers = GetControllerNames());
 
         private static IEnumerable<string> GetControllerNames()
         {

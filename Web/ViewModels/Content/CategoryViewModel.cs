@@ -12,7 +12,7 @@
 
     using Resources;
 
-    using Infrastructure.Mappings;
+    using Web.Infrastructure.Mappings;
 
     public class CategoryViewModel : BaseViewModel, IMapFrom<Category>
     {

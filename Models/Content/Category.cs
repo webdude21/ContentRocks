@@ -16,10 +16,6 @@
             this.posts = new HashSet<Post>();
         }
 
-        [MaxLength(50)]
-        [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
-        public string FriendlyUrl { get; set; }
-
         public virtual ICollection<Post> Posts
         {
             get
@@ -34,5 +30,9 @@
 
         [MaxLength(200)]
         public string Title { get; set; }
+
+        [MaxLength(50)]
+        [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
+        public string FriendlyUrl { get; set; }
     }
 }

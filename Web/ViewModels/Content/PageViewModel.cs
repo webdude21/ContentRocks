@@ -11,35 +11,17 @@
 
     using Resources;
 
-    using Infrastructure.Mappings;
-    using Infrastructure.Validators;
-    using Contracts;
+    using Web.Infrastructure.Mappings;
+    using Web.Infrastructure.Validators;
+    using Web.ViewModels.Contracts;
 
     public class PageViewModel : BaseViewModel, IMapFrom<Page>, IMetaInfoViewModel, IFriendlyUrl
     {
-        public virtual string AllTags
-        {
-            get
-            {
-                return string.Empty;
-            }
-            set
-            {
-
-            }
-        }
-
         [DataType(DataType.Html)]
         [Display(Name = "Content", ResourceType = typeof(Translation))]
         public string Content { get; set; }
 
         public DateTime CreatedOn { get; set; }
-
-        [MaxLength(50)]
-        [Display(Name = "FriendlyUrl", ResourceType = typeof(Translation))]
-        [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
-        [CheckForExistingFriendlyUrl]
-        public string FriendlyUrl { get; set; }
 
         public virtual string GetHtmlId
         {
@@ -48,12 +30,6 @@
                 return string.Format("page-{0}", this.Id);
             }
         }
-
-        [Display(Name = "MetaDescription", ResourceType = typeof(Translation))]
-        public string MetaDescription { get; set; }
-
-        [Display(Name = "MetaTitle", ResourceType = typeof(Translation))]
-        public string MetaTitle { get; set; }
 
         public string PostedOn
         {
@@ -73,5 +49,28 @@
 
         [Display(Name = "Title", ResourceType = typeof(Translation))]
         public string Title { get; set; }
+
+        [MaxLength(50)]
+        [Display(Name = "FriendlyUrl", ResourceType = typeof(Translation))]
+        [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
+        [CheckForExistingFriendlyUrl]
+        public string FriendlyUrl { get; set; }
+
+        public virtual string AllTags
+        {
+            get
+            {
+                return string.Empty;
+            }
+            set
+            {
+            }
+        }
+
+        [Display(Name = "MetaDescription", ResourceType = typeof(Translation))]
+        public string MetaDescription { get; set; }
+
+        [Display(Name = "MetaTitle", ResourceType = typeof(Translation))]
+        public string MetaTitle { get; set; }
     }
 }

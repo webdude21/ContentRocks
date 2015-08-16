@@ -1,6 +1,8 @@
 ﻿namespace Web.ViewModels.Content
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
 
     using AutoMapper;
 
@@ -8,10 +10,8 @@
 
     using Resources;
 
-    using Infrastructure.Mappings;
-    using System.ComponentModel.DataAnnotations;
-    using Seo;
-    using System.Linq;
+    using Web.Infrastructure.Mappings;
+    using Web.ViewModels.Seo;
 
     public class PostViewModel : PageViewModel, IMapFrom<Post>, IHaveCustomMappings
     {
@@ -50,11 +50,6 @@
             }
         }
 
-        public IEnumerable<string> GetTagsAsStrings()
-        {
-            return this.Tags.Select(t => t.Name);
-        }
-
         public override string GetHtmlId
         {
             get
@@ -80,6 +75,11 @@
                 .ForMember(
                     sourceModel => sourceModel.AuthorId,
                     result => result.MapFrom(fullModel => fullModel.Author.Id));
+        }
+
+        public IEnumerable<string> GetTagsAsStrings()
+        {
+            return this.Tags.Select(t => t.Name);
         }
     }
 }

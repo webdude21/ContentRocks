@@ -11,11 +11,9 @@
 
     public class PostService : FriendlyUrlService<Post>, IPostService
     {
-        private IDbSet<Category> categories;
-
-        public PostService(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public PostService(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
-            this.categories = unitOfWork.Set<Category>();
         }
 
         public void AddPost(Post newPost)

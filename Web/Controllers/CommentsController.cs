@@ -10,24 +10,25 @@
 
     using Config;
 
+    using Models.Content;
+
     using Services.Contracts;
 
-    using Infrastructure.Filters;
-    using ViewModels.Content;
-    using Models.Content;
-    using Infrastructure.Constants;
-    using Infrastructure.Identity;
+    using Web.Infrastructure.Constants;
+    using Web.Infrastructure.Filters;
+    using Web.Infrastructure.Identity;
+    using Web.ViewModels.Content;
 
     public class CommentsController : BaseController
     {
         private readonly ICommentService commentService;
 
-        private ICurrentUser CurrentUser { get; set; }
-
         public CommentsController(ICommentService commentService, ICurrentUser user)
         {
             this.commentService = commentService;
         }
+
+        private ICurrentUser CurrentUser { get; set; }
 
         [HttpGet]
         [VerifyAjaxRequest]
@@ -40,11 +41,8 @@
         [VerifyAjaxRequest]
         public ActionResult GetCommentsForPost(int id, int? page)
         {
-            return this.PartialView(this.commentService
-                .GetLatestCommentsForAPost(id, GlobalConstants.PageSize, Checker.GetValidPageNumber(page))
-                .Project()
-                .To<CommentViewModel>()
-                .ToList());
+            return this.PartialView(this.commentService.GetLatestCommentsForAPost(id, GlobalConstants.PageSize,
+                        Checker.GetValidPageNumber(page)).Project().To<CommentViewModel>().ToList());
         }
 
         [HttpGet]

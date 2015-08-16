@@ -13,9 +13,9 @@
     using Services.Contracts;
 
     using ViewModels.Content;
-    using Infrastructure.Constants;
-    using Infrastructure.Filters;
-    using Infrastructure.Identity;
+    using Web.Infrastructure.Constants;
+    using Web.Infrastructure.Filters;
+    using Web.Infrastructure.Identity;
     using Web.ViewModels.Content;
 
     public class PostsController : AdminController
@@ -77,7 +77,7 @@
                 this.ModelState["friendlyUrl"].Errors.Clear();
             }
 
-            this.tagService.AddTagsToPost(postToUpdate, postViewModel.GetTagsAsStrings());
+            this.tagService.UpdatePostTags(postToUpdate, postViewModel.GetTagsAsStrings());
             this.TryUpdateModel(postToUpdate);
 
             if (this.ModelState.IsValid)

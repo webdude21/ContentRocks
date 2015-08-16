@@ -9,7 +9,7 @@
     using Moq;
 
     using Web.Controllers;
-    using Infrastructure.Cache;
+    using Web.Infrastructure.Cache;
 
     [TestClass]
     public class HomeControllerTest

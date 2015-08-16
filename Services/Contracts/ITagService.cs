@@ -1,10 +1,11 @@
 ﻿namespace Services.Contracts
 {
-    using Models.Content;
     using System.Collections.Generic;
+
+    using Models.Content;
 
     public interface ITagService : IService
     {
-        void AddTagsToPost(Post post, IEnumerable<string> tagNamesToAdd);
+        void UpdatePostTags(Post post, IEnumerable<string> tagNamesToAdd);
     }
 }

@@ -6,9 +6,8 @@
     <span class="glyphicon glyphicon-user"></span><span>@Html.RouteLink(Model.AuthorName, AuthorRoute.Name, new { username = Model.AuthorName })</span>
     <span class="glyphicon glyphicon-comment"></span><span>
         @if (User.Identity.IsAuthenticated)
-            {
-            @Ajax.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = string.Empty, id = Model.Id },
-                 new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "comment-post" }, new { id = "leave-comment" })
+        {
+            @Ajax.ActionLink(Translation.PostAComment, Actions.Create, Controllers.Comments, new { area = string.Empty, id = Model.Id }, new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "comment-post" }, new { id = "leave-comment" })
         }
         else
         {

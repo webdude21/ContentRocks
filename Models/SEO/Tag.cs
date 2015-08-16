@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using Content;
+    using Models.Content;
 
     public class Tag
     {

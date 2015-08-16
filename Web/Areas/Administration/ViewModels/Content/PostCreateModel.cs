@@ -10,7 +10,7 @@
 
     using Resources;
 
-    using Infrastructure.Validators;
+    using Web.Infrastructure.Validators;
 
     public class PostCreateViewModel
     {

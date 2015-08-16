@@ -9,7 +9,7 @@
         {
             if (!filterContext.RequestContext.HttpContext.Request.IsAjaxRequest())
             {
-                filterContext.Result = new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This is only accessible trough an AJAX request" );
+                filterContext.Result = new HttpStatusCodeResult(HttpStatusCode.BadRequest, "This is only accessible trough an AJAX request");
             }
 
             base.OnActionExecuted(filterContext);

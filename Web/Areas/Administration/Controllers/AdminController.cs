@@ -6,8 +6,8 @@
 
     using Web.Areas.Administration.Helpers;
     using Web.Controllers;
-    using Infrastructure.Constants;
-    using Infrastructure.Identity;
+    using Web.Infrastructure.Constants;
+    using Web.Infrastructure.Identity;
 
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class AdminController : BaseController

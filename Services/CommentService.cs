@@ -13,7 +13,6 @@
         public CommentService(IUnitOfWork unitOfWork)
             : base(unitOfWork)
         {
-
         }
 
         public IQueryable<Comment> GetLatestCommentsForAPost(int postId, int count, int page = 1)

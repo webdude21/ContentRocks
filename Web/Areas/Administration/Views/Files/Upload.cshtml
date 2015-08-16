@@ -2,7 +2,7 @@
     ViewBag.Title = Translation.UploadFiles;
 }
 <h4>@ViewBag.Title</h4>
-<hr />
+<hr/>
 @using (Html.BeginForm(Actions.Upload, Controllers.Files, new { area = Areas.Administration }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()

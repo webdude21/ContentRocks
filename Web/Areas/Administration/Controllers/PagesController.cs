@@ -12,10 +12,10 @@
 
     using Services.Contracts;
 
-    using Web.Areas.Administration.ViewModels.Content;
-    using Infrastructure.Constants;
-    using Infrastructure.Filters;
-    using Infrastructure.Identity;
+    using ViewModels.Content;
+    using Web.Infrastructure.Constants;
+    using Web.Infrastructure.Filters;
+    using Web.Infrastructure.Identity;
     using Web.ViewModels;
     using Web.ViewModels.Content;
 

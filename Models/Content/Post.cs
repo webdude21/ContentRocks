@@ -39,6 +39,9 @@
         [DataType(DataType.Html)]
         public string Content { get; set; }
 
+        [MaxLength(200)]
+        public string Title { get; set; }
+
         [MaxLength(50)]
         [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
         public string FriendlyUrl { get; set; }
@@ -58,8 +61,5 @@
                 this.tags = value;
             }
         }
-
-        [MaxLength(200)]
-        public string Title { get; set; }
     }
 }

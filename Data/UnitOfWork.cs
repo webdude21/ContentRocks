@@ -4,8 +4,8 @@
     using System.Data.Entity;
     using System.Linq;
 
-    using Contracts;
-    using Migrations;
+    using Data.Contracts;
+    using Data.Migrations;
 
     using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -20,11 +20,6 @@
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<UnitOfWork, Configuration>());
         }
 
-        public static UnitOfWork Create()
-        {
-            return new UnitOfWork();
-        }
-
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
@@ -36,6 +31,11 @@
             return base.Set<T>();
         }
 
+        public static UnitOfWork Create()
+        {
+            return new UnitOfWork();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<FileEntity>().ToTable("FileEntities");
@@ -45,9 +45,8 @@
 
         private void ApplyAuditInfoRules()
         {
-            var addedOrModifiedEntries = this.ChangeTracker
-                .Entries()
-                .Where(e => e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified)));
+            var addedOrModifiedEntries = this.ChangeTracker.Entries().Where(e =>
+                        e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified)));
 
             foreach (var entry in addedOrModifiedEntries)
             {

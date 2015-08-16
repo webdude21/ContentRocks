@@ -12,7 +12,8 @@
     using Services;
     using Services.Contracts;
 
-    public class FriendlyUrlValidator<TFriendlyUrl> : IRouteConstraint where TFriendlyUrl : BaseModel, IFriendlyUrl
+    public class FriendlyUrlValidator<TFriendlyUrl> : IRouteConstraint
+        where TFriendlyUrl : BaseModel, IFriendlyUrl
     {
         private readonly IFriendlyUrlService<TFriendlyUrl> friendlyUrlService;
 
@@ -26,7 +27,12 @@
         {
         }
 
-        public bool Match(HttpContextBase httpContext, Route route, string friendlyUrl, RouteValueDictionary values, RouteDirection routeDirection)
+        public bool Match(
+            HttpContextBase httpContext,
+            Route route,
+            string friendlyUrl,
+            RouteValueDictionary values,
+            RouteDirection routeDirection)
         {
             var paramValue = values[friendlyUrl] as String;
             return paramValue != null && this.friendlyUrlService.UrlExists(paramValue);
