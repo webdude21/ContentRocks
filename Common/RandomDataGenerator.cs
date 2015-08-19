@@ -2,7 +2,7 @@
 {
     using System;
 
-    using Common.Contracts;
+    using Contracts;
 
     public class RandomDataGenerator : IRandomDataGenerator
     {
