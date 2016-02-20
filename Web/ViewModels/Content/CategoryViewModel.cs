@@ -16,27 +16,15 @@
 
     public class CategoryViewModel : BaseViewModel, IMapFrom<Category>
     {
-        public override string ConfirmDelete
-        {
-            get
-            {
-                return Translation.AreYouSureYouWantToDeleteThis + Environment.NewLine
-                       + Translation.ThisWillDeleteAllPostInTheCategory;
-            }
-        }
+        public override string ConfirmDelete => Translation.AreYouSureYouWantToDeleteThis + Environment.NewLine
+                                                + Translation.ThisWillDeleteAllPostInTheCategory;
 
         [MaxLength(50)]
         [Required]
         [RegularExpression(GlobalConstants.FriendlyUrlsRegex)]
         public string FriendlyUrl { get; set; }
 
-        public string GetHtmlId
-        {
-            get
-            {
-                return "category-" + this.Id;
-            }
-        }
+        public string GetHtmlId => "category-" + this.Id;
 
         [Required]
         [MaxLength(50)]

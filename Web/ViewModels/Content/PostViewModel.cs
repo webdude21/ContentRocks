@@ -28,12 +28,7 @@
         {
             get
             {
-                if (this.Tags == null)
-                {
-                    return string.Empty;
-                }
-
-                return string.Join(",", this.Tags.Select(t => t.Name));
+                return this.Tags == null ? string.Empty : string.Join(",", this.Tags.Select(t => t.Name));
             }
             set
             {
@@ -48,21 +43,9 @@
             }
         }
 
-        public override string GetHtmlId
-        {
-            get
-            {
-                return "post-" + this.Id;
-            }
-        }
+        public override string GetHtmlId => "post-" + this.Id;
 
-        public string PostedOnBy
-        {
-            get
-            {
-                return string.Format(Translation.PostedByOn, this.AuthorName, this.PostedOn);
-            }
-        }
+        public string PostedOnBy => string.Format(Translation.PostedByOn, this.AuthorName, this.PostedOn);
 
         public void CreateMappings(IConfiguration configuration)
         {

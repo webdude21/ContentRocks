@@ -2,11 +2,13 @@ namespace Web.ViewModels.Account
 {
     using System.ComponentModel.DataAnnotations;
 
+    using Resources;
+
     public class ForgotPasswordViewModel
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(ResourceType = typeof(Translation), Name = "Email")]
         public string Email { get; set; }
     }
 }

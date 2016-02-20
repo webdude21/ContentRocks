@@ -25,21 +25,9 @@
 
         public int PostId { get; set; }
 
-        public string GetHtmlId
-        {
-            get
-            {
-                return string.Format("comment-{0}", this.Id);
-            }
-        }
+        public string GetHtmlId => $"comment-{this.Id}";
 
-        public string PostedOn
-        {
-            get
-            {
-                return this.CreatedOn.ToLongDateString();
-            }
-        }
+        public string PostedOn => this.CreatedOn.ToLongDateString();
 
         public void CreateMappings(IConfiguration configuration)
         {

@@ -23,29 +23,11 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public virtual string GetHtmlId
-        {
-            get
-            {
-                return string.Format("page-{0}", this.Id);
-            }
-        }
+        public virtual string GetHtmlId => $"page-{this.Id}";
 
-        public string PostedOn
-        {
-            get
-            {
-                return this.CreatedOn.ToLongDateString();
-            }
-        }
+        public string PostedOn => this.CreatedOn.ToLongDateString();
 
-        public string PostedOnWithTime
-        {
-            get
-            {
-                return this.CreatedOn.ToString(CultureInfo.CurrentCulture);
-            }
-        }
+        public string PostedOnWithTime => this.CreatedOn.ToString(CultureInfo.CurrentCulture);
 
         [Display(Name = "Title", ResourceType = typeof(Translation))]
         public string Title { get; set; }
@@ -64,6 +46,7 @@
             }
             set
             {
+               
             }
         }
 
