@@ -8,7 +8,7 @@
         {
             if (obj == null)
             {
-                throw new ArgumentNullException(name, string.Format("{0} should not be null", name));
+                throw new ArgumentNullException(name, $"{name} should not be null");
             }
         }
 

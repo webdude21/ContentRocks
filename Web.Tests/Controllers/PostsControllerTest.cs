@@ -25,7 +25,7 @@
         {
             var dataGenerator = new ContentFactory(RandomDataGenerator.Instance);
             var postService = new Mock<IPostService>();
-            var imageUploader = new Mock<IFileStorage>();
+            new Mock<IFileStorage>();
             postService.Setup(m => m.GetTheLatestPosts()).Returns(dataGenerator.GetPosts(20));
             var autoMapperConfig = new AutoMapperConfig();
             autoMapperConfig.Execute();

@@ -30,13 +30,7 @@
             this.random = new Random();
         }
 
-        public static RandomDataGenerator Instance
-        {
-            get
-            {
-                return instance ?? (instance = new RandomDataGenerator());
-            }
-        }
+        public static RandomDataGenerator Instance => instance ?? (instance = new RandomDataGenerator());
 
         public DateTime GeneraDateTime()
         {

@@ -14,7 +14,7 @@
     [TestClass]
     public class HomeControllerTest
     {
-        private readonly HomeController controller;
+        public HomeController Controller { get; }
 
         public HomeControllerTest()
         {
@@ -23,7 +23,7 @@
             cacheService.Setup(m => m.HomePosts).Returns(dataGenerator.GetPosts(3).ToList());
             var autoMapperConfig = new AutoMapperConfig();
             autoMapperConfig.Execute();
-            this.controller = new HomeController(cacheService.Object);
+            this.Controller = new HomeController(cacheService.Object);
         }
     }
 }
