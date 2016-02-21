@@ -27,14 +27,9 @@
         {
         }
 
-        public bool Match(
-            HttpContextBase httpContext,
-            Route route,
-            string friendlyUrl,
-            RouteValueDictionary values,
-            RouteDirection routeDirection)
+        public bool Match(HttpContextBase httpContext, Route route, string friendlyUrl, RouteValueDictionary values, RouteDirection routeDirection)
         {
-            var paramValue = values[friendlyUrl] as String;
+            var paramValue = values[friendlyUrl] as string;
             return paramValue != null && this.friendlyUrlService.UrlExists(paramValue);
         }
     }

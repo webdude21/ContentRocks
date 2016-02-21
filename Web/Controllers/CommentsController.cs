@@ -23,12 +23,13 @@
     {
         private readonly ICommentService commentService;
 
+        private readonly ICurrentUser currentUser;
+
         public CommentsController(ICommentService commentService, ICurrentUser user)
         {
             this.commentService = commentService;
+            this.currentUser = user;
         }
-
-        private ICurrentUser CurrentUser { get; set; }
 
         [HttpGet]
         [VerifyAjaxRequest]
@@ -58,7 +59,7 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create(CommentViewModel comment)
         {
-            var newComment = this.commentService.Add(new Comment { Content = comment.Content, Author = this.CurrentUser.Get(), PostId = comment.PostId });
+            var newComment = this.commentService.Add(new Comment { Content = comment.Content, Author = this.currentUser.Get(), PostId = comment.PostId });
             return this.RedirectToAction(Actions.Detail, Controllers.Comments, new { id = newComment.Id, area = string.Empty });
         }
     }
